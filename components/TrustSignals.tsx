@@ -4,13 +4,7 @@ interface TrustSignalsProps {
   signals: TrustSignal[]
 }
 
-function barColor(weight: number): string {
-  if (weight >= 0.85) return '#E2001A'
-  if (weight >= 0.7) return '#0a0a0a'
-  return '#737373'
-}
-
-function weightColor(weight: number): string {
+function signalColor(weight: number): string {
   if (weight >= 0.85) return '#E2001A'
   if (weight >= 0.7) return '#0a0a0a'
   return '#737373'
@@ -25,7 +19,7 @@ export default function TrustSignals({ signals }: TrustSignalsProps) {
         <div key={s.signal} className="flex items-center gap-3">
           <span
             className="text-[12px] font-black w-9 shrink-0 text-right"
-            style={{ color: weightColor(s.weight) }}
+            style={{ color: signalColor(s.weight) }}
           >
             {s.weight.toFixed(2)}
           </span>
@@ -34,7 +28,7 @@ export default function TrustSignals({ signals }: TrustSignalsProps) {
               className="h-[4px] rounded-sm"
               style={{
                 width: `${Math.round(s.weight * 100)}%`,
-                background: barColor(s.weight),
+                background: signalColor(s.weight),
               }}
             />
           </div>

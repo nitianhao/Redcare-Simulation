@@ -18,7 +18,7 @@ export default function CompetitorMap({ exits }: CompetitorMapProps) {
     <div className="space-y-4">
       {sorted.map((exit, i) => (
         <div key={exit.platform}>
-          <div className="flex items-center gap-4 mb-1">
+          <div className="flex items-center gap-3 mb-1">
             <span className="text-[12px] font-bold text-[#0a0a0a] w-44 shrink-0 leading-tight">
               {exit.platform}
             </span>
@@ -27,17 +27,19 @@ export default function CompetitorMap({ exits }: CompetitorMapProps) {
               style={{ background: '#f0f0f0' }}
             >
               <div
-                className="h-5 flex items-center pl-2"
+                className="h-5"
                 style={{
                   width: `${Math.round(exit.likelihood * 100)}%`,
                   background: barBg(i),
                 }}
-              >
-                <span className="text-[11px] font-bold text-white">
-                  {Math.round(exit.likelihood * 100)}%
-                </span>
-              </div>
+              />
             </div>
+            <span
+              className="text-[11px] font-bold w-8 shrink-0 text-right"
+              style={{ color: '#0a0a0a' }}
+            >
+              {Math.round(exit.likelihood * 100)}%
+            </span>
           </div>
           <p className="text-[11px] text-[#737373] pl-48 leading-[1.4]">{exit.reason}</p>
         </div>

@@ -15,6 +15,29 @@ export interface CompetitorExit {
   reason: string
 }
 
+export interface StateMetric {
+  value: number
+  reason: string
+}
+
+export interface PersonaInitialState {
+  cognitiveLoad: StateMetric
+  urgency: StateMetric
+  anxiety: StateMetric
+}
+
+export interface ReformulationStrategy {
+  pattern: string
+  steps: string[]
+  linguisticStyle: string
+}
+
+export interface PostSessionBehavior {
+  success: string
+  partial: string
+  failure: string
+}
+
 export interface Persona {
   id: string
   number: string
@@ -24,29 +47,22 @@ export interface Persona {
   city: string
   age: string
   device: string
-  patienceScore: string
+  patienceScore: 'Low' | 'Medium' | 'High' | 'Low–Medium' | 'Medium–High'
   scrollThreshold: number
   reformulationTolerance: number
   avatarSeed: string
+  /** Hex color without '#' prefix — used in DiceBear URL params. Prepend '#' for CSS use. */
   avatarBg: string
   voice: string
   sessionContext: string
-  initialState: {
-    cognitiveLoad: { value: number; reason: string }
-    urgency: { value: number; reason: string }
-    anxiety: { value: number; reason: string }
-  }
+  initialState: PersonaInitialState
   sessionTriggers: string[]
   abandonCondition: string
   queryVocabulary: QueryVocabularyGroup[]
   trustSignalWeights: TrustSignal[]
-  reformulationStrategy: {
-    pattern: string
-    steps: string[]
-    linguisticStyle: string
-  }
+  reformulationStrategy: ReformulationStrategy
   competitorExitMap: CompetitorExit[]
-  postSessionBehavior: { success: string; partial: string; failure: string }
+  postSessionBehavior: PostSessionBehavior
   failureModes: string[]
 }
 

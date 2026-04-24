@@ -1,4 +1,5 @@
 import type { Persona } from '@/data/personas'
+import type { CSSProperties } from 'react'
 import StateBar from './StateBar'
 import TrustSignals from './TrustSignals'
 import CompetitorMap from './CompetitorMap'
@@ -14,7 +15,7 @@ function avatarUrl(seed: string, bg: string): string {
   return `${DICEBEAR_BASE}?seed=${encodeURIComponent(seed)}&backgroundColor=${bg}`
 }
 
-function queryTagStyle(type: 'entry' | 'reformulation' | 'friction'): React.CSSProperties {
+function queryTagStyle(type: 'entry' | 'reformulation' | 'friction'): CSSProperties {
   if (type === 'friction') return { borderColor: '#E2001A', color: '#E2001A' }
   if (type === 'reformulation') return { borderColor: '#0a0a0a', color: '#0a0a0a' }
   return { borderColor: '#e5e5e5', color: '#0a0a0a' }
@@ -93,6 +94,7 @@ export default function PersonaSection({ persona, alt = false }: PersonaSectionP
           alt={`Avatar for ${persona.name}`}
           width={100}
           height={100}
+          loading="lazy"
           style={{
             borderRadius: '50%',
             border: '2px solid #e5e5e5',
@@ -278,7 +280,7 @@ export default function PersonaSection({ persona, alt = false }: PersonaSectionP
         </p>
         <ol className="space-y-2 mb-4 list-none">
           {persona.reformulationStrategy.steps.map((step, i) => (
-            <li key={i} className="flex gap-3">
+            <li key={step} className="flex gap-3">
               <span
                 className="font-black shrink-0"
                 style={{ fontSize: '12px', color: '#E2001A', minWidth: '20px' }}

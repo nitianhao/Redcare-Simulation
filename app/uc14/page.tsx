@@ -104,6 +104,94 @@ const GAP_REPORT = [
   },
 ]
 
+const DATA_SOURCES: Array<{
+  name: string
+  type: 'automated' | 'semi-automated'
+  segments: string
+  fields: string[]
+  description: string
+  how: string
+  url?: string
+}> = [
+  {
+    name: 'GS1 / GTIN Registry',
+    type: 'automated',
+    segments: 'Both',
+    fields: ['brand', 'product_attributes', 'ean_sku', 'short_description'],
+    description: 'Global product registry keyed by EAN barcode. Returns standardized brand name, product dimensions, weight, volume, and category classification. Coverage is near-universal for mass-market consumer goods.',
+    how: 'Match existing EAN/PZN to GS1 Verified by GS1 API or Synccentric feed. Batch-process nightly. No editorial review needed for factual attributes.',
+    url: 'https://www.gs1.org/services/verified-by-gs1',
+  },
+  {
+    name: 'ABDA / Pharmnet (PZN database)',
+    type: 'automated',
+    segments: 'Mother & Child (OTC/Rx)',
+    fields: ['ingredient_list', 'dosage_usage', 'claims_certifications', 'ean_sku'],
+    description: 'German pharmacy master database. Every PZN maps to active ingredients, dosage form, contraindications, age restrictions, and regulatory category (OTC/Rx/Supplement). Authoritative source for pharmacy-grade structured data.',
+    how: 'Pull from ABDA Datenbank via licensed feed (standard for German pharmacy platforms). PZN is already present on most PDPs — use it as the join key.',
+    url: 'https://www.abda.de/themen/pharmazie/arzneimittel/datenbank/',
+  },
+  {
+    name: 'CosIng EU Cosmetics Database',
+    type: 'automated',
+    segments: 'Cosmetics',
+    fields: ['ingredient_list', 'claims_certifications'],
+    description: 'Official EU Commission database of cosmetic ingredients. Provides standardized INCI names, ingredient functions (emollient, preservative, UV filter, etc.), and regulatory restrictions. Free public API.',
+    how: 'For each cosmetics PDP: extract ingredient names from existing text → normalize to INCI via CosIng API → store structured ingredient array with function tags. EAN-to-INCI mapping also possible via OpenBeautyFacts.',
+    url: 'https://cosing.ec.europa.eu/',
+  },
+  {
+    name: 'OpenBeautyFacts',
+    type: 'automated',
+    segments: 'Cosmetics',
+    fields: ['ingredient_list', 'claims_certifications', 'product_attributes'],
+    description: 'Open crowd-sourced database of beauty and personal care products. Keyed by EAN barcode. Provides INCI ingredients, certifications (vegan, cruelty-free, natural), and product form (cream, gel, serum, etc.). Actively maintained, German products well-covered.',
+    how: 'GET https://world.openbeautyifacts.org/api/v0/product/{EAN}.json. Free, no auth required. Run nightly batch against full product catalog.',
+    url: 'https://world.openbeautyifacts.org/',
+  },
+  {
+    name: 'OpenFoodFacts (Baby nutrition)',
+    type: 'automated',
+    segments: 'Mother & Child (nutrition)',
+    fields: ['ingredient_list', 'claims_certifications', 'product_attributes'],
+    description: 'Open database for food and nutrition products. Covers baby food, formula, and child nutrition products by EAN. Returns nutrient tables, allergen flags, labels (organic, BIO, halal), and ingredient lists.',
+    how: 'GET https://world.openfoodfacts.org/api/v0/product/{EAN}.json. Free. Useful for baby food and nutritional supplement sub-categories.',
+    url: 'https://world.openfoodfacts.org/',
+  },
+  {
+    name: 'Manufacturer Brand Feeds (BMEcat / ETIM)',
+    type: 'semi-automated',
+    segments: 'Both',
+    fields: ['long_description', 'product_attributes', 'claims_certifications', 'synonyms_related_terms'],
+    description: 'Structured product catalogs supplied directly by manufacturers in standardized formats (BMEcat XML, ETIM classification, or custom CSV). Rich marketing copy, feature bullet points, and usage claims not available in public databases. Already negotiated for most top-100 brands.',
+    how: 'Onboard suppliers to a standard feed spec (BMEcat 2005 or custom template). Ingest via automated ETL pipeline. Requires supplier outreach for smaller brands — prioritize top 50 by GMV.',
+  },
+  {
+    name: 'LLM Synonym & Attribute Enrichment',
+    type: 'semi-automated',
+    segments: 'Both',
+    fields: ['synonyms_related_terms', 'short_description', 'claims_certifications'],
+    description: 'Use an LLM to generate search synonyms, regional variant terms, and layperson equivalents from existing product text. Example: "Xylometazolin" → ["Nasenspray", "Schnupfenmittel", "Abschwellend", "decongestant"]. Also extracts implicit claims ("alcohol-free", "for sensitive skin") from prose descriptions.',
+    how: 'Batch-process all PDPs nightly. Prompt: "Given this product title and description, list 10 search terms a German customer might use to find it." Output stored as searchable tag array. Editorial spot-check on 5% sample — human review not required for each record.',
+  },
+  {
+    name: 'Schema.org Product Markup (auto-generated)',
+    type: 'automated',
+    segments: 'Both',
+    fields: ['schema_org_types'],
+    description: 'Structured data for Google Rich Results, Google Merchant Center, and Bing Shopping. Currently inconsistent across PDPs. Full Product schema should include: name, brand, offers, aggregateRating, description, gtin, image, and category. Missing schema means lost SEO visibility in product carousels.',
+    how: 'Auto-generate JSON-LD from existing PIM fields at render time — no new data required, just mapping. Add to page <head> server-side. Implement once as a template; all PDPs benefit automatically.',
+  },
+  {
+    name: 'Search Log Query Mining',
+    type: 'semi-automated',
+    segments: 'Both',
+    fields: ['synonyms_related_terms', 'qa_section'],
+    description: 'Internal Algolia/site search logs contain real customer vocabulary: what terms people use to find (or fail to find) each product. These logs are the highest-signal source of missing synonyms and Q&A topics — they reflect actual user intent, not editorial assumptions.',
+    how: 'Weekly ETL: pull top 50 zero-result and low-click queries per product → cluster by product association → surface as synonym candidates and FAQ seed questions. Requires analyst or automated pipeline. Data already exists in Algolia dashboard.',
+  },
+]
+
 const PDP_EXTRACTIONS = [
   { url: 'https://www.shop-apotheke.com/baby/9927371/omni-biotic-panda.htm', segment: 'mother_child', segment_label: 'Mother & Child', fields: { title: 'present', brand: 'present', ean_sku: 'present', short_description: 'present', long_description: 'present', ingredient_list: 'present', dosage_usage: 'present', claims_certifications: 'present', product_attributes: 'present', schema_org_types: 'present', qa_section: 'missing', review_count: 'present', synonyms_related_terms: 'missing' } },
   { url: 'https://www.shop-apotheke.com/baby/19105724/dr-till-kinder-notfallbox.htm', segment: 'mother_child', segment_label: 'Mother & Child', fields: { title: 'present', brand: 'present', ean_sku: 'present', short_description: 'present', long_description: 'present', ingredient_list: 'missing', dosage_usage: 'missing', claims_certifications: 'partial', product_attributes: 'present', schema_org_types: 'present', qa_section: 'missing', review_count: 'present', synonyms_related_terms: 'missing' } },
@@ -302,6 +390,69 @@ export default function UC14Page() {
                   ))}
                 </tbody>
               </table>
+            </div>
+          </section>
+
+          {/* Recommended data sources */}
+          <section style={{ background: '#ffffff', border: '1px solid #e5e5e5' }}>
+            <div style={{ padding: '24px 32px', borderBottom: '1px solid #e5e5e5' }}>
+              <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '2px', color: '#737373', textTransform: 'uppercase', marginBottom: '4px' }}>Recommended Data Sources</div>
+              <p style={{ fontSize: '13px', color: '#525252', margin: '0 0 4px' }}>
+                Automatable external and internal data sources that can close the identified gaps — ranked by implementation effort.
+              </p>
+              <div style={{ display: 'flex', gap: '16px', marginTop: '12px' }}>
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '11px', color: '#16a34a' }}>
+                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#16a34a', display: 'inline-block' }} />
+                  Automated — no editorial review per record
+                </span>
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '11px', color: '#d97706' }}>
+                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#d97706', display: 'inline-block' }} />
+                  Semi-automated — spot-check or supplier setup required
+                </span>
+              </div>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0', borderTop: '1px solid #f0f0f0' }}>
+              {DATA_SOURCES.map((src, i) => (
+                <div key={i} style={{
+                  padding: '24px 28px',
+                  borderBottom: '1px solid #f0f0f0',
+                  borderRight: i % 2 === 0 ? '1px solid #f0f0f0' : 'none',
+                  background: '#ffffff',
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '12px', marginBottom: '10px' }}>
+                    <div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+                        <span style={{
+                          width: '8px', height: '8px', borderRadius: '50%', flexShrink: 0,
+                          background: src.type === 'automated' ? '#16a34a' : '#d97706',
+                          display: 'inline-block',
+                          marginTop: '2px',
+                        }} />
+                        <span style={{ fontSize: '14px', fontWeight: 700, color: '#0a0a0a' }}>
+                          {src.url
+                            ? <a href={src.url} target="_blank" rel="noopener noreferrer" style={{ color: '#0a0a0a', textDecoration: 'none' }}>{src.name} ↗</a>
+                            : src.name}
+                        </span>
+                      </div>
+                      <div style={{ fontSize: '11px', color: '#737373', marginLeft: '16px' }}>{src.segments}</div>
+                    </div>
+                  </div>
+                  <p style={{ fontSize: '13px', color: '#374151', lineHeight: 1.6, margin: '0 0 12px' }}>{src.description}</p>
+                  <div style={{ background: '#f9f9f9', borderLeft: '3px solid #e5e5e5', padding: '10px 14px', marginBottom: '12px' }}>
+                    <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '1px', color: '#737373', textTransform: 'uppercase', marginBottom: '4px' }}>How to integrate</div>
+                    <p style={{ fontSize: '12px', color: '#525252', margin: 0, lineHeight: 1.6 }}>{src.how}</p>
+                  </div>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                    {src.fields.map(f => (
+                      <span key={f} style={{
+                        fontSize: '10px', fontWeight: 600, padding: '2px 8px',
+                        background: '#f0f0f0', color: '#525252', borderRadius: '2px',
+                        letterSpacing: '0.3px',
+                      }}>{f}</span>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </section>
 

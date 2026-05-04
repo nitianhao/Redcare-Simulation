@@ -1,0 +1,354 @@
+{
+  "original_query": "Halsschmerzen Kinder Mittel",
+  "agents": [
+    {
+      "persona_key": "anxious_young_mother",
+      "persona_name": "Anxious Young Mother (Besorgte Junge Mutter)",
+      "trace": [
+        {
+          "round": 1,
+          "query": "Halsschmerzen Kinder Mittel",
+          "monologue": "Nein, das ist überhaupt nichts für meine Tochter — alles Erwachsenenpräparate oder rezeptpflichtig, und ich brauche ja etwas für Kinder mit Halsschmerzen, nicht für mich selbst.",
+          "action": "reformulate",
+          "clicked_position": null,
+          "next_query": "Halsschmerzen Baby Kleinkind sicher ohne Zucker",
+          "satisfaction": "none",
+          "reasoning": "All top results are explicitly for adults or prescription-only; I need child-safe, age-appropriate products and must search more specifically for babies/toddlers.",
+          "trust_after": 0.75
+        },
+        {
+          "round": 2,
+          "query": "Halsschmerzen Baby Kleinkind sicher ohne Zucker",
+          "monologue": "Mein Gott, diese Ergebnisse sind alle für Erwachsene oder rezeptpflichtig — nichts davon ist für mein Baby geeignet, ich muss die Suche komplett anders formulieren.",
+          "action": "reformulate",
+          "clicked_position": null,
+          "next_query": "Halsschmerzen Kleinkind ab 1 Jahr ohne Zucker Kinderarzt",
+          "satisfaction": "low",
+          "reasoning": "Alle top 8 Ergebnisse sind Rx-Produkte oder explizit für Erwachsene – als ängstliche Mutter mit kurzer Geduld verliere ich sofort das Vertrauen in diese Suchergebnisse und versuche eine spezifischere, altersbezogene Anfrage.",
+          "trust_after": 0.55
+        },
+        {
+          "round": 3,
+          "query": "Halsschmerzen Kleinkind ab 1 Jahr ohne Zucker Kinderarzt",
+          "monologue": "Mein Gott, alle ersten Ergebnisse sind für Erwachsene oder rezeptpflichtig — der Kinderarzt hat mir gerade noch am Telefon gesagt, ich soll was Sanftes für die Kleine nehmen, und hier bekomme ich nur falsche Produkte angezeigt!",
+          "action": "reformulate",
+          "clicked_position": null,
+          "next_query": "Halsschmerzen Kleinkind 1-3 Jahre Naturprodukt Hausmittel sicher",
+          "satisfaction": "low",
+          "reasoning": "Jedes der Top-5-Ergebnisse ist Rx, nur für Erwachsene, oder irrelevant — das Vertrauen in diese Suchmaschine sinkt weiter, ich brauche einen völlig neuen Ansatz, vielleicht mit Fokus auf Hausmittel statt Medikamente.",
+          "trust_after": 0.35
+        },
+        {
+          "round": 4,
+          "query": "Halsschmerzen Kleinkind 1-3 Jahre Naturprodukt Hausmittel sicher",
+          "monologue": "Ich sehe hier nur Erwachsenen-Produkte und Rx-Sachen — nichts für mein Kleinkind, und meine Zeit läuft davon.",
+          "action": "reformulate",
+          "clicked_position": null,
+          "next_query": "Halsschmerzen Baby Kleinkind Hausmittel Kamille Wärme sicher",
+          "satisfaction": "low",
+          "reasoning": "All 8 results are either prescription drugs, adult-only products, or non-actionable (guidebook)—nothing matches 'Kleinkind 1-3 Jahre' or 'sicher' criteria; reformulating to shift away from product names toward symptom + home remedy + age-safe keywords to trigger different index results.",
+          "trust_after": 0.15
+        },
+        {
+          "round": 5,
+          "query": "Halsschmerzen Baby Kleinkind Hausmittel Kamille Wärme sicher",
+          "monologue": "Das ist ja furchtbar — alles Erwachsenensachen, Lutschtabletten die mein Kind nicht nehmen kann, und sogar Rezepte dabei — warum zeigt mir die Suchmaschine das, wenn ich extra 'Baby' und 'Kleinkind' geschrieben habe?",
+          "action": "reformulate",
+          "clicked_position": null,
+          "next_query": "Sterimar Baby Nasalspray Salzwasser sicher Säugling",
+          "satisfaction": "none",
+          "reasoning": "All results are for adults or prescription-only; this search has completely failed to understand her baby-specific needs, so she's pivoting back to the trusted brand her pediatrician-adjacent research already identified.",
+          "trust_after": 0.0
+        },
+        {
+          "round": 6,
+          "query": "Sterimar Baby Nasalspray Salzwasser sicher Säugling",
+          "action": "abandon",
+          "satisfaction": "none",
+          "trust_after": 0.0,
+          "reasoning": "Trust depleted"
+        }
+      ]
+    },
+    {
+      "persona_key": "acute_self_treater",
+      "persona_name": "Acute Self-Treater (Akutbehandler)",
+      "trace": [
+        {
+          "round": 1,
+          "query": "Halsschmerzen Kinder Mittel",
+          "monologue": "Wait — I searched for Kinder (children's) products but most of these say Erwachsene (adults), and I see two Rx medications right at the top which I can't even buy without a prescription — this is frustrating and feels wrong for what should be a simple OTC search.",
+          "action": "reformulate",
+          "clicked_position": null,
+          "next_query": "Halsschmerzen OTC Lutschtabletten sofort",
+          "satisfaction": "low",
+          "reasoning": "The results mix adult-only products with prescription meds despite searching for children's remedies, which signals the search doesn't understand my intent and wastes my cognitive bandwidth when I'm already sick.",
+          "trust_after": 0.8
+        },
+        {
+          "round": 2,
+          "query": "Halsschmerzen OTC Lutschtabletten sofort",
+          "monologue": "Okay, I see Neo-Angin and Strepsils at positions 5 and 7, but position 7 is marked as Rx which is useless, and I'm confused why position 1 says OTC but also says Rx — this is exactly the trust-killer I'm worried about, and my throat is still throbbing while I'm reading this mess.",
+          "action": "click",
+          "clicked_position": 5,
+          "next_query": null,
+          "satisfaction": "medium",
+          "reasoning": "Neo-Angin Benzocain is a recognized fast-acting throat lozenge, clearly marked OTC, in the top half, and benzocain numbs immediately — it's my best shot here, even though the results quality is mediocre and I'm annoyed by the Rx labeling confusion.",
+          "trust_after": 0.8
+        },
+        {
+          "round": 3,
+          "query": "Halsschmerzen OTC Lutschtabletten sofort",
+          "monologue": "Okay, I see some actual OTC lozenges here — Neo-Angin and Isla Moos look right — but why are there TWO Rx drugs at the top (Dobendan, Strepsils) when I specifically searched for OTC? That's confusing and makes me nervous I'll grab the wrong thing.",
+          "action": "click",
+          "clicked_position": 5,
+          "next_query": null,
+          "satisfaction": "medium",
+          "reasoning": "Neo-Angin at position 5 is clearly OTC, affordable, and matches my query exactly, so I'll click it — but my trust dropped slightly because the search mixed Rx and OTC results without clear labeling, which feels risky when I feel this bad.",
+          "trust_after": 0.8
+        },
+        {
+          "round": 4,
+          "query": "Halsschmerzen OTC Lutschtabletten sofort",
+          "monologue": "Okay, I see some OTC lozenges mixed in here (Neo-Angin, Isla Moos) but there are also Rx drugs labeled as such right at the top, which is actually good — at least they're being honest — and I'm going to click Neo-Angin because it's cheap, it's a lozenge, it says OTC, and I need relief now.",
+          "action": "click",
+          "clicked_position": 5,
+          "next_query": null,
+          "satisfaction": "medium",
+          "reasoning": "Neo-Angin is clearly OTC, affordable, and matches my exact need (Lutschtabletten for Halsschmerzen), but I'm only medium-satisfied with the search because the Rx items at the top almost broke my trust — if that labeling wasn't clear, I'd already be at the Apotheke.",
+          "trust_after": 0.8
+        },
+        {
+          "round": 5,
+          "query": "Halsschmerzen OTC Lutschtabletten sofort",
+          "monologue": "Okay, I see some actual OTC lozenges here (Neo-Angin, Isla Moos) but why are there Rx drugs mixed in at positions 1 and 7 — that's confusing when I'm already feeling terrible and just want something I can buy NOW.",
+          "action": "click",
+          "clicked_position": 5,
+          "next_query": null,
+          "satisfaction": "medium",
+          "reasoning": "Neo-Angin at position 5 is clearly OTC, has benzocain (numbing agent = fast relief), cheap, and labeled for adults — I'm clicking it, but the Rx mislabeling earlier knocked my trust down slightly.",
+          "trust_after": 0.8
+        },
+        {
+          "round": 6,
+          "query": "Halsschmerzen OTC Lutschtabletten sofort",
+          "monologue": "Okay, I see some actual OTC lozenges here (Neo-Angin, Isla Moos), but there are also Rx drugs mixed in at the top which is confusing when I'm sick and in a hurry—why is Dobendan marked Rx when I thought that was OTC?",
+          "action": "click",
+          "clicked_position": 5,
+          "next_query": null,
+          "satisfaction": "medium",
+          "reasoning": "Neo-Angin at position 5 is clearly OTC, affordable, and explicitly a lozenge for throat pain—it's fast enough to try, but the presence of Rx drugs in the results and the confusing labeling cost this search engine some trust.",
+          "trust_after": 0.8
+        },
+        {
+          "round": 7,
+          "query": "Halsschmerzen OTC Lutschtabletten sofort",
+          "monologue": "Okay, I see some OTC options finally — Neo-Angin and Isla Moos look right — but why are there TWO Rx drugs at the top (Dobendan, Strepsils) when I specifically said OTC? That's frustrating, but at least position 5 has what I need and I recognize the brand.",
+          "action": "click",
+          "clicked_position": 5,
+          "next_query": null,
+          "satisfaction": "medium",
+          "reasoning": "Neo-Angin is a recognized OTC lozenge brand with benzocain (local anesthetic), matches the query intent, and is in the results — but the Rx clutter at the top cost trust points and forced me to scan instead of just clicking position 1.",
+          "trust_after": 0.8
+        },
+        {
+          "round": 8,
+          "query": "Halsschmerzen OTC Lutschtabletten sofort",
+          "monologue": "Okay, I see Neo-Angin and Strepsils at positions 5 and 7, which I know work, but position 7 says Rx and I'm worried about that label — and position 1 also says Rx which is annoying — but Neo-Angin at 5 is definitely OTC and it's a lozenge I can suck on right now, so I'll click that.",
+          "action": "click",
+          "clicked_position": 5,
+          "next_query": null,
+          "satisfaction": "medium",
+          "reasoning": "Neo-Angin is a trusted OTC lozenge with immediate relief potential, positioned acceptably and matches my symptom + sofort expectation, though the Rx confusion in results 1 and 7 slightly erodes confidence in this search engine's clarity.",
+          "trust_after": 0.8
+        }
+      ]
+    },
+    {
+      "persona_key": "elderly_patient",
+      "persona_name": "Elderly Patient / Caregiver (Älterer Patient / Pflegender Angehöriger)",
+      "trace": [
+        {
+          "round": 1,
+          "query": "Halsschmerzen Kinder Mittel",
+          "monologue": "Ich sehe hier viel für Erwachsene, aber ich habe nach Kindern gesucht — wo sind die Mittel speziell für Kinder, und welche Größen haben diese überhaupt?",
+          "action": "reformulate",
+          "clicked_position": null,
+          "next_query": "Halsschmerzen Kinder Lutschtabletten Packungsgröße",
+          "satisfaction": "low",
+          "reasoning": "The results show mostly adult products or unclear pack sizes, and none are clearly labeled as children's products — I need to be more specific to find age-appropriate options with exact pack sizes.",
+          "trust_after": 0.8
+        },
+        {
+          "round": 2,
+          "query": "Halsschmerzen Kinder Lutschtabletten Packungsgröße",
+          "monologue": "Ich suche nach Lutschtabletten speziell für Kinder mit exakter Packungsgröße, aber alle Ergebnisse sind entweder für Erwachsene oder zeigen keine Kindervariante mit genauen Packungsangaben — das ist nicht das, was ich brauche.",
+          "action": "reformulate",
+          "clicked_position": null,
+          "next_query": "Halsschmerzen Kinder Lutschtabletten 20 Stück",
+          "satisfaction": "low",
+          "reasoning": "Results do not specify child formulations or exact pack sizes; need to query with specific quantity to find appropriate pediatric product with verifiable packaging.",
+          "trust_after": 0.6
+        },
+        {
+          "round": 3,
+          "query": "Halsschmerzen Kinder Lutschtabletten 20 Stück",
+          "monologue": "Ich sehe nur Erwachsenen-Produkte oder ganz andere Sachen — keine einzige Lutschtablette speziell für Kinder mit 20 Stück Packungsgröße, das ist nicht hilfreich.",
+          "action": "reformulate",
+          "clicked_position": null,
+          "next_query": "Isla Moos Halspastillen Kinder 20",
+          "satisfaction": "low",
+          "reasoning": "Results are either adult-labeled, wrong form factor, or unrelated; need to search for a known child-friendly brand with exact pack size.",
+          "trust_after": 0.4
+        },
+        {
+          "round": 4,
+          "query": "Isla Moos Halspastillen Kinder 20",
+          "monologue": "Result #2 says 'Isla Moos Halspastillen — Erwachsene' but I searched specifically for 'Kinder 20' — this is the adult version, not children's, and there's no pack size shown at all.",
+          "action": "scroll",
+          "clicked_position": null,
+          "next_query": null,
+          "satisfaction": "low",
+          "reasoning": "Result #2 is the right brand but wrong age group (Erwachsene not Kinder) and missing pack size confirmation; scrolling to see if a proper children's 20-pack exists below before reformulating.",
+          "trust_after": 0.27
+        },
+        {
+          "round": 5,
+          "query": "Isla Moos Halspastillen Kinder 20",
+          "monologue": "Ich habe nach Isla Moos Kinder 20 gesucht — explizit für Kinder — und Ergebnis 2 zeigt nur 'Erwachsene' ohne Packungsgröße, das ist nicht das richtige Produkt.",
+          "action": "scroll",
+          "clicked_position": null,
+          "next_query": null,
+          "satisfaction": "low",
+          "reasoning": "Result 2 is the right brand but wrong formulation (Erwachsene statt Kinder) and missing pack size confirmation; scrolling to find the actual Kinder 20 variant is faster than reformulating, given low trust already.",
+          "trust_after": 0.14
+        },
+        {
+          "round": 6,
+          "query": "Isla Moos Halspastillen Kinder 20",
+          "monologue": "Ich habe 'Kinder 20' gesucht — das bedeutet Kinderpastillen, 20 Stück — aber Ergebnis 2 zeigt nur 'Erwachsene' ohne Packungsgröße, und der Rest ist völlig falsch oder nicht das Produkt.",
+          "action": "reformulate",
+          "clicked_position": null,
+          "next_query": "Isla Moos Halspastillen Kinder 20 Stück",
+          "satisfaction": "low",
+          "reasoning": "Result 2 ist das richtige Produkt, aber ohne Größenangabe kann ich nicht bestätigen, ob es 20er Packung ist — bei meinem kritischen Vertrauen rufe ich lieber an als zu raten.",
+          "trust_after": 0.0
+        },
+        {
+          "round": 7,
+          "query": "Isla Moos Halspastillen Kinder 20 Stück",
+          "action": "abandon",
+          "satisfaction": "none",
+          "trust_after": 0.0,
+          "reasoning": "Trust depleted"
+        }
+      ]
+    },
+    {
+      "persona_key": "alternative_medicine_seeker",
+      "persona_name": "Alternative Medicine Seeker (Naturheilkunde-Anhänger)",
+      "trace": [
+        {
+          "round": 1,
+          "query": "Halsschmerzen Kinder Mittel",
+          "monologue": "Ich sehe hier nur konventionelle Pharmazeutika und Erwachsenenmittel — kein einziges homöopathisches oder pflanzliches Kinderprodukt, keine Globuli, keine Bachblüten — das ist nicht das, wonach ich gesucht habe.",
+          "action": "reformulate",
+          "clicked_position": null,
+          "next_query": "Halsschmerzen Kinder Globuli homöopathisch",
+          "satisfaction": "low",
+          "reasoning": "Diese Ergebnisse zeigen, dass die Apotheke meine Naturheilkunde-Anfrage nicht versteht; ich reformuliere mit präziserer homöopathischer Nomenklatur, um meine echten Bedürfnisse zu signalisieren.",
+          "trust_after": 0.8
+        },
+        {
+          "round": 2,
+          "query": "Halsschmerzen Kinder Globuli homöopathisch",
+          "monologue": "Ich sehe wieder nur konventionelle Medikamente und Erwachsenenmittel — kein einziges homöopathisches Globuli für Kinder, obwohl ich das explizit gesucht habe.",
+          "action": "scroll",
+          "clicked_position": null,
+          "next_query": null,
+          "satisfaction": "low",
+          "reasoning": "Meine Geduld ist noch medium-hoch und mein Vertrauen bei 0.80 — ich scrolle erst noch ein oder zwei Mal, bevor ich zu apo-rot wechsle, aber diese Ergebnisse zerstören bereits aktiv mein Vertrauen in diese Apotheke.",
+          "trust_after": 0.67
+        },
+        {
+          "round": 3,
+          "query": "Halsschmerzen Kinder Globuli homöopathisch",
+          "monologue": "Ich suche explizit nach homöopathischen Globuli für Kinder mit Halsschmerzen, und diese Ergebnisse sind fast ausschließlich konventionelle Pharmazeutika — Flurbiprofen, Benzocain, Ibuprofen — das ist genau das Gegenteil von dem, was ich brauche, und signalisiert mir, dass die Suchmaschine hier nicht versteht, was homöopathisch bedeutet.",
+          "action": "reformulate",
+          "clicked_position": null,
+          "next_query": "Hepar sulfuris Globuli Kinder D12",
+          "satisfaction": "low",
+          "reasoning": "Die Ergebnisse zeigen null Verständnis für meine Anfrage nach homöopathischen Mitteln — stattdessen nur synthetische Wirkstoffe und allgemeine Ratgeber. Ich reformuliere mit einer spezifischen homöopathischen Substanz und Potenz, um die Engine zu testen und direkter das zu finden, was ich brauche.",
+          "trust_after": 0.47
+        },
+        {
+          "round": 4,
+          "query": "Hepar sulfuris Globuli Kinder D12",
+          "monologue": "Hepar sulfuris D12 Globuli für Kinder — das ist eine sehr spezifische homöopathische Arznei — und diese Ergebnisse sind nur konventionelle Halsmittel und Schmerztabletten, absolut nicht das, was ich suche.",
+          "action": "reformulate",
+          "clicked_position": null,
+          "next_query": "Hepar sulfuris D12 Globuli homöopathisch",
+          "satisfaction": "low",
+          "reasoning": "The results contain zero homeopathic products and are dominated by conventional pharmaceuticals (Ibuprofen, Flurbiprofen, Benzocain) — a complete mismatch that signals to this shopper that the engine doesn't understand her need and the pharmacy may not stock what she requires; reformulation with stricter homeopathic terminology is necessary before considering abandonment.",
+          "trust_after": 0.27
+        },
+        {
+          "round": 5,
+          "query": "Hepar sulfuris D12 Globuli homöopathisch",
+          "monologue": "Ich habe nach Hepar sulfuris D12 Globuli gesucht und bekomme Ibuprofen, Lutschtabletten und Mundspülungen — diese Apotheke hat offensichtlich gar keine homöopathischen Mittel im System oder der Suchalgorithmus ist völlig untauglich.",
+          "action": "scroll",
+          "clicked_position": null,
+          "next_query": null,
+          "satisfaction": "low",
+          "reasoning": "Bevor ich aufgebe, scrolle ich einmal durch, um zu sehen, ob tiefer unten doch noch echte Homöopathika auftauchen — aber mein Vertrauen in diese Apotheke sinkt mit jedem irrelevanten Ergebnis weiter.",
+          "trust_after": 0.14
+        },
+        {
+          "round": 6,
+          "query": "Hepar sulfuris D12 Globuli homöopathisch",
+          "monologue": "Hepar sulfuris D12 Globuli — ich suche ein homöopathisches Mittel nach exakter Potenz und hier bekomme ich wieder nur konventionelle Halstabletten, Ibuprofen und Sprays mit Benzocain, als ob die Apotheke gar nicht versteht, was ich brauche.",
+          "action": "reformulate",
+          "clicked_position": null,
+          "next_query": "Hepar sulfuris D12 Globuli shop-apotheke.com",
+          "satisfaction": "none",
+          "reasoning": "Trust at 0.14 and these results are identical pharmaceutical noise — I need to force a site-specific search or I'm leaving for apo-rot/Weleda immediately.",
+          "trust_after": 0.0
+        },
+        {
+          "round": 7,
+          "query": "Hepar sulfuris D12 Globuli shop-apotheke.com",
+          "action": "abandon",
+          "satisfaction": "none",
+          "trust_after": 0.0,
+          "reasoning": "Trust depleted"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_agents": 4,
+    "abandon_rate": 0.75,
+    "total_backs": 0,
+    "avg_reformulations": 3.5,
+    "avg_final_trust": 0.2,
+    "reformulation_queries": [
+      "Halsschmerzen Baby Kleinkind sicher ohne Zucker",
+      "Halsschmerzen Kleinkind ab 1 Jahr ohne Zucker Kinderarzt",
+      "Halsschmerzen Kleinkind 1-3 Jahre Naturprodukt Hausmittel sicher",
+      "Halsschmerzen Baby Kleinkind Hausmittel Kamille Wärme sicher",
+      "Sterimar Baby Nasalspray Salzwasser sicher Säugling",
+      "Halsschmerzen OTC Lutschtabletten sofort",
+      "Halsschmerzen Kinder Lutschtabletten Packungsgröße",
+      "Halsschmerzen Kinder Lutschtabletten 20 Stück",
+      "Isla Moos Halspastillen Kinder 20",
+      "Isla Moos Halspastillen Kinder 20 Stück",
+      "Halsschmerzen Kinder Globuli homöopathisch",
+      "Hepar sulfuris Globuli Kinder D12",
+      "Hepar sulfuris D12 Globuli homöopathisch",
+      "Hepar sulfuris D12 Globuli shop-apotheke.com"
+    ],
+    "click_rate": 0.25,
+    "avg_scroll_depth": 1.0
+  },
+  "analysis": "# Search Quality Analysis Report\n## Use Case: Frustration Propagation — Trust Decay\n**Query:** \"Halsschmerzen Kinder Mittel\"\n\n---\n\n## 1. Key Finding\n\nThe initial query surfaces results too generic or age-inappropriate to satisfy any parental or caregiver intent, forcing 3 of 4 personas into full abandonment. The single partial success (Akutbehandler) required reformulation and was seeking adult-adjacent OTC products — meaning the system effectively serves no pediatric-specific need from the original query.\n\n---\n\n## 2. Top 3 Ranked Problems\n\n| Rank | Problem | Affected Personas |\n|------|---------|-------------------|\n| **#1** | **Age-band filtering absent from results.** \"Kinder\" in the query fails to trigger age-segmented results (infant vs. toddler vs. school-age). Users immediately reformulate with explicit age markers (\"ab 1 Jahr,\" \"Baby Kleinkind,\" \"1-3 Jahre\"), proving the system ignores the age dimension of \"Kinder.\" | Besorgte Junge Mutter (critical), Älterer Patient (high) |\n| **#2** | **Safety/ingredient constraint signals not recognized.** \"Ohne Zucker,\" \"Naturprodukt,\" \"sicher,\" \"Hausmittel\" appear across 5+ reformulations — none resolved the query. The system has no semantic layer for safety-constraint filtering (contraindications, excipient preferences), which is table-stakes for pediatric pharma search. | Besorgte Junge Mutter (critical), Naturheilkunde-Anhänger (high) |\n| **#3** | **Packaging/quantity attributes not surfaced.** The Älterer Patient tried 4 reformulations specifically hunting for pack size (\"20 Stück,\" \"Packungsgröße\") and eventually pinpointed a specific SKU (Isla Moos 20 Stück) — yet still abandoned. Structured product attributes (pack size, unit count) are either missing from the index or not matched to query intent. | Älterer Patient (critical) |\n\n---\n\n## 3. Reformulation Patterns\n\n### Pattern A — Age Specificity Escalation (Besorgte Junge Mutter)\n`Kinder` → `Baby Kleinkind` → `ab 1 Jahr` → `1-3 Jahre` → `Hausmittel Kamille Wärme` → `Sterimar Salzwasser Säugling`\n\n**What this reveals:** The mother received no age-gated results, forcing manual narrowing through 5 iterations. The final pivot to *Sterimar* (a nasal spray, not a throat remedy) signals **desperation drift** — she abandoned her original therapeutic intent entirely in search of anything safe for infants. This is a trust-collapse signal, not a preference signal.\n\n### Pattern B — OTC Urgency Resolution (Akutbehandler)\n`Halsschmerzen Kinder Mittel` → `OTC Lutschtabletten sofort` → 7× clicks\n\n**What this reveals:** This persona succeeded only by stripping \"Kinder\" context and searching for a product format + immediacy signal. The system responds better to adult OTC intent than pediatric intent — the word \"sofort\" likely matched promotional/availability signals. Medium satisfaction only; likely landed on adult-dosed products.\n\n###"
+}

@@ -1,0 +1,83 @@
+{
+  "run_at": "2026-05-01T12:07:40.584372",
+  "model": "claude-sonnet-4-5",
+  "gaps": [
+    {
+      "field": "synonyms_related_terms",
+      "segment": "both",
+      "prevalence_count": 35,
+      "prevalence_total": 35,
+      "search_impact": "high",
+      "impact_rationale": "Synonyms and related terms enable query expansion and variant matching, ensuring users find products regardless of terminology used (e.g., 'sunscreen' vs 'sun cream' vs 'SPF').",
+      "data_source": "Manual entry or NLP-based synonym generation from product titles/descriptions",
+      "automation_potential": "semi-automated",
+      "automation_note": "NLP models can extract and suggest synonyms from product text and search logs, requiring editorial review for domain-specific pharmacy terms."
+    },
+    {
+      "field": "qa_section",
+      "segment": "both",
+      "prevalence_count": 31,
+      "prevalence_total": 35,
+      "search_impact": "high",
+      "impact_rationale": "Q&A content surfaces long-tail queries and natural language questions, improving ranking for informational searches and voice queries.",
+      "data_source": "User-generated content, customer service tickets, or manual entry",
+      "automation_potential": "semi-automated",
+      "automation_note": "Generate FAQ suggestions from customer service data and product reviews using NLP, with manual curation for accuracy and compliance."
+    },
+    {
+      "field": "ingredient_list",
+      "segment": "cosmetics",
+      "prevalence_count": 1,
+      "prevalence_total": 16,
+      "search_impact": "high",
+      "impact_rationale": "Complete INCI lists enable ingredient-based search and filtering, critical for allergy avoidance, vegan/natural filters, and regulatory compliance displays.",
+      "data_source": "INCI/CosIng EU database, Brand product feed, OCR from packaging",
+      "automation_potential": "automated",
+      "automation_note": "Match EAN to CosIng API or brand databases to pull complete INCI ingredient lists; fallback to OCR for packaging images."
+    },
+    {
+      "field": "ingredient_list",
+      "segment": "mother_child",
+      "prevalence_count": 3,
+      "prevalence_total": 19,
+      "search_impact": "high",
+      "impact_rationale": "Ingredient lists support allergen filtering, dietary restriction searches (lactose-free, gluten-free), and active ingredient queries for supplements and medications.",
+      "data_source": "Manufacturer datasheet, Brand product feed, Product packaging OCR",
+      "automation_potential": "automated",
+      "automation_note": "Extract from structured manufacturer data feeds or apply OCR to product packaging images with validation against pharmaceutical databases."
+    },
+    {
+      "field": "claims_certifications",
+      "segment": "cosmetics",
+      "prevalence_count": 3,
+      "prevalence_total": 16,
+      "search_impact": "high",
+      "impact_rationale": "Certifications and claims enable high-value faceted navigation (vegan, organic, dermatologically tested) and support trust signals in search results.",
+      "data_source": "Brand product feed, Certification body databases, Manual entry",
+      "automation_potential": "semi-automated",
+      "automation_note": "Parse structured brand data and cross-reference certification logos with databases (e.g., NATRUE, COSMOS); manual verification for compliance."
+    },
+    {
+      "field": "dosage_usage",
+      "segment": "mother_child",
+      "prevalence_count": 2,
+      "prevalence_total": 19,
+      "search_impact": "medium",
+      "impact_rationale": "Dosage instructions support query matching for age-specific searches (e.g., 'for children 2-6 years') and use-case filtering.",
+      "data_source": "Manufacturer datasheet, Product packaging, Regulatory submission documents",
+      "automation_potential": "semi-automated",
+      "automation_note": "Extract from manufacturer PDFs using NLP with pharmaceutical entity recognition; manual review required for medical accuracy and liability."
+    },
+    {
+      "field": "claims_certifications",
+      "segment": "mother_child",
+      "prevalence_count": 2,
+      "prevalence_total": 19,
+      "search_impact": "medium",
+      "impact_rationale": "Claims like 'lactose-free', 'for diabetics', or 'clinically tested' enable filtering and match queries for dietary/medical requirements.",
+      "data_source": "Brand product feed, Clinical study databases, Manual entry",
+      "automation_potential": "semi-automated",
+      "automation_note": "Extract claims from structured product descriptions and validate against regulatory databases; requires medical compliance review."
+    }
+  ]
+}

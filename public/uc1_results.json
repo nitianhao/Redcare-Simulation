@@ -1,0 +1,138 @@
+{
+  "original_query": "Baby Husten Mittel",
+  "agents": [
+    {
+      "persona_key": "anxious_young_mother",
+      "trace": [
+        {
+          "round": 1,
+          "query": "Baby Husten Mittel",
+          "monologue": "Okay, Prospan ist bekannt und für Kinder, das ist gut — aber warte, Position 3 sagt Rx, das ist Rezept, absolut nein — und Position 7 und 8 sind eindeutig nicht für Babys, die sind viel zu stark.",
+          "action": "click",
+          "clicked_position": 1,
+          "next_query": null,
+          "satisfaction": "medium",
+          "reasoning": "Prospan Hustensaft für Kinder is the only clearly age-appropriate, non-prescription option in the top results, though I'm slightly uncertain because the pediatrician didn't specify a brand and I want to verify it's suitable for my specific child's age before committing."
+        }
+      ]
+    },
+    {
+      "persona_key": "wellness_optimizer",
+      "trace": [
+        {
+          "round": 1,
+          "query": "Baby Husten Mittel",
+          "monologue": "I'm looking at a lot of syrups and lozenges, but nothing tells me the active ingredient, the exact dosage per dose, or whether these are actually backed by ingredient science — and for a baby product, I need to know what's actually in there and if it's certified safe.",
+          "action": "click",
+          "clicked_position": 1,
+          "next_query": null,
+          "satisfaction": "low",
+          "reasoning": "Prospan is the most clinically referenced herbal cough syrup for children in German-speaking markets, and I need to see the ingredient label and dosage per 5ml before committing, but if this page doesn't specify active ingredients clearly, I'm reformulating to search by active ingredient instead."
+        }
+      ]
+    },
+    {
+      "persona_key": "elderly_patient",
+      "trace": [
+        {
+          "round": 1,
+          "query": "Baby Husten Mittel",
+          "monologue": "Ich suche ein Hustenmittel für ein Baby, aber hier sehe ich Saftflaschen ohne genaue Altersangabe, Tabletten die für Babys zu stark sind, und sogar ein Buch — nichts davon sagt mir klar, was für welches Alter geeignet ist.",
+          "action": "reformulate",
+          "clicked_position": null,
+          "next_query": "Baby Hustensaft ab 6 Monaten 100ml",
+          "satisfaction": "low",
+          "reasoning": "Die Ergebnisse sind zu unspezifisch für Babys; ich brauche eine klare Altersangabe und genaue Packungsgröße, um sicherzustellen, dass es sicher ist."
+        },
+        {
+          "round": 2,
+          "query": "Baby Hustensaft ab 6 Monaten 100ml",
+          "monologue": "Keine einzige Trefferliste zeigt genau 100ml für Babys ab 6 Monaten — ich sehe 150ml, Tropfen statt Saft, Tabletten, Lutschpastillen und sogar ein Buch, aber nichts Passendes für meine Enkelin.",
+          "action": "reformulate",
+          "clicked_position": null,
+          "next_query": "Hustensaft Baby 100ml 6 Monate",
+          "satisfaction": "low",
+          "reasoning": "The results are completely off-spec: wrong sizes (150ml), wrong formats (Tropfen, Tabletten, Lutschpastillen), and irrelevant products (book). I need the exact 100ml size for infants 6+ months as a liquid syrup, not tablets or lozenges."
+        },
+        {
+          "round": 3,
+          "query": "Hustensaft Baby 100ml 6 Monate",
+          "action": "abandon",
+          "satisfaction": "none",
+          "reasoning": "Exceeded reformulation patience limit"
+        }
+      ]
+    },
+    {
+      "persona_key": "acute_self_treater",
+      "trace": [
+        {
+          "round": 1,
+          "query": "Baby Husten Mittel",
+          "monologue": "Okay, I see some actual cough syrups for kids right at the top — Prospan and Monapax look like what I need — but wait, is #3 prescription-only? That's confusing and makes me nervous, and I'm too tired to figure this out.",
+          "action": "click",
+          "clicked_position": 1,
+          "next_query": null,
+          "satisfaction": "medium",
+          "reasoning": "Prospan is a recognizable OTC cough syrup for children, immediate visibility, and affordable — good enough to try, but the Rx medication in the results has already dented trust slightly."
+        }
+      ]
+    },
+    {
+      "persona_key": "alternative_medicine_seeker",
+      "trace": [
+        {
+          "round": 1,
+          "query": "Baby Husten Mittel",
+          "monologue": "Ich sehe hier vor allem konventionelle Hustensäfte und Chemie — Bromhexin, Neo-Angin — und nur ein Weleda-Produkt, das könnte passen, aber ich suche eigentlich nach homöopathischen Globuli oder anthroposophischen Mitteln für Babys, nicht nach Säften mit Wirkstoffen.",
+          "action": "reformulate",
+          "clicked_position": null,
+          "next_query": "Baby Husten Globuli homöopathisch",
+          "satisfaction": "low",
+          "reasoning": "Diese Ergebnisse sind zu konventionell und saftlastig — ich brauche spezifische homöopathische oder anthroposophische Babypräparate, und die aktuelle Suche zeigt mir, dass shop-apotheke vielleicht nicht meine erste Adresse für Naturheilkunde-Produkte ist."
+        },
+        {
+          "round": 2,
+          "query": "Baby Husten Globuli homöopathisch",
+          "monologue": "Ich sehe wieder nur Hustensäfte und Tabletten — keine echten Globuli, keine homöopathischen Potenzen, das ist ja wieder das gleiche Problem wie zuvor, und Weleda Sirup ist zwar natürlich, aber nicht das, was ich suche.",
+          "action": "reformulate",
+          "clicked_position": null,
+          "next_query": "Aconitum napellus D12 Globuli Husten Kinder",
+          "satisfaction": "low",
+          "reasoning": "Die Ergebnisse enthalten keine homöopathischen Globuli mit Potenzbezeichnung — ich muss spezifischer nach einer bewährten homöopathischen Husten-Arznei mit genauer Potenz suchen."
+        },
+        {
+          "round": 3,
+          "query": "Aconitum napellus D12 Globuli Husten Kinder",
+          "monologue": "Wieder nur konventionelle Hustensäfte und Tabletten — kein einziges homöopathisches Globuli in Sicht, geschweige denn Aconitum napellus D12, das mein Heilpraktiker genau empfohlen hat.",
+          "action": "reformulate",
+          "clicked_position": null,
+          "next_query": "Aconitum napellus D12 Globuli",
+          "satisfaction": "low",
+          "reasoning": "Die Shop-Apotheke hat offensichtlich nicht das verstanden, was ich suche — ich muss präziser nach der homöopathischen Substanz und Potenz selbst suchen, nicht nach 'Kinderhusten generell'."
+        },
+        {
+          "round": 4,
+          "query": "Aconitum napellus D12 Globuli",
+          "action": "abandon",
+          "satisfaction": "none",
+          "reasoning": "Exceeded reformulation patience limit"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_agents": 5,
+    "click_rate": 0.6,
+    "abandon_rate": 0.4,
+    "avg_reformulations": 1.0,
+    "avg_scroll_depth": 0.0,
+    "reformulation_queries": [
+      "Baby Hustensaft ab 6 Monaten 100ml",
+      "Hustensaft Baby 100ml 6 Monate",
+      "Baby Husten Globuli homöopathisch",
+      "Aconitum napellus D12 Globuli Husten Kinder",
+      "Aconitum napellus D12 Globuli"
+    ]
+  }
+}

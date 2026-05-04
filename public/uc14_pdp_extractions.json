@@ -1,0 +1,2071 @@
+{
+  "run_at": "2026-05-01T12:07:40.578523",
+  "model": "claude-sonnet-4-5",
+  "pdps": [
+    {
+      "url": "https://www.shop-apotheke.com/baby/9927371/omni-biotic-panda.htm",
+      "segment": "mother_child",
+      "segment_label": "Mother & Child",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "OMNi-BiOTiC® Panda 60x3 g"
+        },
+        "brand": {
+          "status": "present",
+          "value": "OMNi-BiOTiC"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: 09927371 / EAN: 9120001433476"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Ein guter Start für Mutter und Kind. Speziell für Schwangere & Babys entwickelt. Mit 3 Milliarden Bakterien aus 4 Bakterienstämmen pro Beutel. Wissenschaftlich fundiert, in Studien geprüft."
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Der Start ins Leben ist für die Entwicklung der kindlichen Darmflora entscheidend: Denn sowohl die Art der Geburt (natürliche Geburt oder Kaiserschnitt) als auch die Nahrungsquelle für das Neugeborene (Stillen ode..."
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "Reisstärke, Maltodextrin, Bakterienstämme: Lactococcus lactis W58, Bifidobacterium lactis W52, Bifidobacterium lactis W51, Bifidobacterium bifidum W23 (mindestens 3 Milliarden Keime pro 3g)"
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Erwachsene: 1x täglich 1 Beutel in ca. 1/8 l Wasser, 10 Min. aktivieren. Ab 7./8. Schwangerschaftsmonat täglich. Babys: 1x täglich 1 Beutel in 1 EL Muttermilch/Wasser mit Pipette geben oder ins Fläschchen (max 40°C..."
+        },
+        "claims_certifications": {
+          "status": "present",
+          "value": "Frei von Hormonen, tierischem Eiweiß, Gluten, Hefe und Lactose. Geeignet für Diabetiker, Milchallergiker, Kinder, Schwangerschaft/Stillzeit. Wissenschaftlich fundiert, in Studien geprüft."
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "Packungsgrößen: 7x3g, 30x3g, 60x3g, 2x60x3g. Darreichung: Pulver. Nettofüllmenge: 180g (60 Portionsbeutel à 3g). 371,06 € / 1 kg."
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList, Product (indicated but truncated in JSON-LD)"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "117"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/baby/19105724/dr-till-kinder-notfallbox.htm",
+      "segment": "mother_child",
+      "segment_label": "Mother & Child",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "Dr. Till Kinder-Notfallbox"
+        },
+        "brand": {
+          "status": "present",
+          "value": "Dr. Till / Fink & Walter GmbH"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: 19105724 / EAN: 4260604539214"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Zur Wundversorgung bei Kindern. Alle Artikel der Kindernotfallbox wurden sorgfältig von erfahrenen Kindernotärzten der Uniklinik Bonn ausgewählt."
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Wir haben alles in die Kindernotfallbox gepackt was für die Erste Hilfe am Kind notwendig ist. Nicht mehr und nicht weniger! In kommerziellen Erste-Hilfe-Sets sind häufig Materialien, die Du für Dein Kind niemals bra"
+        },
+        "ingredient_list": {
+          "status": "missing",
+          "value": null
+        },
+        "dosage_usage": {
+          "status": "missing",
+          "value": null
+        },
+        "claims_certifications": {
+          "status": "partial",
+          "value": "Medizinprodukt, ausgewählt von erfahrenen Kindernotärzten der Uniklinik Bonn"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "Packungsgröße: 1 St, Darreichung: Kombipackung, enthält 23 Artikel inkl. Digital-Fieberthermometer, Pinzetten, Kompressen, Verbände, Pflaster, Notfall-Ratgeber (64 Seiten), etc."
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList, Product"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "5"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/baby/17592097/arnidol-gel-stick.htm",
+      "segment": "mother_child",
+      "segment_label": "Mother & Child",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "Arnidol® Gel-Stick 15 g"
+        },
+        "brand": {
+          "status": "present",
+          "value": "EB Vertriebs GmbH"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: 17592097 / EAN: 8424657043227"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Arnidol® Gel-Stick ist ein Gelstift, der den Schmerz bei blauen Flecken nach Prellungen oder Stößen lindert und ihre Dauer verringert. Die praktische Stick-Form erleichtert die Anwendung."
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Der Stift enthält Aromen von Arnika und Teufelskralle. ARNIKA ist eine Pflanze, die in Mittel- und Südeuropa vorkommt und gelbe Blüten aufweist. Arnika beruhigt, spendet Feuchtigkeit und beruhigt die Haut. H"
+        },
+        "ingredient_list": {
+          "status": "partial",
+          "value": "Arnika, Teufelskralle (Harpagofito) - nur als Aromen genannt, keine vollständige INCI-Liste"
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Sanft und kreisförmig (von außen nach innen) über die zu behandelnde Fläche reiben. Nicht bei offenen Wunden anwenden. Mehrmals täglich anwenden. Nicht öfter als 10 x pro Tag. Geeignet für Kinder ab 3 Monate."
+        },
+        "claims_certifications": {
+          "status": "missing",
+          "value": null
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "15 g, Gel, Geeignet für Kinder ab 3 Monate, Stick-Form"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList, Product, SearchAction, ContactPoint, EntryPoint, PropertyValueSpecification, ListItem"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "3"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/baby/upmTDYZ73/das-boep-sonnencreme-sensitiv-lsf-50-maxi.htm",
+      "segment": "mother_child",
+      "segment_label": "Mother & Child",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "das boep Sonnencreme Sensitiv LSF 50 Maxi 100 ml"
+        },
+        "brand": {
+          "status": "present",
+          "value": "das boep"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "4262414740231"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Natürlicher Sonnenschutz ohne Einwirkzeit. Für sensible Haut, auch für Babys geeignet."
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Die boep Sonnencreme Sensitiv LSF 50 ohne Parfüm bietet extra hohen Schutz für besonders sensible Haut (z.B. Baby-und Kinderhaut). Der rein mineralische Zinkoxid-Filter schützt ohne Einwirkzeit sofort"
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "aqua, zinc oxide, caprylic/capric triglyceride, dicaprylyl ether, glyceryl stearate, glycerin, cetearyl alcohol, polyhydroxystearic acid, brassica campestris/aleurites fordi oil copolymer, sorbitan c"
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Vor Gebrauch schütteln. Vor dem Sonnenbad bitte großzügig auf Gesicht und Körper verteilen. Eine zu geringe Menge senkt den Schutz. Anwendung mehrmals täglich wiederholen, um den Lichtschutz aufrecht zu"
+        },
+        "claims_certifications": {
+          "status": "present",
+          "value": "Vegan, Zertifizierte Naturkosmetik, dermatologisch getestet mit dem Ergebnis sehr gut, 99,32 % natürlicher Ursprung im Gesamtprodukt"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "100 ml, LSF 50, ohne Parfüm, rein mineralischer Filter, für Baby- und Kinderhaut, Hergestellt im Allgäu"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList, Product"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "0"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/arzneimittel/upmXG2ACC/eisen-gummibaerchen-fuer-kinder-gumtamin.htm",
+      "segment": "mother_child",
+      "segment_label": "Mother & Child",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "Gumtamin Eisen Gummibärchen für Kinder 150 g"
+        },
+        "brand": {
+          "status": "present",
+          "value": "Gumtamin Nutrition"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "4250407668617"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Eisen Gummies mit Vitamin C für Kinder ab 4 Jahren in Form von Gummibärchen, Erdbeergeschmack."
+        },
+        "long_description": {
+          "status": "present",
+          "value": "GUMTAMIN Kids Eisen Gummies sind ein Nahrungsergänzungsmittel für Kinder ab 4 Jahren in Form von Gummibärchen. Sie enthalten Eisen in Kombination mit Vitamin C und haben Erdbeergeschmack. Die Zusammensetzung ist für die t"
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "Glucosesirup, Zucker, Wasser, Geliermittel: Pektin; Säuerungsmittel: Citronensäure; natürliches Kirscharoma, färbendes Lebensmittel: Schwarzer Karottensaft; L-Ascorbinsäure, mikroverkapseltes Eisenpyrophosphat (Eisenpyrop"
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Kinder ab 4 Jahren: Täglich 1 Gummie einnehmen."
+        },
+        "claims_certifications": {
+          "status": "present",
+          "value": "Vegan"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "Geschmack: Erdbeere, Packungsgröße: 150 g, Darreichung: Gummibärchen, Inhalt: 60 Gummies, Eisen: 10 mg pro Portion, Vitamin C: 20 mg pro Portion, für Kinder ab 4 Jahren"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, SearchAction, ContactPoint, EntryPoint, PropertyValueSpecification, BreadcrumbList, ListItem"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "1"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/baby/8111829/paediprotect-lippenpflege.htm",
+      "segment": "mother_child",
+      "segment_label": "Mother & Child",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "PAEDIPROTECT Lippenpflege 2x4,7 g"
+        },
+        "brand": {
+          "status": "present",
+          "value": "PAEDIPROTECT"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN 08111829"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Mit LSF 15 schützt und pflegt intensiv vor dem Austrocknen bei Sonne, Wind und Kälte"
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Sonne, Wind & Kälte können die Lippen austrocknen. Die PAEDIPROTECT Lippenpflege mit Mango-Extrakt & LSF 15 schützt und pflegt intensiv, um rissigen Lippen im Alltag vorzubeugen. Die vegane Rezeptur oh..."
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "C12-15 ALKYL BENZOATE, DIBUTYL ADIPATE, COCO-CAPRYLATE/CAPRATE, BUTYROSPERMUM PARKII BUTTER, EUPHORBIA CERIFERA CERA, COPERNICIA CERIFERA CERA, RICINUS COMMUNIS SEED OIL, DIETHYLAMINO HYDROXYBENZOYL HEX..."
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Täglich mehrfach auftragen, um den Lichtschutz aufrecht zu erhalten. Intensive Mittagssonne vermeiden."
+        },
+        "claims_certifications": {
+          "status": "present",
+          "value": "vegan, parfümfrei, ohne Mikroplastik, ohne Bienenwachs"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "Darreichung: Lippenstift, Größe: 2x4,7 g, LSF 15, farblos, geschmacksneutral, glänzt nicht, kein klebriger Film, mit Mango-Extrakt, Shea Butter und Beerenwachs"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, SearchAction, ContactPoint, EntryPoint, PropertyValueSpecification, BreadcrumbList, ListItem, Product, AggregateRating"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "1"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/baby/8111239/paediprotect-after-sun-lotion.htm",
+      "segment": "mother_child",
+      "segment_label": "Mother & Child",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "PAEDIPROTECT After Sun Lotion"
+        },
+        "brand": {
+          "status": "present",
+          "value": "PAEDIPROTECT"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: 08111239, EAN: 4260401414813"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Hautberuhigende Pflege nach einem Tag im Freien"
+        },
+        "long_description": {
+          "status": "present",
+          "value": "PAEDIPROTECT After Sun Lotion pflegt die empfindliche Kinder- und Erwachsenenhaut nach dem Tag im Freien mit einem hautberuhigenden und feuchtigkeitsspendenden Komplex aus Aloe vera und Panthenol."
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "ALOE BARBADENSIS LEAF JUICE, AQUA, HELIANTHUS ANNUUS SEED OIL, GLYCERIN, GLYCERYL STEARATE CITRATE, ISOAMYL LAURATE, CAPRYLIC/CAPRIC TRIGLYCERIDE, CETEARYL ALCOHOL, GLYCERYL STEARATE, MYRISTYL MYRI"
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Eine ausreichende Menge auf die Handfläche geben und mit zarten Bewegungen auf der Haut verteilen. Tipp: Für den perfekten kühlenden Effekt die After Sun Lotion vor Anwendung in den Kühlschrank stell"
+        },
+        "claims_certifications": {
+          "status": "present",
+          "value": "Vegan, Parfümfrei, Frei von Mikroplastik"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "200 ml, Lotion, 53,95 € / 1 l"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList, Product"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "0"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/baby/BE03300654/mustela-pflegende-creme-mit-cold-cream.htm",
+      "segment": "mother_child",
+      "segment_label": "Mother & Child",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "Mustela Baby Nährende Creme mit Cold Cream 40 ml"
+        },
+        "brand": {
+          "status": "present",
+          "value": "Mustela"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: BE03300654, EAN: 3504105044619"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Creme mit Bienenwachs Cold Cream pflegt trockene Baby- und Babyhaut sofort und schützt vor äußeren Einflüssen. Es eignet sich für die tägliche Gesichtspflege* ab der Geburt."
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Neigt das Gesicht Ihres Babys zu trockener Haut? Dann kommen Sie an der pflegenden Creme mit Cold Cream und Bio-Bienenwachs nicht mehr vorbei. Unsere Creme pflegt die Haut sofort und langanhaltend. Es sorgt außerdem für die Wiederherstellung der Hautbarriere und den Schutz vor äußeren Einflüssen."
+        },
+        "ingredient_list": {
+          "status": "missing",
+          "value": null
+        },
+        "dosage_usage": {
+          "status": "partial",
+          "value": "Eignet sich für die tägliche Gesichtspflege ab der Geburt. Säuglinge nach Verlassen der neonatologischen Intensivstation"
+        },
+        "claims_certifications": {
+          "status": "partial",
+          "value": "Bio-Bienenwachs"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "Größe: 40 ml, Darreichung: Creme, Hauttyp: trockene Baby- und Babyhaut, Anwendungsbereich: Gesicht, ab Geburt geeignet"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, ContactPoint, SearchAction, EntryPoint, PropertyValueSpecification, BreadcrumbList, ListItem"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "89"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/baby/upmLCH2R9/garnier-festes-aprikosen-und-baumwollblumen-shampoo-fuer-kinder.htm",
+      "segment": "mother_child",
+      "segment_label": "Mother & Child",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "Garnier - Festes Aprikosen- und Baumwollblumen-Shampoo für Kinder"
+        },
+        "brand": {
+          "status": "present",
+          "value": "Garnier"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "3600542430135"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Entdecken Sie Garniers ersten festen Shampoo für Kinder, Apricot & Cotton Flower."
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Garnier präsentiert stolz sein bahnbrechendes Apricot & Cotton Flower Solid Shampoo – eine revolutionäre Haarpflegelösung für Kinder. Mit 94% pflanzlichen Inhaltsstoffen hergestellt, eliminiert dieses umweltbew..."
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "SODIUM COCOYL ISETHIONATE • HUILE VÉGÉTALE HYDROGÉNÉE • AQUA / EAU • LAURATE DE POLYGLYCÉRYL-4 • GLYCÉRINE • HUILE DE NOYAU D'ARGANIA SPINOSA • PARFUM / FRAGRANCE • HUILE DE NOYAU DE PRUNUS ARMENIACA / HUILE DE NO..."
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Befeuchten Sie Ihr Haar vorsichtig, erzeugen Sie einen zarten Schaum, indem Sie von den Wurzeln bis zu den Spitzen massieren. Tauchen Sie in den cremigen Schaum ein und spülen Sie gründlich mit warmem Wasser."
+        },
+        "claims_certifications": {
+          "status": "present",
+          "value": "94% pflanzliche Inhaltsstoffe, ohne Konservierungsstoffe, ohne Seife, ohne Silikone, ohne Sulfate, plastikfrei"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "60 g, für Kinder, festes Shampoo, Duft: Aprikose und Baumwollblüte"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, SearchAction, ContactPoint, EntryPoint, PropertyValueSpecification, BreadcrumbList, ListItem"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "0"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/baby/upmW4W27E/popolini-uv-schutzkleidung-swimwear-zweiteiler-ringel-marine-98-104.htm",
+      "segment": "mother_child",
+      "segment_label": "Mother & Child",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "Popolini UV-Schutzkleidung Swimwear Zweiteiler Ringel-Marine 98/104"
+        },
+        "brand": {
+          "status": "present",
+          "value": "Popolini"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "9006720059503"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Die UV-Schwimmkleidung aus zertifiziertem UV 50+-Material schützt die empfindliche Kinderhaut beim Badeausflug vor schädlicher UV-Strahlung."
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Die UV-Schwimmkleidung aus zertifiziertem UV 50+-Material schützt die empfindliche Kinderhaut beim Badeausflug vor schädlicher UV-Strahlung. Das funktionstüchtige Material ist dünn und elastisch und bietet du..."
+        },
+        "ingredient_list": {
+          "status": "missing",
+          "value": null
+        },
+        "dosage_usage": {
+          "status": "partial",
+          "value": "Bitte zusätzlich noch ausreichend Sonnenschutzmittel verwenden."
+        },
+        "claims_certifications": {
+          "status": "present",
+          "value": "UPF 50+, Ökotex Standard 100"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "Größe: 98/104, Material: 80% Polyamide, 20% Elastan, waschbar bei 30°C, Farbe: Ringel-Marine, zweiteilig (Shorts und Kurzarm-Shirt mit 2 Druckknöpfen), Verfügbare Größen: 74/80, 86/92, 98/104, 110/116"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, SearchAction, ContactPoint, EntryPoint, PropertyValueSpecification, BreadcrumbList, ListItem, Product"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "0"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/baby/10013239/orthomol-junior-c-plus-mit-vitamin-c-als-beitrag-zu-einer-normalen-funktion-des-immunsystems-waldfrucht-geschmack-kautabletten.htm",
+      "segment": "mother_child",
+      "segment_label": "Mother & Child",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "Orthomol junior C plus - mit Vitamin C als Beitrag zu einer normalen Funktion des Immunsystems - Waldfrucht-Geschmack - Kautabletten"
+        },
+        "brand": {
+          "status": "present",
+          "value": "Orthomol"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN 10013239"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Orthomol junior C plus ist ein Nahrungsergänzungsmittel für Kinder. Mit Vitamin D als Beitrag zu einer normalen Funktion des Immunsystems bei Kindern. Mit Vitamin C, Selen und Zink"
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Das Immunsystem ist ein komplexes System des Körpers bestehend aus verschiedenartigen Abwehrzellen zur Erkennung und Abwehr von Krankheitserregern und Schadstoffen. Es dient der Abwehr von Zellen, die das Immunsyste..."
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "Süßungsmittel Sorbit und Xylit, Calciumsalze der Orthophosphorsäure, Magnesiumcarbonat, L-Ascorbinsäure, Maltodextrin, Rotebeetepulver, Säuerungsmittel Citronensäure, Trennmittel Siliciumdioxid, Trennmittel Calc..."
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Täglich den Inhalt eines Beutels (= Tagesportion) zu oder nach einer Mahlzeit einnehmen. Die Tagesportion kann über den Tag verteilt oder, wenn gewünscht, auf einmal eingenommen werden."
+        },
+        "claims_certifications": {
+          "status": "present",
+          "value": "Laktosefrei, vegetarisch"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "30 St, Kautabletten, Waldfrucht-Geschmack, für Kinder"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList, SearchAction, ContactPoint, EntryPoint, PropertyValueSpecification, ListItem"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "36"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/baby/8108671/nasenspray-ratiopharm-kinder.htm",
+      "segment": "mother_child",
+      "segment_label": "Mother & Child",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "Nasenspray-ratiopharm® Kinder"
+        },
+        "brand": {
+          "status": "present",
+          "value": "ratiopharm GmbH"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN 08108671"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Konservierungsmittelfreies Nasenspray zur Anwendung bei einer verstopften Nase. Lässt Schwellungen der Nasenschleimhäute abklingen und Schleim leichter abfließen. Ist speziell auf die Bedürfnisse von Kindern ab 2 Jahren abgestimmt."
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Zur Abschwellung der Nasenschleimhaut bei Schnupfen, bei anfallsweise auftretendem Fließschnupfen, allergischem Schnupfen. Zusätzlich zur Erleichterung des Sekretabflusses bei Nasennebenhöhlenentzündungen sowie bei Tube..."
+        },
+        "ingredient_list": {
+          "status": "partial",
+          "value": "Wirkstoff: Xylometazolinhydrochlorid"
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Sollte nicht länger als 7 Tage angewendet werden, es sei denn, der Arzt ordnet ausdrücklich eine weitere Anwendung an. Eine erneute Anwendung sollte erst nach einer Pause von mehreren Tagen erfolgen. Zur Anwendungsdauer bei Kindern sollte gru..."
+        },
+        "claims_certifications": {
+          "status": "present",
+          "value": "Konservierungsmittelfrei"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "Packungsgröße: 4x10 ml (auch verfügbar in 10 ml und 2x10 ml), Darreichung: Nasenspray, Altersangabe: Für Kinder ab 2 Jahren (zwischen 2 und 6 Jahren)"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList, SearchAction, ContactPoint, EntryPoint, ListItem, PropertyValueSpecification"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "146"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/baby/8109601/nasenspray-al-0-05.htm",
+      "segment": "mother_child",
+      "segment_label": "Mother & Child",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "Nasenspray AL 0,05% für Kinder zwischen 2 und 6 Jahren"
+        },
+        "brand": {
+          "status": "present",
+          "value": "Aliud"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: 08109601"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Zur Abschwellung der Nasenschleimhaut bei Schnupfen"
+        },
+        "long_description": {
+          "status": "present",
+          "value": "NASENSPRAY AL 0,05 % ist ein Mittel zur Anwendung in der Nase (Rhinologikum) und enthält das Alpha-Sympathomimetikum Xylometazolin. Xylometazolin hat gefäßverengende Eigenschaften und bewirkt dadurch eine Schleimh..."
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "Wirkstoff: Xylometazolinhydrochlorid 0,5 mg/ml. Sonstige Bestandteile: Benzalkoniumchlorid, Glycerol, Citronensäure-Monohydrat, Natriumcitrat 2 H2O, Gereinigtes Wasser"
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Bei Kindern im Alter von 2 – 6 Jahren wird nach Bedarf bis zu 3-mal täglich 1 Sprühstoß in jede Nasenöffnung eingebracht. Sollte nicht länger als 7 Tage angewendet werden, es sei denn auf ärztliche Anordnung."
+        },
+        "claims_certifications": {
+          "status": "missing",
+          "value": null
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "Packungsgrößen: 10 ml, 2x10 ml, 3x10 ml; Darreichung: Lösung; Altersgruppe: Kinder zwischen 2 und 6 Jahren; Arzneimittel apothekenpflichtig"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList"
+        },
+        "qa_section": {
+          "status": "present",
+          "value": "3 Fragen und Antworten"
+        },
+        "review_count": {
+          "status": "present",
+          "value": "99"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/baby/8108695/olynth-k-0-05-schnupfen-dosierspray-fuer-kinder.htm",
+      "segment": "mother_child",
+      "segment_label": "Mother & Child",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "Olynth® K 0,05 % Schnupfen Dosierspray für Kinder 3x10 ml"
+        },
+        "brand": {
+          "status": "present",
+          "value": "Kenvue Germany GmbH (OTC)"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN 08108695"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Abschwellendes Nasenspray für Kinder von 2 bis 6 Jahren. Befreit verstopfte Kindernasen schnell und langhaltend für bis zu 12 Stunden. Wirkt bereits nach 2 Minuten."
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Olynth 0,05 % Schnupfen Dosierspray für Kinder ist ein abschwellendes Nasenspray für Kinder von 2 bis 6 Jahren. Bei Schnupfen: Für Nase und Nebenhöhlen. Hilft das durch Schnupfen verursachte Druckgefühl im Kopf zu mindern. Wirkt bereits..."
+        },
+        "ingredient_list": {
+          "status": "partial",
+          "value": "Wirkstoff: Xylometazolinhydrochlorid. Enthält Benzalkoniumchlorid."
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Kinder zwischen 2 und 6 Jahren: bis zu 3-mal täglich 1 Sprühstoß in jede Nasenöffnung. Nicht länger als 7 Tage anwenden ohne ärztlichen Rat. Erneute Anwendung erst nach Pause von mehreren Tagen."
+        },
+        "claims_certifications": {
+          "status": "missing",
+          "value": null
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "Darreichung: Nasendosierspray, Packungsgröße: 3x10 ml (auch 10 ml erhältlich), Altersgruppe: Kinder 2-6 Jahre, Wirkstoffkonzentration: 0,05%, Haltbarkeit nach Anbruch: 12 Wochen"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList, SearchAction, ContactPoint, EntryPoint, PropertyValueSpecification, ListItem"
+        },
+        "qa_section": {
+          "status": "present",
+          "value": "4 Fragen und Antworten vorhanden zu Anwendung, Dosierung, Haltbarkeit und Anwendungsdauer"
+        },
+        "review_count": {
+          "status": "present",
+          "value": "52"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/baby/12521566/nasenduo-nasenspray-kinder.htm",
+      "segment": "mother_child",
+      "segment_label": "Mother & Child",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "NasenDuo Nasenspray Kinder 10 ml"
+        },
+        "brand": {
+          "status": "present",
+          "value": "NasenDuo"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: 12521566 / EAN: 4150125215660"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Zur Abschwellung der Nasenschleimhaut bei Schnupfen"
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Das Nasenspray enthält die Wirkstoffe Xylometazolinhydrochlorid und Dexpanthenol. Xylometazolin verengt die Gefäße und bewirkt dadurch eine Abschwellung der Nasenschleimhaut. Der zusätzlich enthaltene Wir..."
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "Wirkstoffe: 50 mg Dexpanthenol, 0.5 mg Xylometazolin hydrochlorid. Hilfsstoffe: Wasser für Injektionszwecke, Kaliumdihydrogenphosphat, Dinatriumhydrogenphosphat"
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Für Kinder zwischen 2 und 6 Jahren nach Bedarf bis zu 3-mal täglich je 1 Sprühstoß in jede Nasenöffnung. Das Nasenspray sollte nicht länger als 7 Tage angewendet werden, es sei denn, der Arzt ordnet ausdrü..."
+        },
+        "claims_certifications": {
+          "status": "missing",
+          "value": null
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "Packungsgröße: 10 ml, Darreichung: Nasenspray, Altersgruppe: Kinder zwischen 2 und 6 Jahren, Arzneimittel: apothekenpflichtig"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList, SearchAction, ContactPoint, EntryPoint, PropertyValueSpecification, ListItem"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "32"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/baby/5566232/bronchipret-saft-te.htm",
+      "segment": "mother_child",
+      "segment_label": "Mother & Child",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "Bronchipret® Saft TE - bei Husten und akuter Bronchitis 100 ml"
+        },
+        "brand": {
+          "status": "present",
+          "value": "Bronchipret"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN 05566232"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Arzneimittel zur Besserung der Beschwerden bei akuter Bronchitis mit Husten und Erkältungskrankheiten mit zähflüssigem Schleim. Für Kinder ab 1 Jahr, Jugendliche und Erwachsene."
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Bronchipret® Saft TE – die pflanzliche Lösung bei Husten und akuter Bronchitis für Kinder ab 1 Jahr. Mit seinem 3-fach Effekt beruhigt er den Husten, löst den Schleim und bekämpft die Entzündungsbeschwerden in den Bronchien..."
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "Wirkstoffe: 907.2 mg Thymian-Fluidextrakt (1:2-2,5), 90.72 mg Efeublätter-Fluidextrakt (1:1). Hilfsstoffe: 2300 mg Maltitol-Lösung, Hydroxypropylbetadex, Wasser gereinigtes, Citronensäure monohydrat, Kalium sorbat, 300 mg Ethanol"
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Einnahme dreimal täglich – morgens, mittags und abends – zu den Mahlzeiten oder unabhängig davon. Bei Bedarf kann der Saft mit etwas Wasser verdünnt werden. Dosierung mittels Messbecher altersgerecht anpassbar."
+        },
+        "claims_certifications": {
+          "status": "present",
+          "value": "pflanzlich, glutenfrei, laktosefrei, vegan, zuckerfrei, zahnschonend"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "Darreichung: Saft, Packungsgrößen: 50 ml, 100 ml, Altersgruppe: Kinder ab 1 Jahr, Jugendliche und Erwachsene, apothekenpflichtig"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList, ContactPoint, SearchAction, EntryPoint, PropertyValueSpecification, ListItem"
+        },
+        "qa_section": {
+          "status": "present",
+          "value": "3 Fragen und Antworten vorhanden (Was verursacht Husten?, Wofür wird Bronchipret Saft TE angewendet?, Wie wirkt Bronchipret Saft?, etc.)"
+        },
+        "review_count": {
+          "status": "present",
+          "value": "95"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/baby/8586005/prospan-hustensaft-fuer-kinder.htm",
+      "segment": "mother_child",
+      "segment_label": "Mother & Child",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "Prospan Hustensaft bei Husten und Bronchitis für Kinder 200 ml"
+        },
+        "brand": {
+          "status": "present",
+          "value": "Prospan"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: 08586005, EAN: 4150085860054"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Pflanzliches Arzneimittel bei katarrhalischen Erkrankungen der Atemwege. Bei chronisch-entzündlichen Bronchialerkrankungen, mit Kirsch-Geschmack"
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Das Arzneimittel wird angewendet zur Besserung der Beschwerden bei chronisch-entzündlichen Bronchialerkrankungen; akute Entzündungen der Atemwege mit der Begleiterscheinung Husten. Bei länger anhaltenden Beschwerden oder bei Auftreten ..."
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "Wirkstoffe: 35 mg Efeublätter-Trockenextrakt (5-7,5:1); Auszugsmittel: Ethanol 30% (m/m). Hilfsstoffe: Aromastoffe natürlich/naturidentisch, Xanthan gummi, Wasser gereinigtes, Citronensäure, Kalium sorbat, Sorbitol-Lösung 70% (kristallisierend)"
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Kinder <6 J.: 2x tägl. 2,5 ml; Kinder 6-12 J.: 2x tägl. 5 ml; Kinder ab 12 J. u. Erwachsene: 3x tägl. 5 ml. Morgens, (mittags) und abends zum Einnehmen. Behandlungsdauer ca. 1 Woche"
+        },
+        "claims_certifications": {
+          "status": "present",
+          "value": "pflanzlich"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "Darreichung: Flüssigkeit zum Einnehmen, Größe: 200 ml (auch 100 ml, 2x200 ml verfügbar), Geschmack: Kirsch, apothekenpflichtig, Altersbereich: Kinder unter 6 Jahren, 6-12 Jahre, ab 12 Jahren"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList, SearchAction, ContactPoint, EntryPoint, ListItem"
+        },
+        "qa_section": {
+          "status": "present",
+          "value": "3 Fragen und Antworten vorhanden (z.B. rezeptfrei erhältlich, Anwendung bei verschleimtem Husten, nicht für Hunde geeignet)"
+        },
+        "review_count": {
+          "status": "present",
+          "value": "227"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/baby/16538233/nurofen-junior-fieber-und-schmerzsaft-erdbeer-40-mg.htm",
+      "segment": "mother_child",
+      "segment_label": "Mother & Child",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "NUROFEN® Junior Fieber- und Schmerzsaft Erdbeer 40 mg"
+        },
+        "brand": {
+          "status": "present",
+          "value": "Nurofen"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: 16538233"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "NUROFEN Junior Fieber- und Schmerzsaft Erdbeer - 40 mg/ml Suspension: die flüssige Ibuprofen-Suspension bei Fieber & Schmerzen für Kinder ab 3 Monaten"
+        },
+        "long_description": {
+          "status": "present",
+          "value": "NUROFEN Junior Fiebersaft Erdbeer - 20 mg/ml Suspension zum Einnehmen ist eine flüssige Ibuprofen-Suspension zur Fieber- & Schmerzlinderung bei Kindern und Babys ab 3 Monaten und einem Gewicht ab 5 kg. Mit dem NUROFE..."
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "Wirkstoffe: 200 mg Ibuprofen. Hilfsstoffe: Erdbeer-Aroma, 2226 mg Maltitol-Lösung, Xanthan gummi, Saccharin natrium, Wasser gereinigtes, Natriumchlorid, Natriumcitrat-2-Wasser, Citronensäure monohydrat, Domiphen bromid..."
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "1. Führen Sie die Dosierspritze in den Flaschenhals ein. 2. Drehen Sie die Flasche auf den Kopf und ziehen Sie den Kolben sachte nach unten. 3. Drehen Sie die Flasche wieder herum und entfernen Sie die Spritze. 4. Halte..."
+        },
+        "claims_certifications": {
+          "status": "present",
+          "value": "Lactosefrei, glutenfrei, zuckerfrei, farbstofffrei, alkoholfrei"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "150 ml, Suspension zum Einnehmen, Erdbeer-Geschmack, ab 3 Monaten, ab 5 kg Körpergewicht, mit Dosierspritze"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList, SearchAction, ContactPoint, EntryPoint, ListItem, PropertyValueSpecification"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "28"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/beauty/A8000532/ducray-kelual-ds-shampoo.htm",
+      "segment": "cosmetics",
+      "segment_label": "Cosmetics",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "DUCRAY KELUAL DS Anti-Schuppen Intensivpflege-Shampoo"
+        },
+        "brand": {
+          "status": "present",
+          "value": "DUCRAY / PIERRE FABRE DERMO KOSMETIK GmbH"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: A8000532"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Entfernt hartnäckige Schuppen effektiv und lindert juckende Kopfhaut schnell. Speziell bei seborrhoischer Dermatitis oder Kleienpilzflechte geeignet"
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Das Anti-Schuppen-Shampoo DUCRAY KELUAL DS entfernt hartnäckige Schuppen effektiv und lindert juckende Kopfhaut schnell und wirksam. 89 % weniger Schuppen und 80 % weniger Juckreiz nach nur 2 Wochen. 8 Wochen Anti-Rückfall-Wirku..."
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "WATER (AQUA). SODIUM LAURETH SULFATE. DECYL GLUCOSIDE. UNDECYLENAMIDOPROPYL BETAINE. CICLOPIROX OLAMINE. LACTAMID MEA. LAURYL BETAINE. CETEARETH-60 MYRISTYL GLYCOL. CICTRIC ACID. FRAGRANCE (PARFUM). GLYCYRRHETINIC ACID. PIROCTONE..."
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Auftragen, einseifen, einmassieren und ausspülen. Erneut auftragen, 3 Minuten einwirken lassen und ausspülen. Intensivbehandlung: 3x wöchentlich für 2 Wochen. Erhaltungsphase: 1x wöchentlich für 8 Wochen"
+        },
+        "claims_certifications": {
+          "status": "present",
+          "value": "Biologisch abbaubar, hypoallergen, auch für gefärbtes Haar geeignet"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "2x100 ml, Shampoo, für Jugendliche ab 12 Jahren und Erwachsene, antimikrobielle milde Waschgrundlage, angenehm dezenter Duft"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList, Product, AggregateRating"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "185"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/beauty/10057900/avene-cleanance-hydra-beruhigende-feuchtigkeitspflege.htm",
+      "segment": "cosmetics",
+      "segment_label": "Cosmetics",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "Avène Cleanance Hydra beruhigende Feuchtigkeitspflege - bei dermatologischer Behandlung von Akne"
+        },
+        "brand": {
+          "status": "present",
+          "value": "Avène"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: 10057900 / EAN: 3282770100891"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Reichhaltige, pflegende, nicht fettende Feuchtigkeitspflege. Gleicht irritierende und austrocknende Effekte der Aknetherapie aus"
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Die beruhigende Feuchtigkeitspflege Cleanance HYDRA von Eau Thermale Avène eignet sich speziell für die Pflege deiner Haut, wenn sie durch dermatologische Aknebehandlungen irritiert und ausgetrocknet ist, und bei empfindlich..."
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "AVENE THERMAL SPRING WATER (AVENE AQUA). CARTHAMUS TINCTORIUS (SAFFLOWER) SEED OIL. CAPRYLIC/CAPRIC TRIGLYCERIDE. DIMETHICONE. PEG-12. BUTYLENE GLYCOL. GLYCERIN. 1,2-HEXANEDIOL. GLYCERYL STEARATE. PEG-100 STEARATE..."
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Morgens und/oder abends auf das zuvor mit der Cleanance HYDRA Beruhigende Reinigungscreme gereinigte Gesicht auftragen. Ein- bis zweimal täglich anwenden. Erbsengroße Menge auf Fingerspitzen geben und sanft einmassieren."
+        },
+        "claims_certifications": {
+          "status": "present",
+          "value": "Dermatologisch getestet, Mikroplastikfrei, vegan"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "40 ml, Creme, nicht fettende Textur, schnell einziehend, für Jugendliche und Erwachsene, für empfindliche unreine und trockene Haut"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList, Product, AggregateRating, ContactPoint, SearchAction, EntryPoint, ListItem, PropertyValueSpecification"
+        },
+        "qa_section": {
+          "status": "present",
+          "value": "FAQ section present with questions about product suitability and application frequency"
+        },
+        "review_count": {
+          "status": "present",
+          "value": "63"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/beauty/16015570/eucerin-oil-control-body-sun-dry-touch-gel-creme-lsf-50-sehr-hoher-sonnenschutz-mit-ultra-leichter-textur-anti-sand-effekt-und-anti-glanz-effekt.htm",
+      "segment": "cosmetics",
+      "segment_label": "Cosmetics",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "Eucerin® Oil Control Body Sun Dry Touch Gel-Creme LSF 50+ – sehr hoher Sonnenschutz mit ultra leichter Textur, Anti-Sand Effekt und Anti-Glanz Effekt"
+        },
+        "brand": {
+          "status": "present",
+          "value": "Eucerin"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: 16015570 / EAN: 4005800264627"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Die Eucerin Oil Control Body Sun Gel-Creme LSF 50+ mit Anti-Sand Effekt zieht dank ultraleichter Formel schnell ein"
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Die Eucerin Oil Control Body Sun Gel-Creme mit Lichtschutzfaktor 50+ bietet dem ganzen Körper einen zuverlässigen Schutz vor sonnenbedingten Hautschäden. Dank der sehr leichten Textur zieht der Sonnenschutz in ..."
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "Aqua, Alcohol Denat., Butylene Glycol Dicaprylate/Dicaprate, Butyl Methoxydibenzoylmethane, C12-15 Alkyl Benzoate, Bis-Ethylhexyloxyphenol Methoxyphenyl Triazine, Distarch Phosphate, Dibutyl Adipate, Ethylhex..."
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Großzügig vor dem Aufenthalt in der Sonne auftragen. Regelmäßig wiederholen, besonders nach dem Baden, Schwitzen oder Abtrocknen, um den angegebenen Sonnenschutz aufrechtzuerhalten. Vollständig einziehen lassen u..."
+        },
+        "claims_certifications": {
+          "status": "partial",
+          "value": "Wasserfest, schweißbeständig, gute Hautverträglichkeit"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "200 ml, LSF 50+, Darreichung: Creme, für alle Hauttypen, auch für empfindliche und unreine Haut, für Kinder ab 3 Jahren"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "32"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/beauty/15308838/la-roche-posay-lipikar-dusch-und-badeoel-ap.htm",
+      "segment": "cosmetics",
+      "segment_label": "Cosmetics",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "La Roche Posay Lipikar Dusch- und Badeöl AP+ Rückfettendes Duschgel - Badeöl für juckende, trockene und empfindliche Haut"
+        },
+        "brand": {
+          "status": "present",
+          "value": "La Roche Posay"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: 15308838 / EAN: 3337875656764"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Das juckreizmildernde LIPIKAR DUSCH- UND BADEÖL AP+ von La Roche-Posay ist speziell auf die Bedürfnisse sehr trockener oder zu Neurodermitis neigender Haut abgestimmt. Um die empfindliche Haut vor Austrocknung zu bewahren,"
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Reinigt sanft, wirkt hautberuhigend und mildert Spannungsgefühle. Schützt die Haut schon beim Duschen und Baden. Mildert den Juckreiz und brennt nicht in den Augen. Basispflege bei Neurodermitis. Ohne Alkohol und pH-hautne"
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "AQUA / WATER • GLYCERIN • SUCROSE • SODIUM LAURETH SULFATE • COCO-BETAINE • SODIUM CHLORIDE • CITRIC ACID • NIACINAMIDE • PARFUM / FRAGRANCE • PEG-75 SHEA BUTTER GLYCERIDES • POLYSORBATE 20 • PPG-5-CETETH-20 • SODIUM BENZOATE •"
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Schäumen Sie das rückfettende LIPIKAR DUSCH- UND BADEÖL AP+ in den Händen auf, tragen Sie es auf die feuchte Haut auf und spülen es ab. Für die Anwendung in der Badewanne geben Sie fünf Pumpstöße in das Badewasser, während sich die Wanne"
+        },
+        "claims_certifications": {
+          "status": "present",
+          "value": "Ohne Alkohol, pH-hautneutral"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "400 ml, Darreichung: Öl, Hauttyp: Trockene Haut, für Babys, Kinder und Erwachsene"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList, Product"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "213"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/beauty/6712983/vichy-deodorant-roll-on.htm",
+      "segment": "cosmetics",
+      "segment_label": "Cosmetics",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "VICHY Deodorant Anti-Transpirant 48h Roll-on"
+        },
+        "brand": {
+          "status": "present",
+          "value": "Vichy"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: 06712983, EAN: 4030963149931"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Zum Schutz vor Schweißbildung, für alle Hauttypen geeignet. Reguliert die Transpiration über 48 Stunden."
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Schutz gegen übermäßige Schweißbildung, geeignet für empfindliche Haut, wirkt bis zu 48h bei starker Hitze, bei sportlicher Betätigung. DEODORANTS Deo Antitranspirant 48h Roll-On. Reguliert die Transpiration über 48 Stunden."
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "AQUA / WATER • ALUMINUM CHLOROHYDRATE • ALUMINUM SESQUICHLOROHYDRATE • PPG-15 STEARYL ETHER • CETEARYL ALCOHOL • CETEARETH-33 • PARFUM / FRAGRANCE • DIMETHICONE • IODOPROPYNYL BUTYLCARBAMATE • PEG-4 DILAURATE • PEG-4 LAUR"
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Täglich in der sauberen und trockenen Achselhöhle auftragen."
+        },
+        "claims_certifications": {
+          "status": "missing",
+          "value": null
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "Darreichung: Roller, Packungsgrößen: 50 ml / 2x50 ml / 2x2x50 ml, Hauttyp: Alle Hauttypen, Wirkdauer: 48h"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList, Product, AggregateRating, SearchAction, ContactPoint, EntryPoint, ListItem"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "154"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/beauty/19720613/cetaphil-feuchtigkeitslotion-fuer-empfindliche-und-trockene-haut.htm",
+      "segment": "cosmetics",
+      "segment_label": "Cosmetics",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "Cetaphil® Feuchtigkeitslotion – Für empfindliche und trockene Haut 473 ml"
+        },
+        "brand": {
+          "status": "present",
+          "value": "Cetaphil / Galderma Laboratorium GmbH"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: 19720613 / EAN: 3499320018128"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Die leichte Formel der Lotion sorgt sofort für ein geschmeidiges Hautgefühl und versorgt die Haut für 48 Stunden lang anhaltend mit Feuchtigkeit. Die Wirksamkeit ist klinisch nachgewiesen"
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Die Cetaphil Feuchtigkeitslotion spendet trockener, empfindlicher Haut langanhaltend Feuchtigkeit und stärkt die natürliche Barrierefunktion der Haut. Die Lotion zieht schnell ein und hinterlässt ein erfrischend leichtes ..."
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "Aqua, Glycerin, Isopropyl Palmitate, Cetearyl Alcohol, Ceteareth-20, Panthenol, Niacinamide, Tocopheryl Acetate, Dimethicone, Persea Gratissima Oil, Helianthus Annuus Seed Oil, Pantolactone, Glyceryl Stearate, Sodium Benzo..."
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Die Cetaphil Feuchtigkeitslotion dient der täglichen Pflege. Je nach Bedarf empfehlen wir die Bodylotion nach dem Duschen großflächig auf die trockene Haut aufzutragen. Sie tragen die Cetaphil Feuchtigkeitslotion täglich je nac..."
+        },
+        "claims_certifications": {
+          "status": "present",
+          "value": "Parfümfrei, lanolinfreie Formulierung, klinisch nachgewiesen, Nr. 1 Empfehlung von Dermatologen, dermatologische Pflege, für empfindliche Haut geeignet"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "Größe: 473 ml (auch 60 ml verfügbar), Darreichung: Lotion, Hauttyp: empfindliche und trockene Haut, Textur: ultra-leicht, schnell einziehend, O/W-Emulsion, Pumpspender"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList, Product, AggregateRating"
+        },
+        "qa_section": {
+          "status": "present",
+          "value": "3 Fragen und Antworten - Q&A section present with questions about product benefits, properties, and usage"
+        },
+        "review_count": {
+          "status": "present",
+          "value": "81"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/beauty/20103759/la-roche-posay-anthelios-uv-air-serum-lsf-50.htm",
+      "segment": "cosmetics",
+      "segment_label": "Cosmetics",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "La Roche Posay Anthelios UV Air Serum LSF 50+ 50 ml"
+        },
+        "brand": {
+          "status": "present",
+          "value": "La Roche Posay"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: 20103759 / EAN: 3337875932349"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Mit Hyaluronsäure, Niacinamid und Vitamin E für Feuchtigkeit und ein ausgeglichenes Hautbild"
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Anthelios UV Air Sonnenschutz Serum LSF 50+ ist der tägliche Begleiter für sehr hohen UVA- und UVB-Schutz im Gesicht. Geeignet für alle Hauttypen, auch empfindliche Haut, überzeugt es mit einer ultraleichten Serum-T"
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "AQUA / WATER / EAU • ALCOHOL DENAT. • DIISOPROPYL SEBACATE • DICAPRYLYL CARBONATE • BIS-ETHYLHEXYLOXYPHENOL METHOXYPHENYL TRIAZINE • ETHYLHEXYL TRIAZONE • BUTYL METHOXYDIBENZOYLMETHANE • ISOPROPYL MYRISTATE • GLYCERIN"
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Täglich und vor dem Aufenthalt in der Sonne auftragen, Anwendung über den Tag verteilt regelmäßig wiederholen."
+        },
+        "claims_certifications": {
+          "status": "missing",
+          "value": null
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "50 ml, LSF 50+, Darreichung: Flüssigkeit, für alle Hauttypen inkl. empfindliche Haut, ultraleichte Serum-Textur, mattes Hautgefühl, unsichtbar, ideal unter Make-up"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, SearchAction, EntryPoint, ContactPoint, PropertyValueSpecification, BreadcrumbList, ListItem, Product"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "0"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/beauty/20318135/eucerin-hyaluron-filler-elasticity-ultraleicht-tag-lsf-50-tagescreme-mildert-falten-und-altersflecken.htm",
+      "segment": "cosmetics",
+      "segment_label": "Cosmetics",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "Eucerin® Hyaluron-Filler + Elasticity Ultraleicht Tag LSF 50, 50 ml – Tagescreme mildert Falten und Altersflecken"
+        },
+        "brand": {
+          "status": "present",
+          "value": "Eucerin"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: 20318135 / EAN: 4005800377402"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Innovative Antifaltencreme für reife Haut mit vorzeitigen Alterungserscheinungen. Als Tagescreme mit Lichtschutzfaktor 50 schützt sie zuverlässig vor UVA- und UVB-Strahlung und beugt lichtbedingter Hautalterung sowie Faltenbildung vor."
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Der Kollagen-Elastin-Komplex mit Hyaluronsäure und Kreatin stimuliert die Kollagenproduktion, verbessert die Elastizität und sorgt für ein strafferes Hautgefühl. Gleichzeitig mildert das patentierte Thiamidol® Pigmentflecken aller Art – etwa d"
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "Aqua, Alcohol Denat., C12-15 Alkyl Benzoate, Glycerin, Butyl Methoxydibenzoylmethane, Bis-Ethylhexyloxyphenol Methoxyphenyl Triazine, Ethylhexyl Triazone, Butylene Glycol Dicaprylate/Dicaprate, Dibutyl Adipate, Diethylamino Hydroxybenzoyl Hexyl"
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Morgens auf das gründlich gereinigte Gesicht, Hals und Dekolleté auftragen. Sanft in die Haut einmassieren. Direkten Augenkontakt vermeiden. Maximal 4-mal täglich Produkte mit Thiamidol® im Gesicht anwenden."
+        },
+        "claims_certifications": {
+          "status": "present",
+          "value": "Nicht komedogen, dermatologisch getestet, für empfindliche Haut geeignet"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "50 ml, LSF 50, UVA/UVB-Schutz, ultraleichte Textur, für alle Hauttypen, als Make-up-Grundlage geeignet, Darreichung: Creme"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, SearchAction, ContactPoint, EntryPoint, PropertyValueSpecification, BreadcrumbList, ListItem"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "0"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/beauty/14237272/cetaphil-sun-sensitive-gel-fluid-spf-50-extra-leichter-sonnenschutz-gesicht.htm",
+      "segment": "cosmetics",
+      "segment_label": "Cosmetics",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "CETAPHIL SUN Sensitive Gel-Fluid SPF 50+ Extra-leichter Sonnenschutz Gesicht 50 ml"
+        },
+        "brand": {
+          "status": "present",
+          "value": "Cetaphil"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: 14237272 / EAN: 3499320010238"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Extra leichte Sonnencreme für empfindliche, normale bis fettige Gesichtshaut. Schützt zuverlässig vor UV-Strahlen und sonnenbedingter Hautalterung"
+        },
+        "long_description": {
+          "status": "present",
+          "value": "CETAPHIL Sun Daylong SPF 50+ Sensitive Gel-Fluid bietet Sonnenschutz speziell für empfindliche bis fettige und zu Sonnenallergie neigende Haut. Die extra leichte und fettfreie Formulierung schützt zuverlässig vor sonnenbedin..."
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "Aqua, Ethylhexyl Methoxycinnamate, Alcohol, Diethylamino Hydroxybenzoyl Hexyl Benzoate, Bis-Ethylhexyloxyphenol Methoxyphenyl Triazine, Dimethicone, VP/Eicosene Copolymer, C12-15 Alkyl Benzoate, Dibutyl Adipate, Cyclodextrin..."
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Das Gel 20 Minuten vor dem Sonnen auftragen und gut einziehen lassen, um die optimale Wasserresistenz zu erreichen. Nach dem Aufenthalt im Wasser, dem Abtrocknen oder Schwitzen erneut auftragen"
+        },
+        "claims_certifications": {
+          "status": "present",
+          "value": "Dermatologisch getestet, Mikroplastikfrei, Nicht komedogen, Parfumfrei, vegan"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "50 ml, SPF 50+, Gel-Fluid, für empfindliche bis fettige Haut, wasserresistent, fettfreie Formulierung"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList, Product, AggregateRating, ContactPoint, SearchAction, EntryPoint, ListItem"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "16"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/beauty/20115745/cerave-sonnenschutz-stick-spf-50.htm",
+      "segment": "cosmetics",
+      "segment_label": "Cosmetics",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "CeraVe Invisible Sun Stick LSF 50+ 8 g"
+        },
+        "brand": {
+          "status": "present",
+          "value": "Cerave"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: 20115745 / EAN: 3337875945707"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Sehr hoher UVA- und UVB-Schutz in einem nicht klebenden, praktischen Stick"
+        },
+        "long_description": {
+          "status": "present",
+          "value": "CeraVe Invisible Sun Stick bietet einen sehr hohen Schutz gegen UVA- und UVB-Strahlung in einem praktischen Stick mit nicht klebender Formel. Die mit Dermatologen entwickelte, schweißresistente und rückstandsfreie..."
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "RICINUS COMMUNIS SEED OIL / CASTOR SEED OIL • ISOPROPYL PALMITATE • POLYETHYLENE • ISOHEXADECANE • BEHENYL BEHENATE • BIS-ETHYLHEXYLOXYPHENOL METHOXYPHENYL TRIAZINE • ETHYLHEXYL TRIAZONE • BUTYL METHOXYDIBENZOYLME..."
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "30 Minuten vor dem Sonnenbad großzügig auftragen und alle 2 Stunden erneut auftragen, um den Schutz aufrechtzuerhalten, besonders nach dem Schwitzen, Abtrocknen oder Schwimmen. Wird eine zu geringe Menge des Prod..."
+        },
+        "claims_certifications": {
+          "status": "present",
+          "value": "nicht komedogen, hypoallergen, parfümfrei, schweißresistent, rückstandsfrei, mit Dermatologen entwickelt"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "8 g, Stifte (Darreichung), LSF 50+, für Gesicht, Lippen und sensible Stellen"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, SearchAction, EntryPoint, ContactPoint, BreadcrumbList, ListItem, Product, AggregateRating"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "153"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/beauty/8115962/erborian-cc-creme-clair.htm",
+      "segment": "cosmetics",
+      "segment_label": "Cosmetics",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "erborian CC Creme Clair 15 ml"
+        },
+        "brand": {
+          "status": "present",
+          "value": "Erborian"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: 08115962 / EAN: 8809255786521"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Teintverbessernde Colour-Correcting Creme für hellere Hauttöne"
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Die CC Creme ist ein vielseitiges koreanisches Hautpflegeprodukt mit einer sich verwandelnden Textur. CC steht für Colour Correcting, das bedeutet sie ist mit verkapselten Farbpigmenten formuliert und pass..."
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "aqua/water - dibutyl adipate - butyloctyl salicylate - ethylhexyl salicylate - glycerin - zinc oxide - cetyl peg/ppg-10/1 dimethicone - c12-15 alkyl benzoate - dipropylene glycol - ci 77891/titanium dio..."
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Auf die Haut auftragen und einmassieren um die Farbpigmente freizusetzen."
+        },
+        "claims_certifications": {
+          "status": "missing",
+          "value": null
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "Volume: 15 ml, SPF 30, Darreichung: Creme, Farbton: Clair (für hellere bis mittlere Hauttöne), Korean Beauty"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList, Product, SearchAction, ContactPoint, EntryPoint, PropertyValueSpecification, ListItem"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "0"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/beauty/20228952/weleda-fragrance-body-hair-mist-vanilla-cloud.htm",
+      "segment": "cosmetics",
+      "segment_label": "Cosmetics",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "Weleda Fragrance Body & Hair Mist Vanilla Cloud 95 ml"
+        },
+        "brand": {
+          "status": "present",
+          "value": "WELEDA AG"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: 20228952 / EAN: 4001638581165"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Sinnlich duftendes Körperspray mit Dream Vibes für Haut und Haare"
+        },
+        "long_description": {
+          "status": "present",
+          "value": "VANILLA CLOUD hüllt dich in eine dreamy Wolke aus warmem Karamell und cremigen Vanillenoten. Soft-feine Cookie-Nuancen umarmen dich und heben deine Laune auf ein Wohlfühl-Level. Ein unwiderstehlicher Duft, der die Sinne b..."
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "Alcohol denat., Water (Aqua), Fragrance (Parfum), Aloe Barbadensis Leaf Juice+, Citric Acid, Glycerin, Coumarin, Hexyl Cinnamal, Juniperus Virginiana Oil, Linalool, Linalyl Acetate, Vanillin. +from organic cultivation"
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Nach Belieben auf Haut und Haare aufsprühen. Gesicht aussparen. Trage es solo oder kombiniere es mit unseren anderen Weleda Fragrance Body & Hair Mists."
+        },
+        "claims_certifications": {
+          "status": "present",
+          "value": "100% natürlicher Duft, Mit Bio Aloe Vera, Vegane Formel, Hautverträglichkeit dermatologisch bestätigt"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "95 ml, Spray, Duft: Vanille, erfrischt Haut und Haare, hinterlässt kein klebriges Gefühl, kann gelayert werden"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, SearchAction, ContactPoint, EntryPoint, PropertyValueSpecification, BreadcrumbList, ListItem"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "0"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/beauty/upmFDHP2Z/skin1004-madagascar-centella-hyalu-cica-water-fit-sun-serum-spf-50-pa.htm",
+      "segment": "cosmetics",
+      "segment_label": "Cosmetics",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "SKIN1004 Madagascar Centella HYALU-CICA Water-fit Sun Serum SPF 50+ PA++++ 50 ml"
+        },
+        "brand": {
+          "status": "present",
+          "value": "SKIN1004"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: F00565954 / EAN: 8809913830450"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Ein leichter, feuchtigkeitsspendender Sonnenschutz mit hohem LSF chemischen Filtern für alle Hauttypen."
+        },
+        "long_description": {
+          "status": "present",
+          "value": "reine, tierversuchsfreie, vegane Kosmetik, ein chemischer Sonnenschutz ohne Nanopartikel, blockiert UV-Strahlen und spendet gleichzeitig Feuchtigkeit für die Haut, hautschonend"
+        },
+        "ingredient_list": {
+          "status": "partial",
+          "value": "Aqua(Water), Dibutyl Adipate, Propanediol, Diethylamino Hydroxybenzoyl Hexyl Benzoate, Polymethylsilsesquioxane, Ethylhexyl Triazone, Niacinamide, Methylene Bis-Benzotriazolyl Tetramethylbutylphenol, Coco-Caprylate/Caprate, Caprylyl Methic..."
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Morgens als letzten Schritt der Haupflegeroutine eine angemessene Menge gleichmäßig dort auftragen, wo die Haut UV-Strahlen ausgesetzt ist, wie Gesicht, Hals, Arme, Beine etc. Regelmäßig die Anwendung wiederholen."
+        },
+        "claims_certifications": {
+          "status": "present",
+          "value": "tierversuchsfreie, vegane Kosmetik, ohne Nanopartikel"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "50 ml, Konzentrat, SPF 50+ PA++++, für alle Hauttypen, für empfindliche Haut geeignet"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList, Product"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "1"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/beauty/20022713/vichy-kollagen-nahrungsergaenzungsmittel.htm",
+      "segment": "cosmetics",
+      "segment_label": "Cosmetics",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "Vichy Kollagen Nahrungsergänzungsmittel 60 St"
+        },
+        "brand": {
+          "status": "present",
+          "value": "Vichy"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: 20022713 / EAN: 3337875935388"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Kollagen Beauty-Effekt für Schönheit von innen"
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Entwickelt auf Basis jahrelanger Kollagen Forschung. Die ersten wissenschaftlich getesten Nahrungsergänzungsmittel von Vichy. Die Vichy Kollagen Nahrungsergänzungsmittel basieren auf vegetarischem Kollagen aus Ei..."
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "EIERSCHALENMEMBRAN; FÜLLSTOFFE: MAGNESIUMOXID, SORBIT; KAPSELHÜLLE (ÜBERZUGSMITTEL: HYDROXYPROPYLMETHYLCELLULOSE; FARBSTOFF: EISENOXIDE); VITAMIN C (L-ASCORBINSAURE); VITAMIN E (DL-TOCOPHERYLACETAT); ZINK (ZIN..."
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Täglich 2 Kapseln mit einem Glas Wasser (200ml) einnehmen. Für den optimalen Effekt wird eine Einnahmedauer von mindestens 3 Monaten empfohlen."
+        },
+        "claims_certifications": {
+          "status": "partial",
+          "value": "Vegetarisches Kollagen, wissenschaftlich getestet"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "60 St, Kapseln, 0,74 € / 1 St., Darreichung: Kapseln"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList, Product"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "0"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/beauty/20126631/weleda-pink-peach-duschgel-erfrischende-sommerpflege-mit-pfirsich-orange-jasmin.htm",
+      "segment": "cosmetics",
+      "segment_label": "Cosmetics",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "Weleda Pink Peach Duschgel – Erfrischende Sommerpflege mit Pfirsich, Orange & Jasmin 200 ml"
+        },
+        "brand": {
+          "status": "present",
+          "value": "WELEDA AG"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: 20126631 / EAN: 7611916653278"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Erfrischendes Duschgel, reinigt singt sanft, ohne die Haut auszutrocknen"
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Verwandle dein Duscherlebnis in einen sonnengeküssten Kurzurlaub – mit dem Pink Peach Duschgel. Mit Noten von saftigem Pfirsich, lebhafter Orange und einem Hauch von zartem Jasmin feiert der 100% natürliche..."
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "Wasser, Zuckertensid, vergällter Alkohol, Glyzerin, Aminosäuretensid, Xanthan, Duft aus natürlichen ätherischen Ölen und/oder Pflanzenextrakten, Aminosäuretensid, Milchsäure, Zitronensäure, Vitamin E, Lez..."
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Lass dich von Pink Peach umhüllen – ein fruchtig-frisches Duschvergnügen mit Pfirsichduft und Inhaltsstoffen zu 100% natürlichen Ursprungs für saubere und erfrischte Haut."
+        },
+        "claims_certifications": {
+          "status": "present",
+          "value": "Inhaltsstoffe zu 100% natürlichen Ursprungs, Hautverträglichkeit dermatologisch getestet"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "Größe: 200 ml, Darreichung: Duschgel, Duft: Pfirsich, Orange & Jasmin"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList, SearchAction, EntryPoint, ContactPoint, ListItem"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "0"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/beauty/BE04994943/clinique-uv-solutions-hydrating-sunscreen-spf-50.htm",
+      "segment": "cosmetics",
+      "segment_label": "Cosmetics",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "CLINIQUE UV Solutions Hydrating Sunscreen SPF 50"
+        },
+        "brand": {
+          "status": "present",
+          "value": "Clinique"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: BE04994943, EAN: 0192333266755"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Täglicher Sonnenschutz, der nicht beschwert, mit Hautpflege für sofortige und lang anhaltende Feuchtigkeit"
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Hilft, überschüssiges Öl zu kontrollieren. Hält überschüssigen Glanz den ganzen Tag in Schach und hilft, verstopfte Poren zu befreien. Antioxidantien absorbieren in die Haut, um freie Radikale zu bekämpfen und frühe..."
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "Water Aqua Eau, Homosalate, Octocrylene, Ethylhexyl Salicylate, Glycerin, Phenyl Trimethicone, Butyl Methoxydibenzoylmethane, Silica, Dextrin Palmitate, Butyloctyl Salicylate, Butylene Glycol, Triacontanyl Pvp, H..."
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Täglich als letzten Schritt Deiner Morgen-Hautpflegeroutine und vor dem Make-up auftragen. Alle 2 Stunden erneut auftragen. Zum Entfernen empfehlen wir Take The Day Off™ Cleansing Balm."
+        },
+        "claims_certifications": {
+          "status": "present",
+          "value": "Von Dermatolog:innen entwickelt, Dermatologisch getestet, Augenärztlich getestet, Geeignet für empfindliche Haut, Auf Allergene getestet, Parfumfrei, Nicht komedogen, Ölfrei"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "Volume: 40 ml, Darreichung: Creme, SPF 50, Für empfindliche Haut geeignet, Geeignet für Kontaktlinsenträger:innen"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList, Product, SearchAction, ContactPoint, EntryPoint, ListItem"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "0"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    },
+    {
+      "url": "https://www.shop-apotheke.com/beauty/20344204/heliocare-360-advanced-gel-spf-50.htm",
+      "segment": "cosmetics",
+      "segment_label": "Cosmetics",
+      "fields": {
+        "title": {
+          "status": "present",
+          "value": "HELIOCARE 360° Advanced Gel SPF 50"
+        },
+        "brand": {
+          "status": "present",
+          "value": "Heliocare"
+        },
+        "ean_sku": {
+          "status": "present",
+          "value": "PZN: 20344204 / EAN: 8470001592453"
+        },
+        "short_description": {
+          "status": "present",
+          "value": "Sonnenschutzgel mit hoher Schutzwirkung für alle Hauttypen"
+        },
+        "long_description": {
+          "status": "present",
+          "value": "Das HELIOCARE 360° Advanced Gel SPF 50 bietet einen umfassenden Schutz vor UVB-, UVA-, Infrarot-A-Strahlen sowie blauem Licht. Dank der exklusiven ASPA-FERNBLOCK® Technologie, einer patentierten pflanzlichen Innov..."
+        },
+        "ingredient_list": {
+          "status": "present",
+          "value": "Aqua; Dibutyl Adipate; Ethylhexyl Salicylate; Butyl Methoxydibenzoylmethane; Phenylbenzimidazole Sulfonic Acid; Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer; Arginine; Phenethyl Benzoate; Bis-E..."
+        },
+        "dosage_usage": {
+          "status": "present",
+          "value": "Großzügig und gleichmäßig ca. 30 Minuten vor der ersten Sonnenexposition auftragen. Häufig erneut auftragen, insbesondere nach längerem Schwimmen oder starkem Schwitzen."
+        },
+        "claims_certifications": {
+          "status": "partial",
+          "value": "Wasser- und sandresistent, Wet Skin Technology"
+        },
+        "product_attributes": {
+          "status": "present",
+          "value": "250 ml, Creme/Gel, SPF 50, für alle Hauttypen geeignet, schnell einziehend"
+        },
+        "schema_org_types": {
+          "status": "present",
+          "value": "WebSite, Organization, BreadcrumbList, Product"
+        },
+        "qa_section": {
+          "status": "missing",
+          "value": null
+        },
+        "review_count": {
+          "status": "present",
+          "value": "0"
+        },
+        "synonyms_related_terms": {
+          "status": "missing",
+          "value": null
+        }
+      }
+    }
+  ]
+}

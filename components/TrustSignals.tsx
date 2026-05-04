@@ -10,6 +10,14 @@ function signalColor(weight: number): string {
   return '#737373'
 }
 
+function signalMeaning(weight: number): string {
+  if (weight >= 0.9) return 'Critical'
+  if (weight >= 0.75) return 'Very important'
+  if (weight >= 0.6) return 'Important'
+  if (weight >= 0.4) return 'Helpful'
+  return 'Low importance'
+}
+
 export default function TrustSignals({ signals }: TrustSignalsProps) {
   const sorted = [...signals].sort((a, b) => b.weight - a.weight)
 
@@ -18,10 +26,10 @@ export default function TrustSignals({ signals }: TrustSignalsProps) {
       {sorted.map((s) => (
         <div key={s.signal} className="flex items-center gap-3">
           <span
-            className="text-[12px] font-black w-9 shrink-0 text-right"
+            className="text-[12px] font-black w-40 shrink-0 text-right"
             style={{ color: signalColor(s.weight) }}
           >
-            {s.weight.toFixed(2)}
+            {s.weight.toFixed(2)} ({signalMeaning(s.weight)})
           </span>
           <div className="flex-1 h-[4px] rounded-sm" style={{ background: '#f0f0f0' }}>
             <div

@@ -9,7 +9,7 @@ interface PersonaSectionProps {
   alt?: boolean
 }
 
-const DICEBEAR_BASE = 'https://api.dicebear.com/9.x/micah/svg'
+const DICEBEAR_BASE = 'https://api.dicebear.com/9.x/personas/svg'
 
 function avatarUrl(seed: string, bg: string): string {
   return `${DICEBEAR_BASE}?seed=${encodeURIComponent(seed)}&backgroundColor=${bg}`
@@ -21,7 +21,17 @@ function queryTagStyle(type: 'entry' | 'reformulation' | 'friction'): CSSPropert
   return { borderColor: '#e5e5e5', color: '#0a0a0a' }
 }
 
+function thoughtChain(voice: string): string[] {
+  return voice
+    .split(/[.!?]+/)
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .slice(0, 6)
+}
+
 export default function PersonaSection({ persona, alt = false }: PersonaSectionProps) {
+  const thoughts = thoughtChain(persona.voice)
+
   return (
     <section
       className="px-20 py-20"
@@ -50,16 +60,24 @@ export default function PersonaSection({ persona, alt = false }: PersonaSectionP
 
           {/* 2. German subtitle */}
           <p
-            className="italic mb-3"
-            style={{ fontSize: '14px', color: '#737373' }}
+            className="mb-4 inline-block"
+            style={{
+              fontSize: '15px',
+              fontWeight: 700,
+              letterSpacing: '0.2px',
+              color: '#991b1b',
+              background: '#fff1f2',
+              border: '1px solid #fecdd3',
+              padding: '6px 10px',
+            }}
           >
-            {persona.personaTypeDE}
+            {persona.personaType}
           </p>
 
           {/* 3. Meta strip */}
           <div
-            className="flex gap-4 pb-4 mb-10"
-            style={{ borderBottom: '1px solid #e5e5e5' }}
+            className="flex flex-wrap gap-2.5 pb-5 mb-10"
+            style={{ borderBottom: '1px solid #d4d4d4' }}
           >
             {[
               ['Age', persona.age],
@@ -69,16 +87,24 @@ export default function PersonaSection({ persona, alt = false }: PersonaSectionP
               ['Scroll depth', `${persona.scrollThreshold} results`],
               ['Reformulations', `${persona.reformulationTolerance} max`],
             ].map(([label, value]) => (
-              <div key={label}>
+              <div
+                key={label}
+                style={{
+                  background: '#ffffff',
+                  border: '1px solid #d4d4d4',
+                  padding: '7px 10px',
+                  minWidth: '120px',
+                }}
+              >
                 <span
                   className="font-bold uppercase"
-                  style={{ fontSize: '11px', letterSpacing: '1px', color: '#737373' }}
+                  style={{ fontSize: '10px', letterSpacing: '1.2px', color: '#525252', display: 'block' }}
                 >
-                  {label}{' '}
+                  {label}
                 </span>
                 <span
                   className="font-bold"
-                  style={{ fontSize: '11px', color: '#0a0a0a' }}
+                  style={{ fontSize: '13px', color: '#0a0a0a', lineHeight: 1.2 }}
                 >
                   {value}
                 </span>
@@ -103,23 +129,67 @@ export default function PersonaSection({ persona, alt = false }: PersonaSectionP
         />
       </div>
 
-      {/* 4. Voice quote */}
+      {/* 4. Inner monologue thought chain */}
       <div
-        className="mb-12 py-5 px-7"
-        style={{ borderLeft: '4px solid #E2001A' }}
+        className="mb-12 p-6"
+        style={{ border: '1px solid #fecaca', background: '#fff7f7' }}
       >
         <p
-          className="font-bold uppercase mb-2.5"
+          className="font-bold uppercase mb-4"
           style={{ fontSize: '10px', letterSpacing: '2px', color: '#E2001A' }}
         >
-          IN THEIR OWN WORDS
+          Inner Monologue - Thought Chain
         </p>
-        <p
-          className="italic font-normal leading-relaxed"
-          style={{ fontSize: '20px', color: '#0a0a0a' }}
-        >
-          &ldquo;{persona.voice}&rdquo;
-        </p>
+        <div className="flex flex-wrap items-stretch gap-2.5">
+          {thoughts.map((thought, idx) => (
+            <div key={`${persona.id}-thought-${idx}`} className="flex items-center gap-2.5">
+              <article
+                className="p-3"
+                style={{
+                  background: '#ffffff',
+                  border: '1px solid #e5e5e5',
+                  maxWidth: '330px',
+                  minHeight: '78px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <p
+                  className="font-black uppercase mb-2"
+                  style={{ fontSize: '10px', letterSpacing: '1px', color: '#E2001A' }}
+                >
+                  Thought {idx + 1}
+                </p>
+                <p style={{ fontSize: '13px', color: '#0a0a0a', lineHeight: '1.55' }}>
+                  {thought}
+                </p>
+              </article>
+              {idx < thoughts.length - 1 && (
+                <span
+                  aria-hidden="true"
+                  style={{ fontSize: '12px', fontWeight: 900, color: '#a3a3a3', letterSpacing: '0.5px' }}
+                >
+                  -&gt;
+                </span>
+              )}
+            </div>
+          ))}
+        </div>
+        <div className="mt-5 p-4" style={{ border: '1px solid #f3d5d8', background: '#ffffff' }}>
+          <p
+            className="font-bold uppercase mb-2"
+            style={{ fontSize: '10px', letterSpacing: '1.2px', color: '#991b1b' }}
+          >
+            Their Full Story
+          </p>
+          <p
+            className="italic font-normal leading-relaxed"
+            style={{ fontSize: '17px', color: '#0a0a0a' }}
+          >
+            &ldquo;{persona.voice}&rdquo;
+          </p>
+        </div>
       </div>
 
       {/* 5. Two-column: state bars + triggers */}
@@ -213,6 +283,14 @@ export default function PersonaSection({ persona, alt = false }: PersonaSectionP
           }}
         >
           Search Vocabulary
+        </p>
+        <p
+          className="mb-4"
+          style={{ fontSize: '12px', color: '#525252', lineHeight: 1.6, maxWidth: '900px' }}
+        >
+          These are representative examples only. For each persona, the simulator can generate
+          thousands of realistic query variations using the same behavioral intent, language
+          structure, and reformulation patterns.
         </p>
         <div className="space-y-5">
           {persona.queryVocabulary.map((group) => (
@@ -329,26 +407,51 @@ export default function PersonaSection({ persona, alt = false }: PersonaSectionP
       >
         Post-Session Behavior
       </p>
-      <div
-        className="grid grid-cols-3 mb-12"
-        style={{ gap: '1px', background: '#e5e5e5', border: '1px solid #e5e5e5' }}
-      >
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
         {[
-          { label: '✓ Success', key: 'success', color: '#16a34a' },
-          { label: '~ Partial', key: 'partial', color: '#d97706' },
-          { label: '✕ Failure', key: 'failure', color: '#E2001A' },
-        ].map(({ label, key, color }) => (
-          <div key={key} className="p-5" style={{ background: '#ffffff' }}>
+          {
+            label: 'If Search Works Well',
+            key: 'success',
+            color: '#15803d',
+            bg: '#f0fdf4',
+            border: '#bbf7d0',
+          },
+          {
+            label: 'If Search Is Only Partly Helpful',
+            key: 'partial',
+            color: '#b45309',
+            bg: '#fffbeb',
+            border: '#fde68a',
+          },
+          {
+            label: 'If Search Fails',
+            key: 'failure',
+            color: '#b91c1c',
+            bg: '#fef2f2',
+            border: '#fecaca',
+          },
+        ].map(({ label, key, color, bg, border }) => (
+          <article
+            key={key}
+            className="p-5"
+            style={{ background: bg, border: `1px solid ${border}` }}
+          >
             <p
-              className="font-bold uppercase mb-2.5"
-              style={{ fontSize: '10px', letterSpacing: '2px', color }}
+              className="font-bold uppercase mb-2"
+              style={{ fontSize: '11px', letterSpacing: '1.4px', color }}
             >
               {label}
             </p>
-            <p style={{ fontSize: '12px', color: '#525252', lineHeight: '1.5' }}>
+            <p
+              className="font-black uppercase mb-3"
+              style={{ fontSize: '10px', letterSpacing: '1.2px', color: '#525252' }}
+            >
+              Typical Reaction
+            </p>
+            <p style={{ fontSize: '13px', color: '#0a0a0a', lineHeight: '1.65' }}>
               {persona.postSessionBehavior[key as keyof typeof persona.postSessionBehavior]}
             </p>
-          </div>
+          </article>
         ))}
       </div>
 
@@ -364,15 +467,28 @@ export default function PersonaSection({ persona, alt = false }: PersonaSectionP
       >
         Documented Failure Modes
       </p>
-      <div className="space-y-2.5">
-        {persona.failureModes.map((fm) => (
-          <div
+      <p
+        className="mb-4"
+        style={{ fontSize: '12px', color: '#525252', lineHeight: 1.6, maxWidth: '900px' }}
+      >
+        These are recurring ways search can break this persona&apos;s journey and increase the
+        risk of abandonment, mistrust, or basket loss.
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        {persona.failureModes.map((fm, idx) => (
+          <article
             key={fm}
-            className="flex gap-2.5 p-3"
-            style={{ borderLeft: '2px solid #E2001A', background: '#fff5f5' }}
+            className="p-4"
+            style={{ border: '1px solid #fecaca', background: '#fef2f2' }}
           >
-            <p style={{ fontSize: '12px', color: '#0a0a0a', lineHeight: '1.4' }}>{fm}</p>
-          </div>
+            <p
+              className="font-bold uppercase mb-2"
+              style={{ fontSize: '10px', letterSpacing: '1.2px', color: '#b91c1c' }}
+            >
+              Failure Risk {idx + 1}
+            </p>
+            <p style={{ fontSize: '13px', color: '#0a0a0a', lineHeight: '1.6' }}>{fm}</p>
+          </article>
         ))}
       </div>
     </section>

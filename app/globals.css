@@ -17,3 +17,8 @@ body {
   color: #0a0a0a;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
+
+.uc-index-row:hover {
+  border-color: #E2001A !important;
+  background: #fff5f5 !important;
+}

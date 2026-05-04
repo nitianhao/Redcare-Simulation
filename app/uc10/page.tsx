@@ -1,26 +1,13 @@
+'use client'
+
+import { useState } from 'react'
+import SharedNav from '@/components/SharedNav'
+import type { ReactNode } from 'react'
 import Link from 'next/link'
 import Footer from '@/components/Footer'
 
 // ── Nav ───────────────────────────────────────────────────────────────────────
 
-function Nav() {
-  return (
-    <nav style={{ borderBottom: '1px solid #e5e5e5', background: '#ffffff', padding: '12px 80px', display: 'flex', gap: '32px', alignItems: 'center' }}>
-      <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '2px', color: '#E2001A' }}>
-        REDCARE × SEARCH SIMULATION LAB
-      </span>
-      <span style={{ color: '#e5e5e5' }}>|</span>
-      <Link href="/" style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '1.5px', color: '#737373', textDecoration: 'none', textTransform: 'uppercase' }}>Personas</Link>
-      <Link href="/user-experience" style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '1.5px', color: '#737373', textDecoration: 'none', textTransform: 'uppercase' }}>Web UX</Link>
-      <Link href="/user-experience-mobile" style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '1.5px', color: '#737373', textDecoration: 'none', textTransform: 'uppercase' }}>Mobile UX</Link>
-      <Link href="/report" style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '1.5px', color: '#737373', textDecoration: 'none', textTransform: 'uppercase' }}>Audit Report</Link>
-      <Link href="/sponsored-impact" style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '1.5px', color: '#737373', textDecoration: 'none', textTransform: 'uppercase' }}>Sponsored Impact</Link>
-      <Link href="/use-cases" style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '1.5px', color: '#737373', textDecoration: 'none', textTransform: 'uppercase' }}>Simulations</Link>
-      <Link href="/uc10" style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '1.5px', color: '#0a0a0a', textDecoration: 'none', textTransform: 'uppercase', borderBottom: '2px solid #E2001A', paddingBottom: '2px' }}>UC10</Link>
-      <Link href="/uc14" style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '1.5px', color: '#737373', textDecoration: 'none', textTransform: 'uppercase' }}>UC14</Link>
-    </nav>
-  )
-}
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 
@@ -44,13 +31,28 @@ const ROUND_LABELS: Record<string, string> = {
 const RUNS = [
   {
     id: 'run1',
-    badge: 'UC08 · KOPFSCHMERZEN',
+    badge: 'Sponsored Relevance Audit · KOPFSCHMERZEN',
     finding: "Sponsored slot on 'Kopfschmerzen' — broken creative + wrong category",
     context: 'The sponsored position 1 on a top-20 OTC headache query shows a Sanitätshaus (medical equipment) product. The ad creative renders with only "Variante auswählen" visible — no product name, no image. All 4 organic results are on-intent OTC pain products. The broken slot displaces togal Kopfschmerz Brause from position 3 to 4. Analytics: normal session, healthy spend recorded.',
     evidenceType: 'Revenue estimate: ~€1,200–1,800/month in suppressed conversion on this query.',
     outcomeColor: '#d97706',
     outcomeLabel: 'PARTIAL FIX — AUDIT COMMITTED',
     outcomeDetail: 'Campaign kill ordered. One-time audit committed for Friday. No permanent owner for sponsored placement quality established.',
+    keyMoments: [
+      {
+        agentKey: 'support_lead',
+        roundLabel: 'Round 2 — The timestamp',
+        text: 'Eleven tickets in the last two weeks specifically mentioning that the top search result "looks wrong" or "doesn\'t load properly" for headache searches. The earliest one I have is April 9th.',
+        annotation: 'Three weeks of evidence already in the queue. The date created timeline accountability no revenue figure could.',
+      },
+      {
+        agentKey: 'ceo',
+        roundLabel: 'Round 2 — The escalation',
+        text: "April 9th. It's April 30th. That's three weeks of a broken sponsored slot on our highest-intent headache query and nobody escalated it until someone ran a simulation.",
+        annotation: 'This reframe — not the revenue estimate — forced same-day action on the campaign kill.',
+      },
+    ],
+    synthesis: `## THE BLOCKING PATTERN\n\nNo genuine blocking coalition formed — this was *diffusion by accountability vacuum*. Product Manager, Engineer, and Merchandiser each established defensive perimeters around swim lanes ("that's ad ops," "that's not search platform," "supplier-managed campaigns") without refusing action. Vendor Rep consistently reframed as "campaign setup issue" + "working as designed," positioning the platform as neutral infrastructure. The blocking wasn't coordinated resistance; it was structural ambiguity about which system owned sponsored placement hygiene. Head of Ecom broke the stalemate not through evidence but through executive override, converting a scoping debate into a resource allocation decision.\n\n## WHAT ACTUALLY MOVED\n\nTwo pieces of evidence had asymmetric impact:\n\n1. **Support Lead's "eleven tickets in two weeks" + April 9th timestamp** moved CEO immediately — this converted abstract "trust cost" into concrete timeline exposure with competitive comparison framing.\n\n2. **€1,800/month revenue estimate** *failed* to move anyone on magnitude but succeeded as a decision threshold — it was simultaneously "noise" (Head of Ecom) and "material enough to act" (CEO). The number's function was political clearance, not business case justification.\n\n## WHAT WAS LEFT ON THE TABLE\n\n1. **Root cause diagnosis**: Was this rendering bug, feed malformation, or auction logic failure? Never established. "Kill the campaign" conflated symptom treatment with system fix.\n\n2. **Systemic scale**: "Full audit" tasked to Merchandiser for Friday, but no commitment to *pause* if pattern discovered across 20+ queries — leaving potential two-week exposure window.\n\n3. **Accountability ownership**: No permanent owner for ongoing sponsored placement quality control post-fix.\n\n## THE PLAYBOOK\n\n**For Head of Ecom:** Lead with auction performance data, not revenue loss. Frame as: "This placement has 0.3% CTR vs. 4.2% category baseline — we're paying €600/month for a slot that suppresses our own organic 14x conversion rate." Translate trust cost into media efficiency problem.\n\n**For Product Manager:** Present as already-scoped infrastructure debt. Frame as: "DocMorris ships category-aware placement rules as table stakes — this is parity infrastructure, not feature development. Eight-day implementation, maps to existing taxonomy service."\n\n**For CEO:** Pre-brief CEO + Head of Ecom together with competitor screenshot and 30-day complaint trend before the full meeting.`,
     rounds: {
       r1: {
         head_ecom: `Wait—how much are we spending on this placement? And what's the CTR on that broken sponsored slot versus the organic results below it?\n\nIf the CTR is garbage, the algorithm should have killed it already. If it's *not* garbage and people are somehow still clicking a broken ad for the wrong category on our highest-intent headache query, then we've got a way bigger problem than one busted creative.\n\nGet me: daily spend on "Kopfschmerzen" sponsored, CTR comparison, and conversion rate for that Sanitätshaus product from this query. I need to know if this is costing us money or making us money before I escalate anything.`,
@@ -89,17 +91,31 @@ const RUNS = [
         ceo: `Good. Campaign suspended, spec Wednesday, audit Friday. I want a status update in my Monday standup.\n\nThe monitoring gap question is not closed. Someone needs to own the answer to: "how do we detect this automatically next time?" That answer goes in the Monday update. If it's not answered, I'll escalate it myself.`,
       },
     },
-    synthesis: `## THE BLOCKING PATTERN\n\nNo genuine blocking coalition formed — this was *diffusion by accountability vacuum*. Product Manager, Engineer, and Merchandiser each established defensive perimeters around swim lanes ("that's ad ops," "that's not search platform," "supplier-managed campaigns") without refusing action. Vendor Rep consistently reframed as "campaign setup issue" + "working as designed," positioning the platform as neutral infrastructure. The blocking wasn't coordinated resistance; it was structural ambiguity about which system owned sponsored placement hygiene. Head of Ecom broke the stalemate not through evidence but through executive override, converting a scoping debate into a resource allocation decision.\n\n## WHAT ACTUALLY MOVED\n\nTwo pieces of evidence had asymmetric impact:\n\n1. **Support Lead's "eleven tickets in two weeks" + April 9th timestamp** moved CEO immediately — this converted abstract "trust cost" into concrete timeline exposure with competitive comparison framing.\n\n2. **€1,800/month revenue estimate** *failed* to move anyone on magnitude but succeeded as a decision threshold — it was simultaneously "noise" (Head of Ecom) and "material enough to act" (CEO). The number's function was political clearance, not business case justification.\n\n## WHAT WAS LEFT ON THE TABLE\n\n1. **Root cause diagnosis**: Was this rendering bug, feed malformation, or auction logic failure? Never established. "Kill the campaign" conflated symptom treatment with system fix.\n\n2. **Systemic scale**: "Full audit" tasked to Merchandiser for Friday, but no commitment to *pause* if pattern discovered across 20+ queries — leaving potential two-week exposure window.\n\n3. **Accountability ownership**: No permanent owner for ongoing sponsored placement quality control post-fix.\n\n## THE PLAYBOOK\n\n**For Head of Ecom:** Lead with auction performance data, not revenue loss. Frame as: "This placement has 0.3% CTR vs. 4.2% category baseline — we're paying €600/month for a slot that suppresses our own organic 14x conversion rate." Translate trust cost into media efficiency problem.\n\n**For Product Manager:** Present as already-scoped infrastructure debt. Frame as: "DocMorris ships category-aware placement rules as table stakes — this is parity infrastructure, not feature development. Eight-day implementation, maps to existing taxonomy service."\n\n**For CEO:** Pre-brief CEO + Head of Ecom together with competitor screenshot and 30-day complaint trend before the full meeting.`,
   },
   {
     id: 'run2',
-    badge: 'UC13 · MODAFINIL',
+    badge: 'Synthetic Query Generation · MODAFINIL',
     finding: "'Schlaf verbessern ohne Tabletten' returns Modafinil 200mg as top result",
     context: '55 results returned — analytics sees a healthy result set, no zero-result alert fires. Position 1: Modafinil 200mg — €487 — a prescription stimulant for narcolepsy. The query explicitly says "ohne Tabletten" (without tablets). Modafinil is a tablet and a BtMG-scheduled controlled substance. The platform stocks exactly what the user wants (Melatonin spray, Baldrian drops, Lasea lavender oil) — none appear in top 5.',
     evidenceType: 'Patient safety: Modafinil is Schedule IV under BtMG (German Narcotics Act). Regulatory optics risk.',
     outcomeColor: '#16a34a',
     outcomeLabel: 'FASTEST RESOLUTION — SAME-DAY ACTION',
     outcomeDetail: 'BtMG classification was the kill shot. Every stakeholder pivoted to same-day action the moment regulatory language appeared. Root cause — commercial boosts overriding intent signals — left unexamined.',
+    keyMoments: [
+      {
+        agentKey: 'engineer',
+        roundLabel: 'Round 2 — Root cause isolated',
+        text: 'I pulled the explain output. Modafinil is ranking position one because: (1) it has "Schlaf" as a tagged keyword in the product feed — someone definitely tagged it wrong, (2) it has a high relevance boost from purchase history data, and (3) our current implementation does not process "ohne" as a negation operator — it\'s treated as a stop word. Three separate issues. The fastest fix is removing the "Schlaf" tag from Modafinil\'s product feed. That\'s a catalogue change, not a code change. Twenty minutes.',
+        annotation: 'Exact diagnosis in-meeting — three root causes isolated — enabled same-day resolution without waiting for a sprint.',
+      },
+      {
+        agentKey: 'ceo',
+        roundLabel: 'Round 3 — The kill shot',
+        text: 'My office in 20 minutes — Stefan, Marcus, and our legal counsel. Anja — do the catalogue fix now. Tobias — the negation handling spec waits for legal. Pierre — I want your data science team\'s written position on controlled substance handling in the recommendation model by Thursday morning.',
+        annotation: 'BtMG Schedule IV framing ended the scoping debate. Regulatory exposure moved faster than any revenue analysis.',
+      },
+    ],
+    synthesis: `## THE BLOCKING PATTERN\n\nNo meaningful blocking coalition formed — unusual for findings of this severity. Merchandiser initially attempted defensive positioning around supplier agreements, and Vendor Rep consistently deflected to "configuration, not platform" framing, but neither held their ground past Round 3. Product Manager briefly delayed with "sprint 47" language but collapsed into compliance mode once BtMG classification was introduced.\n\nThe near-block came from Head of Ecommerce, who consistently demanded CTR/conversion proof before acting — but even this dissolved when regulatory language entered. What appeared to be rigorous data discipline was actually a filtering mechanism that would have buried the issue indefinitely had "patient safety" framing not forced escalation.\n\n## WHAT ACTUALLY MOVED\n\nThree evidence layers worked sequentially:\n\n1. "€487 prescription stimulant" + "ohne Tabletten" — created initial dissonance but not urgency. Seen as UX embarrassment.\n2. Support Lead's "twelve tickets over three months" — legitimized the finding as pattern, not anomaly.\n3. "BtMG-scheduled controlled substance" — this was the kill shot. Every stakeholder pivoted to same-day action.\n\nRegulatory exposure moved faster than revenue analysis. Data (CTR, conversion, search volume) was never provided and never mattered.\n\n## WHAT WAS LEFT ON THE TABLE\n\nSystemic diagnostic entirely absent. No one asked: how did Modafinil get tagged in the sleep category? What other BtMG substances are mis-ranked? Why didn't existing QA processes catch this? The Support Lead's plea for monitoring dashboard access was acknowledged but not actioned until the CEO intervened in Round 4.\n\n## THE PLAYBOOK\n\n**For Head of Ecom:** Lead with competitive revenue loss: "DocMorris captures 34% of 'natural sleep aid' search traffic. We're hemorrhaging high-margin OTC category revenue to a problem we can measure in session abandonment data."\n\n**For Product Manager:** Frame as technical debt: "This isn't one query — it's a negation-handling failure affecting 18% of wellness search volume. Every sprint we delay, we're building new features on top of broken intent logic."\n\n**For CEO:** Present as brand positioning risk: "Customers searching sleep solutions are our highest-LTV segment. Serving them Rx stimulants isn't a compliance edge case — it's eroding the 'trusted health partner' positioning we're spending €2M/year to build."`,
     rounds: {
       r1: {
         head_ecom: `Fifty-five results and Modafinil at position one. That's not a zero-result problem, it's a ranking problem — the kind that's invisible in our dashboards because everything looks "healthy."\n\nFirst question: is this reproducible? If I search right now, does Modafinil still show up? Because if this is a live issue on a query about sleep wellness, I need to know the volume on that query and whether we have conversion data for Modafinil purchases from that session path. Something doesn't add up.`,
@@ -138,17 +154,31 @@ const RUNS = [
         ceo: `Good outcome, fast resolution once we had the right framing. The thing I'm taking away from this is that "eleven tickets in three months" didn't escalate this — a simulation did. That's the gap I want closed.\n\nMarcus — you have dashboard access by end of week, I'll make sure of it. Stefan — the controlled substance search policy goes into the board update next month as a proactive governance action. Pierre — the quarterly audit is a good idea; put it in the contract renewal terms.\n\nThis gets presented as a proactive catch in the next all-hands, not as an incident we fixed. We found it, we fixed it same day. That's the narrative.`,
       },
     },
-    synthesis: `## THE BLOCKING PATTERN\n\nNo meaningful blocking coalition formed — unusual for findings of this severity. Merchandiser initially attempted defensive positioning around supplier agreements, and Vendor Rep consistently deflected to "configuration, not platform" framing, but neither held their ground past Round 3. Product Manager briefly delayed with "sprint 47" language but collapsed into compliance mode once BtMG classification was introduced.\n\nThe near-block came from Head of Ecommerce, who consistently demanded CTR/conversion proof before acting — but even this dissolved when regulatory language entered. What appeared to be rigorous data discipline was actually a filtering mechanism that would have buried the issue indefinitely had "patient safety" framing not forced escalation.\n\n## WHAT ACTUALLY MOVED\n\nThree evidence layers worked sequentially:\n\n1. "€487 prescription stimulant" + "ohne Tabletten" — created initial dissonance but not urgency. Seen as UX embarrassment.\n2. Support Lead's "twelve tickets over three months" — legitimized the finding as pattern, not anomaly.\n3. "BtMG-scheduled controlled substance" — this was the kill shot. Every stakeholder pivoted to same-day action.\n\nRegulatory exposure moved faster than revenue analysis. Data (CTR, conversion, search volume) was never provided and never mattered.\n\n## WHAT WAS LEFT ON THE TABLE\n\nSystemic diagnostic entirely absent. No one asked: how did Modafinil get tagged in the sleep category? What other BtMG substances are mis-ranked? Why didn't existing QA processes catch this? The Support Lead's plea for monitoring dashboard access was acknowledged but not actioned until the CEO intervened in Round 4.\n\n## THE PLAYBOOK\n\n**For Head of Ecom:** Lead with competitive revenue loss: "DocMorris captures 34% of 'natural sleep aid' search traffic. We're hemorrhaging high-margin OTC category revenue to a problem we can measure in session abandonment data."\n\n**For Product Manager:** Frame as technical debt: "This isn't one query — it's a negation-handling failure affecting 18% of wellness search volume. Every sprint we delay, we're building new features on top of broken intent logic."\n\n**For CEO:** Present as brand positioning risk: "Customers searching sleep solutions are our highest-LTV segment. Serving them Rx stimulants isn't a compliance edge case — it's eroding the 'trusted health partner' positioning we're spending €2M/year to build."`,
   },
   {
     id: 'run3',
-    badge: 'UC08 · VITAMIN C',
+    badge: 'Sponsored Relevance Audit · VITAMIN C',
     finding: "Own-brand dominance: Redcare controls 3 of 5 visible positions on 'Vitamin C'",
     context: "Position 1 (sponsored): WEPA Vitamin C+Zink — Redcare own-brand. Positions 3 + 4 (organic): Redcare own-brand. Positions 2 + 5: third-party brands (Solgar, True Nature). The platform controls 3 of 5 positions on a top-5 supplement query via both paid and organic levers simultaneously. Third-party brands paying for co-marketing agreements are being systematically outranked by the platform's own products.",
     evidenceType: 'Regulatory: EU Digital Markets Act Article 6(5). Supplier relations risk if discovered by co-marketing partners.',
     outcomeColor: '#E2001A',
     outcomeLabel: 'NO MOVEMENT — DECISION DEFERRED',
     outcomeDetail: 'Most resistant run. Blocking coalition (Head of Ecom + Merchandiser) converted a strategic question into procedural prerequisites. CEO 48-hour Legal deadline created appearance of urgency while deferring the decision.',
+    keyMoments: [
+      {
+        agentKey: 'head_ecom',
+        roundLabel: 'Round 2 — The primary block',
+        text: 'On DMA: we are not a designated gatekeeper under the Digital Markets Act. The gatekeeper thresholds are €7.5B annual turnover or 45M monthly active users in the EU. We don\'t meet either. So quoting Article 6(5) as a current compliance risk is technically incorrect.',
+        annotation: 'The coalition\'s core move: convert a strategic question (should we dominate these queries?) into a legal prerequisite no one in the room can resolve. Technically accurate — tactically deployed to defer.',
+      },
+      {
+        agentKey: 'ceo',
+        roundLabel: 'Round 4 — The deferral',
+        text: "The two things that aren't resolved: (1) the current Vitamin C ranking stays as-is until Legal responds — I'm not making reactive changes to a commercial decision based on a simulation finding alone, and (2) we don't have a written own-brand search policy and we need one regardless of what Legal says.",
+        annotation: 'Final position. CEO declined to override the blocking coalition without legal cover. The policy gap was named but ownership was not assigned.',
+      },
+    ],
+    synthesis: `## THE BLOCKING PATTERN\n\nHead of Ecommerce established the primary defensive coalition by demanding quantified revenue impact before any change, requiring others to prove financial harm rather than defend current practice. Merchandiser reinforced this with contractual lock-in ("€40K Q2 boost agreement already signed"), reframing the issue from strategic choice to sunk cost. Product Manager and Engineer formed a secondary blocker by insisting on "written specs" and "legal determination first" — procedurally valid but tactically deployed to defer action indefinitely.\n\nThe coalition's core move: convert a strategic question (should we dominate high-volume queries with own-brand?) into a series of prerequisite questions (are we legally required not to?), each with a different owner, none resolved in-room.\n\n## WHAT ACTUALLY MOVED\n\nNothing moved substantively. The CEO's 48-hour Legal deadline created the appearance of urgency but actually deferred the decision beyond the meeting. The DMA regulatory evidence was successfully reframed by the blocking coalition as "hypothetical" until Legal confirms gatekeeper status. Support Lead's pattern evidence (15+ tickets, customer churn) was neutralized by Head of Ecommerce demanding denominators, converting qualitative signal into a statistical rounding error.\n\n## WHAT WAS LEFT ON THE TABLE\n\n1. The competitor intelligence question never got answered. CEO asked twice what DocMorris shows for "Vitamin C" — never addressed.\n2. No discussion of supplier margin structure. If third-party brands pay for co-marketing, what's the economics of ranking own-brand above them?\n3. Brand perception cost unquantified. Support Lead flagged customers comparing platforms. No one calculated churn risk or lifetime value impact.\n4. No scenario planning. What happens if Bundeskartellamt investigates, even without gatekeeper designation?\n\n## THE PLAYBOOK\n\n**For CEO:** Deliver a side-by-side visual: Redcare vs. DocMorris vs. Amazon Pharmacy "Vitamin C" results, with own-brand % annotated. Add one sentence: "If a journalist runs this comparison, what's our quote?" Competitive paranoia moves CEOs faster than compliance theory.\n\n**For Head of Ecommerce:** Frame as margin variance analysis: "Queries where we hold 3+ of 5 spots convert own-brand at X margin but third-party at Y margin. However, third-party brands also buy sponsored placements. Net margin per query when we dominate: €A. Net margin when we balance: €B. You're optimizing SKU-level margin but potentially eroding query-level yield."\n\n**For Merchandiser:** The unlock is the co-marketing contract risk — not regulatory, personal. "If a Solgar account manager runs a scraper on their category queries and finds this before we tell them, the renewal conversation changes entirely."`,
     rounds: {
       r1: {
         head_ecom: `Let me be direct: if we're showing three of our own products in the top five results for "Vitamin C" — one of them in a paid sponsored slot — and our analytics show that converts better than third-party products, then I'm not sure what the problem is you're asking me to solve.\n\nOur job is to run a profitable pharmacy, not to provide equal distribution for every supplier. If our own-brand Vitamin C products are genuinely better value for customers and they convert well, putting them in front of customers is the right thing to do. What specific harm are you trying to demonstrate here?`,
@@ -187,21 +217,21 @@ const RUNS = [
         ceo: `Legal in 48 hours. Own-brand concentration report from analytics by end of week. Co-marketing contract language updated for all future agreements.\n\nThe two things that aren't resolved: (1) the current Vitamin C ranking stays as-is until Legal responds — I'm not making reactive changes to a commercial decision based on a simulation finding alone, and (2) we don't have a written own-brand search policy and we need one regardless of what Legal says.\n\nI want a draft policy on my desk next Friday. Stefan owns it. If we're going to have 60% own-brand in top-5 positions on high-volume supplement queries, that should be a policy choice, not an accident.`,
       },
     },
-    synthesis: `## THE BLOCKING PATTERN\n\nHead of Ecommerce established the primary defensive coalition by demanding quantified revenue impact before any change, requiring others to prove financial harm rather than defend current practice. Merchandiser reinforced this with contractual lock-in ("€40K Q2 boost agreement already signed"), reframing the issue from strategic choice to sunk cost. Product Manager and Engineer formed a secondary blocker by insisting on "written specs" and "legal determination first" — procedurally valid but tactically deployed to defer action indefinitely.\n\nThe coalition's core move: convert a strategic question (should we dominate high-volume queries with own-brand?) into a series of prerequisite questions (are we legally required not to?), each with a different owner, none resolved in-room.\n\n## WHAT ACTUALLY MOVED\n\nNothing moved substantively. The CEO's 48-hour Legal deadline created the appearance of urgency but actually deferred the decision beyond the meeting. The DMA regulatory evidence was successfully reframed by the blocking coalition as "hypothetical" until Legal confirms gatekeeper status. Support Lead's pattern evidence (47 tickets, customer screenshots) was neutralized by Head of Ecommerce demanding denominators, converting qualitative signal into a statistical rounding error.\n\n## WHAT WAS LEFT ON THE TABLE\n\n1. The competitor intelligence question never got answered. CEO asked twice what DocMorris shows for "Vitamin C" — never addressed.\n2. No discussion of supplier margin structure. If third-party brands pay for co-marketing, what's the economics of ranking own-brand above them?\n3. Brand perception cost unquantified. Support Lead flagged customers noticing and comparing platforms. No one calculated churn risk or lifetime value impact.\n4. No scenario planning. What happens if Bundeskartellamt investigates, even without gatekeeper designation?\n\n## THE PLAYBOOK\n\n**For CEO:** Deliver a side-by-side visual: Redcare vs. DocMorris vs. Amazon Pharmacy "Vitamin C" results, with own-brand % annotated. Add one sentence: "If a journalist runs this comparison, what's our quote?" Competitive paranoia moves CEOs faster than compliance theory.\n\n**For Head of Ecommerce:** Frame as margin variance analysis: "Queries where we hold 3+ of 5 spots convert own-brand at X margin but third-party at Y margin. However, third-party brands also buy sponsored placements. Net margin per query when we dominate: €A. Net margin when we balance: €B. You're optimizing SKU-level margin but potentially eroding query-level yield."\n\n**For Merchandiser:** The unlock is the co-marketing contract risk — not regulatory, personal. "If a Solgar account manager runs a scraper on their category queries and finds this before we tell them, the renewal conversation changes entirely."`,
   },
 ]
 
-const CROSS_RUN = `## THE STRUCTURAL PATTERN
+const CROSS_RUN = `## THE STRUCTURAL PATTERN\n\nThe organisation's immune system operates through **accountability diffusion masquerading as procedural rigor**. In all three meetings, the blocking coalition demands pre-evidence for action (revenue quantification, legal determination, competitive benchmarking) while simultaneously ensuring that evidence-gathering has no owner, timeline, or decision threshold. The Head of Ecommerce serves as the consistency anchor — always requiring financial proof before moving, always successful in reframing strategic/reputational risk as "unmeasured." This isn't malicious obstruction; it's institutional design. Search quality issues get trapped in a verification loop where every stakeholder can deflect to an adjacent domain: Product wants Legal, Legal wants Business Case, Business Case wants Analytics, Analytics lacks query-level attribution. The system is optimised to protect existing configurations, not customer experience.\n\n## THE ONE LEVER\n\n**Head of Ecommerce is the fulcrum in all three runs.** When they demand data, the room stalls. When they concede (BtMG incident), action is immediate.\n\nWhat moves them is not revenue loss projections — those get dismissed as "noise" or "unquantified." Not customer complaints — those get denominated into irrelevance. What moves them is **competitive yield disadvantage with receipts**. The only time Head of Ecom shifted stance was when regulatory exposure threatened operational continuity (Modafinil), but even there, the underlying move was risk of being outcompeted by compliant rivals.\n\nFrame every search quality issue as: *"Here's what DocMorris shows for this query, here's their CTR, here's our abandonment rate, here's the margin we're leaving on the table."* Competitive paranoia + media efficiency loss — delivered as screenshot evidence, not hypothesis — is the unlock.`
 
-The organisation's immune system operates through **accountability diffusion masquerading as procedural rigor**. In all three meetings, the blocking coalition demands pre-evidence for action (revenue quantification, legal determination, competitive benchmarking) while simultaneously ensuring that evidence-gathering has no owner, timeline, or decision threshold. The Head of Ecommerce serves as the consistency anchor — always requiring financial proof before moving, always successful in reframing strategic/reputational risk as "unmeasured." This isn't malicious obstruction; it's institutional design. Search quality issues get trapped in a verification loop where every stakeholder can deflect to an adjacent domain: Product wants Legal, Legal wants Business Case, Business Case wants Analytics, Analytics lacks query-level attribution. The system is optimised to protect existing configurations, not customer experience.
+// ── Helpers ───────────────────────────────────────────────────────────────────
 
-## THE ONE LEVER
-
-**Head of Ecommerce is the fulcrum in all three runs.** When they demand data, the room stalls. When they concede (BtMG incident), action is immediate.
-
-What moves them is not revenue loss projections — those get dismissed as "noise" or "unquantified." Not customer complaints — those get denominated into irrelevance. What moves them is **competitive yield disadvantage with receipts**. The only time Head of Ecom shifted stance was when regulatory exposure threatened operational continuity (Modafinil), but even there, the underlying move was risk of being outcompeted by compliant rivals.
-
-Frame every search quality issue as: *"Here's what DocMorris shows for this query, here's their CTR, here's our abandonment rate, here's the margin we're leaving on the table."* Competitive paranoia + media efficiency loss — delivered as screenshot evidence, not hypothesis — is the unlock.`
+function renderInline(text: string): ReactNode[] {
+  const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g)
+  return parts.map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**')) return <strong key={i}>{part.slice(2, -2)}</strong>
+    if (part.startsWith('*') && part.endsWith('*')) return <em key={i}>{part.slice(1, -1)}</em>
+    return part
+  })
+}
 
 // ── Components ────────────────────────────────────────────────────────────────
 
@@ -236,7 +266,7 @@ function Quote({ agentKey, text }: { agentKey: string; text: string }) {
       <p style={{ fontSize: '14px', color: '#374151', lineHeight: 1.75, margin: 0 }}>
         {text.split('\n\n').map((para, i) => (
           <span key={i}>
-            {i > 0 && <br />}
+            {i > 0 && <><br /><br /></>}
             {para}
           </span>
         ))}
@@ -258,21 +288,61 @@ function RoundBlock({ roundKey, data }: { roundKey: string; data: Record<string,
   )
 }
 
-function SynthesisBlock({ text }: { text: string }) {
-  const sections = text.split('\n\n## ').map((s, i) => i === 0 ? s : '## ' + s)
+function KeyMomentCard({ agentKey, roundLabel, text, annotation }: {
+  agentKey: string; roundLabel: string; text: string; annotation: string
+}) {
   return (
-    <div style={{ background: '#0a0a0a', color: '#e5e5e5', padding: '32px 36px', marginTop: '32px' }}>
-      <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '2px', color: '#E2001A', textTransform: 'uppercase', marginBottom: '20px' }}>Consultant Debrief</div>
-      {sections.map((section, i) => {
-        const lines = section.split('\n')
-        const heading = lines[0].replace(/^##\s*/, '')
-        const body = lines.slice(1).join('\n').trim()
+    <div style={{ border: '1px solid #e5e5e5', background: '#ffffff', padding: '20px 24px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+        <AgentBadge agentKey={agentKey} />
+        <span style={{ fontSize: '10px', fontWeight: 600, letterSpacing: '1px', color: '#a3a3a3', textTransform: 'uppercase' }}>{roundLabel}</span>
+      </div>
+      <p style={{ fontSize: '14px', color: '#0a0a0a', lineHeight: 1.7, margin: '0 0 12px', fontStyle: 'italic' }}>
+        &ldquo;{text}&rdquo;
+      </p>
+      <p style={{ fontSize: '12px', color: '#737373', lineHeight: 1.6, margin: 0, borderLeft: '2px solid #E2001A', paddingLeft: '10px' }}>
+        {annotation}
+      </p>
+    </div>
+  )
+}
+
+function SynthesisBlock({ text }: { text: string }) {
+  const rawSections = text.split('\n\n## ').map((s, i) => i === 0 ? s.replace(/^## /, '') : s)
+  const sections = rawSections.map(s => {
+    const lines = s.split('\n')
+    const heading = lines[0].trim()
+    const body = lines.slice(1).join('\n').trim()
+    return { heading, body }
+  })
+
+  return (
+    <div style={{ background: '#0a0a0a', color: '#e5e5e5', padding: '32px 36px' }}>
+      <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '2px', color: '#E2001A', textTransform: 'uppercase', marginBottom: '24px' }}>Consultant Debrief</div>
+      {sections.map(({ heading, body }, i) => {
+        const isPlaybook = heading === 'THE PLAYBOOK'
         return (
           <div key={i} style={{ marginBottom: '24px' }}>
-            {heading.startsWith('##') === false && heading.length > 0 && (
-              <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '1.5px', color: '#E2001A', textTransform: 'uppercase', marginBottom: '8px' }}>{heading}</div>
+            <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '2px', color: isPlaybook ? '#ffffff' : '#E2001A', textTransform: 'uppercase', marginBottom: '10px' }}>
+              {heading}
+            </div>
+            {isPlaybook ? (
+              <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', padding: '16px 20px' }}>
+                {body.split('\n\n').map((item, j, arr) => (
+                  <p key={j} style={{ fontSize: '13px', color: '#d4d4d4', lineHeight: 1.7, margin: j < arr.length - 1 ? '0 0 12px' : '0' }}>
+                    {renderInline(item)}
+                  </p>
+                ))}
+              </div>
+            ) : (
+              <div style={{ fontSize: '14px', color: '#a3a3a3', lineHeight: 1.75 }}>
+                {body.split('\n').map((line, j) => (
+                  <span key={j} style={{ display: 'block', marginBottom: line === '' ? '8px' : '0' }}>
+                    {line === '' ? ' ' : renderInline(line)}
+                  </span>
+                ))}
+              </div>
             )}
-            <div style={{ fontSize: '14px', color: '#a3a3a3', lineHeight: 1.75, whiteSpace: 'pre-wrap' }}>{body}</div>
           </div>
         )
       })}
@@ -281,8 +351,11 @@ function SynthesisBlock({ text }: { text: string }) {
 }
 
 function RunSection({ run }: { run: typeof RUNS[0] }) {
+  const [transcriptOpen, setTranscriptOpen] = useState(false)
+  const totalExchanges = Object.values(run.rounds).reduce((sum, round) => sum + Object.keys(round).length, 0)
+
   return (
-    <section style={{ background: '#ffffff', border: '1px solid #e5e5e5', marginBottom: '64px' }}>
+    <section style={{ background: '#ffffff', border: '1px solid #e5e5e5', marginBottom: '48px' }}>
       {/* Run header */}
       <div style={{ background: '#0a0a0a', padding: '24px 36px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '12px' }}>
@@ -299,29 +372,103 @@ function RunSection({ run }: { run: typeof RUNS[0] }) {
 
       {/* Outcome bar */}
       <div style={{ borderBottom: '1px solid #e5e5e5', padding: '12px 36px', display: 'flex', alignItems: 'center', gap: '16px' }}>
-        <span style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '1.5px', color: run.outcomeColor, background: run.outcomeColor === '#16a34a' ? '#f0fdf4' : run.outcomeColor === '#E2001A' ? '#fff5f5' : '#fffbeb', border: `1px solid ${run.outcomeColor}`, padding: '3px 10px' }}>{run.outcomeLabel}</span>
+        <span style={{
+          fontSize: '10px', fontWeight: 700, letterSpacing: '1.5px',
+          color: run.outcomeColor,
+          background: run.outcomeColor === '#16a34a' ? '#f0fdf4' : run.outcomeColor === '#E2001A' ? '#fff5f5' : '#fffbeb',
+          border: `1px solid ${run.outcomeColor}`, padding: '3px 10px'
+        }}>{run.outcomeLabel}</span>
         <span style={{ fontSize: '13px', color: '#525252' }}>{run.outcomeDetail}</span>
       </div>
 
-      {/* Meeting transcript */}
       <div style={{ padding: '36px' }}>
-        <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '2px', color: '#737373', textTransform: 'uppercase', marginBottom: '24px' }}>Meeting Transcript — 7 agents × 4 rounds</div>
-
-        {/* Agent legend */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '32px', padding: '16px', background: '#fafafa', border: '1px solid #f0f0f0' }}>
-          {Object.entries(AGENTS).map(([key, a]) => (
-            <div key={key} style={{ fontSize: '11px', color: '#525252' }}>
-              <AgentBadge agentKey={key} />
-            </div>
-          ))}
+        {/* Key moments */}
+        <div style={{ marginBottom: '32px' }}>
+          <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '2px', color: '#737373', textTransform: 'uppercase', marginBottom: '16px' }}>
+            Key Moments — What decided this meeting
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            {run.keyMoments.map((m, i) => (
+              <KeyMomentCard key={i} {...m} />
+            ))}
+          </div>
         </div>
 
-        {Object.entries(run.rounds).map(([roundKey, roundData]) => (
-          <RoundBlock key={roundKey} roundKey={roundKey} data={roundData} />
-        ))}
-
+        {/* Synthesis — always visible */}
         <SynthesisBlock text={run.synthesis} />
+
+        {/* Transcript toggle */}
+        <div style={{ marginTop: '24px' }}>
+          <button
+            onClick={() => setTranscriptOpen(v => !v)}
+            style={{
+              background: 'none', border: '1px solid #e5e5e5', padding: '10px 20px',
+              fontSize: '11px', fontWeight: 700, letterSpacing: '1.5px', color: '#525252',
+              textTransform: 'uppercase', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px',
+            }}
+          >
+            <span>{transcriptOpen ? '▲' : '▼'}</span>
+            {transcriptOpen ? 'Hide transcript' : `Read full transcript — 7 agents × 4 rounds (${totalExchanges} exchanges)`}
+          </button>
+
+          {transcriptOpen && (
+            <div style={{ marginTop: '32px', borderTop: '1px solid #f0f0f0', paddingTop: '32px' }}>
+              {/* Agent legend */}
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '32px', padding: '16px', background: '#fafafa', border: '1px solid #f0f0f0' }}>
+                <div style={{ width: '100%', fontSize: '10px', fontWeight: 700, letterSpacing: '2px', color: '#737373', textTransform: 'uppercase', marginBottom: '8px' }}>Participants</div>
+                {Object.entries(AGENTS).map(([key]) => (
+                  <div key={key} style={{ fontSize: '11px', color: '#525252' }}>
+                    <AgentBadge agentKey={key} />
+                  </div>
+                ))}
+              </div>
+              {Object.entries(run.rounds).map(([roundKey, roundData]) => (
+                <RoundBlock key={roundKey} roundKey={roundKey} data={roundData} />
+              ))}
+            </div>
+          )}
+        </div>
       </div>
+    </section>
+  )
+}
+
+function SummaryTable() {
+  return (
+    <section style={{ background: '#ffffff', border: '1px solid #e5e5e5', padding: '36px', marginBottom: '48px' }}>
+      <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '2px', color: '#737373', textTransform: 'uppercase', marginBottom: '20px' }}>Run Outcomes — at a glance</div>
+      <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
+        <thead>
+          <tr>
+            {['Run', 'Finding', 'Evidence that moved', 'Outcome', 'Left on table'].map(h => (
+              <th key={h} style={{ textAlign: 'left', padding: '8px 12px', background: '#f5f5f5', borderBottom: '2px solid #e5e5e5', fontWeight: 700, fontSize: '11px', letterSpacing: '0.5px' }}>{h}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          <tr style={{ borderBottom: '1px solid #f0f0f0' }}>
+            <td style={{ padding: '12px', fontWeight: 700, color: '#E2001A' }}>Run 1</td>
+            <td style={{ padding: '12px', color: '#0a0a0a' }}>Kopfschmerzen broken ad</td>
+            <td style={{ padding: '12px', color: '#525252' }}>Support ticket timestamp (11 tickets, April 9th)</td>
+            <td style={{ padding: '12px' }}><span style={{ color: '#d97706', fontWeight: 700, fontSize: '11px' }}>PARTIAL FIX</span></td>
+            <td style={{ padding: '12px', color: '#525252' }}>Permanent quality owner, root cause, systemic scale</td>
+          </tr>
+          <tr style={{ borderBottom: '1px solid #f0f0f0', background: '#fafafa' }}>
+            <td style={{ padding: '12px', fontWeight: 700, color: '#E2001A' }}>Run 2</td>
+            <td style={{ padding: '12px', color: '#0a0a0a' }}>Modafinil top result</td>
+            <td style={{ padding: '12px', color: '#525252' }}>BtMG Schedule IV classification</td>
+            <td style={{ padding: '12px' }}><span style={{ color: '#16a34a', fontWeight: 700, fontSize: '11px' }}>SAME-DAY FIX</span></td>
+            <td style={{ padding: '12px', color: '#525252' }}>Governance redesign, negation handling architecture, QA process</td>
+          </tr>
+          <tr>
+            <td style={{ padding: '12px', fontWeight: 700, color: '#E2001A' }}>Run 3</td>
+            <td style={{ padding: '12px', color: '#0a0a0a' }}>Vitamin C own-brand dominance</td>
+            <td style={{ padding: '12px', color: '#525252' }}>Nothing — all evidence reframed as hypothetical</td>
+            <td style={{ padding: '12px' }}><span style={{ color: '#E2001A', fontWeight: 700, fontSize: '11px' }}>NO MOVEMENT</span></td>
+            <td style={{ padding: '12px', color: '#525252' }}>Everything. DocMorris comparison never pulled. Policy never written.</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
   )
 }
@@ -331,28 +478,40 @@ function RunSection({ run }: { run: typeof RUNS[0] }) {
 export default function UC10Page() {
   return (
     <>
-      <Nav />
+      <SharedNav activePage="uc10" />
       <main style={{ background: '#fafafa', minHeight: '100vh' }}>
 
         {/* Hero */}
-        <div style={{ background: '#0a0a0a', padding: '64px 80px' }}>
-          <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '3px', color: '#E2001A', textTransform: 'uppercase', marginBottom: '16px' }}>UC10 · INTERNAL STAKEHOLDER SIMULATION</p>
-          <h1 style={{ fontSize: '52px', fontWeight: 900, letterSpacing: '-2px', color: '#ffffff', margin: '0 0 20px', lineHeight: 1.05 }}>The Room<br />Where It Stalls</h1>
-          <p style={{ fontSize: '16px', color: '#737373', maxWidth: '640px', lineHeight: 1.7, margin: '0 0 32px' }}>
-            Three real search failures. Seven internal stakeholder agents. Four rounds each. The question was not whether the findings were valid — they were. The question was what organisational dynamic prevents them from getting fixed.
-          </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, auto)', gap: '32px', width: 'fit-content' }}>
-            {[
-              { n: '3', label: 'Runs' },
-              { n: '7', label: 'Agents' },
-              { n: '4', label: 'Rounds' },
-              { n: '84', label: 'LLM calls' },
-            ].map(({ n, label }) => (
-              <div key={label}>
-                <div style={{ fontSize: '36px', fontWeight: 900, color: '#E2001A', letterSpacing: '-1px', lineHeight: 1 }}>{n}</div>
-                <div style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '1.5px', color: '#525252', textTransform: 'uppercase' }}>{label}</div>
-              </div>
-            ))}
+        <div style={{ background: '#ffffff', borderBottom: '2px solid #0a0a0a', padding: '64px 80px 56px', display: 'flex', gap: '80px', alignItems: 'center' }}>
+          <div style={{ flex: '0 0 auto', maxWidth: '520px' }}>
+            <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '3px', color: '#E2001A', textTransform: 'uppercase', marginBottom: '10px' }}>Stakeholder Simulation · INTERNAL STAKEHOLDER SIMULATION</p>
+            <p style={{ fontSize: '13px', color: '#737373', maxWidth: '680px', lineHeight: 1.6, margin: '0 0 20px' }}>
+              Each run presents a real search failure to seven AI agents — Head of Ecommerce, Merchandiser, PM, Engineer, Support Lead, Vendor Rep, CEO — and runs four rounds of cross-examination. Agents are prompted with real incentives. The blocking dynamics emerge without being scripted.
+            </p>
+            <h1 style={{ fontSize: '72px', fontWeight: 900, letterSpacing: '-3px', color: '#0a0a0a', margin: '0 0 24px', lineHeight: 1 }}>
+              STAKEHOLDER<br />
+              <em style={{ fontStyle: 'italic', color: '#E2001A' }}>DEADLOCK.</em>
+            </h1>
+            <div style={{ width: '60px', height: '3px', background: '#E2001A', marginBottom: '24px' }} />
+            <p style={{ fontSize: '16px', color: '#525252', maxWidth: '680px', lineHeight: 1.6, margin: '0 0 32px' }}>
+              Three real search failures. Seven internal stakeholder agents. Four rounds each. The question was not whether the findings were valid — they were. The question was what organisational dynamic prevents them from getting fixed.
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, auto)', gap: '32px', width: 'fit-content' }}>
+              {[
+                { n: '3', label: 'Runs' },
+                { n: '7', label: 'Agents' },
+                { n: '4', label: 'Rounds' },
+                { n: '84', label: 'LLM calls' },
+              ].map(({ n, label }) => (
+                <div key={label}>
+                  <div style={{ fontSize: '36px', fontWeight: 900, color: '#E2001A', letterSpacing: '-1px', lineHeight: 1 }}>{n}</div>
+                  <div style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '1.5px', color: '#525252', textTransform: 'uppercase' }}>{label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div style={{ flex: 1, minWidth: 0, display: 'flex', alignItems: 'center' }}>
+            <img src="/hero-stakeholder.webp" alt="Search results for 'kopfschmerzen' showing broken sponsored slot" style={{ width: '100%', borderRadius: '6px', boxShadow: '0 8px 32px rgba(0,0,0,0.12)', border: '1px solid #e5e5e5', display: 'block' }} />
           </div>
         </div>
 
@@ -369,8 +528,12 @@ export default function UC10Page() {
           </div>
         </div>
 
-        {/* Runs */}
         <div style={{ padding: '48px 80px' }}>
+
+          {/* Summary table — moved to top */}
+          <SummaryTable />
+
+          {/* Runs */}
           {RUNS.map(run => <RunSection key={run.id} run={run} />)}
 
           {/* Cross-run synthesis */}
@@ -378,55 +541,25 @@ export default function UC10Page() {
             <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '3px', color: '#E2001A', textTransform: 'uppercase', marginBottom: '8px' }}>Cross-run synthesis — all 3 meetings</div>
             <h2 style={{ fontSize: '28px', fontWeight: 900, color: '#ffffff', letterSpacing: '-1px', margin: '0 0 32px' }}>The Structural Pattern</h2>
             {CROSS_RUN.split('\n\n## ').map((section, i) => {
-              const raw = i === 0 ? section : '## ' + section
+              const raw = i === 0 ? section.replace(/^## /, '') : section
               const lines = raw.split('\n')
-              const heading = lines[0].replace(/^##\s*/, '')
+              const heading = lines[0].trim()
               const body = lines.slice(1).join('\n').trim()
               return (
                 <div key={i} style={{ marginBottom: '28px' }}>
                   <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '2px', color: '#E2001A', textTransform: 'uppercase', marginBottom: '10px' }}>{heading}</div>
-                  <div style={{ fontSize: '15px', color: '#a3a3a3', lineHeight: 1.8, whiteSpace: 'pre-wrap', maxWidth: '760px' }}>{body}</div>
+                  <div style={{ fontSize: '15px', color: '#a3a3a3', lineHeight: 1.8, maxWidth: '760px' }}>
+                    {body.split('\n').map((line, j) => (
+                      <span key={j} style={{ display: 'block', marginBottom: line === '' ? '8px' : '0' }}>
+                        {line === '' ? ' ' : renderInline(line)}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               )
             })}
           </section>
 
-          {/* Outcome summary table */}
-          <section style={{ background: '#ffffff', border: '1px solid #e5e5e5', padding: '36px' }}>
-            <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '2px', color: '#737373', textTransform: 'uppercase', marginBottom: '20px' }}>Run Outcomes — Summary</div>
-            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
-              <thead>
-                <tr>
-                  {['Run', 'Finding', 'Evidence that moved', 'Outcome', 'Left on table'].map(h => (
-                    <th key={h} style={{ textAlign: 'left', padding: '8px 12px', background: '#f5f5f5', borderBottom: '2px solid #e5e5e5', fontWeight: 700, fontSize: '11px', letterSpacing: '0.5px' }}>{h}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                <tr style={{ borderBottom: '1px solid #f0f0f0' }}>
-                  <td style={{ padding: '12px', fontWeight: 700, color: '#E2001A' }}>Run 1</td>
-                  <td style={{ padding: '12px', color: '#0a0a0a' }}>Kopfschmerzen broken ad</td>
-                  <td style={{ padding: '12px', color: '#525252' }}>Support ticket timestamp (11 tickets, April 9th)</td>
-                  <td style={{ padding: '12px' }}><span style={{ color: '#d97706', fontWeight: 700, fontSize: '11px' }}>PARTIAL FIX</span></td>
-                  <td style={{ padding: '12px', color: '#525252' }}>Permanent quality owner, root cause, systemic scale</td>
-                </tr>
-                <tr style={{ borderBottom: '1px solid #f0f0f0', background: '#fafafa' }}>
-                  <td style={{ padding: '12px', fontWeight: 700, color: '#E2001A' }}>Run 2</td>
-                  <td style={{ padding: '12px', color: '#0a0a0a' }}>Modafinil top result</td>
-                  <td style={{ padding: '12px', color: '#525252' }}>BtMG Schedule IV classification</td>
-                  <td style={{ padding: '12px' }}><span style={{ color: '#16a34a', fontWeight: 700, fontSize: '11px' }}>SAME-DAY FIX</span></td>
-                  <td style={{ padding: '12px', color: '#525252' }}>Governance redesign, negation handling architecture, QA process</td>
-                </tr>
-                <tr>
-                  <td style={{ padding: '12px', fontWeight: 700, color: '#E2001A' }}>Run 3</td>
-                  <td style={{ padding: '12px', color: '#0a0a0a' }}>Vitamin C own-brand dominance</td>
-                  <td style={{ padding: '12px', color: '#525252' }}>Nothing — all evidence reframed as hypothetical</td>
-                  <td style={{ padding: '12px' }}><span style={{ color: '#E2001A', fontWeight: 700, fontSize: '11px' }}>NO MOVEMENT</span></td>
-                  <td style={{ padding: '12px', color: '#525252' }}>Everything. DocMorris comparison never pulled. Policy never written.</td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
         </div>
       </main>
       <Footer />

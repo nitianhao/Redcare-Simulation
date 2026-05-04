@@ -1,0 +1,138 @@
+{
+  "original_query": "Halsschmerzen schlucken schmerzt",
+  "agents": [
+    {
+      "persona_key": "acute_self_treater",
+      "persona_name": "Acute Self-Treater (Akutbehandler)",
+      "trace": [
+        {
+          "round": 1,
+          "query": "Halsschmerzen schlucken schmerzt",
+          "action": "click",
+          "clicked_position": 4,
+          "next_query": null,
+          "satisfaction": "medium",
+          "reasoning": "Neo-Angin Benzocain is OTC, fast-acting topical anesthetic for sore throat pain, affordable, and matches symptom urgency, though I'm concerned about the mix of Rx items in results and would prefer a clearer OTC-only layout."
+        }
+      ]
+    },
+    {
+      "persona_key": "wellness_optimizer",
+      "persona_name": "Wellness Optimizer (Wellness-Optimierer)",
+      "trace": [
+        {
+          "round": 1,
+          "query": "Halsschmerzen schlucken schmerzt",
+          "action": "reformulate",
+          "clicked_position": null,
+          "next_query": "Halstabletten Zink Vitamin C laborgeprüft ohne Zusätze",
+          "satisfaction": "none",
+          "reasoning": "Current results show symptom relief products (Spray, Lutschtabletten) rather than ingredient-specific supplements with bioavailability focus; as Wellness Optimizer, I need certified ingredients with documented dosage for immune support, not just OTC pain relief."
+        },
+        {
+          "round": 2,
+          "query": "Halstabletten Zink Vitamin C laborgeprüft ohne Zusätze",
+          "action": "reformulate",
+          "clicked_position": null,
+          "next_query": "Zink Vitamin C Lutschtabletten laborgeprüft GMP zertifiziert",
+          "satisfaction": "none",
+          "reasoning": "Results show symptom-relief products (anesthetics, anti-inflammatories) not preventative supplements; shifting to ingredient-first + certification keywords to find dedicated supplement brands rather than pharma OTC."
+        },
+        {
+          "round": 3,
+          "query": "Zink Vitamin C Lutschtabletten laborgeprüft GMP zertifiziert",
+          "action": "reformulate",
+          "clicked_position": null,
+          "next_query": "Zink Vitamin C Lutschtabletten supplement laborgeprüft ohne Magnesiumstearat",
+          "satisfaction": "none",
+          "reasoning": "All results are pharmaceutical throat lozenges with active drugs (Flurbiprofen, Benzocain, Chlorhexidin) rather than supplement-grade Zink+Vitamin C formulations with transparency on inactive ingredients—need to explicitly search supplement category away from pharma OTC."
+        },
+        {
+          "round": 4,
+          "query": "Zink Vitamin C Lutschtabletten supplement laborgeprüft ohne Magnesiumstearat",
+          "action": "reformulate",
+          "clicked_position": null,
+          "next_query": "Zink Vitamin C Lutschtabletten vegan ohne Magnesiumstearat Supplements",
+          "satisfaction": "none",
+          "reasoning": "Results show only pharma symptom-relief products (anti-inflammatory, antiseptic, analgesic) not supplement-grade Zink+Vitamin C lozenges; switching to 'vegan' as trust signal and removing 'laborgeprüft' to broaden supplement-native brand visibility."
+        },
+        {
+          "round": 5,
+          "query": "Zink Vitamin C Lutschtabletten vegan ohne Magnesiumstearat Supplements",
+          "action": "abandon",
+          "satisfaction": "none",
+          "reasoning": "Reformulation limit reached"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    [
+      "Halsschmerzen schlucken schmerzt",
+      "Halstabletten Zink Vitamin C laborgeprüft ohne Zusätze",
+      "Wellness Optimizer (Wellness-Optimierer)",
+      false
+    ],
+    [
+      "Halstabletten Zink Vitamin C laborgeprüft ohne Zusätze",
+      "Zink Vitamin C Lutschtabletten laborgeprüft GMP zertifiziert",
+      "Wellness Optimizer (Wellness-Optimierer)",
+      false
+    ],
+    [
+      "Zink Vitamin C Lutschtabletten laborgeprüft GMP zertifiziert",
+      "Zink Vitamin C Lutschtabletten supplement laborgeprüft ohne Magnesiumstearat",
+      "Wellness Optimizer (Wellness-Optimierer)",
+      false
+    ],
+    [
+      "Zink Vitamin C Lutschtabletten supplement laborgeprüft ohne Magnesiumstearat",
+      "Zink Vitamin C Lutschtabletten vegan ohne Magnesiumstearat Supplements",
+      "Wellness Optimizer (Wellness-Optimierer)",
+      false
+    ]
+  ],
+  "summary": {
+    "total_agents": 2,
+    "avg_burden": 2.0,
+    "max_burden": 4,
+    "success_rate": 0.5,
+    "abandon_rate": 0.5,
+    "click_rate": 0.5,
+    "avg_scroll_depth": 0.0,
+    "reformulation_queries": [
+      "Halstabletten Zink Vitamin C laborgeprüft ohne Zusätze",
+      "Zink Vitamin C Lutschtabletten laborgeprüft GMP zertifiziert",
+      "Zink Vitamin C Lutschtabletten supplement laborgeprüft ohne Magnesiumstearat",
+      "Zink Vitamin C Lutschtabletten vegan ohne Magnesiumstearat Supplements"
+    ],
+    "all_queries": [
+      "Halsschmerzen schlucken schmerzt",
+      "Zink Vitamin C Lutschtabletten laborgeprüft GMP zertifiziert",
+      "Zink Vitamin C Lutschtabletten supplement laborgeprüft ohne Magnesiumstearat",
+      "Zink Vitamin C Lutschtabletten vegan ohne Magnesiumstearat Supplements",
+      "Halstabletten Zink Vitamin C laborgeprüft ohne Zusätze"
+    ],
+    "dead_end_queries": [
+      "Zink Vitamin C Lutschtabletten laborgeprüft GMP zertifiziert",
+      "Zink Vitamin C Lutschtabletten supplement laborgeprüft ohne Magnesiumstearat",
+      "Zink Vitamin C Lutschtabletten vegan ohne Magnesiumstearat Supplements",
+      "Halstabletten Zink Vitamin C laborgeprüft ohne Zusätze"
+    ],
+    "success_paths": [
+      {
+        "persona": "Acute Self-Treater (Akutbehandler)",
+        "chain": [
+          "Halsschmerzen schlucken schmerzt"
+        ]
+      }
+    ],
+    "reformulation_from": {
+      "Halsschmerzen schlucken schmerzt": 1,
+      "Halstabletten Zink Vitamin C laborgeprüft ohne Zusätze": 1,
+      "Zink Vitamin C Lutschtabletten laborgeprüft GMP zertifiziert": 1,
+      "Zink Vitamin C Lutschtabletten supplement laborgeprüft ohne Magnesiumstearat": 1
+    }
+  },
+  "analysis": "# Search Quality Analysis Report\n\n## 1. Key Finding\nThe system successfully handles acute, symptom-driven queries (\"Halsschmerzen schlucken schmerzt\") but completely fails supplement-savvy users who layer product-specific constraints (GMP certification, excipient-free, vegan) onto the same entry point. The Wellness Optimizer exhausted four reformulations and abandoned with zero satisfaction — indicating a hard coverage gap for ingredient-quality-filtered supplement queries, not a ranking problem.\n\n---\n\n## 2. Top 3 Problems Detected\n\n| Rank | Problem | Affected Persona |\n|------|---------|-----------------|\n| 1 | **Missing attribute-filtered supplement inventory** — queries explicitly requesting \"ohne Magnesiumstearat,\" \"GMP zertifiziert,\" and \"laborgeprüft\" returned no satisfying results across all four reformulations | Wellness Optimizer (critical) |\n| 2 | **No intent bifurcation at query intake** — \"Halsschmerzen schlucken schmerzt\" is a symptom query, but the system never surfaces a supplement/prevention pathway alongside the acute-care pathway, forcing users to self-navigate via reformulation | Both personas (Wellness Optimizer most affected) |\n| 3 | **Zero scroll depth despite click activity** — the Acute Self-Treater clicked but scrolled nothing, suggesting the landing page or result snippet was sufficient *or* the clicked content immediately disappointed without triggering a reformulation; either way, post-click engagement is broken | Acute Self-Treater (medium) |\n\n---\n\n## 3. Reformulation Pattern Analysis\n\n**Query progression:**\n```\nHalsschmerzen schlucken schmerzt          ← symptom/pain framing\n→ Halstabletten Zink Vitamin C laborgeprüft ohne Zusätze     ← product + quality filter\n→ Zink Vitamin C Lutschtabletten laborgeprüft GMP zertifiziert  ← added certification signal\n→ Zink Vitamin C Lutschtabletten supplement laborgeprüft ohne Magnesiumstearat ← specific excipient exclusion\n→ Zink Vitamin C Lutschtabletten vegan ohne Magnesiumstearat Supplements ← added vegan constraint, gave up after\n```\n\n**What this reveals:**\n- The user had a **fully-formed product mental model** from query 2 onward — this was never an information-seeking session, it was a product-matching session\n- Each reformulation adds one constraint layer, which is a **systematic attribute-narrowing pattern**, not random flailing — the system repeatedly failed to match on *any* of the filter combinations\n- \"Ohne Magnesiumstearat\" appearing in queries 3 and 4 signals a **niche but stable supplement-literate segment** that knows specific excipients by name — this is not a fringe query pattern in the German supplement market\n- The pivot from \"Halsschmerzen\" to \"Lutschtabletten Zink Vitamin C\" represents a **300% semantic distance jump** — the original query gave the system no signal about supplement preference; the user had to do all the bridging work\n\n---\n\n## 4. Recommended Fixes (Prioritized)\n\n**P0 — Immediate: Expand supplement attribute indexing**\nIndex products on: certification body (GMP, ISO), excipient exclusions (Magnesiumstearat, Titandioxid, etc.),"
+}

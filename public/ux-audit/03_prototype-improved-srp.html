@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suchergebnisse: Husten — Shop Apotheke (Improved)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Lora:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red:       #E2001A;
+    --red-dark:  #B60015;
+    --red-light: #FFF0F2;
+    --green:     #1A7A4A;
+    --green-bg:  #F0FBF4;
+    --amber:     #92600A;
+    --amber-bg:  #FFF8E6;
+    --amber-border: #F5C842;
+    --blue:      #0C5EA8;
+    --blue-bg:   #EEF5FF;
+    --gray-50:   #FAFAFA;
+    --gray-100:  #F0F0F0;
+    --gray-200:  #E5E5E5;
+    --gray-300:  #D4D4D4;
+    --gray-400:  #A3A3A3;
+    --gray-500:  #737373;
+    --gray-600:  #525252;
+    --gray-700:  #404040;
+    --gray-800:  #262626;
+    --gray-900:  #0A0A0A;
+    --white:     #FFFFFF;
+    --shadow-sm: 0 1px 2px rgba(10,10,10,.04);
+    --shadow-md: 0 3px 8px rgba(10,10,10,.06);
+    --shadow-lg: 0 8px 20px rgba(10,10,10,.08);
+    --radius:    6px;
+    --radius-sm: 4px;
+    --radius-lg: 8px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: #ffffff;
+    color: var(--gray-900);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ─────────────────────────────────────────────────── */
+  .site-header {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-100);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: none;
+  }
+  .header-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .logo-icon {
+    width: 28px; height: 28px;
+    background: var(--red);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .logo-icon svg { width: 16px; height: 16px; fill: white; }
+  .logo-text {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--gray-900);
+    letter-spacing: -.3px;
+  }
+  .logo-text span { color: var(--red); }
+
+  .search-bar {
+    flex: 1;
+    max-width: 560px;
+    display: flex;
+    background: var(--gray-50);
+    border: 1.5px solid var(--gray-200);
+    border-radius: 50px;
+    overflow: hidden;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .search-bar:focus-within {
+    border-color: var(--red);
+    box-shadow: 0 0 0 3px rgba(200,16,46,.1);
+    background: var(--white);
+  }
+  .search-bar input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 10px 16px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray-900);
+    outline: none;
+  }
+  .search-bar input::placeholder { color: var(--gray-400); }
+  .search-btn {
+    background: var(--red);
+    border: none;
+    padding: 0 20px;
+    cursor: pointer;
+    display: flex; align-items: center; gap: 6px;
+    color: white;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .2px;
+    transition: background .15s;
+    flex-shrink: 0;
+  }
+  .search-btn:hover { background: var(--red-dark); }
+  .search-btn svg { width: 16px; height: 16px; fill: white; }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+  .header-action {
+    display: flex; flex-direction: column; align-items: center;
+    padding: 6px 10px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--gray-600);
+    font-size: 11px;
+    font-weight: 500;
+    gap: 3px;
+    transition: background .12s, color .12s;
+    position: relative;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+  }
+  .header-action:hover { background: var(--gray-50); color: var(--gray-900); }
+  .header-action svg { width: 20px; height: 20px; }
+  .cart-badge {
+    position: absolute;
+    top: 4px; right: 6px;
+    width: 16px; height: 16px;
+    background: var(--red);
+    color: white;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid white;
+  }
+
+  /* ── NAV ─────────────────────────────────────────────────────── */
+  .site-nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .nav-inner {
+    max-width: 1320px; margin: 0 auto; padding: 0 24px;
+    display: flex; align-items: center; gap: 0;
+  }
+  .nav-item {
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-600);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: color .12s, border-color .12s;
+    white-space: nowrap;
+  }
+  .nav-item:hover { color: var(--gray-900); border-color: var(--gray-200); }
+  .nav-item.active { color: var(--red); border-color: var(--red); }
+  .nav-divider { width: 1px; height: 16px; background: var(--gray-200); margin: 0 4px; }
+
+  /* ── INFO BAR ────────────────────────────────────────────────── */
+  .info-bar {
+    background: #EEF5FF;
+    border-bottom: 1px solid #C7DEFF;
+    padding: 7px 24px;
+    font-size: 12.5px;
+    color: var(--blue);
+    display: flex; align-items: center; gap: 6px;
+    max-width: 100%;
+  }
+  .info-bar svg { width: 14px; height: 14px; fill: var(--blue); flex-shrink: 0; }
+
+  /* ── BREADCRUMB ──────────────────────────────────────────────── */
+  .breadcrumb-bar {
+    max-width: 1320px; margin: 0 auto; padding: 12px 24px 0;
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12px; color: var(--gray-400);
+  }
+  .breadcrumb-bar a { color: var(--gray-600); text-decoration: none; }
+  .breadcrumb-bar a:hover { color: var(--red); }
+  .breadcrumb-sep { color: var(--gray-300); }
+  .breadcrumb-bar span.current { color: var(--gray-800); font-weight: 500; }
+
+  /* ── SYMPTOM CHIPS ───────────────────────────────────────────── */
+  .symptom-section {
+    max-width: 1320px; margin: 0 auto; padding: 16px 24px 0;
+  }
+  .symptom-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    color: var(--gray-400);
+    margin-bottom: 8px;
+  }
+  .symptom-chips {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    align-items: center;
+  }
+  .chip {
+    display: flex; align-items: center; gap: 6px;
+    padding: 7px 14px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    border: 1.5px solid transparent;
+    white-space: nowrap;
+    user-select: none;
+  }
+  .chip-count {
+    font-size: 11px; font-weight: 600; opacity: .7;
+    background: rgba(0,0,0,.07);
+    padding: 1px 6px; border-radius: 50px;
+  }
+  .chip-default {
+    background: var(--white);
+    border-color: var(--gray-200);
+    color: var(--gray-700);
+    box-shadow: var(--shadow-sm);
+  }
+  .chip-default:hover { border-color: var(--red); color: var(--red); }
+  .chip-active {
+    background: var(--red);
+    border-color: var(--red);
+    color: white;
+    box-shadow: 0 2px 8px rgba(200,16,46,.25);
+  }
+  .chip-active .chip-count { background: rgba(255,255,255,.25); }
+  .chip-all {
+    background: var(--gray-900);
+    border-color: var(--gray-900);
+    color: white;
+  }
+  .chip-children {
+    background: var(--blue-bg);
+    border-color: #C7DEFF;
+    color: var(--blue);
+  }
+  .chip-children:hover { border-color: var(--blue); }
+  .chip-herbal {
+    background: var(--green-bg);
+    border-color: #BDECD4;
+    color: var(--green);
+  }
+  .chip-herbal:hover { border-color: var(--green); }
+
+  /* ── MAIN LAYOUT ─────────────────────────────────────────────── */
+  .page-layout {
+    max-width: 1320px; margin: 0 auto; padding: 16px 24px 48px;
+    display: grid;
+    grid-template-columns: 268px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  /* ── SIDEBAR ─────────────────────────────────────────────────── */
+  .sidebar {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    position: sticky;
+    top: 80px;
+    box-shadow: var(--shadow-sm);
+  }
+  .sidebar-title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+    color: var(--gray-400);
+    margin-bottom: 16px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .clear-all {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--red);
+    cursor: pointer;
+    text-transform: none;
+    letter-spacing: 0;
+    padding: 2px 8px;
+    border-radius: 4px;
+    transition: background .12s;
+  }
+  .clear-all:hover { background: var(--red-light); }
+
+  .filter-group {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .filter-group:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .filter-group-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 10px;
+    display: flex; justify-content: space-between; align-items: center;
+    cursor: pointer;
+  }
+  .filter-group-title svg { width: 14px; height: 14px; fill: var(--gray-400); transition: transform .2s; }
+  .filter-group-title.open svg { transform: rotate(180deg); }
+
+  .filter-option {
+    display: flex; align-items: center; gap: 8px;
+    padding: 5px 0;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: background .1s;
+  }
+  .filter-option:hover { background: var(--gray-50); }
+  .filter-checkbox {
+    width: 16px; height: 16px;
+    border: 1.5px solid var(--gray-300);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: all .12s;
+  }
+  .filter-option:hover .filter-checkbox { border-color: var(--red); }
+  .filter-checkbox.checked {
+    background: var(--red); border-color: var(--red);
+  }
+  .filter-checkbox.checked::after {
+    content: '';
+    width: 8px; height: 5px;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: rotate(-45deg) translateY(-1px);
+  }
+  .filter-option-label {
+    font-size: 13px;
+    color: var(--gray-700);
+    flex: 1;
+  }
+  .filter-option-count {
+    font-size: 11px;
+    color: var(--gray-400);
+    font-weight: 500;
+  }
+
+  .filter-more { font-size: 12px; color: var(--red); cursor: pointer; margin-top: 4px; font-weight: 500; }
+
+  /* Price range */
+  .price-range { margin-top: 8px; }
+  .price-slider-track {
+    height: 4px; background: var(--gray-200); border-radius: 2px;
+    position: relative; margin: 12px 0;
+  }
+  .price-slider-fill {
+    position: absolute; left: 5%; right: 20%;
+    height: 100%; background: var(--red); border-radius: 2px;
+  }
+  .price-slider-thumb {
+    position: absolute; width: 16px; height: 16px;
+    background: white; border: 2px solid var(--red);
+    border-radius: 50%; top: -6px; cursor: pointer;
+    box-shadow: var(--shadow-sm);
+  }
+  .price-inputs { display: flex; gap: 8px; align-items: center; }
+  .price-input {
+    flex: 1;
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    padding: 6px 10px;
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--gray-800);
+    text-align: center;
+    background: var(--gray-50);
+  }
+  .price-sep { color: var(--gray-400); font-size: 12px; }
+
+  /* Sort section */
+  .sort-select {
+    width: 100%;
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    padding: 8px 10px;
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--gray-800);
+    background: var(--gray-50) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%239DA4B4'/%3E%3C/svg%3E") no-repeat right 10px center;
+    appearance: none;
+    cursor: pointer;
+  }
+
+  /* ── PHARMACIST RECOMMEND ────────────────────────────────────── */
+  .pharmacist-card {
+    background: linear-gradient(135deg, #174633 0%, #123726 100%);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    margin-bottom: 16px;
+    display: flex; gap: 14px; align-items: flex-start;
+    box-shadow: var(--shadow-md);
+  }
+  .pharmacist-avatar {
+    width: 44px; height: 44px; flex-shrink: 0;
+    background: rgba(255,255,255,.1);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid rgba(255,255,255,.2);
+  }
+  .pharmacist-avatar svg { width: 22px; height: 22px; fill: rgba(255,255,255,.8); }
+  .pharmacist-body { flex: 1; }
+  .pharmacist-eyebrow {
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .8px; color: #6EE4A6; margin-bottom: 3px;
+  }
+  .pharmacist-title {
+    font-size: 13px; font-weight: 600; color: white; margin-bottom: 6px; line-height: 1.3;
+  }
+  .pharmacist-rec {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: var(--radius-sm);
+    padding: 8px 10px;
+    text-decoration: none;
+    transition: background .15s;
+  }
+  .pharmacist-rec:hover { background: rgba(255,255,255,.12); }
+  .pharmacist-rec-text { font-size: 12px; color: rgba(255,255,255,.85); flex: 1; font-weight: 500; }
+  .pharmacist-rec-arrow { color: #6EE4A6; font-size: 14px; }
+
+  /* ── RESULTS HEADER ──────────────────────────────────────────── */
+  .results-area { min-width: 0; }
+  .results-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 14px; gap: 12px;
+  }
+  .results-count {
+    font-size: 14px; color: var(--gray-600);
+  }
+  .results-count strong { color: var(--gray-900); font-weight: 700; }
+  .results-controls { display: flex; align-items: center; gap: 8px; }
+  .view-toggle {
+    display: flex;
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+  }
+  .view-btn {
+    padding: 6px 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background .12s;
+  }
+  .view-btn svg { width: 15px; height: 15px; fill: var(--gray-400); }
+  .view-btn.active { background: var(--gray-900); }
+  .view-btn.active svg { fill: white; }
+  .inline-sort {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12px; color: var(--gray-600);
+  }
+  .inline-sort select {
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    padding: 5px 28px 5px 10px;
+    font-family: inherit; font-size: 12px; color: var(--gray-800);
+    background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%239DA4B4'/%3E%3C/svg%3E") no-repeat right 8px center;
+    appearance: none; cursor: pointer;
+  }
+
+  /* ── SPONSORED BLOCK ─────────────────────────────────────────── */
+  .sponsored-block {
+    margin-bottom: 8px;
+  }
+  .sponsored-label-bar {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 12px;
+    background: var(--amber-bg);
+    border: 1px solid var(--amber-border);
+    border-bottom: none;
+    border-radius: var(--radius) var(--radius) 0 0;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--amber);
+    letter-spacing: .2px;
+  }
+  .sponsored-label-bar svg { width: 12px; height: 12px; fill: var(--amber); }
+  .sponsored-label-bar .sponsored-info {
+    margin-left: auto; font-weight: 400; font-size: 10.5px;
+    color: #B8860B; cursor: pointer;
+    text-decoration: underline;
+  }
+
+  /* ── PRODUCT CARD ────────────────────────────────────────────── */
+  .product-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    gap: 0;
+    transition: box-shadow .18s, border-color .18s;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  .product-card:hover { box-shadow: var(--shadow-sm); border-color: var(--gray-300); }
+  .sponsored-block .product-card {
+    border-color: var(--amber-border);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-bottom: 0;
+  }
+  .sponsored-block .product-card:hover { border-color: #E8B020; }
+
+  /* Card image */
+  .card-image {
+    padding: 16px;
+    display: flex; align-items: center; justify-content: center;
+    background: #ffffff;
+    border-right: 1px solid var(--gray-100);
+    position: relative;
+  }
+  .card-image img {
+    width: 72px; height: 72px;
+    object-fit: contain;
+  }
+  .compare-check {
+    position: absolute; top: 8px; left: 8px;
+    width: 18px; height: 18px;
+    border: 1.5px solid var(--gray-300);
+    border-radius: 4px;
+    background: white; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all .12s;
+  }
+  .compare-check:hover { border-color: var(--red); }
+
+  /* Card body */
+  .card-body {
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+  }
+  .card-tags {
+    display: flex; flex-wrap: wrap; gap: 4px;
+    align-items: center;
+  }
+  .tag {
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1px;
+  }
+  .tag-rx {
+    background: #FFF3E0; color: #C84E00;
+    border: 1px solid #FFD4A8;
+  }
+  .tag-herbal {
+    background: var(--green-bg); color: var(--green);
+    border: 1px solid #BDECD4;
+  }
+  .tag-age {
+    background: var(--blue-bg); color: var(--blue);
+    border: 1px solid #C7DEFF;
+  }
+  .tag-new {
+    background: #f5f5f5; color: #525252;
+    border: 1px solid #e5e5e5;
+  }
+
+  .card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-900);
+    line-height: 1.35;
+    text-decoration: none;
+    display: block;
+  }
+  .card-title:hover { color: var(--red); }
+  .card-claim {
+    font-size: 12.5px; color: var(--gray-500);
+    line-height: 1.4;
+  }
+  .card-meta {
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .card-rating {
+    display: flex; align-items: center; gap: 4px;
+    font-size: 12px; color: var(--gray-600);
+  }
+  .stars { display: flex; gap: 1px; }
+  .star { width: 12px; height: 12px; }
+  .card-format { font-size: 12px; color: var(--gray-500); }
+  .card-format span { font-weight: 500; color: var(--gray-700); }
+
+  /* Variants */
+  .variants {
+    display: flex; gap: 6px; align-items: center; flex-wrap: wrap;
+  }
+  .variant-label { font-size: 11px; color: var(--gray-500); }
+  .variant-chip {
+    padding: 3px 9px;
+    border-radius: 50px;
+    font-size: 11.5px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1.5px solid var(--gray-200);
+    color: var(--gray-700);
+    background: white;
+    transition: all .12s;
+  }
+  .variant-chip.active {
+    border-color: var(--red); color: var(--red); background: var(--red-light);
+  }
+  .variant-chip:hover:not(.active) { border-color: var(--gray-400); }
+
+  .card-delivery {
+    display: flex; align-items: center; gap: 5px;
+    font-size: 11.5px; color: var(--green); font-weight: 500;
+  }
+  .card-delivery svg { width: 12px; height: 12px; fill: var(--green); }
+
+  .card-details-toggle {
+    font-size: 11px; color: var(--gray-400); cursor: pointer;
+    border: none; background: none; padding: 0;
+    font-family: inherit; display: inline-flex; align-items: center; gap: 3px;
+    transition: color .12s;
+    margin-top: 2px;
+  }
+  .card-details-toggle:hover { color: var(--gray-700); }
+
+  /* Card price column */
+  .card-price {
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    min-width: 160px;
+    border-left: 1px solid var(--gray-100);
+    gap: 8px;
+  }
+  .price-block { text-align: right; }
+  .price-discount-badge {
+    display: inline-flex;
+    align-items: center;
+    background: #F0FBF4;
+    color: var(--green);
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    letter-spacing: .1px;
+  }
+  .price-main {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--red);
+    letter-spacing: -.5px;
+    line-height: 1;
+  }
+  .price-main small { font-size: 14px; font-weight: 600; }
+  .price-original {
+    font-size: 12px; color: var(--gray-400);
+    text-decoration: line-through;
+    margin-top: 2px;
+  }
+  .price-unit { font-size: 11px; color: var(--gray-500); margin-top: 1px; }
+  .price-saving {
+    font-size: 11.5px; color: var(--green); font-weight: 600; margin-top: 3px;
+  }
+  .price-avp {
+    font-size: 10.5px; color: var(--gray-400);
+    margin-top: 2px;
+  }
+
+  .card-cta { width: 100%; display: flex; flex-direction: column; gap: 6px; }
+  .btn-cart {
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    background: var(--red);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 9px 14px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s, transform .1s;
+    width: 100%;
+    letter-spacing: .1px;
+  }
+  .btn-cart:hover { background: var(--red-dark); }
+  .btn-cart:active { transform: scale(.98); }
+  .btn-cart svg { width: 14px; height: 14px; fill: white; }
+
+  .btn-wishlist {
+    display: flex; align-items: center; justify-content: center; gap: 5px;
+    background: none;
+    color: var(--gray-500);
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    padding: 6px 10px;
+    font-family: inherit; font-size: 11.5px; font-weight: 500;
+    cursor: pointer; width: 100%;
+    transition: all .12s;
+  }
+  .btn-wishlist:hover { border-color: var(--red); color: var(--red); background: var(--red-light); }
+  .btn-wishlist svg { width: 13px; height: 13px; }
+
+  .available-badge {
+    display: flex; align-items: center; justify-content: center; gap: 4px;
+    font-size: 11px; font-weight: 500; color: var(--green);
+  }
+  .available-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
+
+  /* ── ORGANIC DIVIDER ─────────────────────────────────────────── */
+  .results-divider {
+    display: flex; align-items: center; gap: 10px;
+    margin: 16px 0 14px;
+    font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: .6px;
+    color: var(--gray-400);
+  }
+  .results-divider::before, .results-divider::after {
+    content: ''; flex: 1; height: 1px; background: var(--gray-100);
+  }
+
+  /* ── PAGINATION ──────────────────────────────────────────────── */
+  .pagination {
+    display: flex; justify-content: center; align-items: center;
+    gap: 6px; margin-top: 24px;
+  }
+  .page-btn {
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1.5px solid var(--gray-200);
+    background: white;
+    color: var(--gray-700);
+    font-family: inherit;
+    transition: all .12s;
+  }
+  .page-btn:hover { border-color: var(--red); color: var(--red); }
+  .page-btn.active { background: var(--red); border-color: var(--red); color: white; font-weight: 700; }
+  .page-btn svg { width: 14px; height: 14px; fill: currentColor; }
+  .page-ellipsis { color: var(--gray-400); padding: 0 4px; }
+
+  /* ── DUMMY PRODUCT IMAGES ────────────────────────────────────── */
+  .product-img-placeholder {
+    width: 72px; height: 72px;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .3px;
+    line-height: 1.3; text-align: center;
+  }
+  .img-blue { background: #E8F0FE; color: #3355AA; }
+  .img-green { background: #E6F4EA; color: #1A6B3A; }
+  .img-yellow { background: #FFF8E1; color: #7B5800; }
+  .img-red { background: #FCE8EC; color: #A50D26; }
+  .img-purple { background: #F3E8FD; color: #6B21A8; }
+  .img-teal { background: #E0F7F4; color: #0E6655; }
+
+  /* ── IMPROVEMENT ANNOTATIONS ─────────────────────────────────── */
+  .annotation {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: #FFFBCC;
+    border: 1px solid #F5C842;
+    color: #7A5C00;
+    font-size: 10px; font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 3px;
+    letter-spacing: .2px;
+  }
+
+  /* ── IMPROVEMENT LEGEND ──────────────────────────────────────── */
+  .improvement-banner {
+    background: linear-gradient(90deg, #0F1923 0%, #1A2A3A 100%);
+    color: white;
+    padding: 12px 24px;
+  }
+  .improvement-inner {
+    max-width: 1320px; margin: 0 auto;
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  }
+  .improvement-title {
+    font-size: 12px; font-weight: 700; color: white;
+    text-transform: uppercase; letter-spacing: .6px;
+    white-space: nowrap;
+  }
+  .improvement-pill {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 4px 10px; border-radius: 50px;
+    font-size: 11px; font-weight: 600;
+    white-space: nowrap;
+  }
+  .improvement-pill.critical { background: #FFE8EC; color: #A50D26; }
+  .improvement-pill.high { background: #FFF0E0; color: #9B4D00; }
+  .improvement-pill.new { background: #E6F4EA; color: #1A6B3A; }
+  .improvement-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+</style>
+</head>
+<body>
+
+<!-- IMPROVEMENT LEGEND BANNER -->
+<div class="improvement-banner">
+  <div class="improvement-inner">
+    <span class="improvement-title">UX Prototype — Improvements applied:</span>
+    <span class="improvement-pill critical"><span class="improvement-dot"></span> Sponsored transparency (C2)</span>
+    <span class="improvement-pill critical"><span class="improvement-dot"></span> Symptom triage chips (C1)</span>
+    <span class="improvement-pill high"><span class="improvement-dot"></span> Add-to-Cart CTA (H4)</span>
+    <span class="improvement-pill high"><span class="improvement-dot"></span> Filters expanded (H2)</span>
+    <span class="improvement-pill high"><span class="improvement-dot"></span> Clear savings (H3)</span>
+    <span class="improvement-pill new"><span class="improvement-dot"></span> Variant grouping (BB3)</span>
+    <span class="improvement-pill new"><span class="improvement-dot"></span> Pharmacist rec (BB1)</span>
+    <span class="improvement-pill new"><span class="improvement-dot"></span> Delivery promise</span>
+    <span class="improvement-pill new"><span class="improvement-dot"></span> Pagination (H1)</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="#">
+      <div class="logo-icon">
+        <svg viewBox="0 0 16 16"><path d="M8 1L1 5v6l7 4 7-4V5L8 1zm0 2.2l4.5 2.6-4.5 2.6L3.5 5.8 8 3.2zM2.5 7.2l5 2.9v4.1L2.5 11.3V7.2zm6 7V10.1l5-2.9v4.1L8.5 14.2z"/></svg>
+      </div>
+      <span class="logo-text"><span>Shop</span>Apotheke</span>
+    </a>
+
+    <div class="search-bar">
+      <input type="text" value="husten" placeholder="Finden Sie Ihr Produkt">
+      <button class="search-btn">
+        <svg viewBox="0 0 24 24"><path d="M10.5 4a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13M2 10.5a8.5 8.5 0 1 1 15.176 5.262l4.531 4.53a1 1 0 0 1-1.414 1.415l-4.531-4.531A8.5 8.5 0 0 1 2 10.5"/></svg>
+        Suchen
+      </button>
+    </div>
+
+    <div class="header-actions">
+      <button class="header-action">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Anmelden
+      </button>
+      <button class="header-action">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 9v2M12 13h.01M8 11h.01M16 11h.01"/></svg>
+        E-Rezept
+      </button>
+      <button class="header-action" style="position:relative">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        Warenkorb
+        <span class="cart-badge">3</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-item" href="#">☰ Kategorien</a>
+    <div class="nav-divider"></div>
+    <a class="nav-item" href="#">Arzneimittel</a>
+    <a class="nav-item" href="#">Familie</a>
+    <a class="nav-item active" href="#">Beauty &amp; Pflege</a>
+    <a class="nav-item" href="#">Sanitätshaus</a>
+    <a class="nav-item" href="#">Angebote</a>
+    <a class="nav-item" href="#">RedPoints</a>
+  </div>
+</nav>
+
+<!-- E-REZEPT INFO BAR -->
+<div class="info-bar" style="max-width:100%">
+  <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 9v2M8 11h.01M16 11h.01" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+  E-Rezept-Rabatt: Automatisch bis zu 20 € je Medikament auf Zuzahlungen sparen.
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <a href="#">Startseite</a>
+  <span class="breadcrumb-sep">›</span>
+  <a href="#">Arzneimittel</a>
+  <span class="breadcrumb-sep">›</span>
+  <a href="#">Erkältung &amp; Grippe</a>
+  <span class="breadcrumb-sep">›</span>
+  <span class="current">Husten</span>
+</div>
+
+<!-- SYMPTOM CHIPS — NEW FEATURE (fixes C1) -->
+<div class="symptom-section">
+  <div class="symptom-label">Was genau suchen Sie?</div>
+  <div class="symptom-chips">
+    <div class="chip chip-all">
+      Alle Husten-Mittel
+      <span class="chip-count">1.668</span>
+    </div>
+    <div class="chip chip-active">
+      Reizhusten
+      <span class="chip-count">342</span>
+    </div>
+    <div class="chip chip-default">
+      Schleimhusten
+      <span class="chip-count">518</span>
+    </div>
+    <div class="chip chip-children">
+      🧒 Für Kinder
+      <span class="chip-count" style="background:rgba(12,94,168,.12)">187</span>
+    </div>
+    <div class="chip chip-default">
+      Nachthusten
+      <span class="chip-count">95</span>
+    </div>
+    <div class="chip chip-herbal">
+      🌿 Pflanzlich
+      <span class="chip-count" style="background:rgba(26,122,74,.12)">143</span>
+    </div>
+    <div class="chip chip-default">
+      Husten + Erkältung
+      <span class="chip-count">231</span>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE LAYOUT -->
+<div class="page-layout">
+
+  <!-- SIDEBAR (fixes H2: filters expanded by default) -->
+  <aside class="sidebar">
+    <div class="sidebar-title">
+      Filter
+      <span class="clear-all">Alle löschen</span>
+    </div>
+
+    <!-- Sort -->
+    <div class="filter-group">
+      <div class="filter-group-title open">
+        Sortieren nach
+        <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <select class="sort-select">
+        <option>Beliebteste zuerst</option>
+        <option>Preis aufsteigend</option>
+        <option>Preis absteigend</option>
+        <option>Beste Bewertung</option>
+        <option>Neueste zuerst</option>
+      </select>
+    </div>
+
+    <!-- Kategorie -->
+    <div class="filter-group">
+      <div class="filter-group-title open">
+        Kategorie
+        <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="filter-option">
+        <div class="filter-checkbox checked"></div>
+        <span class="filter-option-label">Arzneimittel</span>
+        <span class="filter-option-count">892</span>
+      </div>
+      <div class="filter-option">
+        <div class="filter-checkbox"></div>
+        <span class="filter-option-label">Nahrungsergänzung</span>
+        <span class="filter-option-count">318</span>
+      </div>
+      <div class="filter-option">
+        <div class="filter-checkbox"></div>
+        <span class="filter-option-label">Pflanzliche Mittel</span>
+        <span class="filter-option-count">143</span>
+      </div>
+      <div class="filter-option">
+        <div class="filter-checkbox"></div>
+        <span class="filter-option-label">Medizinprodukte</span>
+        <span class="filter-option-count">84</span>
+      </div>
+      <span class="filter-more">+ 4 weitere anzeigen</span>
+    </div>
+
+    <!-- Altersgruppe — NEW FILTER (fixes M4) -->
+    <div class="filter-group">
+      <div class="filter-group-title open" style="color:var(--blue)">
+        Altersgruppe <span style="font-size:10px;color:var(--blue);font-weight:600;background:var(--blue-bg);padding:1px 6px;border-radius:4px;margin-left:4px">NEU</span>
+        <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="filter-option">
+        <div class="filter-checkbox"></div>
+        <span class="filter-option-label">Erwachsene (ab 12 J.)</span>
+        <span class="filter-option-count">1.124</span>
+      </div>
+      <div class="filter-option">
+        <div class="filter-checkbox"></div>
+        <span class="filter-option-label">Kinder (2–11 J.)</span>
+        <span class="filter-option-count">187</span>
+      </div>
+      <div class="filter-option">
+        <div class="filter-checkbox"></div>
+        <span class="filter-option-label">Babys &amp; Kleinkinder</span>
+        <span class="filter-option-count">52</span>
+      </div>
+      <div class="filter-option">
+        <div class="filter-checkbox"></div>
+        <span class="filter-option-label">Schwangere / Stillende</span>
+        <span class="filter-option-count">44</span>
+      </div>
+    </div>
+
+    <!-- Darreichungsform — expanded with values (fixes H2) -->
+    <div class="filter-group">
+      <div class="filter-group-title open">
+        Darreichungsform
+        <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="filter-option">
+        <div class="filter-checkbox"></div>
+        <span class="filter-option-label">Sirup / Saft</span>
+        <span class="filter-option-count">312</span>
+      </div>
+      <div class="filter-option">
+        <div class="filter-checkbox"></div>
+        <span class="filter-option-label">Tabletten</span>
+        <span class="filter-option-count">287</span>
+      </div>
+      <div class="filter-option">
+        <div class="filter-checkbox"></div>
+        <span class="filter-option-label">Brausetabletten</span>
+        <span class="filter-option-count">198</span>
+      </div>
+      <div class="filter-option">
+        <div class="filter-checkbox"></div>
+        <span class="filter-option-label">Kapseln</span>
+        <span class="filter-option-count">142</span>
+      </div>
+      <div class="filter-option">
+        <div class="filter-checkbox"></div>
+        <span class="filter-option-label">Tropfen</span>
+        <span class="filter-option-count">98</span>
+      </div>
+      <span class="filter-more">+ 6 weitere</span>
+    </div>
+
+    <!-- Price -->
+    <div class="filter-group">
+      <div class="filter-group-title open">
+        Preis
+        <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="price-range">
+        <div class="price-slider-track">
+          <div class="price-slider-fill"></div>
+          <div class="price-slider-thumb" style="left:calc(5% - 8px)"></div>
+          <div class="price-slider-thumb" style="left:calc(80% - 8px)"></div>
+        </div>
+        <div class="price-inputs">
+          <input class="price-input" value="€ 1,99">
+          <span class="price-sep">—</span>
+          <input class="price-input" value="€ 49,99">
+        </div>
+      </div>
+    </div>
+
+    <!-- Wirkstoff -->
+    <div class="filter-group">
+      <div class="filter-group-title open">
+        Wirkstoff
+        <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="filter-option">
+        <div class="filter-checkbox"></div>
+        <span class="filter-option-label">Acetylcystein (ACC)</span>
+        <span class="filter-option-count">64</span>
+      </div>
+      <div class="filter-option">
+        <div class="filter-checkbox"></div>
+        <span class="filter-option-label">Ambroxol</span>
+        <span class="filter-option-count">48</span>
+      </div>
+      <div class="filter-option">
+        <div class="filter-checkbox"></div>
+        <span class="filter-option-label">Dextromethorphan</span>
+        <span class="filter-option-count">41</span>
+      </div>
+      <div class="filter-option">
+        <div class="filter-checkbox"></div>
+        <span class="filter-option-label">Thymian-Extrakt</span>
+        <span class="filter-option-count">38</span>
+      </div>
+      <span class="filter-more">+ 12 weitere</span>
+    </div>
+  </aside>
+
+  <!-- RESULTS -->
+  <div class="results-area">
+
+    <!-- Results header -->
+    <div class="results-header">
+      <div class="results-count">
+        <strong>342 Produkte</strong> für "Reizhusten"
+      </div>
+      <div class="results-controls">
+        <div class="view-toggle">
+          <button class="view-btn active">
+            <svg viewBox="0 0 16 16"><rect x="1" y="1" width="6" height="5" rx="1"/><rect x="9" y="1" width="6" height="5" rx="1"/><rect x="1" y="8" width="6" height="7" rx="1"/><rect x="9" y="8" width="6" height="7" rx="1"/></svg>
+          </button>
+          <button class="view-btn">
+            <svg viewBox="0 0 16 16"><rect x="1" y="1" width="14" height="3.5" rx="1"/><rect x="1" y="6.25" width="14" height="3.5" rx="1"/><rect x="1" y="11.5" width="14" height="3.5" rx="1"/></svg>
+          </button>
+        </div>
+        <div class="inline-sort">
+          <span>Sortieren:</span>
+          <select>
+            <option>Beliebteste zuerst</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHARMACIST RECOMMENDATION WIDGET — NEW (fixes Missing Feature) -->
+    <div class="pharmacist-card">
+      <div class="pharmacist-avatar">
+        <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+      </div>
+      <div class="pharmacist-body">
+        <div class="pharmacist-eyebrow">Unser Apotheker empfiehlt</div>
+        <div class="pharmacist-title">Für trockenen Reizhusten ohne Schleim</div>
+        <a class="pharmacist-rec" href="#">
+          <div class="pharmacist-rec-text">ACC akut 600 mg Brausetabletten — löst Schleim und erleichtert das Abhusten. Für Erwachsene ab 14 Jahren.</div>
+          <span class="pharmacist-rec-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- SPONSORED BLOCK — Clearly labeled (fixes C2/BB5) -->
+    <div class="sponsored-block">
+      <div class="sponsored-label-bar">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Gesponserte Produkte
+        <span class="sponsored-info">Was bedeutet das? ⓘ</span>
+      </div>
+
+      <!-- Card 1: ACC 600mg (sponsored, variant group) -->
+      <div class="product-card">
+        <div class="card-image">
+          <div class="compare-check"></div>
+          <div class="product-img-placeholder img-blue">ACC<br>akut<br>600mg</div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag-rx">Apothekenpflichtig (OTC) ⓘ</span>
+            <span class="tag tag-age">Ab 14 Jahren</span>
+          </div>
+          <a class="card-title" href="#">ACC® akut 600 mg — Brausetabletten bei Husten mit Verschleimung</a>
+          <div class="card-claim">Löst Schleim und erleichtert das Abhusten. 1× täglich.</div>
+          <div class="card-meta">
+            <div class="card-rating">
+              <div class="stars">
+                <svg class="star" viewBox="0 0 12 12"><path fill="#F59E0B" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+                <svg class="star" viewBox="0 0 12 12"><path fill="#F59E0B" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+                <svg class="star" viewBox="0 0 12 12"><path fill="#F59E0B" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+                <svg class="star" viewBox="0 0 12 12"><path fill="#F59E0B" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+                <svg class="star" viewBox="0 0 12 12"><path fill="#E5E7EB" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+              </div>
+              4.4 · 536 Bewertungen
+            </div>
+            <div class="card-format"><span>20 St</span> · Brausetabletten · Hexal AG</div>
+          </div>
+          <!-- VARIANT GROUPING — NEW (fixes BB3) -->
+          <div class="variants">
+            <span class="variant-label">Stärke:</span>
+            <span class="variant-chip active">600 mg</span>
+            <span class="variant-chip">200 mg</span>
+            <span class="variant-chip">200 mg Kinderdosis</span>
+          </div>
+          <div class="card-delivery">
+            <svg viewBox="0 0 24 24"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3m-5 9h10V9h-5l-2-4h-3v12z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+            Heute bestellt → <strong>Morgen geliefert</strong> bis 14:00 Uhr
+          </div>
+          <button class="card-details-toggle">
+            ▸ Details &amp; PZN
+          </button>
+        </div>
+        <div class="card-price">
+          <div class="price-block">
+            <div class="price-discount-badge">−39 %</div>
+            <div class="price-main"><small>ab</small> €&nbsp;7,79</div>
+            <div class="price-original">€ 12,82 AVP</div>
+            <div class="price-unit">0,39 € / Stück</div>
+            <div class="price-saving">Sie sparen 5,03 €</div>
+          </div>
+          <div class="card-cta">
+            <div class="available-badge">
+              <div class="available-dot"></div>
+              Verfügbar
+            </div>
+            <button class="btn-cart">
+              <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" stroke="white" stroke-width="2" fill="none"/><line x1="3" y1="6" x2="21" y2="6" stroke="white" stroke-width="2"/><path d="M16 10a4 4 0 0 1-8 0" stroke="white" stroke-width="2" fill="none"/></svg>
+              In den Warenkorb
+            </button>
+            <button class="btn-wishlist">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              Merken
+            </button>
+          </div>
+        </div>
+      </div>
+    </div><!-- /sponsored block -->
+
+    <!-- ORGANIC RESULTS DIVIDER -->
+    <div class="results-divider">Organische Ergebnisse</div>
+
+    <!-- Card 2: WICK Sirup (organic) -->
+    <div class="product-card">
+      <div class="card-image">
+        <div class="compare-check"></div>
+        <div class="product-img-placeholder img-yellow">WICK<br>Sirup</div>
+      </div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="tag tag-rx">Apothekenpflichtig (OTC) ⓘ</span>
+          <span class="tag tag-age">Ab 14 Jahren</span>
+        </div>
+        <a class="card-title" href="#">WICK Husten-Sirup gegen Reizhusten mit Honig — 180 ml</a>
+        <div class="card-claim">Lindert Reizhusten, beruhigt die Atemwege. Für unterwegs ideal.</div>
+        <div class="card-meta">
+          <div class="card-rating">
+            <div class="stars">
+              <svg class="star" viewBox="0 0 12 12"><path fill="#F59E0B" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+              <svg class="star" viewBox="0 0 12 12"><path fill="#F59E0B" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+              <svg class="star" viewBox="0 0 12 12"><path fill="#F59E0B" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+              <svg class="star" viewBox="0 0 12 12"><path fill="#F59E0B" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+              <svg class="star" viewBox="0 0 12 12"><path fill="#F59E0B" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+            </div>
+            4.7 · 214 Bewertungen
+          </div>
+          <div class="card-format"><span>180 ml</span> · Sirup · WICK Pharma</div>
+        </div>
+        <div class="variants">
+          <span class="variant-label">Größe:</span>
+          <span class="variant-chip active">180 ml</span>
+          <span class="variant-chip">360 ml</span>
+        </div>
+        <div class="card-delivery">
+          <svg viewBox="0 0 24 24"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3m-5 9h10V9h-5l-2-4h-3v12z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+          Heute bestellt → <strong>Morgen geliefert</strong>
+        </div>
+        <button class="card-details-toggle">▸ Details &amp; PZN</button>
+      </div>
+      <div class="card-price">
+        <div class="price-block">
+          <div class="price-discount-badge">−24 %</div>
+          <div class="price-main"><small>ab</small> €&nbsp;5,79</div>
+          <div class="price-original">€ 7,64 AVP</div>
+          <div class="price-unit">0,032 € / ml</div>
+          <div class="price-saving">Sie sparen 1,85 €</div>
+        </div>
+        <div class="card-cta">
+          <div class="available-badge"><div class="available-dot"></div>Verfügbar</div>
+          <button class="btn-cart">
+            <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" stroke="white" stroke-width="2" fill="none"/><line x1="3" y1="6" x2="21" y2="6" stroke="white" stroke-width="2"/><path d="M16 10a4 4 0 0 1-8 0" stroke="white" stroke-width="2" fill="none"/></svg>
+            In den Warenkorb
+          </button>
+          <button class="btn-wishlist">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Merken
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Hustenstiller-ratiopharm (organic) -->
+    <div class="product-card">
+      <div class="card-image">
+        <div class="compare-check"></div>
+        <div class="product-img-placeholder img-teal">Husten<br>stiller<br>ratioph.</div>
+      </div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="tag tag-rx">Apothekenpflichtig (OTC) ⓘ</span>
+          <span class="tag tag-age">Ab 12 Jahren</span>
+        </div>
+        <a class="card-title" href="#">Hustenstiller-ratiopharm® Dextromethorphan 15 mg — Kapseln</a>
+        <div class="card-claim">Hemmt den Hustenreflex. Besonders für trockenen Reizhusten.</div>
+        <div class="card-meta">
+          <div class="card-rating">
+            <div class="stars">
+              <svg class="star" viewBox="0 0 12 12"><path fill="#F59E0B" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+              <svg class="star" viewBox="0 0 12 12"><path fill="#F59E0B" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+              <svg class="star" viewBox="0 0 12 12"><path fill="#F59E0B" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+              <svg class="star" viewBox="0 0 12 12"><path fill="#F59E0B" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+              <svg class="star" viewBox="0 0 12 12"><path fill="#E5E7EB" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+            </div>
+            4.2 · 88 Bewertungen
+          </div>
+          <div class="card-format"><span>10 St</span> · Kapseln · ratiopharm GmbH</div>
+        </div>
+        <div class="card-delivery">
+          <svg viewBox="0 0 24 24"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3m-5 9h10V9h-5l-2-4h-3v12z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+          Heute bestellt → <strong>Morgen geliefert</strong>
+        </div>
+        <button class="card-details-toggle">▸ Details &amp; PZN</button>
+      </div>
+      <div class="card-price">
+        <div class="price-block">
+          <div class="price-discount-badge">−40 %</div>
+          <div class="price-main">€&nbsp;4,69</div>
+          <div class="price-original">€ 7,85 AVP</div>
+          <div class="price-unit">0,47 € / Kapsel</div>
+          <div class="price-saving">Sie sparen 3,16 €</div>
+        </div>
+        <div class="card-cta">
+          <div class="available-badge"><div class="available-dot"></div>Verfügbar</div>
+          <button class="btn-cart">
+            <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" stroke="white" stroke-width="2" fill="none"/><line x1="3" y1="6" x2="21" y2="6" stroke="white" stroke-width="2"/><path d="M16 10a4 4 0 0 1-8 0" stroke="white" stroke-width="2" fill="none"/></svg>
+            In den Warenkorb
+          </button>
+          <button class="btn-wishlist">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Merken
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4: Mucosolvan Kindersaft — herbal/children -->
+    <div class="product-card">
+      <div class="card-image">
+        <div class="compare-check"></div>
+        <div class="product-img-placeholder img-green">Muco<br>solvan<br>Kind</div>
+      </div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="tag tag-rx">Apothekenpflichtig (OTC) ⓘ</span>
+          <span class="tag tag-children" style="background:#EEF5FF;color:#0C5EA8;border:1px solid #C7DEFF;padding:2px 7px;border-radius:4px;font-size:11px;font-weight:600">🧒 Ab 2 Jahren</span>
+        </div>
+        <a class="card-title" href="#">Mucosolvan® Kindersaft 15 mg/5 ml — 100 ml</a>
+        <div class="card-claim">Löst zähen Schleim. Speziell für Kinder ab 2 Jahren dosiert.</div>
+        <div class="card-meta">
+          <div class="card-rating">
+            <div class="stars">
+              <svg class="star" viewBox="0 0 12 12"><path fill="#F59E0B" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+              <svg class="star" viewBox="0 0 12 12"><path fill="#F59E0B" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+              <svg class="star" viewBox="0 0 12 12"><path fill="#F59E0B" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+              <svg class="star" viewBox="0 0 12 12"><path fill="#F59E0B" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+              <svg class="star" viewBox="0 0 12 12"><path fill="#F59E0B" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+            </div>
+            4.8 · 342 Bewertungen
+          </div>
+          <div class="card-format"><span>100 ml</span> · Saft · A. Nattermann</div>
+        </div>
+        <div class="card-delivery">
+          <svg viewBox="0 0 24 24"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3m-5 9h10V9h-5l-2-4h-3v12z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+          Heute bestellt → <strong>Morgen geliefert</strong>
+        </div>
+        <button class="card-details-toggle">▸ Details &amp; PZN</button>
+      </div>
+      <div class="card-price">
+        <div class="price-block">
+          <div class="price-discount-badge">−16 %</div>
+          <div class="price-main"><small>ab</small> €&nbsp;6,89</div>
+          <div class="price-original">€ 8,22 AVP</div>
+          <div class="price-unit">0,069 € / ml</div>
+          <div class="price-saving">Sie sparen 1,33 €</div>
+        </div>
+        <div class="card-cta">
+          <div class="available-badge"><div class="available-dot"></div>Verfügbar</div>
+          <button class="btn-cart">
+            <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" stroke="white" stroke-width="2" fill="none"/><line x1="3" y1="6" x2="21" y2="6" stroke="white" stroke-width="2"/><path d="M16 10a4 4 0 0 1-8 0" stroke="white" stroke-width="2" fill="none"/></svg>
+            In den Warenkorb
+          </button>
+          <button class="btn-wishlist">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Merken
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5: Bronchipret (herbal) -->
+    <div class="product-card">
+      <div class="card-image">
+        <div class="compare-check"></div>
+        <div class="product-img-placeholder img-green">Bronchi<br>pret<br>Saft</div>
+      </div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="tag tag-herbal">🌿 Pflanzlich</span>
+          <span class="tag tag-age">Ab 12 Jahren</span>
+        </div>
+        <a class="card-title" href="#">Bronchipret® Saft TE — Thymian-Efeu, 100 ml</a>
+        <div class="card-claim">Pflanzliches Mittel bei Husten. Thymian + Efeu-Extrakt.</div>
+        <div class="card-meta">
+          <div class="card-rating">
+            <div class="stars">
+              <svg class="star" viewBox="0 0 12 12"><path fill="#F59E0B" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+              <svg class="star" viewBox="0 0 12 12"><path fill="#F59E0B" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+              <svg class="star" viewBox="0 0 12 12"><path fill="#F59E0B" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+              <svg class="star" viewBox="0 0 12 12"><path fill="#F59E0B" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+              <svg class="star" viewBox="0 0 12 12"><path fill="#F59E0B" d="M6 1l1.39 2.82L10.5 4.3 8.25 6.5l.52 3.04L6 8.1 3.23 9.54l.52-3.04L1.5 4.3l3.11-.48z"/></svg>
+            </div>
+            4.6 · 178 Bewertungen
+          </div>
+          <div class="card-format"><span>100 ml</span> · Saft · Bionorica SE</div>
+        </div>
+        <div class="card-delivery">
+          <svg viewBox="0 0 24 24"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3m-5 9h10V9h-5l-2-4h-3v12z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+          Heute bestellt → <strong>Morgen geliefert</strong>
+        </div>
+        <button class="card-details-toggle">▸ Details &amp; PZN</button>
+      </div>
+      <div class="card-price">
+        <div class="price-block">
+          <div class="price-discount-badge">−10 %</div>
+          <div class="price-main">€&nbsp;10,98</div>
+          <div class="price-original">€ 12,20 AVP</div>
+          <div class="price-unit">0,11 € / ml</div>
+          <div class="price-saving">Sie sparen 1,22 €</div>
+        </div>
+        <div class="card-cta">
+          <div class="available-badge"><div class="available-dot"></div>Verfügbar</div>
+          <button class="btn-cart">
+            <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" stroke="white" stroke-width="2" fill="none"/><line x1="3" y1="6" x2="21" y2="6" stroke="white" stroke-width="2"/><path d="M16 10a4 4 0 0 1-8 0" stroke="white" stroke-width="2" fill="none"/></svg>
+            In den Warenkorb
+          </button>
+          <button class="btn-wishlist">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Merken
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGINATION — NEW (fixes H1) -->
+    <div class="pagination">
+      <button class="page-btn">
+        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="page-btn active">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+      <button class="page-btn">4</button>
+      <button class="page-btn">5</button>
+      <span class="page-ellipsis">…</span>
+      <button class="page-btn">35</button>
+      <button class="page-btn">
+        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+    <div style="text-align:center;margin-top:8px;font-size:12px;color:var(--gray-400)">
+      Zeige 1–10 von 342 Produkten ·
+      <select style="border:none;font-family:inherit;font-size:12px;color:var(--gray-600);cursor:pointer">
+        <option>10 pro Seite</option>
+        <option>20 pro Seite</option>
+        <option>50 pro Seite</option>
+      </select>
+    </div>
+
+  </div><!-- /results -->
+</div><!-- /page-layout -->
+
+<script>
+  // Chip interactivity
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.chip').forEach(c => {
+        c.classList.remove('chip-active');
+        if (c.classList.contains('chip-all')) return;
+      });
+      chip.classList.add('chip-active');
+    });
+  });
+
+  // Filter checkbox toggle
+  document.querySelectorAll('.filter-option').forEach(opt => {
+    opt.addEventListener('click', () => {
+      opt.querySelector('.filter-checkbox').classList.toggle('checked');
+    });
+  });
+
+  // Compare checkbox
+  document.querySelectorAll('.compare-check').forEach(box => {
+    box.addEventListener('click', e => {
+      e.stopPropagation();
+      box.style.background = box.style.background === 'var(--red)' ? '' : 'var(--red)';
+      box.style.borderColor = box.style.borderColor === 'var(--red)' ? '' : 'var(--red)';
+    });
+  });
+
+  // Variant chips
+  document.querySelectorAll('.variants').forEach(group => {
+    group.querySelectorAll('.variant-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        group.querySelectorAll('.variant-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+      });
+    });
+  });
+
+  // Cart button feedback
+  document.querySelectorAll('.btn-cart').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const orig = btn.innerHTML;
+      btn.innerHTML = '✓ Hinzugefügt';
+      btn.style.background = 'var(--green)';
+      setTimeout(() => {
+        btn.innerHTML = orig;
+        btn.style.background = '';
+      }, 1500);
+    });
+  });
+
+  // Details toggle
+  document.querySelectorAll('.card-details-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isOpen = btn.dataset.open === '1';
+      if (isOpen) {
+        btn.dataset.open = '';
+        btn.textContent = '▸ Details & PZN';
+        const detail = btn.nextElementSibling;
+        if (detail?.classList.contains('pzn-detail')) detail.remove();
+      } else {
+        btn.dataset.open = '1';
+        btn.textContent = '▾ Details ausblenden';
+        const div = document.createElement('div');
+        div.className = 'pzn-detail';
+        div.style.cssText = 'font-size:11px;color:var(--gray-500);padding:6px 10px;background:var(--gray-50);border-radius:6px;margin-top:4px;border:1px solid var(--gray-100)';
+        div.innerHTML = 'PZN: 06197481 &nbsp;|&nbsp; EAN: 4150061974812 &nbsp;|&nbsp; Hersteller: Hexal AG';
+        btn.after(div);
+      }
+    });
+  });
+</script>
+</body>
+</html>

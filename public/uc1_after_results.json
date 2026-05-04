@@ -1,0 +1,100 @@
+{
+  "original_query": "Baby Husten Mittel",
+  "agents": [
+    {
+      "persona_key": "anxious_young_mother",
+      "trace": [
+        {
+          "round": 1,
+          "query": "Baby Husten Mittel",
+          "monologue": "Gut, ich sehe mehrere Optionen ab 1 Jahr und ab 3 Monaten, aber position 7 ist ein Rezeptprodukt — das ignoriere ich sofort — und ich bin unsicher, ob meine Tochter schon 1 Jahr alt ist oder noch jünger, also sollte ich erst die Aspecton Hustentropfen checken, die schon ab 3 Monaten gehen.",
+          "action": "click",
+          "clicked_position": 3,
+          "next_query": null,
+          "satisfaction": "medium",
+          "reasoning": "Aspecton ab 3 Monaten ist die sicherste Wahl für eine unbekannte Babyalter und vermeidet das Rx-Produkt; ich klicke um Inhaltsstoffe und Kinderarzt-Empfehlungen zu prüfen."
+        }
+      ]
+    },
+    {
+      "persona_key": "wellness_optimizer",
+      "trace": [
+        {
+          "round": 1,
+          "query": "Baby Husten Mittel",
+          "monologue": "Okay, these are mostly syrups and homeopathic globuli, but I notice none of the descriptions actually list the active ingredients or their exact dosages — I can see 'Thymian' for Bronchipret and 'natürlich' for Weleda, but I need to know what's actually *in* these, bioavailability matters even for cough remedies.",
+          "action": "click",
+          "clicked_position": 1,
+          "next_query": null,
+          "satisfaction": "low",
+          "reasoning": "Prospan is well-established and has clear age specification, so I'll click to see the full ingredient list and dosage on the product page before deciding if this matches what I need."
+        }
+      ]
+    },
+    {
+      "persona_key": "elderly_patient",
+      "trace": [
+        {
+          "round": 1,
+          "query": "Baby Husten Mittel",
+          "monologue": "I'm looking for a specific baby cough medicine but these results are all different brands and sizes — I don't even know which exact product my daughter told me to buy, and half of these look like homeopathy nonsense or prescription-only, which isn't what I need.",
+          "action": "reformulate",
+          "clicked_position": null,
+          "next_query": "Hustensaft Kinder 100ml Prospan",
+          "satisfaction": "low",
+          "reasoning": "The search is too vague and returned mixed product types (syrups, drops, globules, homeopathic remedies) without a specific pack size — I need to narrow down to an exact product name and volume like my daughter would have written it down."
+        },
+        {
+          "round": 2,
+          "query": "Hustensaft Kinder 100ml Prospan",
+          "monologue": "Gut, Prospan 100ml ist genau das erste Ergebnis — das ist exakt das, was ich gesucht habe, gleiche Marke, gleiche Größe, gleiche Altersgruppe.",
+          "action": "click",
+          "clicked_position": 1,
+          "next_query": null,
+          "satisfaction": "high",
+          "reasoning": "Result #1 matches all critical parameters: exact product name (Prospan), exact pack size (100ml), correct age group (ab 1 Jahr) — this is the right product, no need to hesitate or scroll."
+        }
+      ]
+    },
+    {
+      "persona_key": "acute_self_treater",
+      "trace": [
+        {
+          "round": 1,
+          "query": "Baby Husten Mittel",
+          "monologue": "Okay, good — I see actual cough syrups for kids right at the top, they're all OTC and under €13, but I'm confused why there's a homeopathic globuli mix in here and especially why position 7 says 'Rx — nur auf Rezept' when I'm looking for OTC options.",
+          "action": "click",
+          "clicked_position": 1,
+          "next_query": null,
+          "satisfaction": "medium",
+          "reasoning": "Prospan is a recognizable, trusted OTC brand that appears first, is clearly labeled for kids from 1 year, has the right price point, and I need relief fast — but I'm slightly annoyed the results aren't filtered to exclude Rx-only items."
+        }
+      ]
+    },
+    {
+      "persona_key": "alternative_medicine_seeker",
+      "trace": [
+        {
+          "round": 1,
+          "query": "Baby Husten Mittel",
+          "monologue": "Gut — ich sehe homöopathische Optionen wie Viburcol und Aconitum napellus, aber ich bin unsicher, ob diese wirklich für Babyhustenmittel passend sind oder ob ich spezifischere anthroposophische oder Schüssler-Salz-Produkte finden sollte, die mein Heilpraktiker empfohlen hätte.",
+          "action": "click",
+          "clicked_position": 5,
+          "next_query": null,
+          "satisfaction": "medium",
+          "reasoning": "Viburcol Globuli ist ein etabliertes homöopathisches Komplexmittel speziell für Säuglinge und Kleinkinder mit guter Reputation in der Naturheilkunde-Szene — das ist der beste Match hier, auch wenn ich vorher lieber nach Aconitum oder anderen Einzelmitteln gesucht hätte."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_agents": 5,
+    "click_rate": 1.0,
+    "abandon_rate": 0.0,
+    "avg_reformulations": 0.2,
+    "avg_scroll_depth": 0.0,
+    "reformulation_queries": [
+      "Hustensaft Kinder 100ml Prospan"
+    ]
+  }
+}

@@ -13,7 +13,7 @@ const navLinks: { href: string; label: string; page: NavPage }[] = [
   { href: '/personas',              label: 'Personas',         page: 'personas' },
 ]
 
-export default function Hero({ activePage, headline, tagline, screenshotSrc, screenshotAlt }: { activePage?: NavPage; headline?: React.ReactNode; tagline?: string; screenshotSrc?: string; screenshotAlt?: string }) {
+export default function Hero({ activePage, headline, tagline, screenshotSrc, screenshotAlt, rightContent }: { activePage?: NavPage; headline?: React.ReactNode; tagline?: string; screenshotSrc?: string; screenshotAlt?: string; rightContent?: React.ReactNode }) {
   return (
     <>
       <nav
@@ -33,7 +33,7 @@ export default function Hero({ activePage, headline, tagline, screenshotSrc, scr
           href="/"
           style={{ textDecoration: 'none', flexShrink: 0 }}
         >
-          <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '2px', color: '#E2001A' }}>
+          <span style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '2px', color: '#E2001A' }}>
             REDCARE × SEARCH SIMULATION LAB
           </span>
         </Link>
@@ -45,7 +45,7 @@ export default function Hero({ activePage, headline, tagline, screenshotSrc, scr
               key={href}
               href={href}
               style={{
-                fontSize: '11px',
+                fontSize: '16px',
                 fontWeight: 600,
                 letterSpacing: '1.5px',
                 color: active ? '#0a0a0a' : '#737373',
@@ -66,14 +66,14 @@ export default function Hero({ activePage, headline, tagline, screenshotSrc, scr
       <div style={{ flex: '0 0 auto', maxWidth: '520px' }}>
         <p
           className="mb-4 font-bold uppercase"
-          style={{ fontSize: '11px', letterSpacing: '3px', color: '#E2001A' }}
+          style={{ fontSize: '16px', letterSpacing: '3px', color: '#E2001A' }}
         >
           REDCARE × SEARCH SIMULATION LAB
         </p>
 
         <h1
           className="font-black leading-none mb-6"
-          style={{ fontSize: '72px', letterSpacing: '-3px', color: '#0a0a0a' }}
+          style={{ fontSize: '72px', letterSpacing: '0px', color: '#0a0a0a' }}
         >
           {headline ?? (
             <>
@@ -97,13 +97,19 @@ export default function Hero({ activePage, headline, tagline, screenshotSrc, scr
 
         <p
           className="mt-10 font-bold uppercase"
-          style={{ fontSize: '11px', letterSpacing: '2px', color: '#737373' }}
+          style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}
         >
           ↓ SCROLL TO MEET THEM
         </p>
       </div>
-      {screenshotSrc && (
+      {rightContent && (
         <div style={{ flex: 1, minWidth: 0, display: 'flex', alignItems: 'center' }}>
+          {rightContent}
+        </div>
+      )}
+      {!rightContent && screenshotSrc && (
+        <div style={{ flex: 1, minWidth: 0, display: 'flex', alignItems: 'center' }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={screenshotSrc}
             alt={screenshotAlt ?? 'shop-apotheke.com screenshot'}

@@ -1,26 +1,27 @@
 import Hero from '@/components/Hero'
 import PersonaSection from '@/components/PersonaSection'
+import PersonaAvatarCollage from '@/components/PersonaAvatarCollage'
 import Footer from '@/components/Footer'
 import { personas } from '@/data/personas'
 
 export default function PersonasPage() {
   return (
     <main>
-      <Hero activePage="personas" />
+      <Hero activePage="personas" rightContent={<PersonaAvatarCollage />} />
       <section
         className="px-20 py-14"
         style={{ background: '#ffffff', borderBottom: '1px solid #e5e5e5' }}
       >
         <p
           className="mb-3 font-bold uppercase"
-          style={{ fontSize: '11px', letterSpacing: '2px', color: '#E2001A' }}
+          style={{ fontSize: '16px', letterSpacing: '2px', color: '#E2001A' }}
         >
           Foundations First
         </p>
 
         <h2
           className="mb-5 font-black"
-          style={{ fontSize: '42px', lineHeight: 1.05, letterSpacing: '-1.5px', color: '#0a0a0a' }}
+          style={{ fontSize: '42px', lineHeight: 1.05, letterSpacing: '0px', color: '#0a0a0a' }}
         >
           How The Synthetic Personas Were Built
         </h2>
@@ -42,7 +43,7 @@ export default function PersonasPage() {
           <article style={{ border: '1px solid #e5e5e5', padding: '22px', background: '#fafafa' }}>
             <p
               className="mb-3 font-bold uppercase"
-              style={{ fontSize: '11px', letterSpacing: '1.5px', color: '#0a0a0a' }}
+              style={{ fontSize: '16px', letterSpacing: '1.5px', color: '#0a0a0a' }}
             >
               How they were created
             </p>
@@ -52,7 +53,7 @@ export default function PersonasPage() {
                 paddingLeft: '18px',
                 listStyleType: 'disc',
                 color: '#404040',
-                fontSize: '14px',
+                fontSize: '16px',
                 lineHeight: 1.7,
               }}
             >
@@ -67,7 +68,7 @@ export default function PersonasPage() {
           <article style={{ border: '1px solid #e5e5e5', padding: '22px', background: '#fafafa' }}>
             <p
               className="mb-3 font-bold uppercase"
-              style={{ fontSize: '11px', letterSpacing: '1.5px', color: '#0a0a0a' }}
+              style={{ fontSize: '16px', letterSpacing: '1.5px', color: '#0a0a0a' }}
             >
               What each persona contains
             </p>
@@ -77,7 +78,7 @@ export default function PersonasPage() {
                 paddingLeft: '18px',
                 listStyleType: 'disc',
                 color: '#404040',
-                fontSize: '14px',
+                fontSize: '16px',
                 lineHeight: 1.7,
               }}
             >

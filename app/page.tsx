@@ -1,4 +1,5 @@
 import Hero from '@/components/Hero'
+import HeroCarousel from '@/components/HeroCarousel'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 
@@ -178,7 +179,7 @@ function TechChip({ label, red }: Chip) {
   return (
     <span
       style={{
-        fontSize: '11px',
+        fontSize: '16px',
         fontFamily: "'SF Mono', 'Fira Code', monospace",
         padding: '3px 10px',
         background: red ? '#fff5f5' : '#f5f5f5',
@@ -210,8 +211,7 @@ export default function HomePage() {
           </>
         }
         tagline="An AI-powered research framework that runs synthetic shoppers through real search journeys — uncovering relevance failures, UX friction, and data gaps before they cost conversions."
-        screenshotSrc="/hero-home.webp"
-        screenshotAlt="shop-apotheke.com homepage with search bar"
+        rightContent={<HeroCarousel />}
       />
 
       {/* Author — top of page */}
@@ -223,13 +223,13 @@ export default function HomePage() {
           <div>
             <p
               className="mb-3 font-bold uppercase"
-              style={{ fontSize: '12px', letterSpacing: '2px', color: '#E2001A' }}
+              style={{ fontSize: '16px', letterSpacing: '2px', color: '#E2001A' }}
             >
               Author
             </p>
             <h2
               className="mb-1 font-black"
-              style={{ fontSize: '32px', letterSpacing: '-1px', color: '#ffffff' }}
+              style={{ fontSize: '32px', letterSpacing: '0px', color: '#ffffff' }}
             >
               Michal Pekarcik
             </h2>
@@ -239,7 +239,7 @@ export default function HomePage() {
             <div style={{ display: 'flex', gap: '28px', alignItems: 'center' }}>
               <a
                 href="mailto:michal.pekarcik@gmail.com"
-                style={{ fontSize: '15px', color: '#a3a3a3', textDecoration: 'none', borderBottom: '1px solid #333', paddingBottom: '3px' }}
+                style={{ fontSize: '16px', color: '#a3a3a3', textDecoration: 'none', borderBottom: '1px solid #333', paddingBottom: '3px' }}
               >
                 michal.pekarcik@gmail.com
               </a>
@@ -248,7 +248,7 @@ export default function HomePage() {
                 href="https://www.linkedin.com/in/michalpekarcik/"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ fontSize: '15px', color: '#a3a3a3', textDecoration: 'none', borderBottom: '1px solid #333', paddingBottom: '3px' }}
+                style={{ fontSize: '16px', color: '#a3a3a3', textDecoration: 'none', borderBottom: '1px solid #333', paddingBottom: '3px' }}
               >
                 linkedin.com/in/michalpekarcik
               </a>
@@ -264,13 +264,13 @@ export default function HomePage() {
       >
         <p
           className="mb-4 font-bold uppercase"
-          style={{ fontSize: '12px', letterSpacing: '2px', color: '#E2001A' }}
+          style={{ fontSize: '16px', letterSpacing: '2px', color: '#E2001A' }}
         >
           About This Project
         </p>
         <h2
           className="mb-8 font-black"
-          style={{ fontSize: '48px', lineHeight: 1.05, letterSpacing: '-2px', color: '#0a0a0a' }}
+          style={{ fontSize: '48px', lineHeight: 1.05, letterSpacing: '0px', color: '#0a0a0a' }}
         >
           What Is the Search Simulation Lab?
         </h2>
@@ -303,13 +303,13 @@ export default function HomePage() {
       >
         <p
           className="mb-4 font-bold uppercase"
-          style={{ fontSize: '12px', letterSpacing: '2px', color: '#E2001A' }}
+          style={{ fontSize: '16px', letterSpacing: '2px', color: '#E2001A' }}
         >
           Findings at a Glance
         </p>
         <h2
           className="mb-12 font-black"
-          style={{ fontSize: '36px', lineHeight: 1.1, letterSpacing: '-1px', color: '#0a0a0a' }}
+          style={{ fontSize: '36px', lineHeight: 1.1, letterSpacing: '0px', color: '#0a0a0a' }}
         >
           What the Simulations Actually Found
         </h2>
@@ -346,7 +346,7 @@ export default function HomePage() {
             <div key={stat} style={{ borderTop: '3px solid #E2001A', paddingTop: '20px' }}>
               <p
                 className="font-black mb-3"
-                style={{ fontSize: '42px', letterSpacing: '-2px', color: '#0a0a0a' }}
+                style={{ fontSize: '42px', letterSpacing: '0px', color: '#0a0a0a' }}
               >
                 {stat}
               </p>
@@ -363,13 +363,13 @@ export default function HomePage() {
       >
         <p
           className="mb-4 font-bold uppercase"
-          style={{ fontSize: '12px', letterSpacing: '2px', color: '#E2001A' }}
+          style={{ fontSize: '16px', letterSpacing: '2px', color: '#E2001A' }}
         >
           Contents
         </p>
         <h2
           className="mb-12 font-black"
-          style={{ fontSize: '36px', lineHeight: 1.1, letterSpacing: '-1px', color: '#0a0a0a' }}
+          style={{ fontSize: '36px', lineHeight: 1.1, letterSpacing: '0px', color: '#0a0a0a' }}
         >
           What's Inside
         </h2>
@@ -380,13 +380,13 @@ export default function HomePage() {
                 <div style={{ padding: '32px 36px 24px', borderBottom: subsections ? '1px solid #f0f0f0' : 'none' }}>
                   <p
                     className="mb-2 font-bold uppercase"
-                    style={{ fontSize: '11px', letterSpacing: '2px', color: '#E2001A' }}
+                    style={{ fontSize: '16px', letterSpacing: '2px', color: '#E2001A' }}
                   >
                     {tag}
                   </p>
                   <p
                     className="font-black mb-4"
-                    style={{ fontSize: '22px', letterSpacing: '-0.5px', color: '#0a0a0a' }}
+                    style={{ fontSize: '22px', letterSpacing: '0px', color: '#0a0a0a' }}
                   >
                     {label} →
                   </p>
@@ -412,20 +412,20 @@ export default function HomePage() {
                       <div>
                         <p
                           className="font-bold uppercase mb-2"
-                          style={{ fontSize: '10px', letterSpacing: '2px', color: '#737373' }}
+                          style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}
                         >
                           How it was done
                         </p>
-                        <p style={{ fontSize: '15px', lineHeight: 1.75, color: '#525252' }}>{how}</p>
+                        <p style={{ fontSize: '16px', lineHeight: 1.75, color: '#525252' }}>{how}</p>
                       </div>
                       <div>
                         <p
                           className="font-bold uppercase mb-2"
-                          style={{ fontSize: '10px', letterSpacing: '2px', color: '#737373' }}
+                          style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}
                         >
                           Key findings
                         </p>
-                        <p style={{ fontSize: '15px', lineHeight: 1.75, color: '#525252' }}>{outcome}</p>
+                        <p style={{ fontSize: '16px', lineHeight: 1.75, color: '#525252' }}>{outcome}</p>
                       </div>
                     </div>
                   )}
@@ -437,7 +437,7 @@ export default function HomePage() {
                 <div style={{ padding: '0 36px 28px' }}>
                   <p
                     className="font-bold uppercase mb-4"
-                    style={{ fontSize: '10px', letterSpacing: '2px', color: '#737373', paddingTop: '24px' }}
+                    style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373', paddingTop: '24px' }}
                   >
                     Simulations included
                   </p>
@@ -453,17 +453,17 @@ export default function HomePage() {
                       >
                         <p
                           className="font-bold mb-2"
-                          style={{ fontSize: '14px', color: '#0a0a0a', letterSpacing: '-0.2px' }}
+                          style={{ fontSize: '16px', color: '#0a0a0a', letterSpacing: '0px' }}
                         >
                           {sub.label}
                         </p>
-                        <p style={{ fontSize: '14px', lineHeight: 1.7, color: '#525252' }}>
+                        <p style={{ fontSize: '16px', lineHeight: 1.7, color: '#525252' }}>
                           {sub.description}
                         </p>
                       </div>
                     ))}
                   </div>
-                  <p style={{ marginTop: '16px', fontSize: '13px', color: '#a3a3a3' }}>
+                  <p style={{ marginTop: '16px', fontSize: '16px', color: '#a3a3a3' }}>
                     <Link href={href} style={{ color: '#E2001A', textDecoration: 'none', fontWeight: 600 }}>
                       View all simulations →
                     </Link>

@@ -2,6 +2,28 @@ import Link from 'next/link'
 import SharedNav from '@/components/SharedNav'
 import Footer from '@/components/Footer'
 
+const DICEBEAR = 'https://api.dicebear.com/9.x/personas/svg'
+const PERSONA_AVATARS: Record<string, { seed: string; bg: string; name: string }> = {
+  'Anxious Young Mother':        { seed: 'Laura-Becker',       bg: 'fef3c7', name: 'Laura Becker' },
+  'Wellness Optimizer':          { seed: 'Mia-Schroeder',      bg: 'd1fae5', name: 'Mia Schröder' },
+  'Elderly Caregiver':           { seed: 'Sandra-Muller',      bg: 'dbeafe', name: 'Sandra Müller' },
+  'Acute Self-Treater':          { seed: 'Jonas-Weber',        bg: 'fee2e2', name: 'Jonas Weber' },
+  'Alternative Medicine Seeker': { seed: 'Petra-Zimmermann',   bg: 'ede9fe', name: 'Petra Zimmermann' },
+}
+function PersonaAvatar({ label, size = 28 }: { label: string; size?: number }) {
+  const a = PERSONA_AVATARS[label]
+  if (!a) return null
+  return (
+    <img
+      src={`${DICEBEAR}?seed=${encodeURIComponent(a.seed)}&backgroundColor=${a.bg}`}
+      alt={label}
+      width={size}
+      height={size}
+      style={{ borderRadius: '50%', flexShrink: 0, display: 'block' }}
+    />
+  )
+}
+
 // ─── Nav ─────────────────────────────────────────────────────────────────────
 
 
@@ -9,7 +31,7 @@ import Footer from '@/components/Footer'
 
 function SectionLabel({ children }: { children: string }) {
   return (
-    <p className="font-bold uppercase" style={{ fontSize: '10px', letterSpacing: '3px', color: '#E2001A' }}>
+    <p className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '3px', color: '#E2001A' }}>
       {children}
     </p>
   )
@@ -17,7 +39,7 @@ function SectionLabel({ children }: { children: string }) {
 
 function MetaLabel({ children }: { children: string }) {
   return (
-    <p className="font-bold uppercase" style={{ fontSize: '10px', letterSpacing: '2px', color: '#737373', borderBottom: '1px solid #e5e5e5', paddingBottom: '8px', marginBottom: '20px' }}>
+    <p className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373', borderBottom: '1px solid #e5e5e5', paddingBottom: '8px', marginBottom: '20px' }}>
       {children}
     </p>
   )
@@ -26,7 +48,7 @@ function MetaLabel({ children }: { children: string }) {
 function Tag({ children, red }: { children: string; red?: boolean }) {
   return (
     <span style={{
-      fontSize: '10px',
+      fontSize: '16px',
       fontFamily: "'SF Mono', 'Fira Code', monospace",
       padding: '3px 10px',
       background: red ? '#fff5f5' : '#f5f5f5',
@@ -43,7 +65,7 @@ function Tag({ children, red }: { children: string; red?: boolean }) {
 
 function OutputChip({ children }: { children: string }) {
   return (
-    <div style={{ fontSize: '11px', color: '#525252', background: '#ffffff', border: '1px solid #e5e5e5', padding: '6px 14px', letterSpacing: '0.3px', display: 'inline-block', marginRight: '8px', marginBottom: '8px' }}>
+    <div style={{ fontSize: '16px', color: '#525252', background: '#ffffff', border: '1px solid #e5e5e5', padding: '6px 14px', letterSpacing: '0.3px', display: 'inline-block', marginRight: '8px', marginBottom: '8px' }}>
       {children}
     </div>
   )
@@ -68,27 +90,27 @@ function FindingRow({ severity, query, resultCount, topResult, rootCause, fixPat
       padding: '24px 28px',
     }}>
       <div style={{ display: 'flex', gap: '12px', alignItems: 'center', marginBottom: '12px' }}>
-        <span className="font-bold uppercase" style={{ fontSize: '9px', letterSpacing: '1.5px', color, background: color === '#E2001A' ? '#fff5f5' : color === '#d97706' ? '#fffbeb' : '#f5f5f5', padding: '3px 8px', border: `1px solid ${color}` }}>
+        <span className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '1.5px', color, background: color === '#E2001A' ? '#fff5f5' : color === '#d97706' ? '#fffbeb' : '#f5f5f5', padding: '3px 8px', border: `1px solid ${color}` }}>
           {severity}
         </span>
-        <code style={{ fontSize: '14px', fontFamily: "'SF Mono', 'Fira Code', monospace", color: '#0a0a0a', background: '#f5f5f5', padding: '3px 10px', border: '1px solid #e5e5e5' }}>
+        <code style={{ fontSize: '16px', fontFamily: "'SF Mono', 'Fira Code', monospace", color: '#0a0a0a', background: '#f5f5f5', padding: '3px 10px', border: '1px solid #e5e5e5' }}>
           &ldquo;{query}&rdquo;
         </code>
-        <span className="font-bold uppercase" style={{ fontSize: '10px', letterSpacing: '1.5px', color: '#737373', marginLeft: 'auto' }}>
+        <span className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '1.5px', color: '#737373', marginLeft: 'auto' }}>
           {resultCount} results
         </span>
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
         <div>
-          <p className="font-bold uppercase mb-1" style={{ fontSize: '9px', letterSpacing: '2px', color: '#737373' }}>TOP RESULT</p>
-          <p style={{ fontSize: '13px', color: '#E2001A', fontWeight: 600 }}>{topResult}</p>
+          <p className="font-bold uppercase mb-1" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>TOP RESULT</p>
+          <p style={{ fontSize: '16px', color: '#E2001A', fontWeight: 600 }}>{topResult}</p>
         </div>
         <div>
-          <p className="font-bold uppercase mb-1" style={{ fontSize: '9px', letterSpacing: '2px', color: '#737373' }}>ROOT CAUSE</p>
-          <p style={{ fontSize: '13px', color: '#525252', lineHeight: '1.55' }}>{rootCause}</p>
+          <p className="font-bold uppercase mb-1" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>ROOT CAUSE</p>
+          <p style={{ fontSize: '16px', color: '#525252', lineHeight: '1.55' }}>{rootCause}</p>
         </div>
       </div>
-      <div style={{ marginTop: '14px', padding: '10px 14px', background: '#f5f5f5', borderLeft: '3px solid #e5e5e5', fontSize: '12px', color: '#737373', lineHeight: '1.5' }}>
+      <div style={{ marginTop: '14px', padding: '10px 14px', background: '#f5f5f5', borderLeft: '3px solid #e5e5e5', fontSize: '16px', color: '#737373', lineHeight: '1.5' }}>
         <strong style={{ color: '#525252' }}>Fix path: </strong>{fixPath}
       </div>
     </div>
@@ -109,14 +131,14 @@ function TreeNode({ query, state, note, isEnd, endType }: {
   return (
     <div style={{ paddingLeft: '20px', borderLeft: '2px solid #e5e5e5', marginBottom: '16px' }}>
       <div style={{ display: 'flex', gap: '10px', alignItems: 'baseline', marginBottom: '6px' }}>
-        <code style={{ fontSize: '13px', fontFamily: "'SF Mono', 'Fira Code', monospace", color: '#0a0a0a', background: '#f5f5f5', padding: '2px 8px', border: '1px solid #e5e5e5' }}>
+        <code style={{ fontSize: '16px', fontFamily: "'SF Mono', 'Fira Code', monospace", color: '#0a0a0a', background: '#f5f5f5', padding: '2px 8px', border: '1px solid #e5e5e5' }}>
           {query}
         </code>
-        <span className="font-bold uppercase" style={{ fontSize: '9px', letterSpacing: '1.5px', color: stateColors[state] }}>
+        <span className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '1.5px', color: stateColors[state] }}>
           {state}
         </span>
       </div>
-      <p style={{ fontSize: '12px', color: '#737373', lineHeight: '1.5', marginBottom: isEnd ? '8px' : '0' }}>
+      <p style={{ fontSize: '16px', color: '#737373', lineHeight: '1.5', marginBottom: isEnd ? '8px' : '0' }}>
         {note}
       </p>
       {isEnd && endType && (
@@ -125,7 +147,7 @@ function TreeNode({ query, state, note, isEnd, endType }: {
           padding: '6px 12px',
           background: endType === 'convert' ? '#f0fdf4' : endType === 'abandon' ? '#fff5f5' : '#fffbeb',
           border: `1px solid ${endType === 'convert' ? '#bbf7d0' : endType === 'abandon' ? '#fecaca' : '#fde68a'}`,
-          fontSize: '11px',
+          fontSize: '16px',
           fontWeight: 700,
           letterSpacing: '1px',
           textTransform: 'uppercase',
@@ -169,10 +191,10 @@ export default function UseCasesPage() {
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="px-20 pt-16 pb-14" style={{ background: '#ffffff', borderBottom: '2px solid #0a0a0a', display: 'flex', gap: '80px', alignItems: 'center' }}>
         <div style={{ flex: '0 0 auto', maxWidth: '520px' }}>
-        <p className="mb-4 font-bold uppercase" style={{ fontSize: '11px', letterSpacing: '3px', color: '#E2001A' }}>
+        <p className="mb-4 font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '3px', color: '#E2001A' }}>
           SEARCH SIMULATION LAB — EXECUTED USE CASES
         </p>
-        <h1 className="font-black leading-none mb-6" style={{ fontSize: '72px', letterSpacing: '-3px', color: '#0a0a0a' }}>
+        <h1 className="font-black leading-none mb-6" style={{ fontSize: '72px', letterSpacing: '0px', color: '#0a0a0a' }}>
           6 USE CASES.
           <br />
           <em style={{ fontStyle: 'italic', color: '#E2001A' }}>EXECUTED.</em>
@@ -183,7 +205,7 @@ export default function UseCasesPage() {
           specced. Each one produced real findings against live search data. This is the
           complete record of methodology, outputs, and what each experiment proved.
         </p>
-        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px' }}>
           {[
             ['6', 'USE CASES RUN'],
             ['5', 'PERSONAS BUILT'],
@@ -192,8 +214,8 @@ export default function UseCasesPage() {
             ['10×', 'AVG ILLUSION RATIO'],
           ].map(([num, label]) => (
             <div key={label} style={{ border: '1px solid #e5e5e5', padding: '14px 22px', background: '#fafafa' }}>
-              <div className="font-black" style={{ fontSize: '32px', letterSpacing: '-1.5px', color: '#0a0a0a', lineHeight: 1 }}>{num}</div>
-              <div className="font-bold uppercase" style={{ fontSize: '10px', letterSpacing: '2px', color: '#737373', marginTop: '4px' }}>{label}</div>
+              <div className="font-black" style={{ fontSize: '32px', letterSpacing: '0px', color: '#0a0a0a', lineHeight: 1 }}>{num}</div>
+              <div className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373', marginTop: '4px' }}>{label}</div>
             </div>
           ))}
         </div>
@@ -205,7 +227,7 @@ export default function UseCasesPage() {
 
       {/* ── Index ──────────────────────────────────────────────────────────── */}
       <section className="px-20 py-10" style={{ background: '#fafafa', borderBottom: '2px solid #0a0a0a' }}>
-        <p className="font-bold uppercase mb-6" style={{ fontSize: '10px', letterSpacing: '3px', color: '#737373' }}>
+        <p className="font-bold uppercase mb-6" style={{ fontSize: '16px', letterSpacing: '3px', color: '#737373' }}>
           JUMP TO SIMULATION
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
@@ -233,7 +255,7 @@ export default function UseCasesPage() {
             >
               {/* Number badge */}
               <span style={{
-                fontSize: '11px',
+                fontSize: '16px',
                 fontWeight: 900,
                 color: '#E2001A',
                 letterSpacing: '1px',
@@ -246,13 +268,13 @@ export default function UseCasesPage() {
 
               {/* Name + sub */}
               <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ fontSize: '13px', fontWeight: 700, color: '#0a0a0a', lineHeight: 1.2 }}>{name}</div>
-                <div style={{ fontSize: '11px', color: '#737373', marginTop: '2px' }}>{sub}</div>
+                <div style={{ fontSize: '16px', fontWeight: 700, color: '#0a0a0a', lineHeight: 1.2 }}>{name}</div>
+                <div style={{ fontSize: '16px', color: '#737373', marginTop: '2px' }}>{sub}</div>
               </div>
 
               {/* Status badge */}
               <span style={{
-                fontSize: '9px',
+                fontSize: '16px',
                 letterSpacing: '1px',
                 fontWeight: 700,
                 textTransform: 'uppercase' as const,
@@ -282,8 +304,8 @@ export default function UseCasesPage() {
         <div style={{ background: '#fffbeb', border: '1px solid #fde68a', borderLeft: '4px solid #d97706', padding: '16px 24px', marginBottom: '40px', display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
           <span style={{ fontSize: '20px', flexShrink: 0 }}>⚠️</span>
           <div>
-            <p className="font-bold uppercase mb-1" style={{ fontSize: '9px', letterSpacing: '2px', color: '#92400e' }}>THE ANALYTICS BLIND SPOT THIS EXPOSES</p>
-            <p style={{ fontSize: '13px', color: '#78350f', lineHeight: '1.6' }}>
+            <p className="font-bold uppercase mb-1" style={{ fontSize: '16px', letterSpacing: '2px', color: '#92400e' }}>THE ANALYTICS BLIND SPOT THIS EXPOSES</p>
+            <p style={{ fontSize: '16px', color: '#78350f', lineHeight: '1.6' }}>
               <strong>What monitoring sees for &ldquo;Baby Husten Mittel&rdquo;:</strong> 8 results returned · 0 error events · healthy CTR on position 1 · no alert triggered.&nbsp;
               <strong>What simulation reveals:</strong> 2 of 5 pharmacy personas exhausted their full reformulation budget and abandoned. No clicks. No session data. Neither failure is visible in any standard metric.
             </p>
@@ -293,19 +315,19 @@ export default function UseCasesPage() {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', marginBottom: '48px' }}>
           {/* Left: results + headline */}
           <div>
-            <h2 className="font-black leading-none mb-5" style={{ fontSize: '42px', letterSpacing: '-2px', color: '#0a0a0a' }}>
+            <h2 className="font-black leading-none mb-5" style={{ fontSize: '42px', letterSpacing: '0px', color: '#0a0a0a' }}>
               ONE QUERY.
               <br />
               FIVE USERS.
               <br />
               <span style={{ color: '#E2001A' }}>TWO GAVE UP.</span>
             </h2>
-            <p style={{ fontSize: '14px', color: '#525252', lineHeight: '1.65', marginBottom: '14px' }}>
+            <p style={{ fontSize: '16px', color: '#525252', lineHeight: '1.65', marginBottom: '14px' }}>
               Shopper Behavior Simulation runs every pharmacy persona against the same SERP simultaneously. Each agent
               reads results through its own behavioral lens — trust signals, reformulation triggers,
               patience thresholds — and independently decides to click, scroll, reformulate, or abandon.
             </p>
-            <p style={{ fontSize: '14px', color: '#525252', lineHeight: '1.65', marginBottom: '28px' }}>
+            <p style={{ fontSize: '16px', color: '#525252', lineHeight: '1.65', marginBottom: '28px' }}>
               The aggregate reveals which intent segments the current ranking serves and which
               it structurally fails — before a single user session is lost.
             </p>
@@ -319,8 +341,8 @@ export default function UseCasesPage() {
                 { value: 'Medium', label: 'Max satisfaction', warn: true },
               ].map(s => (
                 <div key={s.label} style={{ background: '#ffffff', padding: '16px 12px', textAlign: 'center' }}>
-                  <div className="font-black" style={{ fontSize: '24px', letterSpacing: '-1px', color: s.warn ? '#E2001A' : '#0a0a0a', lineHeight: 1, marginBottom: '4px' }}>{s.value}</div>
-                  <div className="font-bold uppercase" style={{ fontSize: '9px', letterSpacing: '1.5px', color: '#737373' }}>{s.label}</div>
+                  <div className="font-black" style={{ fontSize: '24px', letterSpacing: '0px', color: s.warn ? '#E2001A' : '#0a0a0a', lineHeight: 1, marginBottom: '4px' }}>{s.value}</div>
+                  <div className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '1.5px', color: '#737373' }}>{s.label}</div>
                 </div>
               ))}
             </div>
@@ -329,9 +351,9 @@ export default function UseCasesPage() {
             <MetaLabel>SERP PRESENTED TO ALL 5 PERSONAS</MetaLabel>
             <div style={{ background: '#fafafa', border: '1px solid #e5e5e5', padding: '14px 16px', marginBottom: '12px' }}>
               <div style={{ display: 'flex', gap: '8px', alignItems: 'center', padding: '7px 10px', background: '#ffffff', border: '1px solid #e5e5e5', borderRadius: '4px', marginBottom: '10px' }}>
-                <span style={{ fontSize: '12px', color: '#9ca3af' }}>🔍</span>
-                <span style={{ fontSize: '12px', fontWeight: 600, color: '#374151', fontFamily: "'SF Mono', monospace" }}>Baby Husten Mittel</span>
-                <span style={{ fontSize: '10px', color: '#9ca3af', marginLeft: 'auto' }}>8 results</span>
+                <span style={{ fontSize: '16px', color: '#9ca3af' }}>🔍</span>
+                <span style={{ fontSize: '16px', fontWeight: 600, color: '#374151', fontFamily: "'SF Mono', monospace" }}>Baby Husten Mittel</span>
+                <span style={{ fontSize: '16px', color: '#9ca3af', marginLeft: 'auto' }}>8 results</span>
               </div>
               {[
                 { pos: 1, title: 'Prospan Hustensaft für Kinder', price: '€8.99', tag: null },
@@ -346,12 +368,12 @@ export default function UseCasesPage() {
                 const tagColor: Record<string, string> = { RX: '#dc2626', BOOK: '#6b7280', ADULT: '#d97706' }
                 const tagLabel: Record<string, string> = { RX: 'PRESCRIPTION', BOOK: 'WRONG CAT.', ADULT: 'ADULT DOSE' }
                 return (
-                  <div key={item.pos} style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '8px 0', borderBottom: '1px solid #f3f4f6', fontSize: '12px' }}>
+                  <div key={item.pos} style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '8px 0', borderBottom: '1px solid #f3f4f6', fontSize: '16px' }}>
                     <span style={{ color: '#9ca3af', fontWeight: 600, width: '16px', textAlign: 'right', flexShrink: 0 }}>{item.pos}</span>
                     <span style={{ color: '#0a0a0a', flex: 1 }}>{item.title}</span>
                     <span style={{ color: '#6b7280' }}>{item.price}</span>
                     {item.tag && (
-                      <span style={{ fontSize: '9px', fontWeight: 700, color: tagColor[item.tag], background: tagColor[item.tag] + '15', border: `1px solid ${tagColor[item.tag]}40`, borderRadius: '3px', padding: '2px 5px', flexShrink: 0 }}>
+                      <span style={{ fontSize: '16px', fontWeight: 700, color: tagColor[item.tag], background: tagColor[item.tag] + '15', border: `1px solid ${tagColor[item.tag]}40`, borderRadius: '3px', padding: '2px 5px', flexShrink: 0 }}>
                         {tagLabel[item.tag]}
                       </span>
                     )}
@@ -399,23 +421,26 @@ export default function UseCasesPage() {
               ].map(p => (
                 <div key={p.label} style={{ background: p.abandoned ? '#fef2f2' : '#fafafa', border: `1px solid ${p.abandoned ? '#fca5a5' : '#e5e5e5'}`, borderRadius: '6px', overflow: 'hidden' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '12px 14px', borderBottom: '1px solid #f3f4f6' }}>
-                    <span style={{ fontSize: '18px' }}>{p.icon}</span>
-                    <span className="font-bold" style={{ fontSize: '12px', color: '#0a0a0a', flex: 1 }}>{p.label}</span>
-                    <span className="font-bold uppercase" style={{ fontSize: '9px', letterSpacing: '0.5px', padding: '2px 8px', borderRadius: '3px', background: p.abandoned ? '#dc2626' : p.sat === 'LOW SAT.' ? '#d97706' : '#16a34a', color: '#ffffff' }}>
+                    <PersonaAvatar label={p.label} size={28} />
+                    <div style={{ flex: 1 }}>
+                      <div className="font-bold" style={{ fontSize: '16px', color: '#0a0a0a', lineHeight: 1.2 }}>{PERSONA_AVATARS[p.label]?.name}</div>
+                      <div style={{ fontSize: '13px', color: '#737373', lineHeight: 1.3 }}>{p.label}</div>
+                    </div>
+                    <span className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '0.5px', padding: '2px 8px', borderRadius: '3px', background: p.abandoned ? '#dc2626' : p.sat === 'LOW SAT.' ? '#d97706' : '#16a34a', color: '#ffffff' }}>
                       {p.abandoned ? 'ABANDONED' : `${p.outcome} — ${p.sat}`}
                     </span>
                   </div>
                   <div style={{ padding: '10px 14px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                    <p style={{ fontSize: '11px', color: '#6b7280', fontStyle: 'italic', borderLeft: '3px solid #e5e5e5', paddingLeft: '10px', lineHeight: '1.6', margin: 0 }}>{p.monologue}</p>
+                    <p style={{ fontSize: '16px', color: '#6b7280', fontStyle: 'italic', borderLeft: '3px solid #e5e5e5', paddingLeft: '10px', lineHeight: '1.6', margin: 0 }}>{p.monologue}</p>
                     {p.reformulations.length > 0 && (
                       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', alignItems: 'center' }}>
                         {p.reformulations.map((q, i) => (
-                          <span key={i} style={{ fontSize: '10px', background: '#fef3c7', border: '1px solid #fde68a', borderRadius: '3px', padding: '2px 6px', color: '#92400e', fontFamily: 'monospace' }}>{q}</span>
+                          <span key={i} style={{ fontSize: '16px', background: '#fef3c7', border: '1px solid #fde68a', borderRadius: '3px', padding: '2px 6px', color: '#92400e', fontFamily: 'monospace' }}>{q}</span>
                         ))}
-                        <span style={{ fontSize: '10px', background: '#fee2e2', border: '1px solid #fca5a5', borderRadius: '3px', padding: '2px 6px', color: '#991b1b', fontWeight: 700 }}>GAVE UP</span>
+                        <span style={{ fontSize: '16px', background: '#fee2e2', border: '1px solid #fca5a5', borderRadius: '3px', padding: '2px 6px', color: '#991b1b', fontWeight: 700 }}>GAVE UP</span>
                       </div>
                     )}
-                    <p style={{ fontSize: '11px', color: '#374151', lineHeight: '1.5', margin: 0 }}>{p.note}</p>
+                    <p style={{ fontSize: '16px', color: '#374151', lineHeight: '1.5', margin: 0 }}>{p.note}</p>
                   </div>
                 </div>
               ))}
@@ -451,14 +476,14 @@ export default function UseCasesPage() {
           ].map(({ rank, color, title, description, affected, fix }, i) => (
             <div key={rank} style={{ display: 'grid', gridTemplateColumns: '48px 200px 1fr 1fr', gap: '24px', padding: '20px 24px', borderBottom: i < 2 ? '1px solid #e5e5e5' : 'none', background: i % 2 === 0 ? '#ffffff' : '#fafafa', alignItems: 'start' }}>
               <span className="font-black" style={{ fontSize: '20px', color }}>{rank}</span>
-              <p className="font-bold" style={{ fontSize: '12px', color: '#0a0a0a', margin: 0 }}>{title}</p>
+              <p className="font-bold" style={{ fontSize: '16px', color: '#0a0a0a', margin: 0 }}>{title}</p>
               <div>
-                <p style={{ fontSize: '12px', color: '#525252', lineHeight: '1.55', marginBottom: '8px' }}>{description}</p>
-                <p style={{ fontSize: '11px', color, fontWeight: 600 }}>↳ {affected}</p>
+                <p style={{ fontSize: '16px', color: '#525252', lineHeight: '1.55', marginBottom: '8px' }}>{description}</p>
+                <p style={{ fontSize: '16px', color, fontWeight: 600 }}>↳ {affected}</p>
               </div>
               <div>
-                <p className="font-bold uppercase mb-1" style={{ fontSize: '9px', letterSpacing: '1.5px', color: '#737373' }}>Fix</p>
-                <p style={{ fontSize: '12px', color: '#525252', lineHeight: '1.5' }}>{fix}</p>
+                <p className="font-bold uppercase mb-1" style={{ fontSize: '16px', letterSpacing: '1.5px', color: '#737373' }}>Fix</p>
+                <p style={{ fontSize: '16px', color: '#525252', lineHeight: '1.5' }}>{fix}</p>
               </div>
             </div>
           ))}
@@ -467,7 +492,7 @@ export default function UseCasesPage() {
         {/* Before / After */}
         <MetaLabel>BEFORE vs. AFTER — SAME QUERY, FIXED SERP</MetaLabel>
         <div style={{ marginBottom: '40px' }}>
-          <p style={{ fontSize: '13px', color: '#525252', lineHeight: '1.6', marginBottom: '20px', maxWidth: '760px' }}>
+          <p style={{ fontSize: '16px', color: '#525252', lineHeight: '1.6', marginBottom: '20px', maxWidth: '760px' }}>
             The three findings above map directly to three SERP changes: Rx result demoted and labeled,
             age-range now visible in product titles (simulating a facet fix), and two Globuli products
             added at positions 5–6 (simulating a catalog taxonomy fix). Re-running the identical simulation
@@ -483,16 +508,16 @@ export default function UseCasesPage() {
               { metric: 'Max satisfaction', before: 'Medium', after: 'High', up: true },
             ].map(s => (
               <div key={s.metric} style={{ background: '#ffffff', padding: '16px 14px' }}>
-                <div className="font-bold uppercase" style={{ fontSize: '9px', letterSpacing: '1.5px', color: '#9ca3af', marginBottom: '10px' }}>{s.metric}</div>
+                <div className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '1.5px', color: '#9ca3af', marginBottom: '10px' }}>{s.metric}</div>
                 <div style={{ display: 'flex', gap: '10px', alignItems: 'baseline' }}>
                   <div>
-                    <div style={{ fontSize: '9px', color: '#9ca3af', marginBottom: '2px' }}>BEFORE</div>
-                    <div className="font-black" style={{ fontSize: '18px', color: '#E2001A', letterSpacing: '-0.5px', lineHeight: 1 }}>{s.before}</div>
+                    <div style={{ fontSize: '16px', color: '#9ca3af', marginBottom: '2px' }}>BEFORE</div>
+                    <div className="font-black" style={{ fontSize: '18px', color: '#E2001A', letterSpacing: '0px', lineHeight: 1 }}>{s.before}</div>
                   </div>
                   <div style={{ fontSize: '16px', color: '#9ca3af' }}>→</div>
                   <div>
-                    <div style={{ fontSize: '9px', color: '#9ca3af', marginBottom: '2px' }}>AFTER</div>
-                    <div className="font-black" style={{ fontSize: '18px', color: '#16a34a', letterSpacing: '-0.5px', lineHeight: 1 }}>{s.after}</div>
+                    <div style={{ fontSize: '16px', color: '#9ca3af', marginBottom: '2px' }}>AFTER</div>
+                    <div className="font-black" style={{ fontSize: '18px', color: '#16a34a', letterSpacing: '0px', lineHeight: 1 }}>{s.after}</div>
                   </div>
                 </div>
               </div>
@@ -505,7 +530,7 @@ export default function UseCasesPage() {
             {/* Before column */}
             <div>
               <div style={{ background: '#E2001A', color: '#ffffff', padding: '8px 14px', marginBottom: '1px' }}>
-                <span className="font-bold uppercase" style={{ fontSize: '10px', letterSpacing: '2px' }}>BEFORE — original SERP</span>
+                <span className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '2px' }}>BEFORE — original SERP</span>
               </div>
               {[
                 { icon: '👩', label: 'Anxious Young Mother', result: 'Clicked #1 — medium sat.', color: '#d97706' },
@@ -515,9 +540,12 @@ export default function UseCasesPage() {
                 { icon: '🌿', label: 'Alternative Medicine Seeker', result: 'ABANDONED after 3 reformulations', color: '#dc2626' },
               ].map(p => (
                 <div key={p.label} style={{ display: 'flex', gap: '10px', alignItems: 'center', padding: '10px 14px', background: '#fafafa', borderBottom: '1px solid #f3f4f6' }}>
-                  <span style={{ fontSize: '16px', flexShrink: 0 }}>{p.icon}</span>
-                  <span style={{ fontSize: '12px', color: '#374151', flex: 1 }}>{p.label}</span>
-                  <span className="font-bold" style={{ fontSize: '11px', color: p.color, textAlign: 'right' }}>{p.result}</span>
+                  <PersonaAvatar label={p.label} size={26} />
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: '15px', fontWeight: 600, color: '#0a0a0a', lineHeight: 1.2 }}>{PERSONA_AVATARS[p.label]?.name}</div>
+                    <div style={{ fontSize: '13px', color: '#737373', lineHeight: 1.3 }}>{p.label}</div>
+                  </div>
+                  <span className="font-bold" style={{ fontSize: '16px', color: p.color, textAlign: 'right' }}>{p.result}</span>
                 </div>
               ))}
             </div>
@@ -525,7 +553,7 @@ export default function UseCasesPage() {
             {/* After column */}
             <div>
               <div style={{ background: '#16a34a', color: '#ffffff', padding: '8px 14px', marginBottom: '1px' }}>
-                <span className="font-bold uppercase" style={{ fontSize: '10px', letterSpacing: '2px' }}>AFTER — fixed SERP</span>
+                <span className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '2px' }}>AFTER — fixed SERP</span>
               </div>
               {[
                 { icon: '👩', label: 'Anxious Young Mother', result: 'Clicked #3 — medium sat.', note: 'Rx gone from top 3; age label visible', color: '#d97706' },
@@ -535,13 +563,16 @@ export default function UseCasesPage() {
                 { icon: '🌿', label: 'Alternative Medicine Seeker', result: 'Clicked #5 (Viburcol Globuli) — medium sat.', note: 'Catalog gap fixed; found homeopathic option', color: '#d97706' },
               ].map(p => (
                 <div key={p.label} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', padding: '10px 14px', background: '#f0fdf4', borderBottom: '1px solid #dcfce7' }}>
-                  <span style={{ fontSize: '16px', flexShrink: 0, paddingTop: '1px' }}>{p.icon}</span>
+                  <PersonaAvatar label={p.label} size={26} />
                   <div style={{ flex: 1 }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '8px' }}>
-                      <span style={{ fontSize: '12px', color: '#374151' }}>{p.label}</span>
-                      <span className="font-bold" style={{ fontSize: '11px', color: p.color, textAlign: 'right', flexShrink: 0 }}>{p.result}</span>
+                      <div>
+                        <div style={{ fontSize: '15px', fontWeight: 600, color: '#0a0a0a', lineHeight: 1.2 }}>{PERSONA_AVATARS[p.label]?.name}</div>
+                        <div style={{ fontSize: '13px', color: '#737373', lineHeight: 1.3 }}>{p.label}</div>
+                      </div>
+                      <span className="font-bold" style={{ fontSize: '16px', color: p.color, textAlign: 'right', flexShrink: 0 }}>{p.result}</span>
                     </div>
-                    <div style={{ fontSize: '10px', color: '#6b7280', marginTop: '2px', fontStyle: 'italic' }}>{p.note}</div>
+                    <div style={{ fontSize: '16px', color: '#6b7280', marginTop: '2px', fontStyle: 'italic' }}>{p.note}</div>
                   </div>
                 </div>
               ))}
@@ -549,23 +580,11 @@ export default function UseCasesPage() {
 
           </div>
 
-          {/* Cost callout */}
-          <div style={{ marginTop: '16px', padding: '12px 16px', background: '#f9fafb', border: '1px solid #e5e5e5', display: 'flex', gap: '24px', alignItems: 'center' }}>
-            <div>
-              <span className="font-bold uppercase" style={{ fontSize: '9px', letterSpacing: '1.5px', color: '#9ca3af' }}>Total cost for both runs</span>
-              <div className="font-black" style={{ fontSize: '22px', color: '#0a0a0a', letterSpacing: '-1px', lineHeight: 1.2 }}>~$0.20</div>
-            </div>
-            <div style={{ width: '1px', background: '#e5e5e5', alignSelf: 'stretch' }} />
-            <p style={{ fontSize: '12px', color: '#6b7280', lineHeight: '1.6', margin: 0 }}>
-              Both simulations — before and after — ran for under $0.10 each using Claude Haiku for agent decisions and Claude Sonnet for synthesis.
-              The same approach can sweep 50 high-volume queries overnight for under $10, producing a prioritised fix list with per-persona failure attribution.
-            </p>
-          </div>
         </div>
 
         <div style={{ borderLeft: '4px solid #0a0a0a', background: '#fafafa', padding: '20px 24px', maxWidth: '760px' }}>
-          <p className="font-bold uppercase mb-2" style={{ fontSize: '9px', letterSpacing: '2px', color: '#737373' }}>WHAT THIS PROVES</p>
-          <p style={{ fontSize: '14px', color: '#0a0a0a', lineHeight: '1.6', fontStyle: 'italic' }}>
+          <p className="font-bold uppercase mb-2" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>WHAT THIS PROVES</p>
+          <p style={{ fontSize: '16px', color: '#0a0a0a', lineHeight: '1.6', fontStyle: 'italic' }}>
             &ldquo;Standard monitoring sees 8 results and no errors. Shopper Behavior Simulation shows that 40% of distinct intent
             segments got nothing useful from those 8 results. The intent gap is not a ranking failure —
             it is a <em>measurement</em> failure. The right answer never existed for those users,
@@ -584,21 +603,21 @@ export default function UseCasesPage() {
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', marginBottom: '48px' }}>
           <div>
-            <h2 className="font-black leading-none mb-5" style={{ fontSize: '42px', letterSpacing: '-2px', color: '#0a0a0a' }}>
+            <h2 className="font-black leading-none mb-5" style={{ fontSize: '42px', letterSpacing: '0px', color: '#0a0a0a' }}>
               TRUST
               <br />
               COLLAPSES
               <br />
               <span style={{ color: '#E2001A' }}>ROUND BY ROUND.</span>
             </h2>
-            <p style={{ fontSize: '14px', color: '#525252', lineHeight: '1.65', marginBottom: '14px' }}>
+            <p style={{ fontSize: '16px', color: '#525252', lineHeight: '1.65', marginBottom: '14px' }}>
               Frustration Propagation Simulation runs a deliberately weak SERP — one where results exist but are wrong in critical ways —
               and measures how trust decays with each failed action. Every reformulation, scroll past threshold,
               or back-click depletes trust by a calibrated amount. When trust hits zero the agent abandons,
               regardless of patience thresholds.
             </p>
-            <p style={{ fontSize: '14px', color: '#525252', lineHeight: '1.65', marginBottom: '24px' }}>
-              Query: <code style={{ fontFamily: 'monospace', background: '#f3f4f6', padding: '1px 6px', fontSize: '13px' }}>&ldquo;Halsschmerzen Kinder Mittel&rdquo;</code> — pediatric sore throat.
+            <p style={{ fontSize: '16px', color: '#525252', lineHeight: '1.65', marginBottom: '24px' }}>
+              Query: <code style={{ fontFamily: 'monospace', background: '#f3f4f6', padding: '1px 6px', fontSize: '16px' }}>&ldquo;Halsschmerzen Kinder Mittel&rdquo;</code> — pediatric sore throat.
               SERP: Rx products dominate top 3, no age-appropriate OTC in first 5, a guidebook at position 4.
             </p>
 
@@ -611,15 +630,15 @@ export default function UseCasesPage() {
                 { value: '1 / 4', label: 'Personas survived', red: false },
               ].map(s => (
                 <div key={s.label} style={{ background: '#ffffff', padding: '14px 12px', textAlign: 'center' }}>
-                  <div className="font-black" style={{ fontSize: '22px', letterSpacing: '-1px', color: s.red ? '#E2001A' : '#16a34a', lineHeight: 1, marginBottom: '4px' }}>{s.value}</div>
-                  <div className="font-bold uppercase" style={{ fontSize: '9px', letterSpacing: '1.5px', color: '#737373' }}>{s.label}</div>
+                  <div className="font-black" style={{ fontSize: '22px', letterSpacing: '0px', color: s.red ? '#E2001A' : '#16a34a', lineHeight: 1, marginBottom: '4px' }}>{s.value}</div>
+                  <div className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '1.5px', color: '#737373' }}>{s.label}</div>
                 </div>
               ))}
             </div>
 
             {/* Trust decay mechanics */}
             <div style={{ background: '#ffffff', border: '1px solid #e5e5e5', padding: '16px 18px' }}>
-              <p className="font-bold uppercase mb-3" style={{ fontSize: '9px', letterSpacing: '2px', color: '#737373' }}>TRUST DECAY MECHANICS</p>
+              <p className="font-bold uppercase mb-3" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>TRUST DECAY MECHANICS</p>
               {[
                 { action: 'Click', decay: '−0.0', note: 'Neutral — persona is still engaged' },
                 { action: 'Back (click → return)', decay: '−0.25', note: 'Strongest signal — PDP disappointed' },
@@ -628,9 +647,9 @@ export default function UseCasesPage() {
                 { action: 'Abandon', decay: 'Session ends', note: 'Trust ≤ 0' },
               ].map(({ action, decay, note }) => (
                 <div key={action} style={{ display: 'flex', gap: '12px', alignItems: 'baseline', borderBottom: '1px solid #f0f0f0', paddingBottom: '7px', marginBottom: '7px' }}>
-                  <span className="font-bold" style={{ fontSize: '11px', color: '#0a0a0a', minWidth: '120px', flexShrink: 0 }}>{action}</span>
-                  <span className="font-black" style={{ fontSize: '12px', color: action === 'Abandon' ? '#737373' : '#E2001A', minWidth: '90px', fontFamily: 'monospace', flexShrink: 0 }}>{decay}</span>
-                  <span style={{ fontSize: '11px', color: '#737373' }}>{note}</span>
+                  <span className="font-bold" style={{ fontSize: '16px', color: '#0a0a0a', minWidth: '120px', flexShrink: 0 }}>{action}</span>
+                  <span className="font-black" style={{ fontSize: '16px', color: action === 'Abandon' ? '#737373' : '#E2001A', minWidth: '90px', fontFamily: 'monospace', flexShrink: 0 }}>{decay}</span>
+                  <span style={{ fontSize: '16px', color: '#737373' }}>{note}</span>
                 </div>
               ))}
             </div>
@@ -691,21 +710,24 @@ export default function UseCasesPage() {
                 return (
                   <div key={p.label} style={{ background: p.abandoned ? '#fef2f2' : '#f0fdf4', border: `1px solid ${p.abandoned ? '#fca5a5' : '#bbf7d0'}`, borderRadius: '6px', overflow: 'hidden' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 14px', borderBottom: '1px solid #f3f4f6' }}>
-                      <span style={{ fontSize: '16px' }}>{p.icon}</span>
-                      <span className="font-bold" style={{ fontSize: '12px', color: '#0a0a0a', flex: 1 }}>{p.label}</span>
-                      <span className="font-bold" style={{ fontSize: '10px', color: p.abandoned ? '#dc2626' : '#16a34a' }}>
+                      <PersonaAvatar label={p.label} size={26} />
+                      <div style={{ flex: 1 }}>
+                        <div className="font-bold" style={{ fontSize: '16px', color: '#0a0a0a', lineHeight: 1.2 }}>{PERSONA_AVATARS[p.label]?.name}</div>
+                        <div style={{ fontSize: '13px', color: '#737373', lineHeight: 1.3 }}>{p.label}</div>
+                      </div>
+                      <span className="font-bold" style={{ fontSize: '16px', color: p.abandoned ? '#dc2626' : '#16a34a' }}>
                         trust → {p.finalTrust.toFixed(2)} {p.abandoned ? '· ABANDONED' : '· SURVIVED'}
                       </span>
                     </div>
                     <div style={{ padding: '8px 14px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
                       {p.trace.map((t, i) => (
-                        <div key={i} style={{ display: 'flex', gap: '8px', alignItems: 'baseline', fontSize: '11px' }}>
+                        <div key={i} style={{ display: 'flex', gap: '8px', alignItems: 'baseline', fontSize: '16px' }}>
                           <span style={{ fontWeight: 700, color: actionColors[t.action] ?? '#737373', minWidth: '80px', flexShrink: 0, fontFamily: 'monospace' }}>{t.action}</span>
                           <span style={{ color: '#6b7280' }}>{t.note}</span>
                           {t.action !== 'abandon' && <span style={{ color: '#9ca3af', marginLeft: 'auto', flexShrink: 0, fontFamily: 'monospace' }}>→ {t.trust.toFixed(2)}</span>}
                         </div>
                       ))}
-                      {'note' in p && <div style={{ fontSize: '10px', color: '#16a34a', fontStyle: 'italic', marginTop: '4px' }}>{p.note as string}</div>}
+                      {'note' in p && <div style={{ fontSize: '16px', color: '#16a34a', fontStyle: 'italic', marginTop: '4px' }}>{p.note as string}</div>}
                     </div>
                   </div>
                 )
@@ -736,8 +758,8 @@ export default function UseCasesPage() {
             },
           ].map(({ label, body }) => (
             <div key={label} style={{ borderLeft: '4px solid #0a0a0a', paddingLeft: '20px' }}>
-              <p className="font-bold uppercase mb-2" style={{ fontSize: '10px', letterSpacing: '2px', color: '#0a0a0a' }}>{label}</p>
-              <p style={{ fontSize: '13px', color: '#737373', lineHeight: '1.65' }}>{body}</p>
+              <p className="font-bold uppercase mb-2" style={{ fontSize: '16px', letterSpacing: '2px', color: '#0a0a0a' }}>{label}</p>
+              <p style={{ fontSize: '16px', color: '#737373', lineHeight: '1.65' }}>{body}</p>
             </div>
           ))}
         </div>
@@ -764,25 +786,25 @@ export default function UseCasesPage() {
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', marginBottom: '48px' }}>
           <div>
-            <h2 className="font-black leading-none mb-5" style={{ fontSize: '42px', letterSpacing: '-2px', color: '#0a0a0a' }}>
+            <h2 className="font-black leading-none mb-5" style={{ fontSize: '42px', letterSpacing: '0px', color: '#0a0a0a' }}>
               REFORMULATION
               <br />
               TREES
             </h2>
-            <p style={{ fontSize: '14px', color: '#525252', lineHeight: '1.65' }}>
+            <p style={{ fontSize: '16px', color: '#525252', lineHeight: '1.65' }}>
               Reformulation Burden Simulation maps the complete query journey a persona takes inside a single session —
               every query typed, every state hit (FOUND / PARTIAL / NOTHING), every
               decision point, and where the session ends. The output is a reformulation tree:
               a branching diagram of all possible paths from first query to conversion or abandonment.
             </p>
-            <p style={{ fontSize: '14px', color: '#525252', lineHeight: '1.65', marginTop: '14px' }}>
+            <p style={{ fontSize: '16px', color: '#525252', lineHeight: '1.65', marginTop: '14px' }}>
               This run used two personas chosen specifically because they produce the most
               structurally different trees of the five-persona library — one hard failure
               (fully visible in analytics), one split-basket failure (structurally invisible).
             </p>
             <div style={{ marginTop: '24px', borderLeft: '4px solid #E2001A', background: '#fff5f5', padding: '16px 20px' }}>
-              <p className="font-bold uppercase mb-2" style={{ fontSize: '9px', letterSpacing: '2px', color: '#E2001A' }}>CORE QUESTION</p>
-              <p style={{ fontSize: '14px', color: '#0a0a0a', lineHeight: '1.6', fontStyle: 'italic' }}>
+              <p className="font-bold uppercase mb-2" style={{ fontSize: '16px', letterSpacing: '2px', color: '#E2001A' }}>CORE QUESTION</p>
+              <p style={{ fontSize: '16px', color: '#0a0a0a', lineHeight: '1.6', fontStyle: 'italic' }}>
                 &ldquo;Is the revenue leak visible at all? Some personas don&rsquo;t abandon —
                 they split their basket. That looks like retention in analytics but is
                 systematic revenue erosion.&rdquo;
@@ -807,14 +829,22 @@ export default function UseCasesPage() {
                 borderBottom: '1px solid #f0f0f0',
                 background: i % 2 === 0 ? 'transparent' : '#fafafa',
               }}>
-                <span style={{ fontSize: '10px', color: '#737373', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px', alignSelf: 'center' }}>{dim}</span>
-                <span style={{ fontSize: '12px', color: '#0a0a0a' }}>{a}</span>
-                <span style={{ fontSize: '12px', color: b.includes('invisible') || b.includes('⚠') ? '#E2001A' : '#0a0a0a' }}>{b}</span>
+                <span style={{ fontSize: '16px', color: '#737373', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px', alignSelf: 'center' }}>{dim}</span>
+                <span style={{ fontSize: '16px', color: '#0a0a0a' }}>{a}</span>
+                <span style={{ fontSize: '16px', color: b.includes('invisible') || b.includes('⚠') ? '#E2001A' : '#0a0a0a' }}>{b}</span>
               </div>
             ))}
-            <div style={{ display: 'flex', gap: '8px', marginTop: '12px', fontSize: '10px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>
-              <div style={{ flex: 1, textAlign: 'center', color: '#525252', padding: '6px', background: '#f5f5f5', border: '1px solid #e5e5e5' }}>PERSONA 4<br /><span style={{ fontSize: '9px', color: '#737373', fontWeight: 400, textTransform: 'none', letterSpacing: 0 }}>Acute Self-Treater</span></div>
-              <div style={{ flex: 1, textAlign: 'center', color: '#525252', padding: '6px', background: '#f5f5f5', border: '1px solid #e5e5e5' }}>PERSONA 2<br /><span style={{ fontSize: '9px', color: '#737373', fontWeight: 400, textTransform: 'none', letterSpacing: 0 }}>Wellness Optimizer</span></div>
+            <div style={{ display: 'flex', gap: '8px', marginTop: '12px', fontSize: '16px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' }}>
+              <div style={{ flex: 1, textAlign: 'center', color: '#525252', padding: '10px 6px', background: '#f5f5f5', border: '1px solid #e5e5e5', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+                <PersonaAvatar label="Acute Self-Treater" size={36} />
+                <div style={{ fontWeight: 700, fontSize: '16px', color: '#0a0a0a' }}>Jonas Weber</div>
+                <div style={{ fontSize: '13px', color: '#737373' }}>Acute Self-Treater</div>
+              </div>
+              <div style={{ flex: 1, textAlign: 'center', color: '#525252', padding: '10px 6px', background: '#f5f5f5', border: '1px solid #e5e5e5', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+                <PersonaAvatar label="Wellness Optimizer" size={36} />
+                <div style={{ fontWeight: 700, fontSize: '16px', color: '#0a0a0a' }}>Mia Schröder</div>
+                <div style={{ fontSize: '13px', color: '#737373' }}>Wellness Optimizer</div>
+              </div>
             </div>
           </div>
         </div>
@@ -823,16 +853,20 @@ export default function UseCasesPage() {
         <div style={{ marginBottom: '48px' }}>
           <MetaLabel>ACUTE SELF-TREATER — ACTUAL AGENT OUTPUT</MetaLabel>
           <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', padding: '20px 24px', marginBottom: '16px', display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
-            <span style={{ fontSize: '18px', flexShrink: 0 }}>🏃</span>
+            <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
+              <PersonaAvatar label="Acute Self-Treater" size={36} />
+              <div style={{ fontSize: '12px', fontWeight: 700, color: '#0a0a0a', whiteSpace: 'nowrap' }}>Jonas Weber</div>
+              <div style={{ fontSize: '11px', color: '#737373', whiteSpace: 'nowrap' }}>Acute Self-Treater</div>
+            </div>
             <div>
-              <p style={{ fontSize: '12px', color: '#737373', fontStyle: 'italic', marginBottom: '8px', lineHeight: '1.5' }}>
+              <p style={{ fontSize: '16px', color: '#737373', fontStyle: 'italic', marginBottom: '8px', lineHeight: '1.5' }}>
                 Thursday evening. Has had a sore throat since this morning — Apotheke was closed on the way home. Opens shop-apotheke.com on mobile. Reformulation budget: 2. Scroll threshold: 3.
               </p>
-              <p style={{ fontSize: '13px', color: '#166534', lineHeight: '1.6' }}>
+              <p style={{ fontSize: '16px', color: '#166534', lineHeight: '1.6' }}>
                 <strong>Outcome: CLICKED — medium satisfaction.</strong> Neo-Angin Benzocain at position 4 was the only clearly OTC, fast-acting option visible. Converted on round 1 without reformulating — but the Rx products at positions 1 and 2 nearly killed the session before it started.
               </p>
             </div>
-            <span style={{ fontSize: '11px', fontWeight: 700, color: '#16a34a', background: '#dcfce7', border: '1px solid #bbf7d0', padding: '3px 10px', borderRadius: '4px', flexShrink: 0 }}>SUCCESS · 0 REFORMULATIONS</span>
+            <span style={{ fontSize: '16px', fontWeight: 700, color: '#16a34a', background: '#dcfce7', border: '1px solid #bbf7d0', padding: '3px 10px', borderRadius: '4px', flexShrink: 0 }}>SUCCESS · 0 REFORMULATIONS</span>
           </div>
           <TreeNode
             query='"Halsschmerzen schlucken schmerzt"'
@@ -847,8 +881,8 @@ export default function UseCasesPage() {
             endType="convert"
           />
           <div style={{ background: '#fffbeb', border: '1px solid #fde68a', borderLeft: '4px solid #d97706', padding: '14px 18px', marginTop: '12px' }}>
-            <p className="font-bold uppercase mb-1" style={{ fontSize: '9px', letterSpacing: '2px', color: '#92400e' }}>THE NEAR MISS</p>
-            <p style={{ fontSize: '13px', color: '#78350f', lineHeight: '1.6' }}>
+            <p className="font-bold uppercase mb-1" style={{ fontSize: '16px', letterSpacing: '2px', color: '#92400e' }}>THE NEAR MISS</p>
+            <p style={{ fontSize: '16px', color: '#78350f', lineHeight: '1.6' }}>
               This persona converted — but only because Neo-Angin happened to be at position 4, just inside the 3-result scroll threshold. If Rx products had taken 4 slots instead of 2, Neo-Angin would have been invisible. The conversion was a coin flip, not a design outcome.
             </p>
           </div>
@@ -858,16 +892,20 @@ export default function UseCasesPage() {
         <div style={{ marginBottom: '48px' }}>
           <MetaLabel>WELLNESS OPTIMIZER — ACTUAL AGENT OUTPUT</MetaLabel>
           <div style={{ background: '#fef2f2', border: '1px solid #fca5a5', padding: '20px 24px', marginBottom: '16px', display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
-            <span style={{ fontSize: '18px', flexShrink: 0 }}>🔬</span>
+            <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
+              <PersonaAvatar label="Wellness Optimizer" size={36} />
+              <div style={{ fontSize: '12px', fontWeight: 700, color: '#0a0a0a', whiteSpace: 'nowrap' }}>Mia Schröder</div>
+              <div style={{ fontSize: '11px', color: '#737373', whiteSpace: 'nowrap' }}>Wellness Optimizer</div>
+            </div>
             <div>
-              <p style={{ fontSize: '12px', color: '#737373', fontStyle: 'italic', marginBottom: '8px', lineHeight: '1.5' }}>
+              <p style={{ fontSize: '16px', color: '#737373', fontStyle: 'italic', marginBottom: '8px', lineHeight: '1.5' }}>
                 Searching for immune-support supplements. Knows exactly what attributes she needs: GMP-certified, ohne Magnesiumstearat, Zink + Vitamin C. Reformulation budget: 4. Scroll threshold: 7.
               </p>
-              <p style={{ fontSize: '13px', color: '#991b1b', lineHeight: '1.6' }}>
+              <p style={{ fontSize: '16px', color: '#991b1b', lineHeight: '1.6' }}>
                 <strong>Outcome: ABANDONED after 4 reformulations.</strong> Every query hit the same pharmaceutical OTC symptom-relief products. The supplement-grade, excipient-filtered segment she was looking for does not exist in this search index — or is not reachable through any query formulation.
               </p>
             </div>
-            <span style={{ fontSize: '11px', fontWeight: 700, color: '#dc2626', background: '#fee2e2', border: '1px solid #fca5a5', padding: '3px 10px', borderRadius: '4px', flexShrink: 0 }}>ABANDONED · 4 REFORMULATIONS</span>
+            <span style={{ fontSize: '16px', fontWeight: 700, color: '#dc2626', background: '#fee2e2', border: '1px solid #fca5a5', padding: '3px 10px', borderRadius: '4px', flexShrink: 0 }}>ABANDONED · 4 REFORMULATIONS</span>
           </div>
           <TreeNode
             query='"Halsschmerzen schlucken schmerzt"'
@@ -897,8 +935,8 @@ export default function UseCasesPage() {
             endType="abandon"
           />
           <div style={{ borderLeft: '4px solid #E2001A', background: '#fff5f5', padding: '20px 24px', marginTop: '16px', maxWidth: '760px' }}>
-            <p className="font-bold uppercase mb-2" style={{ fontSize: '9px', letterSpacing: '2px', color: '#E2001A' }}>WHAT MAKES THIS FAILURE INVISIBLE</p>
-            <p style={{ fontSize: '14px', color: '#0a0a0a', lineHeight: '1.6' }}>
+            <p className="font-bold uppercase mb-2" style={{ fontSize: '16px', letterSpacing: '2px', color: '#E2001A' }}>WHAT MAKES THIS FAILURE INVISIBLE</p>
+            <p style={{ fontSize: '16px', color: '#0a0a0a', lineHeight: '1.6' }}>
               In the real session, this persona does not hard-abandon. She opens Amazon, finds the supplement she needs, buys it there — then <strong>returns to shop-apotheke to complete the rest of her basket</strong>. Analytics records a multi-item successful session. The primary item she came for is logged as an Amazon sale. The search failure is never attributed.
             </p>
           </div>
@@ -951,16 +989,16 @@ export default function UseCasesPage() {
             <div key={fix} style={{ display: 'grid', gridTemplateColumns: '60px 200px 1fr 1fr', gap: '24px', padding: '20px 24px', borderBottom: i < 3 ? '1px solid #e5e5e5' : 'none', background: i % 2 === 0 ? '#ffffff' : '#fafafa', alignItems: 'start' }}>
               <span className="font-black" style={{ fontSize: '20px', color: priority === 'P0' ? '#E2001A' : priority === 'P1' ? '#d97706' : '#737373' }}>{priority}</span>
               <div>
-                <p className="font-bold" style={{ fontSize: '12px', color: '#0a0a0a', marginBottom: '4px' }}>{fix}</p>
-                <p style={{ fontSize: '11px', color: '#E2001A' }}>{fixes}</p>
+                <p className="font-bold" style={{ fontSize: '16px', color: '#0a0a0a', marginBottom: '4px' }}>{fix}</p>
+                <p style={{ fontSize: '16px', color: '#E2001A' }}>{fixes}</p>
               </div>
               <div>
-                <p className="font-bold uppercase mb-1" style={{ fontSize: '9px', letterSpacing: '1.5px', color: '#737373' }}>Mechanism</p>
-                <p style={{ fontSize: '12px', color: '#525252', lineHeight: '1.5' }}>{mechanism}</p>
+                <p className="font-bold uppercase mb-1" style={{ fontSize: '16px', letterSpacing: '1.5px', color: '#737373' }}>Mechanism</p>
+                <p style={{ fontSize: '16px', color: '#525252', lineHeight: '1.5' }}>{mechanism}</p>
               </div>
               <div>
-                <p className="font-bold uppercase mb-1" style={{ fontSize: '9px', letterSpacing: '1.5px', color: '#737373' }}>Impact</p>
-                <p style={{ fontSize: '12px', color: '#525252', lineHeight: '1.5' }}>{impact}</p>
+                <p className="font-bold uppercase mb-1" style={{ fontSize: '16px', letterSpacing: '1.5px', color: '#737373' }}>Impact</p>
+                <p style={{ fontSize: '16px', color: '#525252', lineHeight: '1.5' }}>{impact}</p>
               </div>
             </div>
           ))}
@@ -970,31 +1008,32 @@ export default function UseCasesPage() {
       {/* ═══════════════════════════════════════════════════════════════════ */}
       {/* Severity Illusion Simulation — Severity Illusion                                           */}
       {/* ═══════════════════════════════════════════════════════════════════ */}
-      <section id="uc07" style={{ background: '#fafafa', borderBottom: '1px solid #e5e5e5' }}>
+      <section id="uc07" className="px-20 py-20" style={{ background: '#fafafa', borderBottom: '1px solid #e5e5e5' }}>
 
-        {/* Hero */}
-        <div style={{ background: '#0a0a0a', color: '#ffffff', padding: '72px 80px 60px' }}>
-          <div style={{ display: 'flex', gap: '32px', alignItems: 'baseline', borderBottom: '1px solid #1a1a1a', paddingBottom: '20px', marginBottom: '40px' }}>
-            <span className="font-black" style={{ fontSize: '36px', color: '#333', letterSpacing: '-2px', lineHeight: 1 }}>Severity Illusion Simulation</span>
-            <SectionLabel>SEVERITY ILLUSION MAPPING</SectionLabel>
-          </div>
-          <h2 className="font-black leading-none" style={{ fontSize: '42px', letterSpacing: '-2px', color: '#ffffff', marginBottom: '16px' }}>
-            Analytics Sees 1/10th<br />of the Real Damage
+        <div style={{ display: 'flex', gap: '32px', alignItems: 'baseline', borderBottom: '1px solid #e5e5e5', paddingBottom: '16px', marginBottom: '40px' }}>
+          <SectionLabel>SEVERITY ILLUSION MAPPING</SectionLabel>
+        </div>
+
+        <div style={{ marginBottom: '40px' }}>
+          <h2 className="font-black leading-none" style={{ fontSize: '42px', letterSpacing: '0px', color: '#0a0a0a', marginBottom: '16px' }}>
+            ANALYTICS SEES 1/10TH
+            <br />
+            <span style={{ color: '#E2001A' }}>OF THE REAL DAMAGE.</span>
           </h2>
-          <p style={{ fontSize: '15px', color: '#a3a3a3', lineHeight: 1.7, maxWidth: '640px', marginBottom: '40px' }}>
+          <p style={{ fontSize: '16px', color: '#525252', lineHeight: 1.7, maxWidth: '640px', marginBottom: '32px' }}>
             Standard search analytics flags ~5% of these failures as problems. Persona simulation reveals the true user-perceived severity — a systematic 10× blind spot that compounds across every high-stakes pharmacy category.
           </p>
-          <div style={{ display: 'flex', gap: '40px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
             {[
               { value: '109', label: 'Failures mapped' },
               { value: '11', label: 'Categories' },
               { value: '10×', label: 'Avg illusion ratio' },
               { value: '18.8×', label: 'Peak illusion ratio' },
               { value: '60%', label: 'INVISIBLE to analytics' },
-                          ].map(s => (
-              <div key={s.label}>
-                <div style={{ fontSize: '32px', fontWeight: 800, color: '#ffffff', letterSpacing: '-1px', fontVariantNumeric: 'tabular-nums' }}>{s.value}</div>
-                <div style={{ fontSize: '11px', letterSpacing: '1.5px', color: '#737373', textTransform: 'uppercase', marginTop: '4px' }}>{s.label}</div>
+            ].map(s => (
+              <div key={s.label} style={{ border: '1px solid #e5e5e5', padding: '14px 22px', background: '#ffffff' }}>
+                <div style={{ fontSize: '32px', fontWeight: 800, color: '#0a0a0a', letterSpacing: '0px', lineHeight: 1 }}>{s.value}</div>
+                <div style={{ fontSize: '13px', letterSpacing: '1.5px', color: '#737373', textTransform: 'uppercase', marginTop: '6px' }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -1005,36 +1044,36 @@ export default function UseCasesPage() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'start' }}>
             <div>
               <MetaLabel>METHODOLOGY</MetaLabel>
-              <h3 style={{ fontSize: '20px', fontWeight: 700, color: '#0a0a0a', marginBottom: '16px', letterSpacing: '-0.3px' }}>What is the Illusion Ratio?</h3>
-              <p style={{ fontSize: '14px', color: '#525252', lineHeight: 1.7, marginBottom: '16px' }}>
+              <h3 style={{ fontSize: '20px', fontWeight: 700, color: '#0a0a0a', marginBottom: '16px', letterSpacing: '0px' }}>What is the Illusion Ratio?</h3>
+              <p style={{ fontSize: '16px', color: '#525252', lineHeight: 1.7, marginBottom: '16px' }}>
                 Standard search quality teams measure failures using analytics signals: zero-result rate, click-through rate, reformulation rate. These metrics capture what happened — not how badly it hurt.
               </p>
-              <p style={{ fontSize: '14px', color: '#525252', lineHeight: 1.7, marginBottom: '28px' }}>
+              <p style={{ fontSize: '16px', color: '#525252', lineHeight: 1.7, marginBottom: '28px' }}>
                 The <strong>illusion ratio</strong> is the gap between what analytics thinks a failure costs and what the affected persona actually experiences. A ratio of 10× means the real user damage is ten times worse than the dashboards suggest.
               </p>
               <div style={{ background: '#f5f5f5', border: '1px solid #e5e5e5', padding: '20px 24px', fontFamily: "'SF Mono', 'Fira Code', monospace" }}>
-                <div style={{ fontSize: '11px', color: '#737373', marginBottom: '8px', letterSpacing: '2px', textTransform: 'uppercase' }}>Illusion Ratio</div>
+                <div style={{ fontSize: '16px', color: '#737373', marginBottom: '8px', letterSpacing: '2px', textTransform: 'uppercase' }}>Illusion Ratio</div>
                 <div style={{ fontSize: '16px', color: '#0a0a0a', fontWeight: 700 }}>simulation_score ÷ analytics_score</div>
-                <div style={{ fontSize: '11px', color: '#737373', marginTop: '10px' }}>Higher = analytics is more blind to real user damage</div>
+                <div style={{ fontSize: '16px', color: '#737373', marginTop: '10px' }}>Higher = analytics is more blind to real user damage</div>
               </div>
             </div>
             <div>
               <MetaLabel>SCORING MODEL</MetaLabel>
-              <h4 style={{ fontSize: '14px', fontWeight: 700, color: '#0a0a0a', marginBottom: '12px' }}>Analytics score (rule-based)</h4>
-              <div style={{ fontSize: '13px', color: '#525252', lineHeight: 1.7, marginBottom: '24px' }}>
+              <h4 style={{ fontSize: '16px', fontWeight: 700, color: '#0a0a0a', marginBottom: '12px' }}>Analytics score (rule-based)</h4>
+              <div style={{ fontSize: '16px', color: '#525252', lineHeight: 1.7, marginBottom: '24px' }}>
                 {[
                   { range: '0–1', color: '#E2001A', bg: '#fff5f5', border: '#fecaca', desc: 'Zero results or prescription mismatch — not logged by standard tooling' },
                   { range: '2–5', color: '#d97706', bg: '#fffbeb', border: '#fde68a', desc: 'Low CTR or high reformulation — marginal alert signal' },
                   { range: '6–10', color: '#16a34a', bg: '#f0fdf4', border: '#bbf7d0', desc: 'High confidence signal — visible in dashboards' },
                 ].map(r => (
                   <div key={r.range} style={{ display: 'flex', gap: '12px', marginBottom: '10px', alignItems: 'baseline' }}>
-                    <code style={{ fontSize: '12px', fontFamily: "'SF Mono', monospace", background: r.bg, border: `1px solid ${r.border}`, color: r.color, padding: '2px 8px', whiteSpace: 'nowrap' }}>{r.range}</code>
+                    <code style={{ fontSize: '16px', fontFamily: "'SF Mono', monospace", background: r.bg, border: `1px solid ${r.border}`, color: r.color, padding: '2px 8px', whiteSpace: 'nowrap' }}>{r.range}</code>
                     <span>{r.desc}</span>
                   </div>
                 ))}
               </div>
-              <h4 style={{ fontSize: '14px', fontWeight: 700, color: '#0a0a0a', marginBottom: '12px' }}>Simulation score (Claude Haiku 4.5)</h4>
-              <p style={{ fontSize: '13px', color: '#525252', lineHeight: 1.7 }}>
+              <h4 style={{ fontSize: '16px', fontWeight: 700, color: '#0a0a0a', marginBottom: '12px' }}>Simulation score (Claude Haiku 4.5)</h4>
+              <p style={{ fontSize: '16px', color: '#525252', lineHeight: 1.7 }}>
                 Each failure independently classified (type + blind spot) and scored against all 5 pharmacy personas using the Frustration Propagation Simulation trust decay framework. Score is worst-case persona severity — calibrated to real-world patient urgency, medical context, and trust dynamics.
               </p>
             </div>
@@ -1044,7 +1083,7 @@ export default function UseCasesPage() {
         {/* Failure taxonomy */}
         <div style={{ background: '#fafafa', borderBottom: '1px solid #e5e5e5', padding: '48px 80px' }}>
           <MetaLabel>FAILURE TAXONOMY</MetaLabel>
-          <h3 style={{ fontSize: '20px', fontWeight: 700, color: '#0a0a0a', marginBottom: '28px', letterSpacing: '-0.3px' }}>How Failures Are Classified</h3>
+          <h3 style={{ fontSize: '20px', fontWeight: 700, color: '#0a0a0a', marginBottom: '28px', letterSpacing: '0px' }}>How Failures Are Classified</h3>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', background: '#e5e5e5', border: '1px solid #e5e5e5', marginBottom: '1px' }}>
             {[
               { type: 'EMBARRASSING', color: '#E2001A', bg: '#fff5f5', border: '#fecaca', desc: 'Engine actively returns the wrong thing — a prescription drug for an OTC query, a contraindicated product, or a direct negation of stated intent.' },
@@ -1053,8 +1092,8 @@ export default function UseCasesPage() {
               { type: 'MISSING',      color: '#3b82f6', bg: '#eff6ff', border: '#bfdbfe', desc: "The right product exists in catalogue but the engine doesn't surface it. A ranking failure, not a catalogue gap." },
             ].map(t => (
               <div key={t.type} style={{ background: '#ffffff', padding: '24px' }}>
-                <span className="font-bold uppercase" style={{ fontSize: '9px', letterSpacing: '1.5px', color: t.color, background: t.bg, border: `1px solid ${t.border}`, padding: '3px 8px', display: 'inline-block', marginBottom: '14px' }}>{t.type}</span>
-                <p style={{ fontSize: '13px', color: '#525252', lineHeight: 1.65 }}>{t.desc}</p>
+                <span className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '1.5px', color: t.color, background: t.bg, border: `1px solid ${t.border}`, padding: '3px 8px', display: 'inline-block', marginBottom: '14px' }}>{t.type}</span>
+                <p style={{ fontSize: '16px', color: '#525252', lineHeight: 1.65 }}>{t.desc}</p>
               </div>
             ))}
           </div>
@@ -1065,8 +1104,8 @@ export default function UseCasesPage() {
               { spot: 'BLIND SPOT — VISIBLE',   color: '#16a34a', bg: '#f0fdf4', border: '#bbf7d0', desc: 'Analytics flags the failure. Very rare — most failures that are visible are already being addressed.' },
             ].map(t => (
               <div key={t.spot} style={{ background: '#ffffff', padding: '24px' }}>
-                <span className="font-bold uppercase" style={{ fontSize: '9px', letterSpacing: '1.5px', color: t.color, background: t.bg, border: `1px solid ${t.border}`, padding: '3px 8px', display: 'inline-block', marginBottom: '14px' }}>{t.spot}</span>
-                <p style={{ fontSize: '13px', color: '#525252', lineHeight: 1.65 }}>{t.desc}</p>
+                <span className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '1.5px', color: t.color, background: t.bg, border: `1px solid ${t.border}`, padding: '3px 8px', display: 'inline-block', marginBottom: '14px' }}>{t.spot}</span>
+                <p style={{ fontSize: '16px', color: '#525252', lineHeight: 1.65 }}>{t.desc}</p>
               </div>
             ))}
           </div>
@@ -1080,9 +1119,9 @@ export default function UseCasesPage() {
             { value: '0',  label: 'failures fully visible',          note: 'Standard dashboards are effectively blind', color: '#16a34a' },
           ].map((s, i) => (
             <div key={s.label} style={{ flex: 1, padding: '0 40px', borderLeft: i > 0 ? '1px solid #1a1a1a' : 'none' }}>
-              <div style={{ fontSize: '40px', fontWeight: 800, color: s.color, letterSpacing: '-1px', fontVariantNumeric: 'tabular-nums' }}>{s.value}</div>
-              <div style={{ fontSize: '12px', color: '#e5e5e5', marginTop: '4px', fontWeight: 600 }}>{s.label}</div>
-              <div style={{ fontSize: '11px', color: '#737373', marginTop: '4px' }}>{s.note}</div>
+              <div style={{ fontSize: '40px', fontWeight: 800, color: s.color, letterSpacing: '0px', fontVariantNumeric: 'tabular-nums' }}>{s.value}</div>
+              <div style={{ fontSize: '16px', color: '#e5e5e5', marginTop: '4px', fontWeight: 600 }}>{s.label}</div>
+              <div style={{ fontSize: '16px', color: '#737373', marginTop: '4px' }}>{s.note}</div>
             </div>
           ))}
         </div>
@@ -1090,11 +1129,11 @@ export default function UseCasesPage() {
         {/* Category breakdown table */}
         <div style={{ background: '#ffffff', borderBottom: '1px solid #e5e5e5', padding: '48px 80px' }}>
           <MetaLabel>RESULTS BY CATEGORY — 109 FAILURES ACROSS 11 PHARMACY DOMAINS</MetaLabel>
-          <h3 style={{ fontSize: '20px', fontWeight: 700, color: '#0a0a0a', marginBottom: '28px', letterSpacing: '-0.3px' }}>Category Summary</h3>
+          <h3 style={{ fontSize: '20px', fontWeight: 700, color: '#0a0a0a', marginBottom: '28px', letterSpacing: '0px' }}>Category Summary</h3>
           <div style={{ border: '1px solid #e5e5e5' }}>
             <div style={{ display: 'grid', gridTemplateColumns: '160px 60px 110px 110px 110px 1fr', background: '#f5f5f5', borderBottom: '1px solid #e5e5e5', padding: '10px 20px' }}>
               {['CATEGORY', 'N', 'AVG ANALYTICS', 'AVG SIM', 'AVG RATIO', 'TOP ILLUSION FAILURE'].map(h => (
-                <span key={h} className="font-bold uppercase" style={{ fontSize: '9px', letterSpacing: '2px', color: '#737373' }}>{h}</span>
+                <span key={h} className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>{h}</span>
               ))}
             </div>
             {[
@@ -1118,14 +1157,14 @@ export default function UseCasesPage() {
               const ratioBorder = isExtreme ? '#fecaca' : isHigh ? '#fde68a' : '#e5e5e5'
               return (
                 <div key={c.name} style={{ display: 'grid', gridTemplateColumns: '160px 60px 110px 110px 110px 1fr', padding: '14px 20px', borderBottom: i < arr.length - 1 ? '1px solid #e5e5e5' : 'none', background: i % 2 === 0 ? '#ffffff' : '#fafafa', alignItems: 'center' }}>
-                  <span style={{ fontSize: '13px', fontWeight: 700, color: '#0a0a0a' }}>{c.name}</span>
-                  <span style={{ fontSize: '13px', color: '#525252', fontFamily: "'SF Mono', monospace" }}>{c.failures}</span>
-                  <span style={{ fontSize: '13px', color: '#737373', fontFamily: "'SF Mono', monospace" }}>{c.avgAnalytics.toFixed(1)}</span>
-                  <span style={{ fontSize: '13px', color: '#0a0a0a', fontFamily: "'SF Mono', monospace", fontWeight: 600 }}>{c.avgSim.toFixed(1)}</span>
-                  <span style={{ fontFamily: "'SF Mono', 'Fira Code', monospace", fontSize: '13px', fontWeight: 700, color: ratioColor, background: ratioBg, border: `1px solid ${ratioBorder}`, padding: '3px 10px', display: 'inline-block' }}>{c.avgRatio.toFixed(1)}×</span>
+                  <span style={{ fontSize: '16px', fontWeight: 700, color: '#0a0a0a' }}>{c.name}</span>
+                  <span style={{ fontSize: '16px', color: '#525252', fontFamily: "'SF Mono', monospace" }}>{c.failures}</span>
+                  <span style={{ fontSize: '16px', color: '#737373', fontFamily: "'SF Mono', monospace" }}>{c.avgAnalytics.toFixed(1)}</span>
+                  <span style={{ fontSize: '16px', color: '#0a0a0a', fontFamily: "'SF Mono', monospace", fontWeight: 600 }}>{c.avgSim.toFixed(1)}</span>
+                  <span style={{ fontFamily: "'SF Mono', 'Fira Code', monospace", fontSize: '16px', fontWeight: 700, color: ratioColor, background: ratioBg, border: `1px solid ${ratioBorder}`, padding: '3px 10px', display: 'inline-block' }}>{c.avgRatio.toFixed(1)}×</span>
                   <div>
-                    <div style={{ fontSize: '12px', color: '#525252', marginBottom: '2px' }}>&ldquo;{c.topFailure}&rdquo;</div>
-                    <span style={{ fontSize: '11px', fontFamily: "'SF Mono', monospace", color: '#E2001A', fontWeight: 700 }}>{c.topRatio.toFixed(1)}×</span>
+                    <div style={{ fontSize: '16px', color: '#525252', marginBottom: '2px' }}>&ldquo;{c.topFailure}&rdquo;</div>
+                    <span style={{ fontSize: '16px', fontFamily: "'SF Mono', monospace", color: '#E2001A', fontWeight: 700 }}>{c.topRatio.toFixed(1)}×</span>
                   </div>
                 </div>
               )
@@ -1136,8 +1175,8 @@ export default function UseCasesPage() {
         {/* Top 10 severity illusions */}
         <div style={{ background: '#fafafa', borderBottom: '1px solid #e5e5e5', padding: '48px 80px' }}>
           <MetaLabel>WORST-CASE SEVERITY ILLUSIONS</MetaLabel>
-          <h3 style={{ fontSize: '20px', fontWeight: 700, color: '#0a0a0a', marginBottom: '8px', letterSpacing: '-0.3px' }}>Top 10 Severity Illusions</h3>
-          <p style={{ fontSize: '14px', color: '#737373', marginBottom: '28px', lineHeight: 1.6 }}>
+          <h3 style={{ fontSize: '20px', fontWeight: 700, color: '#0a0a0a', marginBottom: '8px', letterSpacing: '0px' }}>Top 10 Severity Illusions</h3>
+          <p style={{ fontSize: '16px', color: '#737373', marginBottom: '28px', lineHeight: 1.6 }}>
             Analytics score for all 10 is 0.5 — below any alert threshold. Simulation score ranges 9.2–9.4. These failures are completely invisible to standard tooling.
           </p>
           <div style={{ border: '1px solid #e5e5e5' }}>
@@ -1155,17 +1194,17 @@ export default function UseCasesPage() {
             ].map((f, i) => (
               <div key={f.rank} style={{ borderLeft: '4px solid #E2001A', borderBottom: i < 9 ? '1px solid #e5e5e5' : 'none', background: i % 2 === 0 ? '#ffffff' : '#fafafa', padding: '20px 28px' }}>
                 <div style={{ display: 'flex', gap: '12px', alignItems: 'center', marginBottom: '10px', flexWrap: 'wrap' }}>
-                  <span style={{ fontFamily: "'SF Mono', monospace", fontSize: '11px', color: '#737373', fontWeight: 700, minWidth: '24px' }}>#{f.rank}</span>
-                  <code style={{ fontSize: '13px', fontFamily: "'SF Mono', 'Fira Code', monospace", color: '#0a0a0a', background: '#f5f5f5', padding: '3px 10px', border: '1px solid #e5e5e5' }}>&ldquo;{f.query}&rdquo;</code>
-                  <span className="font-bold uppercase" style={{ fontSize: '9px', letterSpacing: '1.5px', color: '#E2001A', background: '#fff5f5', border: '1px solid #fecaca', padding: '3px 8px' }}>{f.type}</span>
-                  <span style={{ fontSize: '10px', fontFamily: "'SF Mono', monospace", padding: '3px 10px', background: '#f5f5f5', border: '1px solid #e5e5e5', color: '#525252' }}>{f.category}</span>
-                  <span style={{ fontFamily: "'SF Mono', 'Fira Code', monospace", fontSize: '13px', fontWeight: 700, color: '#E2001A', background: '#fff5f5', border: '1px solid #fecaca', padding: '3px 10px' }}>{f.ratio.toFixed(1)}×</span>
-                  <div style={{ marginLeft: 'auto', display: 'flex', gap: '16px', fontFamily: "'SF Mono', monospace", fontSize: '11px' }}>
+                  <span style={{ fontFamily: "'SF Mono', monospace", fontSize: '16px', color: '#737373', fontWeight: 700, minWidth: '24px' }}>#{f.rank}</span>
+                  <code style={{ fontSize: '16px', fontFamily: "'SF Mono', 'Fira Code', monospace", color: '#0a0a0a', background: '#f5f5f5', padding: '3px 10px', border: '1px solid #e5e5e5' }}>&ldquo;{f.query}&rdquo;</code>
+                  <span className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '1.5px', color: '#E2001A', background: '#fff5f5', border: '1px solid #fecaca', padding: '3px 8px' }}>{f.type}</span>
+                  <span style={{ fontSize: '16px', fontFamily: "'SF Mono', monospace", padding: '3px 10px', background: '#f5f5f5', border: '1px solid #e5e5e5', color: '#525252' }}>{f.category}</span>
+                  <span style={{ fontFamily: "'SF Mono', 'Fira Code', monospace", fontSize: '16px', fontWeight: 700, color: '#E2001A', background: '#fff5f5', border: '1px solid #fecaca', padding: '3px 10px' }}>{f.ratio.toFixed(1)}×</span>
+                  <div style={{ marginLeft: 'auto', display: 'flex', gap: '16px', fontFamily: "'SF Mono', monospace", fontSize: '16px' }}>
                     <span style={{ color: '#16a34a' }}>analytics: {f.analytics}</span>
                     <span style={{ color: '#E2001A' }}>sim: {f.sim}</span>
                   </div>
                 </div>
-                <p style={{ fontSize: '13px', color: '#525252', lineHeight: 1.6, paddingLeft: '36px' }}>{f.note}</p>
+                <p style={{ fontSize: '16px', color: '#525252', lineHeight: 1.6, paddingLeft: '36px' }}>{f.note}</p>
               </div>
             ))}
           </div>
@@ -1184,13 +1223,13 @@ export default function UseCasesPage() {
               ].map(t => (
                 <div key={t.type} style={{ marginBottom: '24px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '8px' }}>
-                    <span className="font-bold uppercase" style={{ fontSize: '9px', letterSpacing: '1.5px', color: t.color }}>{t.type}</span>
-                    <span style={{ fontFamily: "'SF Mono', monospace", fontSize: '13px', fontWeight: 700, color: t.color }}>{t.count} <span style={{ fontSize: '11px', color: '#737373' }}>({t.pct}%)</span></span>
+                    <span className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '1.5px', color: t.color }}>{t.type}</span>
+                    <span style={{ fontFamily: "'SF Mono', monospace", fontSize: '16px', fontWeight: 700, color: t.color }}>{t.count} <span style={{ fontSize: '16px', color: '#737373' }}>({t.pct}%)</span></span>
                   </div>
                   <div style={{ background: '#f5f5f5', height: '8px', width: '100%', border: '1px solid #e5e5e5' }}>
                     <div style={{ background: t.color, height: '100%', width: `${t.pct}%`, opacity: 0.7 }} />
                   </div>
-                  <p style={{ fontSize: '12px', color: '#737373', marginTop: '6px', lineHeight: 1.5 }}>{t.note}</p>
+                  <p style={{ fontSize: '16px', color: '#737373', marginTop: '6px', lineHeight: 1.5 }}>{t.note}</p>
                 </div>
               ))}
             </div>
@@ -1204,8 +1243,8 @@ export default function UseCasesPage() {
               ].map(b => (
                 <div key={b.label} style={{ marginBottom: '24px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '8px' }}>
-                    <span style={{ fontSize: '13px', fontWeight: 600, color: '#0a0a0a' }}>{b.label}</span>
-                    <span style={{ fontFamily: "'SF Mono', monospace", fontSize: '13px', fontWeight: 700, color: b.color }}>{b.count} <span style={{ fontSize: '11px', color: '#737373' }}>({b.pct}%)</span></span>
+                    <span style={{ fontSize: '16px', fontWeight: 600, color: '#0a0a0a' }}>{b.label}</span>
+                    <span style={{ fontFamily: "'SF Mono', monospace", fontSize: '16px', fontWeight: 700, color: b.color }}>{b.count} <span style={{ fontSize: '16px', color: '#737373' }}>({b.pct}%)</span></span>
                   </div>
                   <div style={{ background: '#f5f5f5', height: '8px', width: '100%', border: '1px solid #e5e5e5' }}>
                     <div style={{ background: b.color, height: '100%', width: `${b.pct > 0 ? b.pct : 0}%`, opacity: 0.7 }} />
@@ -1213,8 +1252,8 @@ export default function UseCasesPage() {
                 </div>
               ))}
               <div style={{ marginTop: '24px', background: '#fff5f5', border: '1px solid #fecaca', padding: '16px 20px' }}>
-                <p style={{ fontSize: '13px', color: '#E2001A', fontWeight: 600, marginBottom: '6px' }}>The implication</p>
-                <p style={{ fontSize: '13px', color: '#525252', lineHeight: 1.6 }}>
+                <p style={{ fontSize: '16px', color: '#E2001A', fontWeight: 600, marginBottom: '6px' }}>The implication</p>
+                <p style={{ fontSize: '16px', color: '#525252', lineHeight: 1.6 }}>
                   Zero-result rate, click-through rate, and session reformulation rate — the three standard signals — flag <strong>0 of 65 invisible failures</strong>. You would need persona simulation to discover them.
                 </p>
               </div>
@@ -1225,8 +1264,8 @@ export default function UseCasesPage() {
         {/* Persona vulnerability */}
         <div style={{ background: '#fafafa', borderBottom: '1px solid #e5e5e5', padding: '48px 80px' }}>
           <MetaLabel>PERSONA VULNERABILITY — AVG SEVERITY ACROSS ALL 109 FAILURES</MetaLabel>
-          <h3 style={{ fontSize: '20px', fontWeight: 700, color: '#0a0a0a', marginBottom: '8px', letterSpacing: '-0.3px' }}>Who Gets Hurt Most</h3>
-          <p style={{ fontSize: '14px', color: '#737373', marginBottom: '28px', lineHeight: 1.6 }}>
+          <h3 style={{ fontSize: '20px', fontWeight: 700, color: '#0a0a0a', marginBottom: '8px', letterSpacing: '0px' }}>Who Gets Hurt Most</h3>
+          <p style={{ fontSize: '16px', color: '#737373', marginBottom: '28px', lineHeight: 1.6 }}>
             Severity is scored 0–1 per persona per failure, averaged across all 109. The Acute Self-Treater is most exposed — not just occasionally, but structurally across all categories.
           </p>
           <div style={{ border: '1px solid #e5e5e5', background: '#ffffff' }}>
@@ -1238,12 +1277,12 @@ export default function UseCasesPage() {
               { name: 'Anxious Young Mother',        score: 0.51, pct: 51, color: '#737373', reason: 'Peaks on child + pregnancy queries at 18×; lower average because safe categories dilute the score' },
             ].map((p, i) => (
               <div key={p.name} style={{ display: 'grid', gridTemplateColumns: '240px 80px 1fr 360px', gap: '24px', padding: '20px 28px', borderBottom: i < 4 ? '1px solid #e5e5e5' : 'none', background: i % 2 === 0 ? '#ffffff' : '#fafafa', alignItems: 'center' }}>
-                <span style={{ fontSize: '13px', fontWeight: 700, color: '#0a0a0a' }}>{p.name}</span>
+                <span style={{ fontSize: '16px', fontWeight: 700, color: '#0a0a0a' }}>{p.name}</span>
                 <span style={{ fontFamily: "'SF Mono', monospace", fontSize: '16px', fontWeight: 800, color: p.color }}>{p.score.toFixed(2)}</span>
                 <div style={{ background: '#f5f5f5', height: '8px', border: '1px solid #e5e5e5' }}>
                   <div style={{ background: p.color, height: '100%', width: `${p.pct}%`, opacity: 0.75 }} />
                 </div>
-                <p style={{ fontSize: '12px', color: '#737373', lineHeight: 1.5 }}>{p.reason}</p>
+                <p style={{ fontSize: '16px', color: '#737373', lineHeight: 1.5 }}>{p.reason}</p>
               </div>
             ))}
           </div>
@@ -1252,7 +1291,7 @@ export default function UseCasesPage() {
         {/* Synthesis */}
         <div style={{ background: '#0a0a0a', padding: '56px 80px', borderBottom: '1px solid #1a1a1a' }}>
           <SectionLabel>SYNTHESIS</SectionLabel>
-          <h3 style={{ fontSize: '24px', fontWeight: 800, color: '#ffffff', marginBottom: '28px', letterSpacing: '-0.8px', marginTop: '16px' }}>Four Structural Findings</h3>
+          <h3 style={{ fontSize: '24px', fontWeight: 800, color: '#ffffff', marginBottom: '28px', letterSpacing: '0px', marginTop: '16px' }}>Four Structural Findings</h3>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
             {[
               {
@@ -1277,9 +1316,9 @@ export default function UseCasesPage() {
               },
             ].map(f => (
               <div key={f.n} style={{ background: '#111111', border: '1px solid #1a1a1a', padding: '28px 32px' }}>
-                <div style={{ fontFamily: "'SF Mono', monospace", fontSize: '11px', color: '#E2001A', marginBottom: '12px', fontWeight: 700 }}>{f.n}</div>
-                <h4 style={{ fontSize: '15px', fontWeight: 700, color: '#ffffff', marginBottom: '12px', lineHeight: 1.4 }}>{f.title}</h4>
-                <p style={{ fontSize: '13px', color: '#a3a3a3', lineHeight: 1.7 }}>{f.body}</p>
+                <div style={{ fontFamily: "'SF Mono', monospace", fontSize: '16px', color: '#E2001A', marginBottom: '12px', fontWeight: 700 }}>{f.n}</div>
+                <h4 style={{ fontSize: '16px', fontWeight: 700, color: '#ffffff', marginBottom: '12px', lineHeight: 1.4 }}>{f.title}</h4>
+                <p style={{ fontSize: '16px', color: '#a3a3a3', lineHeight: 1.7 }}>{f.body}</p>
               </div>
             ))}
           </div>
@@ -1288,7 +1327,7 @@ export default function UseCasesPage() {
         {/* Recommendations */}
         <div style={{ background: '#ffffff', padding: '48px 80px', borderBottom: '1px solid #e5e5e5' }}>
           <MetaLabel>RECOMMENDED ACTIONS</MetaLabel>
-          <h3 style={{ fontSize: '20px', fontWeight: 700, color: '#0a0a0a', marginBottom: '28px', letterSpacing: '-0.3px' }}>What Needs to Happen</h3>
+          <h3 style={{ fontSize: '20px', fontWeight: 700, color: '#0a0a0a', marginBottom: '28px', letterSpacing: '0px' }}>What Needs to Happen</h3>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', background: '#e5e5e5', border: '1px solid #e5e5e5' }}>
             {[
               {
@@ -1314,10 +1353,10 @@ export default function UseCasesPage() {
               },
             ].map(a => (
               <div key={a.priority} style={{ background: '#ffffff', padding: '28px' }}>
-                <span className="font-bold uppercase" style={{ fontSize: '9px', letterSpacing: '1.5px', color: a.color, background: a.bg, border: `1px solid ${a.border}`, padding: '3px 8px', display: 'inline-block', marginBottom: '16px' }}>{a.priority}</span>
-                <h4 style={{ fontSize: '14px', fontWeight: 700, color: '#0a0a0a', marginBottom: '10px', lineHeight: 1.4 }}>{a.title}</h4>
-                <p style={{ fontSize: '13px', color: '#525252', lineHeight: 1.65, marginBottom: '16px' }}>{a.body}</p>
-                <div style={{ fontSize: '11px', fontWeight: 700, color: a.color, background: a.bg, border: `1px solid ${a.border}`, padding: '6px 12px', display: 'inline-block', letterSpacing: '0.5px' }}>{a.impact}</div>
+                <span className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '1.5px', color: a.color, background: a.bg, border: `1px solid ${a.border}`, padding: '3px 8px', display: 'inline-block', marginBottom: '16px' }}>{a.priority}</span>
+                <h4 style={{ fontSize: '16px', fontWeight: 700, color: '#0a0a0a', marginBottom: '10px', lineHeight: 1.4 }}>{a.title}</h4>
+                <p style={{ fontSize: '16px', color: '#525252', lineHeight: 1.65, marginBottom: '16px' }}>{a.body}</p>
+                <div style={{ fontSize: '16px', fontWeight: 700, color: a.color, background: a.bg, border: `1px solid ${a.border}`, padding: '6px 12px', display: 'inline-block', letterSpacing: '0.5px' }}>{a.impact}</div>
               </div>
             ))}
           </div>
@@ -1333,7 +1372,7 @@ export default function UseCasesPage() {
             { label: '60% INVISIBLE to analytics', red: true },
             { label: 'Frustration Propagation Simulation trust decay framework', red: false },
           ].map(t => (
-            <span key={t.label} style={{ fontSize: '10px', fontFamily: "'SF Mono', 'Fira Code', monospace", padding: '3px 10px', background: t.red ? '#fff5f5' : t.green ? '#f0fdf4' : '#f5f5f5', border: `1px solid ${t.red ? '#fecaca' : t.green ? '#bbf7d0' : '#e5e5e5'}`, color: t.red ? '#E2001A' : t.green ? '#16a34a' : '#525252', display: 'inline-block' }}>{t.label}</span>
+            <span key={t.label} style={{ fontSize: '16px', fontFamily: "'SF Mono', 'Fira Code', monospace", padding: '3px 10px', background: t.red ? '#fff5f5' : t.green ? '#f0fdf4' : '#f5f5f5', border: `1px solid ${t.red ? '#fecaca' : t.green ? '#bbf7d0' : '#e5e5e5'}`, color: t.red ? '#E2001A' : t.green ? '#16a34a' : '#525252', display: 'inline-block' }}>{t.label}</span>
           ))}
         </div>
       </section>
@@ -1348,36 +1387,36 @@ export default function UseCasesPage() {
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', marginBottom: '48px' }}>
           <div>
-            <h2 className="font-black leading-none mb-5" style={{ fontSize: '42px', letterSpacing: '-2px', color: '#0a0a0a' }}>
+            <h2 className="font-black leading-none mb-5" style={{ fontSize: '42px', letterSpacing: '0px', color: '#0a0a0a' }}>
               SPONSORED
               <br />
-              RELEVANCE GATE
+              <span style={{ color: '#E2001A' }}>RELEVANCE GATE.</span>
             </h2>
-            <p style={{ fontSize: '14px', color: '#525252', lineHeight: '1.65' }}>
+            <p style={{ fontSize: '16px', color: '#525252', lineHeight: '1.65' }}>
               Sponsored Relevance Audit asks one question: are sponsored product placements in the right category
               for the query they appear on? A mismatched sponsored result displaces an organic
               result that may be more relevant, damages session trust, and inflates cost-per-click
               via Quality Score degradation over time.
             </p>
             <div style={{ marginTop: '20px', padding: '14px 18px', background: '#ffffff', border: '1px solid #e5e5e5' }}>
-              <p className="font-bold uppercase mb-2" style={{ fontSize: '9px', letterSpacing: '2px', color: '#737373' }}>RELEVANCE FRAMEWORK — THREE LEVELS</p>
+              <p className="font-bold uppercase mb-2" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>RELEVANCE FRAMEWORK — THREE LEVELS</p>
               {[
                 { level: 'Category match', def: 'Sponsored URL category = dominant organic category', action: 'Low risk', color: '#16a34a' },
                 { level: 'Adjacent mismatch', def: 'Related but not the same category as organic results', action: 'Requires conversion data check', color: '#d97706' },
                 { level: 'Category mismatch', def: 'Unrelated to organic results', action: 'Flag for review', color: '#E2001A' },
               ].map(({ level, def, action, color }) => (
                 <div key={level} style={{ display: 'flex', gap: '12px', borderBottom: '1px solid #f0f0f0', paddingBottom: '8px', marginBottom: '8px' }}>
-                  <span className="font-bold" style={{ fontSize: '11px', color, minWidth: '140px', flexShrink: 0 }}>{level}</span>
+                  <span className="font-bold" style={{ fontSize: '16px', color, minWidth: '140px', flexShrink: 0 }}>{level}</span>
                   <div>
-                    <p style={{ fontSize: '11px', color: '#525252' }}>{def}</p>
-                    <p style={{ fontSize: '10px', color: '#737373', fontStyle: 'italic' }}>{action}</p>
+                    <p style={{ fontSize: '16px', color: '#525252' }}>{def}</p>
+                    <p style={{ fontSize: '16px', color: '#737373', fontStyle: 'italic' }}>{action}</p>
                   </div>
                 </div>
               ))}
             </div>
 
             <div style={{ marginTop: '20px' }}>
-              <p className="font-bold uppercase mb-3" style={{ fontSize: '9px', letterSpacing: '2px', color: '#737373' }}>TECHNICAL APPROACH</p>
+              <p className="font-bold uppercase mb-3" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>TECHNICAL APPROACH</p>
               {[
                 'Playwright (Chromium, headless) — required for JS-rendered product data',
                 'Product data extracted from JSON in script tags via variantDetails fields',
@@ -1386,7 +1425,7 @@ export default function UseCasesPage() {
                 'Cookie consent auto-dismissed via data-testid="uc-accept-all-button"',
                 'All results verified manually against live site before analysis',
               ].map((item) => (
-                <div key={item} style={{ display: 'flex', gap: '8px', fontSize: '12px', color: '#525252', marginBottom: '6px', lineHeight: '1.4' }}>
+                <div key={item} style={{ display: 'flex', gap: '8px', fontSize: '16px', color: '#525252', marginBottom: '6px', lineHeight: '1.4' }}>
                   <span style={{ color: '#E2001A', flexShrink: 0 }}>—</span>{item}
                 </div>
               ))}
@@ -1394,7 +1433,7 @@ export default function UseCasesPage() {
           </div>
 
           <div>
-            <p className="font-bold uppercase mb-4" style={{ fontSize: '10px', letterSpacing: '2px', color: '#737373' }}>VERDICT SUMMARY — 7 QUERIES</p>
+            <p className="font-bold uppercase mb-4" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>VERDICT SUMMARY — 7 QUERIES</p>
             {[
               { label: 'OK', count: 2, color: '#16a34a', bg: '#f0fdf4' },
               { label: 'NOTABLE (own-brand)', count: 2, color: '#d97706', bg: '#fffbeb' },
@@ -1404,17 +1443,17 @@ export default function UseCasesPage() {
             ].map(({ label, count, color, bg }) => (
               <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '10px' }}>
                 <div style={{ background: bg, border: `1px solid ${color}22`, padding: '3px 10px', minWidth: '200px' }}>
-                  <span className="font-bold uppercase" style={{ fontSize: '9px', letterSpacing: '1px', color }}>{label}</span>
+                  <span className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '1px', color }}>{label}</span>
                 </div>
                 <div style={{ flex: 1, background: '#e5e5e5', height: '5px', borderRadius: '3px' }}>
                   <div style={{ width: `${(count / 7) * 100}%`, height: '100%', background: color, borderRadius: '3px' }} />
                 </div>
-                <span className="font-black" style={{ fontSize: '18px', color: '#0a0a0a', letterSpacing: '-1px', minWidth: '16px' }}>{count}</span>
+                <span className="font-black" style={{ fontSize: '18px', color: '#0a0a0a', letterSpacing: '0px', minWidth: '16px' }}>{count}</span>
               </div>
             ))}
 
             <div style={{ marginTop: '24px' }}>
-              <p className="font-bold uppercase mb-3" style={{ fontSize: '9px', letterSpacing: '2px', color: '#737373' }}>FOUR RECURRING PATTERNS</p>
+              <p className="font-bold uppercase mb-3" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>FOUR RECURRING PATTERNS</p>
               {[
                 { pattern: 'Own-brand promotion', queries: 'Ibuprofen, Vitamin C', note: 'Platform uses sponsored slots to promote own brands (Redcare, WEPA). Deliberate business strategy — surface to client for awareness, not correction.' },
                 { pattern: 'Adjacent-category mismatch', queries: 'Erkältung Kinder', note: 'Thermometer on cold medicine query. Thematically related but not the specific intent. Requires conversion data before recommending removal.' },
@@ -1423,10 +1462,10 @@ export default function UseCasesPage() {
               ].map(({ pattern, queries, note }) => (
                 <div key={pattern} style={{ marginBottom: '14px', paddingBottom: '14px', borderBottom: '1px solid #e5e5e5' }}>
                   <div style={{ display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '4px' }}>
-                    <p className="font-bold" style={{ fontSize: '12px', color: '#0a0a0a' }}>{pattern}</p>
+                    <p className="font-bold" style={{ fontSize: '16px', color: '#0a0a0a' }}>{pattern}</p>
                     <Tag>{queries}</Tag>
                   </div>
-                  <p style={{ fontSize: '12px', color: '#737373', lineHeight: '1.5' }}>{note}</p>
+                  <p style={{ fontSize: '16px', color: '#737373', lineHeight: '1.5' }}>{note}</p>
                 </div>
               ))}
             </div>
@@ -1438,22 +1477,22 @@ export default function UseCasesPage() {
         <div style={{ border: '1px solid #e5e5e5', marginBottom: '40px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '120px 1fr 100px 1fr 80px', gap: '0', background: '#0a0a0a', padding: '10px 24px' }}>
             {['QUERY', 'SPONSORED PRODUCT', 'VERDICT', 'DETAIL', 'RISK'].map((h) => (
-              <span key={h} className="font-bold uppercase" style={{ fontSize: '9px', letterSpacing: '2px', color: '#ffffff' }}>{h}</span>
+              <span key={h} className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '2px', color: '#ffffff' }}>{h}</span>
             ))}
           </div>
           {uc8Findings.map((f, i) => {
             const vc = verdictConfig[f.verdict]
             return (
               <div key={f.query} style={{ display: 'grid', gridTemplateColumns: '120px 1fr 100px 1fr 80px', gap: '0', padding: '16px 24px', borderBottom: i < uc8Findings.length - 1 ? '1px solid #e5e5e5' : 'none', background: i % 2 === 0 ? '#ffffff' : '#fafafa', alignItems: 'start' }}>
-                <code style={{ fontSize: '13px', fontFamily: "'SF Mono', monospace", color: '#0a0a0a', fontWeight: 600 }}>{f.query}</code>
-                <span style={{ fontSize: '12px', color: '#525252', paddingRight: '16px' }}>{f.sponsored}</span>
+                <code style={{ fontSize: '16px', fontFamily: "'SF Mono', monospace", color: '#0a0a0a', fontWeight: 600 }}>{f.query}</code>
+                <span style={{ fontSize: '16px', color: '#525252', paddingRight: '16px' }}>{f.sponsored}</span>
                 <div>
-                  <span className="font-bold uppercase" style={{ fontSize: '9px', letterSpacing: '1px', color: vc.color, background: vc.bg, border: `1px solid ${vc.border}`, padding: '3px 8px', display: 'inline-block' }}>
+                  <span className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '1px', color: vc.color, background: vc.bg, border: `1px solid ${vc.border}`, padding: '3px 8px', display: 'inline-block' }}>
                     {f.verdict}
                   </span>
                 </div>
-                <span style={{ fontSize: '12px', color: '#525252', lineHeight: '1.5', paddingRight: '16px' }}>{f.detail}</span>
-                <span className="font-bold uppercase" style={{ fontSize: '10px', letterSpacing: '1px', color: f.revenue === 'HIGH' ? '#E2001A' : f.revenue === 'MEDIUM' ? '#d97706' : '#16a34a' }}>{f.revenue}</span>
+                <span style={{ fontSize: '16px', color: '#525252', lineHeight: '1.5', paddingRight: '16px' }}>{f.detail}</span>
+                <span className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '1px', color: f.revenue === 'HIGH' ? '#E2001A' : f.revenue === 'MEDIUM' ? '#d97706' : '#16a34a' }}>{f.revenue}</span>
               </div>
             )
           })}
@@ -1461,7 +1500,7 @@ export default function UseCasesPage() {
 
         {/* Persona × Query impact simulation */}
         <MetaLabel>PERSONA × SPONSORED SIMULATION — 25 AGENTS · ACTUAL OUTPUT · 2026-04-27</MetaLabel>
-        <p style={{ fontSize: '13px', color: '#737373', marginBottom: '20px', lineHeight: 1.6 }}>
+        <p style={{ fontSize: '16px', color: '#737373', marginBottom: '20px', lineHeight: 1.6 }}>
           Sponsored Relevance Audit identified bad placements structurally. This follow-on simulation loaded all 5 pharmacy personas as AI agents, showed each one the documented sponsored product for 5 live queries, and tracked inner monologue, trust delta, and session outcome.
         </p>
 
@@ -1474,8 +1513,8 @@ export default function UseCasesPage() {
             { value: '25', label: 'TOTAL AGENT × QUERY RUNS', color: '#0a0a0a' },
           ].map(s => (
             <div key={s.label} style={{ background: '#ffffff', padding: '20px 24px' }}>
-              <div style={{ fontSize: '32px', fontWeight: 800, color: s.color, letterSpacing: '-1.5px', lineHeight: 1 }}>{s.value}</div>
-              <div style={{ fontSize: '9px', fontWeight: 700, letterSpacing: '2px', color: '#737373', marginTop: '6px', textTransform: 'uppercase' }}>{s.label}</div>
+              <div style={{ fontSize: '32px', fontWeight: 800, color: s.color, letterSpacing: '0px', lineHeight: 1 }}>{s.value}</div>
+              <div style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '2px', color: '#737373', marginTop: '6px', textTransform: 'uppercase' }}>{s.label}</div>
             </div>
           ))}
         </div>
@@ -1512,8 +1551,8 @@ export default function UseCasesPage() {
                 <div style={{ padding: '10px 16px', background: '#0a0a0a' }} />
                 {qs.map(q => (
                   <div key={q.query} style={{ padding: '10px 12px', background: '#0a0a0a', borderLeft: '1px solid #333' }}>
-                    <p style={{ fontSize: '10px', fontWeight: 700, color: '#ffffff', lineHeight: 1.3, marginBottom: '3px' }}>{q.query}</p>
-                    <span style={{ fontSize: '9px', fontWeight: 700, color: uc8C[q.uc8] }}>{q.uc8}</span>
+                    <p style={{ fontSize: '16px', fontWeight: 700, color: '#ffffff', lineHeight: 1.3, marginBottom: '3px' }}>{q.query}</p>
+                    <span style={{ fontSize: '16px', fontWeight: 700, color: uc8C[q.uc8] }}>{q.uc8}</span>
                   </div>
                 ))}
               </div>
@@ -1521,17 +1560,17 @@ export default function UseCasesPage() {
                 {ps.map((p, pi) => (
                   <div key={p.key} style={{ display: 'grid', gridTemplateColumns: '180px repeat(5, 1fr)', borderBottom: pi < ps.length - 1 ? '1px solid #e5e5e5' : 'none' }}>
                     <div style={{ padding: '14px 16px', background: '#fafafa', borderRight: '1px solid #e5e5e5' }}>
-                      <p style={{ fontSize: '12px', fontWeight: 700, color: '#0a0a0a', marginBottom: '2px' }}>{p.name}</p>
-                      <p style={{ fontSize: '10px', color: '#737373' }}>{p.archetype}</p>
+                      <p style={{ fontSize: '16px', fontWeight: 700, color: '#0a0a0a', marginBottom: '2px' }}>{p.name}</p>
+                      <p style={{ fontSize: '16px', color: '#737373' }}>{p.archetype}</p>
                     </div>
                     {qs.map(q => {
                       const cell = mx[p.key][q.query]
                       const abandoned = cell.session_outcome === 'ABANDONED'
                       return (
                         <div key={q.query} style={{ padding: '12px 10px', background: iBgs[cell.impact], borderLeft: `3px solid ${iColors[cell.impact]}` }}>
-                          <div style={{ fontSize: '10px', fontWeight: 700, color: iColors[cell.impact], marginBottom: '4px' }}>{cell.impact}</div>
-                          <div style={{ fontSize: '12px', fontWeight: 700, color: iColors[cell.impact], marginBottom: '3px' }}>Δ {cell.trust_delta > 0 ? '+' : ''}{cell.trust_delta.toFixed(2)}</div>
-                          <div style={{ fontSize: '10px', color: abandoned ? '#E2001A' : '#737373', fontWeight: abandoned ? 700 : 400 }}>
+                          <div style={{ fontSize: '16px', fontWeight: 700, color: iColors[cell.impact], marginBottom: '4px' }}>{cell.impact}</div>
+                          <div style={{ fontSize: '16px', fontWeight: 700, color: iColors[cell.impact], marginBottom: '3px' }}>Δ {cell.trust_delta > 0 ? '+' : ''}{cell.trust_delta.toFixed(2)}</div>
+                          <div style={{ fontSize: '16px', color: abandoned ? '#E2001A' : '#737373', fontWeight: abandoned ? 700 : 400 }}>
                             {abandoned ? '⚠ ABANDONED' : cell.session_outcome.replace('CONVERTED_', '')}
                           </div>
                         </div>
@@ -1548,8 +1587,8 @@ export default function UseCasesPage() {
                   { label: 'schmerzmittel nicht aspirin',  note: 'Sponsored (Neuralgin) was the ONLY correct result — without it all 5 would fail.' },
                   { label: 'Baldrian',                     note: 'Confirmed: sponsored outperforming organic. 3 of 5 clicked it. Positive outlier.' },
                 ].map(({ label, note }) => (
-                  <div key={label} style={{ padding: '10px 12px', background: '#fafafa', border: '1px solid #e5e5e5', fontSize: '11px', color: '#737373', lineHeight: 1.5 }}>
-                    <strong style={{ color: '#0a0a0a', display: 'block', marginBottom: '4px', fontSize: '10px' }}>{label}</strong>
+                  <div key={label} style={{ padding: '10px 12px', background: '#fafafa', border: '1px solid #e5e5e5', fontSize: '16px', color: '#737373', lineHeight: 1.5 }}>
+                    <strong style={{ color: '#0a0a0a', display: 'block', marginBottom: '4px', fontSize: '16px' }}>{label}</strong>
                     {note}
                   </div>
                 ))}
@@ -1568,21 +1607,21 @@ export default function UseCasesPage() {
           ].map((d, i) => (
             <div key={i} style={{ border: '1px solid #e5e5e5', borderLeft: '4px solid #E2001A', background: '#ffffff' }}>
               <div style={{ padding: '14px 24px', borderBottom: '1px solid #e5e5e5', background: '#fafafa', display: 'flex', gap: '20px', alignItems: 'center', flexWrap: 'wrap' }}>
-                <code style={{ fontSize: '13px', fontFamily: "'SF Mono', 'Fira Code', monospace", color: '#0a0a0a', background: '#f5f5f5', padding: '3px 10px', border: '1px solid #e5e5e5' }}>&ldquo;{d.query}&rdquo;</code>
-                <span style={{ fontSize: '13px', fontWeight: 700, color: '#0a0a0a' }}>× {d.persona}</span>
-                <span style={{ fontSize: '11px', color: '#737373' }}>{d.archetype}</span>
-                <span style={{ marginLeft: 'auto', fontSize: '10px', fontWeight: 700, color: '#E2001A' }}>Δtrust {d.trustDelta.toFixed(2)} · {d.outcome}</span>
+                <code style={{ fontSize: '16px', fontFamily: "'SF Mono', 'Fira Code', monospace", color: '#0a0a0a', background: '#f5f5f5', padding: '3px 10px', border: '1px solid #e5e5e5' }}>&ldquo;{d.query}&rdquo;</code>
+                <span style={{ fontSize: '16px', fontWeight: 700, color: '#0a0a0a' }}>× {d.persona}</span>
+                <span style={{ fontSize: '16px', color: '#737373' }}>{d.archetype}</span>
+                <span style={{ marginLeft: 'auto', fontSize: '16px', fontWeight: 700, color: '#E2001A' }}>Δtrust {d.trustDelta.toFixed(2)} · {d.outcome}</span>
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
                 <div style={{ padding: '20px 24px', borderRight: '1px solid #e5e5e5' }}>
-                  <p className="font-bold uppercase mb-2" style={{ fontSize: '9px', letterSpacing: '2px', color: '#737373' }}>SPONSORED PRODUCT SHOWN</p>
-                  <p style={{ fontSize: '13px', color: '#E2001A', fontWeight: 600, marginBottom: '12px' }}>{d.sponsored}</p>
-                  <p className="font-bold uppercase mb-1" style={{ fontSize: '9px', letterSpacing: '2px', color: '#737373' }}>CONSEQUENCE</p>
-                  <p style={{ fontSize: '13px', color: '#525252' }}>{d.consequence}</p>
+                  <p className="font-bold uppercase mb-2" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>SPONSORED PRODUCT SHOWN</p>
+                  <p style={{ fontSize: '16px', color: '#E2001A', fontWeight: 600, marginBottom: '12px' }}>{d.sponsored}</p>
+                  <p className="font-bold uppercase mb-1" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>CONSEQUENCE</p>
+                  <p style={{ fontSize: '16px', color: '#525252' }}>{d.consequence}</p>
                 </div>
                 <div style={{ padding: '20px 24px', background: '#fff5f5' }}>
-                  <p className="font-bold uppercase mb-3" style={{ fontSize: '9px', letterSpacing: '2px', color: '#E2001A' }}>INNER MONOLOGUE — VERBATIM FROM SIMULATION</p>
-                  <blockquote style={{ fontSize: '13px', color: '#0a0a0a', lineHeight: 1.65, fontStyle: 'italic', borderLeft: '3px solid #E2001A', paddingLeft: '14px' }}>
+                  <p className="font-bold uppercase mb-3" style={{ fontSize: '16px', letterSpacing: '2px', color: '#E2001A' }}>INNER MONOLOGUE — VERBATIM FROM SIMULATION</p>
+                  <blockquote style={{ fontSize: '16px', color: '#0a0a0a', lineHeight: 1.65, fontStyle: 'italic', borderLeft: '3px solid #E2001A', paddingLeft: '14px' }}>
                     &ldquo;{d.monologue}&rdquo;
                   </blockquote>
                 </div>
@@ -1591,20 +1630,20 @@ export default function UseCasesPage() {
           ))}
           <div style={{ border: '1px solid #e5e5e5', borderLeft: '4px solid #16a34a', background: '#ffffff' }}>
             <div style={{ padding: '14px 24px', borderBottom: '1px solid #e5e5e5', background: '#f0faf4', display: 'flex', gap: '20px', alignItems: 'center' }}>
-              <code style={{ fontSize: '13px', fontFamily: "'SF Mono', 'Fira Code', monospace", color: '#0a0a0a', background: '#ffffff', padding: '3px 10px', border: '1px solid #e5e5e5' }}>&ldquo;Baldrian&rdquo;</code>
-              <span style={{ fontSize: '13px', fontWeight: 700, color: '#0a0a0a' }}>× Jonas</span>
-              <span style={{ fontSize: '11px', color: '#737373' }}>Acute Self-Treater</span>
-              <span style={{ marginLeft: 'auto', fontSize: '10px', fontWeight: 700, color: '#16a34a' }}>Δtrust +0.10 · CONVERTED_SPONSORED</span>
+              <code style={{ fontSize: '16px', fontFamily: "'SF Mono', 'Fira Code', monospace", color: '#0a0a0a', background: '#ffffff', padding: '3px 10px', border: '1px solid #e5e5e5' }}>&ldquo;Baldrian&rdquo;</code>
+              <span style={{ fontSize: '16px', fontWeight: 700, color: '#0a0a0a' }}>× Jonas</span>
+              <span style={{ fontSize: '16px', color: '#737373' }}>Acute Self-Treater</span>
+              <span style={{ marginLeft: 'auto', fontSize: '16px', fontWeight: 700, color: '#16a34a' }}>Δtrust +0.10 · CONVERTED_SPONSORED</span>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
               <div style={{ padding: '20px 24px', borderRight: '1px solid #e5e5e5' }}>
-                <p className="font-bold uppercase mb-2" style={{ fontSize: '9px', letterSpacing: '2px', color: '#737373' }}>POSITIVE CASE — WHAT GOOD LOOKS LIKE</p>
-                <p style={{ fontSize: '13px', color: '#16a34a', fontWeight: 600, marginBottom: '10px' }}>Baldrian Dispert 45mg Dragees — relevant, €6.49, correct category</p>
-                <p style={{ fontSize: '13px', color: '#525252' }}>Sponsored outperforms organic #1. Agent clicks immediately. Sponsored Relevance Audit tagged this REVERSE — sponsored rescued a weak organic ranking.</p>
+                <p className="font-bold uppercase mb-2" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>POSITIVE CASE — WHAT GOOD LOOKS LIKE</p>
+                <p style={{ fontSize: '16px', color: '#16a34a', fontWeight: 600, marginBottom: '10px' }}>Baldrian Dispert 45mg Dragees — relevant, €6.49, correct category</p>
+                <p style={{ fontSize: '16px', color: '#525252' }}>Sponsored outperforms organic #1. Agent clicks immediately. Sponsored Relevance Audit tagged this REVERSE — sponsored rescued a weak organic ranking.</p>
               </div>
               <div style={{ padding: '20px 24px', background: '#f0faf4' }}>
-                <p className="font-bold uppercase mb-3" style={{ fontSize: '9px', letterSpacing: '2px', color: '#16a34a' }}>INNER MONOLOGUE</p>
-                <blockquote style={{ fontSize: '13px', color: '#0a0a0a', lineHeight: 1.65, fontStyle: 'italic', borderLeft: '3px solid #16a34a', paddingLeft: '14px' }}>
+                <p className="font-bold uppercase mb-3" style={{ fontSize: '16px', letterSpacing: '2px', color: '#16a34a' }}>INNER MONOLOGUE</p>
+                <blockquote style={{ fontSize: '16px', color: '#0a0a0a', lineHeight: 1.65, fontStyle: 'italic', borderLeft: '3px solid #16a34a', paddingLeft: '14px' }}>
                   &ldquo;Okay, Baldrian Dispert 45mg — das sieht genau aus wie das, was ich suche. Es ist direkt oben, der Preis passt. Gesponsert oder nicht, mir egal — wenn es das richtige Produkt ist und schnell geht, dann nehme ich es.&rdquo;
                 </blockquote>
               </div>
@@ -1614,13 +1653,13 @@ export default function UseCasesPage() {
 
         {/* Revenue math */}
         <MetaLabel>REVENUE IMPLICATIONS — ILLUSTRATIVE MODEL</MetaLabel>
-        <p style={{ fontSize: '13px', color: '#737373', marginBottom: '16px', lineHeight: 1.6 }}>
+        <p style={{ fontSize: '16px', color: '#737373', marginBottom: '16px', lineHeight: 1.6 }}>
           Basket values from persona profiles. Session volumes are illustrative — substitute actual query traffic for real numbers.
         </p>
         <div style={{ border: '1px solid #e5e5e5', marginBottom: '40px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '120px 200px 80px 120px 1fr', background: '#0a0a0a', padding: '10px 20px' }}>
             {['PERSONA', 'ARCHETYPE', 'BASKET', 'HARMFUL RATE', 'SESSION NOTE'].map(h => (
-              <span key={h} style={{ fontSize: '9px', letterSpacing: '1.5px', color: '#ffffff', fontWeight: 700 }}>{h}</span>
+              <span key={h} style={{ fontSize: '16px', letterSpacing: '1.5px', color: '#ffffff', fontWeight: 700 }}>{h}</span>
             ))}
           </div>
           {[
@@ -1631,24 +1670,24 @@ export default function UseCasesPage() {
             { persona: 'Petra',  archetype: 'Alternative Med.',     basket: 55,  harmful_pct: 20, note: 'ABANDONED after ignoring bad placement across multiple rounds' },
           ].map((r, i) => (
             <div key={r.persona} style={{ display: 'grid', gridTemplateColumns: '120px 200px 80px 120px 1fr', padding: '14px 20px', borderTop: '1px solid #e5e5e5', background: i % 2 === 0 ? '#ffffff' : '#fafafa', alignItems: 'center' }}>
-              <span style={{ fontSize: '13px', fontWeight: 700, color: '#0a0a0a' }}>{r.persona}</span>
-              <span style={{ fontSize: '12px', color: '#737373' }}>{r.archetype}</span>
-              <span style={{ fontSize: '16px', fontWeight: 800, color: '#0a0a0a', letterSpacing: '-0.5px' }}>€{r.basket}</span>
+              <span style={{ fontSize: '16px', fontWeight: 700, color: '#0a0a0a' }}>{r.persona}</span>
+              <span style={{ fontSize: '16px', color: '#737373' }}>{r.archetype}</span>
+              <span style={{ fontSize: '16px', fontWeight: 800, color: '#0a0a0a', letterSpacing: '0px' }}>€{r.basket}</span>
               <div>
                 <div style={{ background: '#f0f0f0', height: '5px', marginBottom: '3px' }}>
                   <div style={{ width: `${r.harmful_pct}%`, height: '100%', background: '#E2001A' }} />
                 </div>
-                <span style={{ fontSize: '11px', fontWeight: 700, color: '#E2001A' }}>{r.harmful_pct}% of queries</span>
+                <span style={{ fontSize: '16px', fontWeight: 700, color: '#E2001A' }}>{r.harmful_pct}% of queries</span>
               </div>
-              <span style={{ fontSize: '12px', color: '#737373', paddingLeft: '12px' }}>{r.note}</span>
+              <span style={{ fontSize: '16px', color: '#737373', paddingLeft: '12px' }}>{r.note}</span>
             </div>
           ))}
         </div>
 
         {/* Tool concept */}
         <div style={{ borderLeft: '4px solid #E2001A', background: '#fff5f5', padding: '24px 28px' }}>
-          <p className="font-bold uppercase mb-3" style={{ fontSize: '9px', letterSpacing: '2px', color: '#E2001A' }}>TOOL CONCEPT THAT EMERGED — SPONSORED RELEVANCE GATE</p>
-          <p style={{ fontSize: '14px', color: '#0a0a0a', lineHeight: '1.65', marginBottom: '16px' }}>
+          <p className="font-bold uppercase mb-3" style={{ fontSize: '16px', letterSpacing: '2px', color: '#E2001A' }}>TOOL CONCEPT THAT EMERGED — SPONSORED RELEVANCE GATE</p>
+          <p style={{ fontSize: '16px', color: '#0a0a0a', lineHeight: '1.65', marginBottom: '16px' }}>
             Sponsored Relevance Audit produced a concrete tool specification: a pre-activation gate that scores every
             planned sponsored placement before it goes live. Input: PZN + target query. Output:
             APPROVE / REVIEW / REJECT with a scored explanation. The Kopfschmerzen finding
@@ -1675,25 +1714,25 @@ export default function UseCasesPage() {
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', marginBottom: '48px' }}>
           <div>
-            <h2 className="font-black leading-none mb-5" style={{ fontSize: '42px', letterSpacing: '-2px', color: '#0a0a0a' }}>
+            <h2 className="font-black leading-none mb-5" style={{ fontSize: '42px', letterSpacing: '0px', color: '#0a0a0a' }}>
               HIDDEN DEMAND
               <br />
-              GAP DETECTION
+              <span style={{ color: '#E2001A' }}>GAP DETECTION.</span>
             </h2>
-            <p style={{ fontSize: '14px', color: '#525252', lineHeight: '1.65' }}>
+            <p style={{ fontSize: '16px', color: '#525252', lineHeight: '1.65' }}>
               Synthetic Query Generation generates synthetic query variations that real users type when they have
               a need — and maps them against what the search engine actually returns. The goal
               is to surface hidden demand gaps: queries with real user intent that the search
               engine mishandles silently.
             </p>
-            <p style={{ fontSize: '14px', color: '#525252', lineHeight: '1.65', marginTop: '14px' }}>
+            <p style={{ fontSize: '16px', color: '#525252', lineHeight: '1.65', marginTop: '14px' }}>
               Unlike CTR or zero-result monitoring, Synthetic Query Generation catches failures where results exist
               but are wrong — the worst kind, because they look healthy in analytics. A query
               returning 55 results where the top result is a €487 prescription stimulant is
               not a zero-result failure. It is invisible to every standard monitoring tool.
             </p>
             <div style={{ marginTop: '24px' }}>
-              <p className="font-bold uppercase mb-3" style={{ fontSize: '9px', letterSpacing: '2px', color: '#737373' }}>5 INTENT DIMENSIONS — HOW QUERIES WERE GENERATED</p>
+              <p className="font-bold uppercase mb-3" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>5 INTENT DIMENSIONS — HOW QUERIES WERE GENERATED</p>
               {[
                 ['Symptom-based', '"kann nicht einschlafen", "nachts aufwachen"', '#E2001A'],
                 ['Cause-based', '"Stress schlafen", "Jetlag Mittel"', '#d97706'],
@@ -1702,8 +1741,8 @@ export default function UseCasesPage() {
                 ['Colloquial/typo', '"Schlafmitel", "Gedankenkarussell nachts"', '#737373'],
               ].map(([dim, examples, color]) => (
                 <div key={dim} style={{ display: 'flex', gap: '12px', borderBottom: '1px solid #f0f0f0', paddingBottom: '8px', marginBottom: '8px' }}>
-                  <span className="font-bold" style={{ fontSize: '11px', color, minWidth: '160px', flexShrink: 0 }}>{dim}</span>
-                  <code style={{ fontSize: '11px', color: '#737373', fontFamily: "'SF Mono', monospace" }}>{examples}</code>
+                  <span className="font-bold" style={{ fontSize: '16px', color, minWidth: '160px', flexShrink: 0 }}>{dim}</span>
+                  <code style={{ fontSize: '16px', color: '#737373', fontFamily: "'SF Mono', monospace" }}>{examples}</code>
                 </div>
               ))}
             </div>
@@ -1719,10 +1758,10 @@ export default function UseCasesPage() {
               { step: '05', title: 'Gap analysis + fix generation', body: 'Each confirmed failure assigned: severity (CRITICAL/HIGH/MEDIUM/OK), root cause, 2–3 specific fixes with implementation path.' },
             ].map(({ step, title, body }) => (
               <div key={step} style={{ display: 'flex', gap: '16px', marginBottom: '16px', paddingBottom: '16px', borderBottom: '1px solid #f0f0f0' }}>
-                <span className="font-black" style={{ fontSize: '20px', color: '#e5e5e5', letterSpacing: '-1px', lineHeight: 1, flexShrink: 0, marginTop: '2px' }}>{step}</span>
+                <span className="font-black" style={{ fontSize: '20px', color: '#e5e5e5', letterSpacing: '0px', lineHeight: 1, flexShrink: 0, marginTop: '2px' }}>{step}</span>
                 <div>
-                  <p className="font-bold mb-1" style={{ fontSize: '12px', color: '#0a0a0a' }}>{title}</p>
-                  <p style={{ fontSize: '12px', color: '#737373', lineHeight: '1.5' }}>{body}</p>
+                  <p className="font-bold mb-1" style={{ fontSize: '16px', color: '#0a0a0a' }}>{title}</p>
+                  <p style={{ fontSize: '16px', color: '#737373', lineHeight: '1.5' }}>{body}</p>
                 </div>
               </div>
             ))}
@@ -1800,13 +1839,13 @@ export default function UseCasesPage() {
             ].map(({ problem, count, queries }) => (
               <div key={problem} style={{ marginBottom: '16px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '4px' }}>
-                  <p className="font-bold" style={{ fontSize: '12px', color: '#0a0a0a' }}>{problem}</p>
-                  <span className="font-black" style={{ fontSize: '22px', color: count >= 3 ? '#E2001A' : '#0a0a0a', letterSpacing: '-1px', marginLeft: '12px', flexShrink: 0 }}>{count}</span>
+                  <p className="font-bold" style={{ fontSize: '16px', color: '#0a0a0a' }}>{problem}</p>
+                  <span className="font-black" style={{ fontSize: '22px', color: count >= 3 ? '#E2001A' : '#0a0a0a', letterSpacing: '0px', marginLeft: '12px', flexShrink: 0 }}>{count}</span>
                 </div>
                 <div style={{ background: '#f0f0f0', height: '5px', borderRadius: '3px', marginBottom: '4px' }}>
                   <div style={{ width: `${(count / 4) * 100}%`, height: '100%', background: count >= 3 ? '#E2001A' : '#0a0a0a', borderRadius: '3px' }} />
                 </div>
-                <p style={{ fontSize: '11px', color: '#737373', fontFamily: "'SF Mono', monospace" }}>{queries}</p>
+                <p style={{ fontSize: '16px', color: '#737373', fontFamily: "'SF Mono', monospace" }}>{queries}</p>
               </div>
             ))}
           </div>
@@ -1821,11 +1860,11 @@ export default function UseCasesPage() {
               { pri: 'P2', fix: 'Demote Rx products in non-specific symptom queries', impact: 'Fixes zu früh aufwachen', effort: 'Medium — ranking rules' },
             ].map(({ pri, fix, impact, effort }, i) => (
               <div key={fix} style={{ display: 'grid', gridTemplateColumns: '36px 1fr', gap: '12px', paddingBottom: '12px', marginBottom: '12px', borderBottom: i < 4 ? '1px solid #f0f0f0' : 'none' }}>
-                <span className="font-black" style={{ fontSize: '14px', color: pri === 'P0' ? '#E2001A' : pri === 'P1' ? '#d97706' : '#737373' }}>{pri}</span>
+                <span className="font-black" style={{ fontSize: '16px', color: pri === 'P0' ? '#E2001A' : pri === 'P1' ? '#d97706' : '#737373' }}>{pri}</span>
                 <div>
-                  <p className="font-bold" style={{ fontSize: '12px', color: '#0a0a0a', marginBottom: '3px' }}>{fix}</p>
-                  <p style={{ fontSize: '11px', color: '#16a34a' }}>{impact}</p>
-                  <p style={{ fontSize: '10px', color: '#737373', fontStyle: 'italic' }}>{effort}</p>
+                  <p className="font-bold" style={{ fontSize: '16px', color: '#0a0a0a', marginBottom: '3px' }}>{fix}</p>
+                  <p style={{ fontSize: '16px', color: '#16a34a' }}>{impact}</p>
+                  <p style={{ fontSize: '16px', color: '#737373', fontStyle: 'italic' }}>{effort}</p>
                 </div>
               </div>
             ))}
@@ -1836,7 +1875,7 @@ export default function UseCasesPage() {
 
       {/* ── Cross-UC synthesis ──────────────────────────────────────────── */}
       <section className="px-20 py-20" style={{ background: '#0a0a0a' }}>
-        <p className="font-bold uppercase mb-10" style={{ fontSize: '10px', letterSpacing: '3px', color: '#E2001A', borderBottom: '1px solid #333', paddingBottom: '8px' }}>
+        <p className="font-bold uppercase mb-10" style={{ fontSize: '16px', letterSpacing: '3px', color: '#E2001A', borderBottom: '1px solid #333', paddingBottom: '8px' }}>
           CROSS-UC SYNTHESIS — WHAT THE FULL BODY OF WORK PROVES
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }}>
@@ -1859,8 +1898,8 @@ export default function UseCasesPage() {
             },
           ].map(({ label, body }) => (
             <div key={label} style={{ borderLeft: '4px solid #E2001A', paddingLeft: '20px' }}>
-              <p className="font-bold uppercase mb-3" style={{ fontSize: '10px', letterSpacing: '2px', color: '#E2001A' }}>{label}</p>
-              <p style={{ fontSize: '14px', color: '#a3a3a3', lineHeight: '1.65' }}>{body}</p>
+              <p className="font-bold uppercase mb-3" style={{ fontSize: '16px', letterSpacing: '2px', color: '#E2001A' }}>{label}</p>
+              <p style={{ fontSize: '16px', color: '#a3a3a3', lineHeight: '1.65' }}>{body}</p>
             </div>
           ))}
         </div>

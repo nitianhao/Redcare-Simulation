@@ -7,7 +7,7 @@ import Footer from '@/components/Footer'
 
 function SeverityBadge({ label, color, bg, border }: { label: string; color: string; bg: string; border: string }) {
   return (
-    <span style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '1px', color, background: bg, border: `1px solid ${border}`, padding: '3px 8px' }}>
+    <span style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '1px', color, background: bg, border: `1px solid ${border}`, padding: '3px 8px' }}>
       {label}
     </span>
   )
@@ -24,10 +24,10 @@ function IssueBlock({ title, severity, children }: { title: string; severity: 'c
   return (
     <div style={{ border: `1px solid ${c.border}`, background: c.bg, padding: '16px', marginBottom: '12px' }}>
       <div style={{ display: 'flex', gap: '10px', alignItems: 'baseline', marginBottom: '8px', flexWrap: 'wrap' }}>
-        <span style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '1.5px', color: c.color, background: 'rgba(0,0,0,0.05)', padding: '2px 6px' }}>{c.label}</span>
-        <span style={{ fontSize: '14px', fontWeight: 700, color: '#0a0a0a' }}>{title}</span>
+        <span style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '1.5px', color: c.color, background: 'rgba(0,0,0,0.05)', padding: '2px 6px' }}>{c.label}</span>
+        <span style={{ fontSize: '16px', fontWeight: 700, color: '#0a0a0a' }}>{title}</span>
       </div>
-      <div style={{ fontSize: '14px', color: '#374151', lineHeight: 1.75 }}>{children}</div>
+      <div style={{ fontSize: '16px', color: '#374151', lineHeight: 1.75 }}>{children}</div>
     </div>
   )
 }
@@ -35,15 +35,15 @@ function IssueBlock({ title, severity, children }: { title: string; severity: 'c
 function SectionHeading({ label, title }: { label: string; title: string }) {
   return (
     <div style={{ marginBottom: '20px' }}>
-      <p style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '2px', color: '#737373', marginBottom: '4px', textTransform: 'uppercase' }}>{label}</p>
-      <h3 style={{ fontSize: '20px', fontWeight: 800, color: '#0a0a0a', letterSpacing: '-0.5px', margin: 0 }}>{title}</h3>
+      <p style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '2px', color: '#737373', marginBottom: '4px', textTransform: 'uppercase' }}>{label}</p>
+      <h3 style={{ fontSize: '20px', fontWeight: 800, color: '#0a0a0a', letterSpacing: '0px', margin: 0 }}>{title}</h3>
     </div>
   )
 }
 
 function MissingFeaturesTable({ rows }: { rows: [string, string][] }) {
   return (
-    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
+    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '16px' }}>
       <thead>
         <tr>
           <th style={{ textAlign: 'left', padding: '8px 10px', background: '#f5f5f5', borderBottom: '2px solid #e5e5e5', fontWeight: 700, letterSpacing: '0.5px', width: '55%' }}>Feature</th>
@@ -64,7 +64,7 @@ function MissingFeaturesTable({ rows }: { rows: [string, string][] }) {
 
 function ArchitectureProblemsTable({ rows }: { rows: [string, string, string][] }) {
   return (
-    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
+    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '16px' }}>
       <thead>
         <tr>
           <th style={{ textAlign: 'left', padding: '8px 10px', background: '#fef2f2', borderBottom: '2px solid #fecaca', fontWeight: 700, width: '8%' }}>#</th>
@@ -87,7 +87,7 @@ function ArchitectureProblemsTable({ rows }: { rows: [string, string, string][] 
 
 function QuickWinsTable({ rows }: { rows: [string, string, string, string][] }) {
   return (
-    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
+    <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '16px' }}>
       <thead>
         <tr>
           <th style={{ textAlign: 'left', padding: '8px 10px', background: '#f0fdf4', borderBottom: '2px solid #bbf7d0', fontWeight: 700, width: '4%' }}>#</th>
@@ -114,8 +114,8 @@ function ScreenshotBlock({ src, alt, label }: { src: string; alt: string; label:
   return (
     <div style={{ marginTop: '32px', border: '1px solid #e5e5e5' }}>
       <div style={{ padding: '10px 14px', borderBottom: '1px solid #e5e5e5', background: '#fafafa', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <p style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '2px', color: '#737373', textTransform: 'uppercase', margin: 0 }}>{label}</p>
-        <a href={src} target="_blank" rel="noreferrer" style={{ fontSize: '10px', fontWeight: 600, color: '#E2001A', textDecoration: 'none', letterSpacing: '0.5px' }}>Open full →</a>
+        <p style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '2px', color: '#737373', textTransform: 'uppercase', margin: 0 }}>{label}</p>
+        <a href={src} target="_blank" rel="noreferrer" style={{ fontSize: '16px', fontWeight: 600, color: '#E2001A', textDecoration: 'none', letterSpacing: '0.5px' }}>Open full →</a>
       </div>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={src} alt={alt} style={{ width: '100%', height: 'auto', display: 'block' }} />
@@ -127,8 +127,8 @@ function ScreenCard({ num, title, children }: { num: string; title: string; chil
   return (
     <section style={{ background: '#ffffff', borderBottom: '2px solid #e5e5e5', padding: '48px 80px 56px' }}>
       <div style={{ marginBottom: '32px', paddingBottom: '20px', borderBottom: '1px solid #e5e5e5' }}>
-        <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '3px', color: '#E2001A', textTransform: 'uppercase' }}>Screen {num} of 06</span>
-        <h2 style={{ fontSize: '32px', fontWeight: 900, letterSpacing: '-1px', color: '#0a0a0a', margin: '6px 0 0' }}>{title}</h2>
+        <span style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '3px', color: '#E2001A', textTransform: 'uppercase' }}>Screen {num} of 06</span>
+        <h2 style={{ fontSize: '32px', fontWeight: 900, letterSpacing: '0px', color: '#0a0a0a', margin: '6px 0 0' }}>{title}</h2>
       </div>
       {children}
     </section>
@@ -138,7 +138,7 @@ function ScreenCard({ num, title, children }: { num: string; title: string; chil
 function SubSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div style={{ marginTop: '32px' }}>
-      <p style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '2px', color: '#737373', textTransform: 'uppercase', marginBottom: '14px', borderLeft: '3px solid #E2001A', paddingLeft: '10px' }}>{title}</p>
+      <p style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '2px', color: '#737373', textTransform: 'uppercase', marginBottom: '14px', borderLeft: '3px solid #E2001A', paddingLeft: '10px' }}>{title}</p>
       {children}
     </div>
   )
@@ -148,10 +148,10 @@ function BiggerBet({ n, title, children }: { n: string; title: string; children:
   return (
     <div style={{ border: '1px solid #e5e5e5', padding: '16px', marginBottom: '12px' }}>
       <div style={{ display: 'flex', gap: '10px', marginBottom: '8px', alignItems: 'baseline' }}>
-        <span style={{ fontSize: '10px', fontWeight: 700, color: '#E2001A', letterSpacing: '1px', background: '#fff5f5', border: '1px solid #fecaca', padding: '2px 6px' }}>BB-{n}</span>
-        <span style={{ fontSize: '15px', fontWeight: 700, color: '#0a0a0a' }}>{title}</span>
+        <span style={{ fontSize: '16px', fontWeight: 700, color: '#E2001A', letterSpacing: '1px', background: '#fff5f5', border: '1px solid #fecaca', padding: '2px 6px' }}>BB-{n}</span>
+        <span style={{ fontSize: '16px', fontWeight: 700, color: '#0a0a0a' }}>{title}</span>
       </div>
-      <div style={{ fontSize: '14px', color: '#374151', lineHeight: 1.75 }}>{children}</div>
+      <div style={{ fontSize: '16px', color: '#374151', lineHeight: 1.75 }}>{children}</div>
     </div>
   )
 }
@@ -166,12 +166,12 @@ export default function UserExperiencePage() {
       {/* Hero */}
       <section style={{ background: '#ffffff', borderBottom: '2px solid #0a0a0a', padding: '40px 80px 36px', display: 'flex', gap: '80px', alignItems: 'center' }}>
         <div style={{ flex: '0 0 auto', maxWidth: '520px' }}>
-          <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '3px', color: '#E2001A', textTransform: 'uppercase', marginBottom: '10px' }}>UX Audit Library — 6 Screens</p>
-          <h1 style={{ fontSize: '52px', fontWeight: 900, letterSpacing: '-2px', color: '#0a0a0a', lineHeight: 1, marginBottom: '14px' }}>
+          <p style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '3px', color: '#E2001A', textTransform: 'uppercase', marginBottom: '10px' }}>UX Audit Library — 6 Screens</p>
+          <h1 style={{ fontSize: '52px', fontWeight: 900, letterSpacing: '0px', color: '#0a0a0a', lineHeight: 1, marginBottom: '14px' }}>
             WEB UX AUDIT.<br />
             <em style={{ fontStyle: 'italic', color: '#E2001A' }}>SHOP-APOTHEKE.COM</em>
           </h1>
-          <p style={{ fontSize: '15px', color: '#525252', lineHeight: 1.7, maxWidth: '680px', margin: 0 }}>
+          <p style={{ fontSize: '16px', color: '#525252', lineHeight: 1.7, maxWidth: '680px', margin: 0 }}>
             This page presents a focused UX audit of key search journey moments, built to uncover usability friction,
             trust-breaking details, and conversion blockers that impact real customer decisions. For Redcare teams, it offers
             a practical, evidence-based roadmap to improve findability, reduce drop-off, and prioritize changes that can raise
@@ -185,7 +185,7 @@ export default function UserExperiencePage() {
 
       {/* ── Screen index ─────────────────────────────────────────────────── */}
       <section style={{ background: '#fafafa', borderBottom: '2px solid #0a0a0a', padding: '32px 80px' }}>
-        <p style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '3px', color: '#737373', textTransform: 'uppercase', marginBottom: '12px' }}>
+        <p style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '3px', color: '#737373', textTransform: 'uppercase', marginBottom: '12px' }}>
           JUMP TO SCREEN
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
@@ -211,11 +211,11 @@ export default function UserExperiencePage() {
                 padding: '12px 20px',
               }}
             >
-              <span style={{ fontSize: '11px', fontWeight: 900, color: '#E2001A', letterSpacing: '1px', minWidth: '24px', flexShrink: 0 }}>{n}</span>
+              <span style={{ fontSize: '16px', fontWeight: 900, color: '#E2001A', letterSpacing: '1px', minWidth: '24px', flexShrink: 0 }}>{n}</span>
               <span style={{ width: '1px', height: '32px', background: '#e5e5e5', flexShrink: 0 }} />
               <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ fontSize: '13px', fontWeight: 700, color: '#0a0a0a', lineHeight: 1.2 }}>{name}</div>
-                <div style={{ fontSize: '11px', color: '#737373', marginTop: '2px' }}>{sub}</div>
+                <div style={{ fontSize: '16px', fontWeight: 700, color: '#0a0a0a', lineHeight: 1.2 }}>{name}</div>
+                <div style={{ fontSize: '16px', color: '#737373', marginTop: '2px' }}>{sub}</div>
               </div>
               <span style={{ fontSize: '16px', color: '#737373', flexShrink: 0 }}>→</span>
             </a>
@@ -503,7 +503,7 @@ export default function UserExperiencePage() {
 
           <div style={{ marginTop: '32px' }}>
             <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-end', marginBottom: '10px' }}>
-              <a href="/ux-audit/03_prototype-improved-srp.html" target="_blank" rel="noreferrer" style={{ fontSize: '11px', fontWeight: 700, color: '#E2001A', textDecoration: 'none', letterSpacing: '0.3px', padding: '6px 12px', border: '1px solid #fecaca', background: '#fff5f5' }}>
+              <a href="/ux-audit/03_prototype-improved-srp.html" target="_blank" rel="noreferrer" style={{ fontSize: '16px', fontWeight: 700, color: '#E2001A', textDecoration: 'none', letterSpacing: '0.3px', padding: '6px 12px', border: '1px solid #fecaca', background: '#fff5f5' }}>
                 Open Improved Prototype →
               </a>
             </div>

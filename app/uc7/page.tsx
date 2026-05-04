@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 
 function SectionLabel({ children }: { children: string }) {
   return (
-    <p className="font-bold uppercase" style={{ fontSize: '10px', letterSpacing: '3px', color: '#E2001A' }}>
+    <p className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '3px', color: '#E2001A' }}>
       {children}
     </p>
   )
@@ -13,7 +13,7 @@ function SectionLabel({ children }: { children: string }) {
 
 function MetaLabel({ children }: { children: string }) {
   return (
-    <p className="font-bold uppercase" style={{ fontSize: '10px', letterSpacing: '2px', color: '#737373', borderBottom: '1px solid #e5e5e5', paddingBottom: '8px', marginBottom: '20px' }}>
+    <p className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373', borderBottom: '1px solid #e5e5e5', paddingBottom: '8px', marginBottom: '20px' }}>
       {children}
     </p>
   )
@@ -25,7 +25,7 @@ function Tag({ children, red, blue, green }: { children: string; red?: boolean; 
   const color = red ? '#E2001A' : blue ? '#3b82f6' : green ? '#16a34a' : '#525252'
   return (
     <span style={{
-      fontSize: '10px',
+      fontSize: '16px',
       fontFamily: "'SF Mono', 'Fira Code', monospace",
       padding: '3px 10px',
       background: bg,
@@ -51,7 +51,7 @@ function RatioPill({ ratio }: { ratio: number }) {
   return (
     <span style={{
       fontFamily: "'SF Mono', 'Fira Code', monospace",
-      fontSize: '13px',
+      fontSize: '16px',
       fontWeight: 700,
       color,
       background: bg,
@@ -75,7 +75,7 @@ function TypeBadge({ type }: { type: 'EMBARRASSING' | 'ADJACENT' | 'IRRELEVANT' 
   }
   const c = cfg[type]
   return (
-    <span className="font-bold uppercase" style={{ fontSize: '9px', letterSpacing: '1.5px', color: c.color, background: c.bg, border: `1px solid ${c.border}`, padding: '3px 8px' }}>
+    <span className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '1.5px', color: c.color, background: c.bg, border: `1px solid ${c.border}`, padding: '3px 8px' }}>
       {type}
     </span>
   )
@@ -89,7 +89,7 @@ function BlindSpotBadge({ spot }: { spot: 'INVISIBLE' | 'PARTIAL' | 'VISIBLE' })
   }
   const c = cfg[spot]
   return (
-    <span className="font-bold uppercase" style={{ fontSize: '9px', letterSpacing: '1.5px', color: c.color, background: c.bg, border: `1px solid ${c.border}`, padding: '3px 8px' }}>
+    <span className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '1.5px', color: c.color, background: c.bg, border: `1px solid ${c.border}`, padding: '3px 8px' }}>
       {spot}
     </span>
   )
@@ -155,7 +155,7 @@ export default function UC7Page() {
       {/* Hero */}
       <div style={{ background: '#0a0a0a', color: '#ffffff', padding: '72px 80px 60px' }}>
         <SectionLabel>Use Case 07 — Severity Illusion Mapping</SectionLabel>
-        <h1 style={{ fontSize: '48px', fontWeight: 800, letterSpacing: '-1.5px', lineHeight: 1.05, margin: '20px 0 16px', color: '#ffffff' }}>
+        <h1 style={{ fontSize: '48px', fontWeight: 800, letterSpacing: '0px', lineHeight: 1.05, margin: '20px 0 16px', color: '#ffffff' }}>
           Analytics Sees 1/10th<br />of the Real Damage
         </h1>
         <p style={{ fontSize: '18px', color: '#a3a3a3', lineHeight: 1.7, maxWidth: '640px', marginBottom: '40px' }}>
@@ -170,8 +170,8 @@ export default function UC7Page() {
             { value: '60%', label: 'INVISIBLE to analytics' },
                       ].map(s => (
             <div key={s.label}>
-              <div style={{ fontSize: '32px', fontWeight: 800, color: '#ffffff', letterSpacing: '-1px', fontVariantNumeric: 'tabular-nums' }}>{s.value}</div>
-              <div style={{ fontSize: '11px', letterSpacing: '1.5px', color: '#737373', textTransform: 'uppercase', marginTop: '4px' }}>{s.label}</div>
+              <div style={{ fontSize: '32px', fontWeight: 800, color: '#ffffff', letterSpacing: '0px', fontVariantNumeric: 'tabular-nums' }}>{s.value}</div>
+              <div style={{ fontSize: '16px', letterSpacing: '1.5px', color: '#737373', textTransform: 'uppercase', marginTop: '4px' }}>{s.label}</div>
             </div>
           ))}
         </div>
@@ -182,44 +182,44 @@ export default function UC7Page() {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'start' }}>
           <div>
             <MetaLabel>Methodology</MetaLabel>
-            <h2 style={{ fontSize: '24px', fontWeight: 700, color: '#0a0a0a', marginBottom: '16px', letterSpacing: '-0.5px' }}>
+            <h2 style={{ fontSize: '24px', fontWeight: 700, color: '#0a0a0a', marginBottom: '16px', letterSpacing: '0px' }}>
               What is the Illusion Ratio?
             </h2>
-            <p style={{ fontSize: '14px', color: '#525252', lineHeight: 1.7, marginBottom: '20px' }}>
+            <p style={{ fontSize: '16px', color: '#525252', lineHeight: 1.7, marginBottom: '20px' }}>
               Most search quality teams measure failures using analytics signals: zero-result rate, click-through rate, reformulation rate. These metrics capture what happened — not how badly it hurt.
             </p>
-            <p style={{ fontSize: '14px', color: '#525252', lineHeight: 1.7, marginBottom: '28px' }}>
+            <p style={{ fontSize: '16px', color: '#525252', lineHeight: 1.7, marginBottom: '28px' }}>
               The <strong>illusion ratio</strong> is the gap between what analytics thinks a failure costs and what the affected persona actually experiences. A ratio of 10× means the user's real damage is ten times worse than the dashboards suggest.
             </p>
             <div style={{ background: '#f5f5f5', border: '1px solid #e5e5e5', padding: '20px 24px', fontFamily: "'SF Mono', 'Fira Code', monospace" }}>
-              <div style={{ fontSize: '12px', color: '#737373', marginBottom: '8px' }}>ILLUSION RATIO</div>
+              <div style={{ fontSize: '16px', color: '#737373', marginBottom: '8px' }}>ILLUSION RATIO</div>
               <div style={{ fontSize: '18px', color: '#0a0a0a', fontWeight: 700 }}>
                 simulation_score ÷ analytics_score
               </div>
-              <div style={{ fontSize: '12px', color: '#737373', marginTop: '10px' }}>
+              <div style={{ fontSize: '16px', color: '#737373', marginTop: '10px' }}>
                 Higher = analytics is more blind to real user damage
               </div>
             </div>
           </div>
           <div>
             <MetaLabel>Scoring model</MetaLabel>
-            <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#0a0a0a', marginBottom: '16px' }}>Analytics score (rule-based)</h3>
-            <div style={{ fontSize: '13px', color: '#525252', lineHeight: 1.7, marginBottom: '28px' }}>
+            <h3 style={{ fontSize: '16px', fontWeight: 700, color: '#0a0a0a', marginBottom: '16px' }}>Analytics score (rule-based)</h3>
+            <div style={{ fontSize: '16px', color: '#525252', lineHeight: 1.7, marginBottom: '28px' }}>
               <div style={{ display: 'flex', gap: '12px', marginBottom: '8px', alignItems: 'baseline' }}>
-                <code style={{ fontSize: '12px', fontFamily: "'SF Mono', monospace", background: '#fff5f5', border: '1px solid #fecaca', color: '#E2001A', padding: '2px 8px', whiteSpace: 'nowrap' }}>0–1</code>
+                <code style={{ fontSize: '16px', fontFamily: "'SF Mono', monospace", background: '#fff5f5', border: '1px solid #fecaca', color: '#E2001A', padding: '2px 8px', whiteSpace: 'nowrap' }}>0–1</code>
                 <span>Zero results or prescription mismatch — not logged by standard tooling</span>
               </div>
               <div style={{ display: 'flex', gap: '12px', marginBottom: '8px', alignItems: 'baseline' }}>
-                <code style={{ fontSize: '12px', fontFamily: "'SF Mono', monospace", background: '#fffbeb', border: '1px solid #fde68a', color: '#d97706', padding: '2px 8px', whiteSpace: 'nowrap' }}>2–5</code>
+                <code style={{ fontSize: '16px', fontFamily: "'SF Mono', monospace", background: '#fffbeb', border: '1px solid #fde68a', color: '#d97706', padding: '2px 8px', whiteSpace: 'nowrap' }}>2–5</code>
                 <span>Low CTR or high reformulation — marginal alert signal</span>
               </div>
               <div style={{ display: 'flex', gap: '12px', alignItems: 'baseline' }}>
-                <code style={{ fontSize: '12px', fontFamily: "'SF Mono', monospace", background: '#f0fdf4', border: '1px solid #bbf7d0', color: '#16a34a', padding: '2px 8px', whiteSpace: 'nowrap' }}>6–10</code>
+                <code style={{ fontSize: '16px', fontFamily: "'SF Mono', monospace", background: '#f0fdf4', border: '1px solid #bbf7d0', color: '#16a34a', padding: '2px 8px', whiteSpace: 'nowrap' }}>6–10</code>
                 <span>High confidence signal — visible in dashboards</span>
               </div>
             </div>
-            <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#0a0a0a', marginBottom: '16px' }}>Simulation score (Claude Haiku)</h3>
-            <p style={{ fontSize: '13px', color: '#525252', lineHeight: 1.7 }}>
+            <h3 style={{ fontSize: '16px', fontWeight: 700, color: '#0a0a0a', marginBottom: '16px' }}>Simulation score (Claude Haiku)</h3>
+            <p style={{ fontSize: '16px', color: '#525252', lineHeight: 1.7 }}>
               Each failure is independently classified (type + blind spot) and scored against all 5 pharmacy personas using the Frustration Propagation Simulation trust decay framework. The simulation score is the worst-case persona severity — calibrated to real-world patient urgency, medical context, and trust dynamics.
             </p>
           </div>
@@ -229,7 +229,7 @@ export default function UC7Page() {
       {/* Failure taxonomy */}
       <div style={{ background: '#fafafa', borderBottom: '1px solid #e5e5e5', padding: '48px 80px' }}>
         <MetaLabel>Failure taxonomy</MetaLabel>
-        <h2 style={{ fontSize: '24px', fontWeight: 700, color: '#0a0a0a', marginBottom: '32px', letterSpacing: '-0.5px' }}>
+        <h2 style={{ fontSize: '24px', fontWeight: 700, color: '#0a0a0a', marginBottom: '32px', letterSpacing: '0px' }}>
           How Failures Are Classified
         </h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', background: '#e5e5e5', border: '1px solid #e5e5e5' }}>
@@ -240,10 +240,10 @@ export default function UC7Page() {
             { type: 'MISSING',      color: '#3b82f6', bg: '#eff6ff', border: '#bfdbfe', desc: 'The right product exists in catalogue but the search engine doesn\'t surface it. A rankin failure, not a catalogue gap.' },
           ].map(t => (
             <div key={t.type} style={{ background: '#ffffff', padding: '24px' }}>
-              <span className="font-bold uppercase" style={{ fontSize: '9px', letterSpacing: '1.5px', color: t.color, background: t.bg, border: `1px solid ${t.border}`, padding: '3px 8px', display: 'inline-block', marginBottom: '14px' }}>
+              <span className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '1.5px', color: t.color, background: t.bg, border: `1px solid ${t.border}`, padding: '3px 8px', display: 'inline-block', marginBottom: '14px' }}>
                 {t.type}
               </span>
-              <p style={{ fontSize: '13px', color: '#525252', lineHeight: 1.65 }}>{t.desc}</p>
+              <p style={{ fontSize: '16px', color: '#525252', lineHeight: 1.65 }}>{t.desc}</p>
             </div>
           ))}
         </div>
@@ -255,10 +255,10 @@ export default function UC7Page() {
               { spot: 'VISIBLE',   color: '#16a34a', bg: '#f0fdf4', border: '#bbf7d0', desc: 'Analytics flags the failure. Very rare — most failures that are visible are already being addressed.' },
             ].map(t => (
               <div key={t.spot} style={{ background: '#ffffff', padding: '24px' }}>
-                <span className="font-bold uppercase" style={{ fontSize: '9px', letterSpacing: '1.5px', color: t.color, background: t.bg, border: `1px solid ${t.border}`, padding: '3px 8px', display: 'inline-block', marginBottom: '14px' }}>
+                <span className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '1.5px', color: t.color, background: t.bg, border: `1px solid ${t.border}`, padding: '3px 8px', display: 'inline-block', marginBottom: '14px' }}>
                   BLIND SPOT — {t.spot}
                 </span>
-                <p style={{ fontSize: '13px', color: '#525252', lineHeight: 1.65 }}>{t.desc}</p>
+                <p style={{ fontSize: '16px', color: '#525252', lineHeight: 1.65 }}>{t.desc}</p>
               </div>
             ))}
           </div>
@@ -273,9 +273,9 @@ export default function UC7Page() {
           { value: '0', label: 'failures fully visible', note: 'Standard dashboards are effectively blind' },
         ].map((s, i) => (
           <div key={s.label} style={{ flex: 1, padding: '0 40px', borderLeft: i > 0 ? '1px solid #1a1a1a' : 'none' }}>
-            <div style={{ fontSize: '40px', fontWeight: 800, color: i === 0 ? '#E2001A' : i === 1 ? '#d97706' : '#16a34a', letterSpacing: '-1px', fontVariantNumeric: 'tabular-nums' }}>{s.value}</div>
-            <div style={{ fontSize: '12px', color: '#e5e5e5', marginTop: '4px', fontWeight: 600 }}>{s.label}</div>
-            <div style={{ fontSize: '11px', color: '#737373', marginTop: '4px' }}>{s.note}</div>
+            <div style={{ fontSize: '40px', fontWeight: 800, color: i === 0 ? '#E2001A' : i === 1 ? '#d97706' : '#16a34a', letterSpacing: '0px', fontVariantNumeric: 'tabular-nums' }}>{s.value}</div>
+            <div style={{ fontSize: '16px', color: '#e5e5e5', marginTop: '4px', fontWeight: 600 }}>{s.label}</div>
+            <div style={{ fontSize: '16px', color: '#737373', marginTop: '4px' }}>{s.note}</div>
           </div>
         ))}
       </div>
@@ -283,13 +283,13 @@ export default function UC7Page() {
       {/* Category breakdown table */}
       <div style={{ background: '#ffffff', borderBottom: '1px solid #e5e5e5', padding: '48px 80px' }}>
         <MetaLabel>Results by category — 109 failures across 11 pharmacy domains</MetaLabel>
-        <h2 style={{ fontSize: '24px', fontWeight: 700, color: '#0a0a0a', marginBottom: '32px', letterSpacing: '-0.5px' }}>
+        <h2 style={{ fontSize: '24px', fontWeight: 700, color: '#0a0a0a', marginBottom: '32px', letterSpacing: '0px' }}>
           Category Summary
         </h2>
         <div style={{ border: '1px solid #e5e5e5' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '160px 80px 110px 110px 110px 1fr', background: '#f5f5f5', borderBottom: '1px solid #e5e5e5', padding: '10px 20px' }}>
             {['CATEGORY', 'N', 'AVG ANALYTICS', 'AVG SIM', 'AVG RATIO', 'TOP ILLUSION FAILURE'].map(h => (
-              <span key={h} className="font-bold uppercase" style={{ fontSize: '9px', letterSpacing: '2px', color: '#737373' }}>{h}</span>
+              <span key={h} className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>{h}</span>
             ))}
           </div>
           {[...categories].sort((a, b) => b.avgRatio - a.avgRatio).map((c, i) => (
@@ -301,14 +301,14 @@ export default function UC7Page() {
               background: i % 2 === 0 ? '#ffffff' : '#fafafa',
               alignItems: 'center',
             }}>
-              <span style={{ fontSize: '13px', fontWeight: 700, color: '#0a0a0a' }}>{c.name}</span>
-              <span style={{ fontSize: '13px', color: '#525252', fontFamily: "'SF Mono', monospace" }}>{c.failures}</span>
-              <span style={{ fontSize: '13px', color: '#737373', fontFamily: "'SF Mono', monospace" }}>{c.avgAnalytics.toFixed(1)}</span>
-              <span style={{ fontSize: '13px', color: '#0a0a0a', fontFamily: "'SF Mono', monospace", fontWeight: 600 }}>{c.avgSim.toFixed(1)}</span>
+              <span style={{ fontSize: '16px', fontWeight: 700, color: '#0a0a0a' }}>{c.name}</span>
+              <span style={{ fontSize: '16px', color: '#525252', fontFamily: "'SF Mono', monospace" }}>{c.failures}</span>
+              <span style={{ fontSize: '16px', color: '#737373', fontFamily: "'SF Mono', monospace" }}>{c.avgAnalytics.toFixed(1)}</span>
+              <span style={{ fontSize: '16px', color: '#0a0a0a', fontFamily: "'SF Mono', monospace", fontWeight: 600 }}>{c.avgSim.toFixed(1)}</span>
               <RatioPill ratio={c.avgRatio} />
               <div>
-                <div style={{ fontSize: '12px', color: '#525252', marginBottom: '2px' }}>&ldquo;{c.topFailure}&rdquo;</div>
-                <span style={{ fontSize: '11px', fontFamily: "'SF Mono', monospace", color: '#E2001A', fontWeight: 700 }}>{c.topRatio.toFixed(1)}×</span>
+                <div style={{ fontSize: '16px', color: '#525252', marginBottom: '2px' }}>&ldquo;{c.topFailure}&rdquo;</div>
+                <span style={{ fontSize: '16px', fontFamily: "'SF Mono', monospace", color: '#E2001A', fontWeight: 700 }}>{c.topRatio.toFixed(1)}×</span>
               </div>
             </div>
           ))}
@@ -318,10 +318,10 @@ export default function UC7Page() {
       {/* Top 10 illusions */}
       <div style={{ background: '#fafafa', borderBottom: '1px solid #e5e5e5', padding: '48px 80px' }}>
         <MetaLabel>Worst-case severity illusions</MetaLabel>
-        <h2 style={{ fontSize: '24px', fontWeight: 700, color: '#0a0a0a', marginBottom: '8px', letterSpacing: '-0.5px' }}>
+        <h2 style={{ fontSize: '24px', fontWeight: 700, color: '#0a0a0a', marginBottom: '8px', letterSpacing: '0px' }}>
           Top 10 Severity Illusions
         </h2>
-        <p style={{ fontSize: '14px', color: '#737373', marginBottom: '32px', lineHeight: 1.6 }}>
+        <p style={{ fontSize: '16px', color: '#737373', marginBottom: '32px', lineHeight: 1.6 }}>
           Analytics score for all 10 is 0.5 — below any alert threshold. Simulation score ranges 9.2–9.4. These failures are completely invisible to standard tooling.
         </p>
         <div style={{ border: '1px solid #e5e5e5' }}>
@@ -333,19 +333,19 @@ export default function UC7Page() {
               padding: '20px 28px',
             }}>
               <div style={{ display: 'flex', gap: '12px', alignItems: 'center', marginBottom: '10px', flexWrap: 'wrap' }}>
-                <span style={{ fontFamily: "'SF Mono', monospace", fontSize: '11px', color: '#737373', fontWeight: 700, minWidth: '24px' }}>#{f.rank}</span>
-                <code style={{ fontSize: '14px', fontFamily: "'SF Mono', 'Fira Code', monospace", color: '#0a0a0a', background: '#f5f5f5', padding: '3px 10px', border: '1px solid #e5e5e5' }}>
+                <span style={{ fontFamily: "'SF Mono', monospace", fontSize: '16px', color: '#737373', fontWeight: 700, minWidth: '24px' }}>#{f.rank}</span>
+                <code style={{ fontSize: '16px', fontFamily: "'SF Mono', 'Fira Code', monospace", color: '#0a0a0a', background: '#f5f5f5', padding: '3px 10px', border: '1px solid #e5e5e5' }}>
                   &ldquo;{f.query}&rdquo;
                 </code>
                 <TypeBadge type={f.type} />
                 <Tag>{f.category}</Tag>
                 <RatioPill ratio={f.ratio} />
-                <div style={{ marginLeft: 'auto', display: 'flex', gap: '16px', fontFamily: "'SF Mono', monospace", fontSize: '11px' }}>
+                <div style={{ marginLeft: 'auto', display: 'flex', gap: '16px', fontFamily: "'SF Mono', monospace", fontSize: '16px' }}>
                   <span style={{ color: '#16a34a' }}>analytics: {f.analytics}</span>
                   <span style={{ color: '#E2001A' }}>sim: {f.sim}</span>
                 </div>
               </div>
-              <p style={{ fontSize: '13px', color: '#525252', lineHeight: 1.6, paddingLeft: '36px' }}>{f.note}</p>
+              <p style={{ fontSize: '16px', color: '#525252', lineHeight: 1.6, paddingLeft: '36px' }}>{f.note}</p>
             </div>
           ))}
         </div>
@@ -358,7 +358,7 @@ export default function UC7Page() {
           {/* Failure types */}
           <div>
             <MetaLabel>Failure type distribution — 109 failures</MetaLabel>
-            <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#0a0a0a', marginBottom: '28px', letterSpacing: '-0.3px' }}>What the engine is doing wrong</h3>
+            <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#0a0a0a', marginBottom: '28px', letterSpacing: '0px' }}>What the engine is doing wrong</h3>
             {typeBreakdown.map(t => {
               const colors: Record<string, string> = { EMBARRASSING: '#E2001A', ADJACENT: '#d97706', IRRELEVANT: '#737373' }
               const bgs: Record<string, string>    = { EMBARRASSING: '#fff5f5', ADJACENT: '#fffbeb', IRRELEVANT: '#f5f5f5' }
@@ -366,17 +366,17 @@ export default function UC7Page() {
               return (
                 <div key={t.type} style={{ marginBottom: '24px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '8px' }}>
-                    <span className="font-bold uppercase" style={{ fontSize: '9px', letterSpacing: '1.5px', color: colors[t.type], background: bgs[t.type], border: `1px solid ${borders[t.type]}`, padding: '3px 8px' }}>
+                    <span className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '1.5px', color: colors[t.type], background: bgs[t.type], border: `1px solid ${borders[t.type]}`, padding: '3px 8px' }}>
                       {t.type}
                     </span>
-                    <span style={{ fontFamily: "'SF Mono', monospace", fontSize: '13px', fontWeight: 700, color: colors[t.type] }}>
-                      {t.count} &nbsp;<span style={{ fontSize: '11px', color: '#737373' }}>({t.pct}%)</span>
+                    <span style={{ fontFamily: "'SF Mono', monospace", fontSize: '16px', fontWeight: 700, color: colors[t.type] }}>
+                      {t.count} &nbsp;<span style={{ fontSize: '16px', color: '#737373' }}>({t.pct}%)</span>
                     </span>
                   </div>
                   <div style={{ background: '#f5f5f5', height: '8px', width: '100%', border: '1px solid #e5e5e5' }}>
                     <div style={{ background: colors[t.type], height: '100%', width: `${t.pct}%`, opacity: 0.7 }} />
                   </div>
-                  <p style={{ fontSize: '12px', color: '#737373', marginTop: '6px', lineHeight: 1.5 }}>{t.note}</p>
+                  <p style={{ fontSize: '16px', color: '#737373', marginTop: '6px', lineHeight: 1.5 }}>{t.note}</p>
                 </div>
               )
             })}
@@ -385,13 +385,13 @@ export default function UC7Page() {
           {/* Blind spots */}
           <div>
             <MetaLabel>Analytics blind spot coverage — all 109 failures</MetaLabel>
-            <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#0a0a0a', marginBottom: '28px', letterSpacing: '-0.3px' }}>What standard dashboards see</h3>
+            <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#0a0a0a', marginBottom: '28px', letterSpacing: '0px' }}>What standard dashboards see</h3>
             {blindSpotBreakdown.map(b => (
               <div key={b.label} style={{ marginBottom: '24px' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '8px' }}>
-                  <span style={{ fontSize: '13px', fontWeight: 600, color: '#0a0a0a' }}>{b.label}</span>
-                  <span style={{ fontFamily: "'SF Mono', monospace", fontSize: '13px', fontWeight: 700, color: b.color }}>
-                    {b.count} &nbsp;<span style={{ fontSize: '11px', color: '#737373' }}>({b.pct}%)</span>
+                  <span style={{ fontSize: '16px', fontWeight: 600, color: '#0a0a0a' }}>{b.label}</span>
+                  <span style={{ fontFamily: "'SF Mono', monospace", fontSize: '16px', fontWeight: 700, color: b.color }}>
+                    {b.count} &nbsp;<span style={{ fontSize: '16px', color: '#737373' }}>({b.pct}%)</span>
                   </span>
                 </div>
                 <div style={{ background: '#f5f5f5', height: '8px', width: '100%', border: '1px solid #e5e5e5' }}>
@@ -400,8 +400,8 @@ export default function UC7Page() {
               </div>
             ))}
             <div style={{ marginTop: '32px', background: '#fff5f5', border: '1px solid #fecaca', padding: '16px 20px' }}>
-              <p style={{ fontSize: '13px', color: '#E2001A', fontWeight: 600, marginBottom: '6px' }}>The implication</p>
-              <p style={{ fontSize: '13px', color: '#525252', lineHeight: 1.6 }}>
+              <p style={{ fontSize: '16px', color: '#E2001A', fontWeight: 600, marginBottom: '6px' }}>The implication</p>
+              <p style={{ fontSize: '16px', color: '#525252', lineHeight: 1.6 }}>
                 Zero-result rate, click-through rate, and session reformulation rate — the three standard signals — flag <strong>0 of 65 invisible failures</strong>. You would need persona simulation to discover them.
               </p>
             </div>
@@ -413,10 +413,10 @@ export default function UC7Page() {
       {/* Persona vulnerability */}
       <div style={{ background: '#fafafa', borderBottom: '1px solid #e5e5e5', padding: '48px 80px' }}>
         <MetaLabel>Persona vulnerability — avg severity across all 109 failures</MetaLabel>
-        <h2 style={{ fontSize: '24px', fontWeight: 700, color: '#0a0a0a', marginBottom: '8px', letterSpacing: '-0.5px' }}>
+        <h2 style={{ fontSize: '24px', fontWeight: 700, color: '#0a0a0a', marginBottom: '8px', letterSpacing: '0px' }}>
           Who Gets Hurt Most
         </h2>
-        <p style={{ fontSize: '14px', color: '#737373', marginBottom: '36px', lineHeight: 1.6 }}>
+        <p style={{ fontSize: '16px', color: '#737373', marginBottom: '36px', lineHeight: 1.6 }}>
           Severity is scored 0–1 per persona per failure, averaged across all 109. The Acute Self-Treater is most exposed — not just occasionally, but structurally across all categories.
         </p>
         <div style={{ border: '1px solid #e5e5e5', background: '#ffffff' }}>
@@ -430,12 +430,12 @@ export default function UC7Page() {
               background: i % 2 === 0 ? '#ffffff' : '#fafafa',
               alignItems: 'center',
             }}>
-              <span style={{ fontSize: '13px', fontWeight: 700, color: '#0a0a0a' }}>{p.name}</span>
+              <span style={{ fontSize: '16px', fontWeight: 700, color: '#0a0a0a' }}>{p.name}</span>
               <span style={{ fontFamily: "'SF Mono', monospace", fontSize: '16px', fontWeight: 800, color: p.color }}>{p.score.toFixed(2)}</span>
               <div style={{ background: '#f5f5f5', height: '8px', border: '1px solid #e5e5e5' }}>
                 <div style={{ background: p.color, height: '100%', width: `${p.pct}%`, opacity: 0.75 }} />
               </div>
-              <p style={{ fontSize: '12px', color: '#737373', lineHeight: 1.5 }}>{p.reason}</p>
+              <p style={{ fontSize: '16px', color: '#737373', lineHeight: 1.5 }}>{p.reason}</p>
             </div>
           ))}
         </div>
@@ -444,7 +444,7 @@ export default function UC7Page() {
       {/* Synthesis */}
       <div style={{ background: '#0a0a0a', padding: '56px 80px', borderBottom: '1px solid #1a1a1a' }}>
         <SectionLabel>Synthesis</SectionLabel>
-        <h2 style={{ fontSize: '28px', fontWeight: 800, color: '#ffffff', marginBottom: '32px', letterSpacing: '-0.8px', marginTop: '16px' }}>
+        <h2 style={{ fontSize: '28px', fontWeight: 800, color: '#ffffff', marginBottom: '32px', letterSpacing: '0px', marginTop: '16px' }}>
           Four Structural Findings
         </h2>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
@@ -471,9 +471,9 @@ export default function UC7Page() {
             },
           ].map(f => (
             <div key={f.n} style={{ background: '#111111', border: '1px solid #1a1a1a', padding: '28px 32px' }}>
-              <div style={{ fontFamily: "'SF Mono', monospace", fontSize: '11px', color: '#E2001A', marginBottom: '12px', fontWeight: 700 }}>{f.n}</div>
+              <div style={{ fontFamily: "'SF Mono', monospace", fontSize: '16px', color: '#E2001A', marginBottom: '12px', fontWeight: 700 }}>{f.n}</div>
               <h3 style={{ fontSize: '16px', fontWeight: 700, color: '#ffffff', marginBottom: '12px', lineHeight: 1.4 }}>{f.title}</h3>
-              <p style={{ fontSize: '13px', color: '#a3a3a3', lineHeight: 1.7 }}>{f.body}</p>
+              <p style={{ fontSize: '16px', color: '#a3a3a3', lineHeight: 1.7 }}>{f.body}</p>
             </div>
           ))}
         </div>
@@ -482,7 +482,7 @@ export default function UC7Page() {
       {/* What needs to happen */}
       <div style={{ background: '#ffffff', padding: '48px 80px', borderBottom: '1px solid #e5e5e5' }}>
         <MetaLabel>Recommended actions</MetaLabel>
-        <h2 style={{ fontSize: '24px', fontWeight: 700, color: '#0a0a0a', marginBottom: '32px', letterSpacing: '-0.5px' }}>
+        <h2 style={{ fontSize: '24px', fontWeight: 700, color: '#0a0a0a', marginBottom: '32px', letterSpacing: '0px' }}>
           What Needs to Happen
         </h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', background: '#e5e5e5', border: '1px solid #e5e5e5' }}>
@@ -516,12 +516,12 @@ export default function UC7Page() {
             },
           ].map(a => (
             <div key={a.priority} style={{ background: '#ffffff', padding: '28px 28px' }}>
-              <span className="font-bold uppercase" style={{ fontSize: '9px', letterSpacing: '1.5px', color: a.color, background: a.bg, border: `1px solid ${a.border}`, padding: '3px 8px', display: 'inline-block', marginBottom: '16px' }}>
+              <span className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '1.5px', color: a.color, background: a.bg, border: `1px solid ${a.border}`, padding: '3px 8px', display: 'inline-block', marginBottom: '16px' }}>
                 {a.priority}
               </span>
-              <h3 style={{ fontSize: '15px', fontWeight: 700, color: '#0a0a0a', marginBottom: '10px', lineHeight: 1.4 }}>{a.title}</h3>
-              <p style={{ fontSize: '13px', color: '#525252', lineHeight: 1.65, marginBottom: '16px' }}>{a.body}</p>
-              <div style={{ fontSize: '11px', fontWeight: 700, color: a.color, background: a.bg, border: `1px solid ${a.border}`, padding: '6px 12px', display: 'inline-block', letterSpacing: '0.5px' }}>
+              <h3 style={{ fontSize: '16px', fontWeight: 700, color: '#0a0a0a', marginBottom: '10px', lineHeight: 1.4 }}>{a.title}</h3>
+              <p style={{ fontSize: '16px', color: '#525252', lineHeight: 1.65, marginBottom: '16px' }}>{a.body}</p>
+              <div style={{ fontSize: '16px', fontWeight: 700, color: a.color, background: a.bg, border: `1px solid ${a.border}`, padding: '6px 12px', display: 'inline-block', letterSpacing: '0.5px' }}>
                 {a.impact}
               </div>
             </div>
@@ -539,7 +539,7 @@ export default function UC7Page() {
         <Tag red>60% INVISIBLE to analytics</Tag>
         <Tag>Frustration Propagation Simulation trust decay framework</Tag>
         <div style={{ marginLeft: 'auto' }}>
-          <Link href="/use-cases" style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '1.5px', color: '#737373', textDecoration: 'none', textTransform: 'uppercase', borderBottom: '1px solid #e5e5e5', paddingBottom: '2px' }}>
+          <Link href="/use-cases" style={{ fontSize: '16px', fontWeight: 600, letterSpacing: '1.5px', color: '#737373', textDecoration: 'none', textTransform: 'uppercase', borderBottom: '1px solid #e5e5e5', paddingBottom: '2px' }}>
             ← All Use Cases
           </Link>
         </div>

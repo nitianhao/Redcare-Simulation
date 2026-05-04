@@ -250,7 +250,7 @@ function AgentBadge({ agentKey }: { agentKey: string }) {
   const c = colors[agentKey] || colors.vendor_rep
   return (
     <div style={{ background: c.bg, border: `1px solid ${c.border}`, padding: '3px 8px', display: 'inline-block' }}>
-      <span style={{ fontSize: '9px', fontWeight: 700, letterSpacing: '1.5px', color: c.color, textTransform: 'uppercase' }}>
+      <span style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '1.5px', color: c.color, textTransform: 'uppercase' }}>
         {a.name} · {a.title}
       </span>
     </div>
@@ -263,7 +263,7 @@ function Quote({ agentKey, text }: { agentKey: string; text: string }) {
       <div style={{ marginBottom: '6px' }}>
         <AgentBadge agentKey={agentKey} />
       </div>
-      <p style={{ fontSize: '14px', color: '#374151', lineHeight: 1.75, margin: 0 }}>
+      <p style={{ fontSize: '16px', color: '#374151', lineHeight: 1.75, margin: 0 }}>
         {text.split('\n\n').map((para, i) => (
           <span key={i}>
             {i > 0 && <><br /><br /></>}
@@ -278,7 +278,7 @@ function Quote({ agentKey, text }: { agentKey: string; text: string }) {
 function RoundBlock({ roundKey, data }: { roundKey: string; data: Record<string, string> }) {
   return (
     <div style={{ marginBottom: '32px' }}>
-      <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '2px', color: '#E2001A', textTransform: 'uppercase', marginBottom: '16px', borderBottom: '1px solid #f5f5f5', paddingBottom: '8px' }}>
+      <div style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '2px', color: '#E2001A', textTransform: 'uppercase', marginBottom: '16px', borderBottom: '1px solid #f5f5f5', paddingBottom: '8px' }}>
         {ROUND_LABELS[roundKey]}
       </div>
       {Object.entries(data).map(([agentKey, text]) => (
@@ -295,12 +295,12 @@ function KeyMomentCard({ agentKey, roundLabel, text, annotation }: {
     <div style={{ border: '1px solid #e5e5e5', background: '#ffffff', padding: '20px 24px' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
         <AgentBadge agentKey={agentKey} />
-        <span style={{ fontSize: '10px', fontWeight: 600, letterSpacing: '1px', color: '#a3a3a3', textTransform: 'uppercase' }}>{roundLabel}</span>
+        <span style={{ fontSize: '16px', fontWeight: 600, letterSpacing: '1px', color: '#a3a3a3', textTransform: 'uppercase' }}>{roundLabel}</span>
       </div>
-      <p style={{ fontSize: '14px', color: '#0a0a0a', lineHeight: 1.7, margin: '0 0 12px', fontStyle: 'italic' }}>
+      <p style={{ fontSize: '16px', color: '#0a0a0a', lineHeight: 1.7, margin: '0 0 12px', fontStyle: 'italic' }}>
         &ldquo;{text}&rdquo;
       </p>
-      <p style={{ fontSize: '12px', color: '#737373', lineHeight: 1.6, margin: 0, borderLeft: '2px solid #E2001A', paddingLeft: '10px' }}>
+      <p style={{ fontSize: '16px', color: '#737373', lineHeight: 1.6, margin: 0, borderLeft: '2px solid #E2001A', paddingLeft: '10px' }}>
         {annotation}
       </p>
     </div>
@@ -318,24 +318,24 @@ function SynthesisBlock({ text }: { text: string }) {
 
   return (
     <div style={{ background: '#0a0a0a', color: '#e5e5e5', padding: '32px 36px' }}>
-      <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '2px', color: '#E2001A', textTransform: 'uppercase', marginBottom: '24px' }}>Consultant Debrief</div>
+      <div style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '2px', color: '#E2001A', textTransform: 'uppercase', marginBottom: '24px' }}>Consultant Debrief</div>
       {sections.map(({ heading, body }, i) => {
         const isPlaybook = heading === 'THE PLAYBOOK'
         return (
           <div key={i} style={{ marginBottom: '24px' }}>
-            <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '2px', color: isPlaybook ? '#ffffff' : '#E2001A', textTransform: 'uppercase', marginBottom: '10px' }}>
+            <div style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '2px', color: isPlaybook ? '#ffffff' : '#E2001A', textTransform: 'uppercase', marginBottom: '10px' }}>
               {heading}
             </div>
             {isPlaybook ? (
               <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', padding: '16px 20px' }}>
                 {body.split('\n\n').map((item, j, arr) => (
-                  <p key={j} style={{ fontSize: '13px', color: '#d4d4d4', lineHeight: 1.7, margin: j < arr.length - 1 ? '0 0 12px' : '0' }}>
+                  <p key={j} style={{ fontSize: '16px', color: '#d4d4d4', lineHeight: 1.7, margin: j < arr.length - 1 ? '0 0 12px' : '0' }}>
                     {renderInline(item)}
                   </p>
                 ))}
               </div>
             ) : (
-              <div style={{ fontSize: '14px', color: '#a3a3a3', lineHeight: 1.75 }}>
+              <div style={{ fontSize: '16px', color: '#a3a3a3', lineHeight: 1.75 }}>
                 {body.split('\n').map((line, j) => (
                   <span key={j} style={{ display: 'block', marginBottom: line === '' ? '8px' : '0' }}>
                     {line === '' ? ' ' : renderInline(line)}
@@ -359,32 +359,32 @@ function RunSection({ run }: { run: typeof RUNS[0] }) {
       {/* Run header */}
       <div style={{ background: '#0a0a0a', padding: '24px 36px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '12px' }}>
-          <span style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '2px', color: '#E2001A', background: 'rgba(226,0,26,0.15)', padding: '4px 10px' }}>{run.badge}</span>
-          <span style={{ fontSize: '10px', fontWeight: 600, letterSpacing: '1px', color: '#525252' }}>{run.id.toUpperCase()}</span>
+          <span style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '2px', color: '#E2001A', background: 'rgba(226,0,26,0.15)', padding: '4px 10px' }}>{run.badge}</span>
+          <span style={{ fontSize: '16px', fontWeight: 600, letterSpacing: '1px', color: '#525252' }}>{run.id.toUpperCase()}</span>
         </div>
-        <h2 style={{ fontSize: '24px', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.5px', margin: '0 0 12px' }}>{run.finding}</h2>
-        <p style={{ fontSize: '13px', color: '#737373', lineHeight: 1.7, margin: '0 0 16px', maxWidth: '800px' }}>{run.context}</p>
+        <h2 style={{ fontSize: '24px', fontWeight: 800, color: '#ffffff', letterSpacing: '0px', margin: '0 0 12px' }}>{run.finding}</h2>
+        <p style={{ fontSize: '16px', color: '#737373', lineHeight: 1.7, margin: '0 0 16px', maxWidth: '800px' }}>{run.context}</p>
         <div style={{ display: 'inline-block', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', padding: '8px 14px' }}>
-          <span style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '1px', color: '#737373', textTransform: 'uppercase' }}>Evidence introduced: </span>
-          <span style={{ fontSize: '12px', color: '#a3a3a3' }}>{run.evidenceType}</span>
+          <span style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '1px', color: '#737373', textTransform: 'uppercase' }}>Evidence introduced: </span>
+          <span style={{ fontSize: '16px', color: '#a3a3a3' }}>{run.evidenceType}</span>
         </div>
       </div>
 
       {/* Outcome bar */}
       <div style={{ borderBottom: '1px solid #e5e5e5', padding: '12px 36px', display: 'flex', alignItems: 'center', gap: '16px' }}>
         <span style={{
-          fontSize: '10px', fontWeight: 700, letterSpacing: '1.5px',
+          fontSize: '16px', fontWeight: 700, letterSpacing: '1.5px',
           color: run.outcomeColor,
           background: run.outcomeColor === '#16a34a' ? '#f0fdf4' : run.outcomeColor === '#E2001A' ? '#fff5f5' : '#fffbeb',
           border: `1px solid ${run.outcomeColor}`, padding: '3px 10px'
         }}>{run.outcomeLabel}</span>
-        <span style={{ fontSize: '13px', color: '#525252' }}>{run.outcomeDetail}</span>
+        <span style={{ fontSize: '16px', color: '#525252' }}>{run.outcomeDetail}</span>
       </div>
 
       <div style={{ padding: '36px' }}>
         {/* Key moments */}
         <div style={{ marginBottom: '32px' }}>
-          <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '2px', color: '#737373', textTransform: 'uppercase', marginBottom: '16px' }}>
+          <div style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '2px', color: '#737373', textTransform: 'uppercase', marginBottom: '16px' }}>
             Key Moments — What decided this meeting
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
@@ -403,7 +403,7 @@ function RunSection({ run }: { run: typeof RUNS[0] }) {
             onClick={() => setTranscriptOpen(v => !v)}
             style={{
               background: 'none', border: '1px solid #e5e5e5', padding: '10px 20px',
-              fontSize: '11px', fontWeight: 700, letterSpacing: '1.5px', color: '#525252',
+              fontSize: '16px', fontWeight: 700, letterSpacing: '1.5px', color: '#525252',
               textTransform: 'uppercase', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px',
             }}
           >
@@ -415,9 +415,9 @@ function RunSection({ run }: { run: typeof RUNS[0] }) {
             <div style={{ marginTop: '32px', borderTop: '1px solid #f0f0f0', paddingTop: '32px' }}>
               {/* Agent legend */}
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '32px', padding: '16px', background: '#fafafa', border: '1px solid #f0f0f0' }}>
-                <div style={{ width: '100%', fontSize: '10px', fontWeight: 700, letterSpacing: '2px', color: '#737373', textTransform: 'uppercase', marginBottom: '8px' }}>Participants</div>
+                <div style={{ width: '100%', fontSize: '16px', fontWeight: 700, letterSpacing: '2px', color: '#737373', textTransform: 'uppercase', marginBottom: '8px' }}>Participants</div>
                 {Object.entries(AGENTS).map(([key]) => (
-                  <div key={key} style={{ fontSize: '11px', color: '#525252' }}>
+                  <div key={key} style={{ fontSize: '16px', color: '#525252' }}>
                     <AgentBadge agentKey={key} />
                   </div>
                 ))}
@@ -436,12 +436,12 @@ function RunSection({ run }: { run: typeof RUNS[0] }) {
 function SummaryTable() {
   return (
     <section style={{ background: '#ffffff', border: '1px solid #e5e5e5', padding: '36px', marginBottom: '48px' }}>
-      <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '2px', color: '#737373', textTransform: 'uppercase', marginBottom: '20px' }}>Run Outcomes — at a glance</div>
-      <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
+      <div style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '2px', color: '#737373', textTransform: 'uppercase', marginBottom: '20px' }}>Run Outcomes — at a glance</div>
+      <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '16px' }}>
         <thead>
           <tr>
             {['Run', 'Finding', 'Evidence that moved', 'Outcome', 'Left on table'].map(h => (
-              <th key={h} style={{ textAlign: 'left', padding: '8px 12px', background: '#f5f5f5', borderBottom: '2px solid #e5e5e5', fontWeight: 700, fontSize: '11px', letterSpacing: '0.5px' }}>{h}</th>
+              <th key={h} style={{ textAlign: 'left', padding: '8px 12px', background: '#f5f5f5', borderBottom: '2px solid #e5e5e5', fontWeight: 700, fontSize: '16px', letterSpacing: '0.5px' }}>{h}</th>
             ))}
           </tr>
         </thead>
@@ -450,21 +450,21 @@ function SummaryTable() {
             <td style={{ padding: '12px', fontWeight: 700, color: '#E2001A' }}>Run 1</td>
             <td style={{ padding: '12px', color: '#0a0a0a' }}>Kopfschmerzen broken ad</td>
             <td style={{ padding: '12px', color: '#525252' }}>Support ticket timestamp (11 tickets, April 9th)</td>
-            <td style={{ padding: '12px' }}><span style={{ color: '#d97706', fontWeight: 700, fontSize: '11px' }}>PARTIAL FIX</span></td>
+            <td style={{ padding: '12px' }}><span style={{ color: '#d97706', fontWeight: 700, fontSize: '16px' }}>PARTIAL FIX</span></td>
             <td style={{ padding: '12px', color: '#525252' }}>Permanent quality owner, root cause, systemic scale</td>
           </tr>
           <tr style={{ borderBottom: '1px solid #f0f0f0', background: '#fafafa' }}>
             <td style={{ padding: '12px', fontWeight: 700, color: '#E2001A' }}>Run 2</td>
             <td style={{ padding: '12px', color: '#0a0a0a' }}>Modafinil top result</td>
             <td style={{ padding: '12px', color: '#525252' }}>BtMG Schedule IV classification</td>
-            <td style={{ padding: '12px' }}><span style={{ color: '#16a34a', fontWeight: 700, fontSize: '11px' }}>SAME-DAY FIX</span></td>
+            <td style={{ padding: '12px' }}><span style={{ color: '#16a34a', fontWeight: 700, fontSize: '16px' }}>SAME-DAY FIX</span></td>
             <td style={{ padding: '12px', color: '#525252' }}>Governance redesign, negation handling architecture, QA process</td>
           </tr>
           <tr>
             <td style={{ padding: '12px', fontWeight: 700, color: '#E2001A' }}>Run 3</td>
             <td style={{ padding: '12px', color: '#0a0a0a' }}>Vitamin C own-brand dominance</td>
             <td style={{ padding: '12px', color: '#525252' }}>Nothing — all evidence reframed as hypothetical</td>
-            <td style={{ padding: '12px' }}><span style={{ color: '#E2001A', fontWeight: 700, fontSize: '11px' }}>NO MOVEMENT</span></td>
+            <td style={{ padding: '12px' }}><span style={{ color: '#E2001A', fontWeight: 700, fontSize: '16px' }}>NO MOVEMENT</span></td>
             <td style={{ padding: '12px', color: '#525252' }}>Everything. DocMorris comparison never pulled. Policy never written.</td>
           </tr>
         </tbody>
@@ -484,11 +484,11 @@ export default function UC10Page() {
         {/* Hero */}
         <div style={{ background: '#ffffff', borderBottom: '2px solid #0a0a0a', padding: '64px 80px 56px', display: 'flex', gap: '80px', alignItems: 'center' }}>
           <div style={{ flex: '0 0 auto', maxWidth: '520px' }}>
-            <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '3px', color: '#E2001A', textTransform: 'uppercase', marginBottom: '10px' }}>Stakeholder Simulation · INTERNAL STAKEHOLDER SIMULATION</p>
-            <p style={{ fontSize: '13px', color: '#737373', maxWidth: '680px', lineHeight: 1.6, margin: '0 0 20px' }}>
+            <p style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '3px', color: '#E2001A', textTransform: 'uppercase', marginBottom: '10px' }}>Stakeholder Simulation · INTERNAL STAKEHOLDER SIMULATION</p>
+            <p style={{ fontSize: '16px', color: '#737373', maxWidth: '680px', lineHeight: 1.6, margin: '0 0 20px' }}>
               Each run presents a real search failure to seven AI agents — Head of Ecommerce, Merchandiser, PM, Engineer, Support Lead, Vendor Rep, CEO — and runs four rounds of cross-examination. Agents are prompted with real incentives. The blocking dynamics emerge without being scripted.
             </p>
-            <h1 style={{ fontSize: '72px', fontWeight: 900, letterSpacing: '-3px', color: '#0a0a0a', margin: '0 0 24px', lineHeight: 1 }}>
+            <h1 style={{ fontSize: '72px', fontWeight: 900, letterSpacing: '0px', color: '#0a0a0a', margin: '0 0 24px', lineHeight: 1 }}>
               STAKEHOLDER<br />
               <em style={{ fontStyle: 'italic', color: '#E2001A' }}>DEADLOCK.</em>
             </h1>
@@ -504,8 +504,8 @@ export default function UC10Page() {
                 { n: '84', label: 'LLM calls' },
               ].map(({ n, label }) => (
                 <div key={label}>
-                  <div style={{ fontSize: '36px', fontWeight: 900, color: '#E2001A', letterSpacing: '-1px', lineHeight: 1 }}>{n}</div>
-                  <div style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '1.5px', color: '#525252', textTransform: 'uppercase' }}>{label}</div>
+                  <div style={{ fontSize: '36px', fontWeight: 900, color: '#E2001A', letterSpacing: '0px', lineHeight: 1 }}>{n}</div>
+                  <div style={{ fontSize: '16px', fontWeight: 600, letterSpacing: '1.5px', color: '#525252', textTransform: 'uppercase' }}>{label}</div>
                 </div>
               ))}
             </div>
@@ -517,12 +517,12 @@ export default function UC10Page() {
 
         {/* Agent roster */}
         <div style={{ background: '#ffffff', borderBottom: '1px solid #e5e5e5', padding: '32px 80px' }}>
-          <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '2px', color: '#737373', textTransform: 'uppercase', marginBottom: '20px' }}>The Agents — same 7 roles across all 3 runs</div>
+          <div style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '2px', color: '#737373', textTransform: 'uppercase', marginBottom: '20px' }}>The Agents — same 7 roles across all 3 runs</div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '12px' }}>
             {Object.entries(AGENTS).map(([key, a]) => (
               <div key={key} style={{ border: '1px solid #f0f0f0', padding: '14px 16px', background: '#fafafa' }}>
                 <div style={{ marginBottom: '6px' }}><AgentBadge agentKey={key} /></div>
-                <p style={{ fontSize: '12px', color: '#737373', lineHeight: 1.6, margin: 0 }}>{a.incentive}</p>
+                <p style={{ fontSize: '16px', color: '#737373', lineHeight: 1.6, margin: 0 }}>{a.incentive}</p>
               </div>
             ))}
           </div>
@@ -538,8 +538,8 @@ export default function UC10Page() {
 
           {/* Cross-run synthesis */}
           <section style={{ background: '#0a0a0a', padding: '48px 56px', marginBottom: '64px' }}>
-            <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '3px', color: '#E2001A', textTransform: 'uppercase', marginBottom: '8px' }}>Cross-run synthesis — all 3 meetings</div>
-            <h2 style={{ fontSize: '28px', fontWeight: 900, color: '#ffffff', letterSpacing: '-1px', margin: '0 0 32px' }}>The Structural Pattern</h2>
+            <div style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '3px', color: '#E2001A', textTransform: 'uppercase', marginBottom: '8px' }}>Cross-run synthesis — all 3 meetings</div>
+            <h2 style={{ fontSize: '28px', fontWeight: 900, color: '#ffffff', letterSpacing: '0px', margin: '0 0 32px' }}>The Structural Pattern</h2>
             {CROSS_RUN.split('\n\n## ').map((section, i) => {
               const raw = i === 0 ? section.replace(/^## /, '') : section
               const lines = raw.split('\n')
@@ -547,8 +547,8 @@ export default function UC10Page() {
               const body = lines.slice(1).join('\n').trim()
               return (
                 <div key={i} style={{ marginBottom: '28px' }}>
-                  <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '2px', color: '#E2001A', textTransform: 'uppercase', marginBottom: '10px' }}>{heading}</div>
-                  <div style={{ fontSize: '15px', color: '#a3a3a3', lineHeight: 1.8, maxWidth: '760px' }}>
+                  <div style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '2px', color: '#E2001A', textTransform: 'uppercase', marginBottom: '10px' }}>{heading}</div>
+                  <div style={{ fontSize: '16px', color: '#a3a3a3', lineHeight: 1.8, maxWidth: '760px' }}>
                     {body.split('\n').map((line, j) => (
                       <span key={j} style={{ display: 'block', marginBottom: line === '' ? '8px' : '0' }}>
                         {line === '' ? ' ' : renderInline(line)}

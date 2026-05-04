@@ -27,8 +27,9 @@ export default function SharedNav({ activePage }: { activePage?: NavPage }) {
         zIndex: 100,
       }}
     >
-      <Link href="/" style={{ textDecoration: 'none', flexShrink: 0 }}>
-        <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '2px', color: '#E2001A' }}>
+      <Link href="/" style={{ textDecoration: 'none', flexShrink: 0, display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <img src="/favicon.svg" alt="" width={20} height={20} style={{ display: 'block', flexShrink: 0 }} />
+        <span style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '2px', color: '#E2001A' }}>
           REDCARE × SEARCH SIMULATION LAB
         </span>
       </Link>
@@ -40,7 +41,7 @@ export default function SharedNav({ activePage }: { activePage?: NavPage }) {
             key={href}
             href={href}
             style={{
-              fontSize: '11px',
+              fontSize: '16px',
               fontWeight: 600,
               letterSpacing: '1.5px',
               color: active ? '#0a0a0a' : '#737373',

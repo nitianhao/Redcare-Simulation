@@ -116,10 +116,10 @@ export default function SponsoredImpactPage() {
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="px-20 pt-16 pb-14" style={{ background: '#ffffff', borderBottom: '2px solid #0a0a0a', display: 'flex', gap: '80px', alignItems: 'center' }}>
         <div style={{ flex: '0 0 auto', maxWidth: '520px' }}>
-        <p className="mb-4 font-bold uppercase" style={{ fontSize: '11px', letterSpacing: '3px', color: '#E2001A' }}>
+        <p className="mb-4 font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '3px', color: '#E2001A' }}>
           PERSONA × SPONSORED SIMULATION · 25 AGENTS · CLAUDE HAIKU · 2026-04-27
         </p>
-        <h1 className="font-black leading-none mb-6" style={{ fontSize: '72px', letterSpacing: '-3px', color: '#0a0a0a' }}>
+        <h1 className="font-black leading-none mb-6" style={{ fontSize: '72px', letterSpacing: '0px', color: '#0a0a0a' }}>
           WHEN ADS
           <br />
           <em style={{ fontStyle: 'italic', color: '#E2001A' }}>BREAK TRUST.</em>
@@ -140,8 +140,8 @@ export default function SponsoredImpactPage() {
             [String(totalCells), 'TOTAL AGENT × QUERY RUNS'],
           ].map(([num, label]) => (
             <div key={label} style={{ border: '1px solid #e5e5e5', padding: '14px 22px', background: '#fafafa' }}>
-              <div className="font-black" style={{ fontSize: '32px', letterSpacing: '-1.5px', color: num === String(harmfulCount) ? '#E2001A' : num === String(abandonedCount) ? '#E2001A' : '#0a0a0a', lineHeight: 1 }}>{num}</div>
-              <div className="font-bold uppercase" style={{ fontSize: '10px', letterSpacing: '2px', color: '#737373', marginTop: '4px' }}>{label}</div>
+              <div className="font-black" style={{ fontSize: '32px', letterSpacing: '0px', color: num === String(harmfulCount) ? '#E2001A' : num === String(abandonedCount) ? '#E2001A' : '#0a0a0a', lineHeight: 1 }}>{num}</div>
+              <div className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373', marginTop: '4px' }}>{label}</div>
             </div>
           ))}
         </div>
@@ -153,7 +153,7 @@ export default function SponsoredImpactPage() {
 
       {/* ── Methodology ───────────────────────────────────────────────────── */}
       <section className="px-20 py-20" style={{ background: '#fafafa', borderBottom: '1px solid #e5e5e5' }}>
-        <p className="font-bold uppercase mb-8" style={{ fontSize: '10px', letterSpacing: '3px', color: '#737373', borderBottom: '1px solid #e5e5e5', paddingBottom: '8px' }}>HOW THIS SIMULATION WORKS</p>
+        <p className="font-bold uppercase mb-8" style={{ fontSize: '16px', letterSpacing: '3px', color: '#737373', borderBottom: '1px solid #e5e5e5', paddingBottom: '8px' }}>HOW THIS SIMULATION WORKS</p>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: '40px', marginBottom: '32px' }}>
           {[
             { step: '01', title: 'Persona Loaded', body: 'Full behavioral profile: vocabulary, distrust triggers, patience score, reformulation tolerance. Each of the 5 personas is a distinct agent.' },
@@ -162,9 +162,9 @@ export default function SponsoredImpactPage() {
             { step: '04', title: 'Session Plays Out', body: 'The agent continues for up to 6 rounds. Terminal actions: converted (sponsored or organic), reformulated, or abandoned. Trust delta logged throughout.' },
           ].map(({ step, title, body }) => (
             <div key={step}>
-              <div className="font-black mb-2" style={{ fontSize: '32px', color: '#e5e5e5', letterSpacing: '-1px', lineHeight: 1 }}>{step}</div>
-              <div className="font-bold mb-2" style={{ fontSize: '13px', color: '#0a0a0a' }}>{title}</div>
-              <p style={{ fontSize: '12px', color: '#737373', lineHeight: '1.6' }}>{body}</p>
+              <div className="font-black mb-2" style={{ fontSize: '32px', color: '#e5e5e5', letterSpacing: '0px', lineHeight: 1 }}>{step}</div>
+              <div className="font-bold mb-2" style={{ fontSize: '16px', color: '#0a0a0a' }}>{title}</div>
+              <p style={{ fontSize: '16px', color: '#737373', lineHeight: '1.6' }}>{body}</p>
             </div>
           ))}
         </div>
@@ -175,8 +175,8 @@ export default function SponsoredImpactPage() {
             { label: 'TRUST_DAMAGED', color: '#E2001A', desc: 'Sponsored actively harmed session trust' },
           ].map(({ label, color, desc }) => (
             <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '10px', background: '#ffffff', border: '1px solid #e5e5e5', padding: '8px 16px' }}>
-              <span style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '1px', color }}>{label}</span>
-              <span style={{ fontSize: '12px', color: '#737373' }}>{desc}</span>
+              <span style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '1px', color }}>{label}</span>
+              <span style={{ fontSize: '16px', color: '#737373' }}>{desc}</span>
             </div>
           ))}
         </div>
@@ -184,8 +184,8 @@ export default function SponsoredImpactPage() {
 
       {/* ── Impact Matrix ─────────────────────────────────────────────────── */}
       <section className="px-20 py-20" style={{ background: '#ffffff', borderBottom: '1px solid #e5e5e5' }}>
-        <p className="font-bold uppercase mb-2" style={{ fontSize: '10px', letterSpacing: '3px', color: '#737373', borderBottom: '1px solid #e5e5e5', paddingBottom: '8px' }}>IMPACT MATRIX — 5 PERSONAS × 5 QUERIES · ACTUAL SIMULATION OUTPUT</p>
-        <p style={{ fontSize: '13px', color: '#737373', marginBottom: '28px', lineHeight: '1.55' }}>
+        <p className="font-bold uppercase mb-2" style={{ fontSize: '16px', letterSpacing: '3px', color: '#737373', borderBottom: '1px solid #e5e5e5', paddingBottom: '8px' }}>IMPACT MATRIX — 5 PERSONAS × 5 QUERIES · ACTUAL SIMULATION OUTPUT</p>
+        <p style={{ fontSize: '16px', color: '#737373', marginBottom: '28px', lineHeight: '1.55' }}>
           Each cell shows the first-round sponsored reaction and cumulative trust delta from the simulation run.
           Green = sponsored helped conversion. Red = trust damaged. Gray = ignored, session continued on organic.
         </p>
@@ -195,8 +195,8 @@ export default function SponsoredImpactPage() {
           <div style={{ padding: '10px 16px', background: '#0a0a0a' }} />
           {QUERIES.map(q => (
             <div key={q.query} style={{ padding: '10px 12px', background: '#0a0a0a', borderLeft: '1px solid #333' }}>
-              <p style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '1px', color: '#ffffff', lineHeight: '1.3', marginBottom: '3px' }}>{q.query}</p>
-              <span style={{ fontSize: '9px', fontWeight: 700, letterSpacing: '1px', color: uc8Colors[q.uc8 as keyof typeof uc8Colors] }}>{q.uc8}</span>
+              <p style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '1px', color: '#ffffff', lineHeight: '1.3', marginBottom: '3px' }}>{q.query}</p>
+              <span style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '1px', color: uc8Colors[q.uc8 as keyof typeof uc8Colors] }}>{q.uc8}</span>
             </div>
           ))}
         </div>
@@ -207,8 +207,8 @@ export default function SponsoredImpactPage() {
             <div key={p.key} style={{ display: 'grid', gridTemplateColumns: '180px repeat(5, 1fr)', borderBottom: pi < PERSONAS.length - 1 ? '1px solid #e5e5e5' : 'none' }}>
               {/* Persona label */}
               <div style={{ padding: '14px 16px', background: '#fafafa', borderRight: '1px solid #e5e5e5' }}>
-                <p style={{ fontSize: '12px', fontWeight: 700, color: '#0a0a0a', marginBottom: '2px' }}>{p.name}</p>
-                <p style={{ fontSize: '10px', color: '#737373', letterSpacing: '0.3px' }}>{p.archetype}</p>
+                <p style={{ fontSize: '16px', fontWeight: 700, color: '#0a0a0a', marginBottom: '2px' }}>{p.name}</p>
+                <p style={{ fontSize: '16px', color: '#737373', letterSpacing: '0.3px' }}>{p.archetype}</p>
               </div>
               {/* Cells */}
               {QUERIES.map(q => {
@@ -219,12 +219,12 @@ export default function SponsoredImpactPage() {
                 return (
                   <div key={q.query} style={{ padding: '12px 12px 12px 10px', background: iBg, borderLeft: `3px solid ${iColor}` }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '5px' }}>
-                      <span style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '1px', color: iColor }}>{cell.impact}</span>
+                      <span style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '1px', color: iColor }}>{cell.impact}</span>
                     </div>
-                    <div style={{ fontSize: '12px', fontWeight: 700, color: iColor, marginBottom: '3px' }}>
+                    <div style={{ fontSize: '16px', fontWeight: 700, color: iColor, marginBottom: '3px' }}>
                       Δ {cell.trust_delta > 0 ? '+' : ''}{cell.trust_delta.toFixed(2)}
                     </div>
-                    <div style={{ fontSize: '10px', color: isAbandoned ? '#E2001A' : '#737373', fontWeight: isAbandoned ? 700 : 400, letterSpacing: '0.5px' }}>
+                    <div style={{ fontSize: '16px', color: isAbandoned ? '#E2001A' : '#737373', fontWeight: isAbandoned ? 700 : 400, letterSpacing: '0.5px' }}>
                       {isAbandoned ? '⚠ ABANDONED' : cell.session_outcome.replace('CONVERTED_', '').replace('_', ' ')}
                     </div>
                   </div>
@@ -243,8 +243,8 @@ export default function SponsoredImpactPage() {
             { label: 'schmerzmittel nicht aspirin', note: 'Sponsored (Neuralgin) was the ONLY correct result — without it, all 5 would fail.' },
             { label: 'Baldrian', note: 'Confirmed: sponsored outperforming organic. 3 of 5 clicked it. Positive outlier.' },
           ].map(({ label, note }) => (
-            <div key={label} style={{ padding: '10px 12px', background: '#fafafa', border: '1px solid #e5e5e5', fontSize: '11px', color: '#737373', lineHeight: '1.5' }}>
-              <strong style={{ color: '#0a0a0a', display: 'block', marginBottom: '4px', fontSize: '10px', letterSpacing: '0.5px' }}>{label}</strong>
+            <div key={label} style={{ padding: '10px 12px', background: '#fafafa', border: '1px solid #e5e5e5', fontSize: '16px', color: '#737373', lineHeight: '1.5' }}>
+              <strong style={{ color: '#0a0a0a', display: 'block', marginBottom: '4px', fontSize: '16px', letterSpacing: '0.5px' }}>{label}</strong>
               {note}
             </div>
           ))}
@@ -254,8 +254,8 @@ export default function SponsoredImpactPage() {
       {/* ── Deep Dives ────────────────────────────────────────────────────── */}
       <section className="px-20 py-20" style={{ background: '#fafafa', borderBottom: '1px solid #e5e5e5' }}>
         <div style={{ borderBottom: '1px solid #e5e5e5', paddingBottom: '16px', marginBottom: '40px', display: 'flex', gap: '32px', alignItems: 'baseline' }}>
-          <p className="font-bold uppercase" style={{ fontSize: '10px', letterSpacing: '3px', color: '#E2001A' }}>DEEP DIVES</p>
-          <p className="font-bold uppercase" style={{ fontSize: '10px', letterSpacing: '2px', color: '#737373' }}>3 WORST CASES · VERBATIM AGENT MONOLOGUES</p>
+          <p className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '3px', color: '#E2001A' }}>DEEP DIVES</p>
+          <p className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>3 WORST CASES · VERBATIM AGENT MONOLOGUES</p>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
@@ -263,12 +263,12 @@ export default function SponsoredImpactPage() {
             <div key={i} style={{ border: '1px solid #e5e5e5', borderLeft: '4px solid #E2001A', background: '#ffffff' }}>
               {/* Header */}
               <div style={{ padding: '16px 24px', borderBottom: '1px solid #e5e5e5', background: '#fafafa', display: 'flex', gap: '24px', alignItems: 'center', flexWrap: 'wrap' }}>
-                <code style={{ fontSize: '15px', fontFamily: "'SF Mono', 'Fira Code', monospace", color: '#0a0a0a', background: '#f5f5f5', padding: '4px 12px', border: '1px solid #e5e5e5', borderRadius: '2px' }}>
+                <code style={{ fontSize: '16px', fontFamily: "'SF Mono', 'Fira Code', monospace", color: '#0a0a0a', background: '#f5f5f5', padding: '4px 12px', border: '1px solid #e5e5e5', borderRadius: '2px' }}>
                   &ldquo;{d.query}&rdquo;
                 </code>
-                <span style={{ fontSize: '13px', color: '#0a0a0a', fontWeight: 700 }}>&times; {d.persona.name}</span>
-                <span style={{ fontSize: '11px', color: '#737373' }}>{d.persona.archetype}</span>
-                <span style={{ marginLeft: 'auto', fontSize: '10px', fontWeight: 700, letterSpacing: '1px', color: '#E2001A' }}>
+                <span style={{ fontSize: '16px', color: '#0a0a0a', fontWeight: 700 }}>&times; {d.persona.name}</span>
+                <span style={{ fontSize: '16px', color: '#737373' }}>{d.persona.archetype}</span>
+                <span style={{ marginLeft: 'auto', fontSize: '16px', fontWeight: 700, letterSpacing: '1px', color: '#E2001A' }}>
                   Δtrust {d.cell.trust_delta.toFixed(2)} · {d.cell.session_outcome}
                 </span>
               </div>
@@ -276,16 +276,16 @@ export default function SponsoredImpactPage() {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0' }}>
                 {/* Left: sponsored product */}
                 <div style={{ padding: '20px 24px', borderRight: '1px solid #e5e5e5' }}>
-                  <p className="font-bold uppercase mb-2" style={{ fontSize: '9px', letterSpacing: '2px', color: '#737373' }}>SPONSORED PRODUCT SHOWN</p>
-                  <p style={{ fontSize: '13px', color: '#E2001A', fontWeight: 600, marginBottom: '8px' }}>{d.sponsored}</p>
-                  <p className="font-bold uppercase mb-1" style={{ fontSize: '9px', letterSpacing: '2px', color: '#737373' }}>CONSEQUENCE</p>
-                  <p style={{ fontSize: '13px', color: '#525252' }}>{d.consequence}</p>
+                  <p className="font-bold uppercase mb-2" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>SPONSORED PRODUCT SHOWN</p>
+                  <p style={{ fontSize: '16px', color: '#E2001A', fontWeight: 600, marginBottom: '8px' }}>{d.sponsored}</p>
+                  <p className="font-bold uppercase mb-1" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>CONSEQUENCE</p>
+                  <p style={{ fontSize: '16px', color: '#525252' }}>{d.consequence}</p>
                 </div>
 
                 {/* Right: monologue */}
                 <div style={{ padding: '20px 24px', background: '#fff5f5' }}>
-                  <p className="font-bold uppercase mb-3" style={{ fontSize: '9px', letterSpacing: '2px', color: '#E2001A' }}>INNER MONOLOGUE — VERBATIM FROM SIMULATION</p>
-                  <blockquote style={{ fontSize: '14px', color: '#0a0a0a', lineHeight: '1.65', fontStyle: 'italic', borderLeft: '3px solid #E2001A', paddingLeft: '14px' }}>
+                  <p className="font-bold uppercase mb-3" style={{ fontSize: '16px', letterSpacing: '2px', color: '#E2001A' }}>INNER MONOLOGUE — VERBATIM FROM SIMULATION</p>
+                  <blockquote style={{ fontSize: '16px', color: '#0a0a0a', lineHeight: '1.65', fontStyle: 'italic', borderLeft: '3px solid #E2001A', paddingLeft: '14px' }}>
                     &ldquo;{d.cell.monologue}&rdquo;
                   </blockquote>
                 </div>
@@ -297,20 +297,20 @@ export default function SponsoredImpactPage() {
         {/* Positive contrast */}
         <div style={{ marginTop: '32px', border: '1px solid #e5e5e5', borderLeft: '4px solid #16a34a', background: '#ffffff' }}>
           <div style={{ padding: '16px 24px', borderBottom: '1px solid #e5e5e5', background: '#f0faf4', display: 'flex', gap: '24px', alignItems: 'center' }}>
-            <code style={{ fontSize: '15px', fontFamily: "'SF Mono', 'Fira Code', monospace", color: '#0a0a0a', background: '#ffffff', padding: '4px 12px', border: '1px solid #e5e5e5', borderRadius: '2px' }}>&ldquo;Baldrian&rdquo;</code>
-            <span style={{ fontSize: '13px', fontWeight: 700, color: '#0a0a0a' }}>× Jonas</span>
-            <span style={{ fontSize: '11px', color: '#737373' }}>Acute Self-Treater</span>
-            <span style={{ marginLeft: 'auto', fontSize: '10px', fontWeight: 700, letterSpacing: '1px', color: '#16a34a' }}>Δtrust +0.10 · CONVERTED_SPONSORED</span>
+            <code style={{ fontSize: '16px', fontFamily: "'SF Mono', 'Fira Code', monospace", color: '#0a0a0a', background: '#ffffff', padding: '4px 12px', border: '1px solid #e5e5e5', borderRadius: '2px' }}>&ldquo;Baldrian&rdquo;</code>
+            <span style={{ fontSize: '16px', fontWeight: 700, color: '#0a0a0a' }}>× Jonas</span>
+            <span style={{ fontSize: '16px', color: '#737373' }}>Acute Self-Treater</span>
+            <span style={{ marginLeft: 'auto', fontSize: '16px', fontWeight: 700, letterSpacing: '1px', color: '#16a34a' }}>Δtrust +0.10 · CONVERTED_SPONSORED</span>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 0 }}>
             <div style={{ padding: '20px 24px', borderRight: '1px solid #e5e5e5' }}>
-              <p className="font-bold uppercase mb-2" style={{ fontSize: '9px', letterSpacing: '2px', color: '#737373' }}>POSITIVE CASE — WHAT GOOD LOOKS LIKE</p>
-              <p style={{ fontSize: '13px', color: '#16a34a', fontWeight: 600, marginBottom: '8px' }}>Baldrian Dispert 45mg Dragees — relevant, €6.49, correct category</p>
-              <p style={{ fontSize: '13px', color: '#525252' }}>Sponsored outperforms organic #1. Agent clicks immediately. Sponsored Relevance Audit tagged this REVERSE — sponsored rescued a weak organic ranking. This is what the gate should preserve.</p>
+              <p className="font-bold uppercase mb-2" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>POSITIVE CASE — WHAT GOOD LOOKS LIKE</p>
+              <p style={{ fontSize: '16px', color: '#16a34a', fontWeight: 600, marginBottom: '8px' }}>Baldrian Dispert 45mg Dragees — relevant, €6.49, correct category</p>
+              <p style={{ fontSize: '16px', color: '#525252' }}>Sponsored outperforms organic #1. Agent clicks immediately. Sponsored Relevance Audit tagged this REVERSE — sponsored rescued a weak organic ranking. This is what the gate should preserve.</p>
             </div>
             <div style={{ padding: '20px 24px', background: '#f0faf4' }}>
-              <p className="font-bold uppercase mb-3" style={{ fontSize: '9px', letterSpacing: '2px', color: '#16a34a' }}>INNER MONOLOGUE</p>
-              <blockquote style={{ fontSize: '14px', color: '#0a0a0a', lineHeight: '1.65', fontStyle: 'italic', borderLeft: '3px solid #16a34a', paddingLeft: '14px' }}>
+              <p className="font-bold uppercase mb-3" style={{ fontSize: '16px', letterSpacing: '2px', color: '#16a34a' }}>INNER MONOLOGUE</p>
+              <blockquote style={{ fontSize: '16px', color: '#0a0a0a', lineHeight: '1.65', fontStyle: 'italic', borderLeft: '3px solid #16a34a', paddingLeft: '14px' }}>
                 &ldquo;{MATRIX.jonas['Baldrian'].monologue}&rdquo;
               </blockquote>
             </div>
@@ -320,29 +320,29 @@ export default function SponsoredImpactPage() {
 
       {/* ── Revenue Math ──────────────────────────────────────────────────── */}
       <section className="px-20 py-20" style={{ background: '#ffffff', borderBottom: '1px solid #e5e5e5' }}>
-        <p className="font-bold uppercase mb-2" style={{ fontSize: '10px', letterSpacing: '3px', color: '#737373', borderBottom: '1px solid #e5e5e5', paddingBottom: '8px' }}>REVENUE IMPLICATIONS — ILLUSTRATIVE MODEL</p>
-        <p style={{ fontSize: '13px', color: '#737373', marginBottom: '24px', lineHeight: '1.55', maxWidth: '640px' }}>
+        <p className="font-bold uppercase mb-2" style={{ fontSize: '16px', letterSpacing: '3px', color: '#737373', borderBottom: '1px solid #e5e5e5', paddingBottom: '8px' }}>REVENUE IMPLICATIONS — ILLUSTRATIVE MODEL</p>
+        <p style={{ fontSize: '16px', color: '#737373', marginBottom: '24px', lineHeight: '1.55', maxWidth: '640px' }}>
           Basket values from persona profiles. Session volumes are illustrative — substitute your actual query traffic to get real numbers.
           Abandoned sessions represent lost revenue; damaged-trust sessions represent next-session churn risk.
         </p>
         <div style={{ border: '1px solid #e5e5e5' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '140px 180px 80px 120px 1fr', gap: 0, background: '#0a0a0a', padding: '10px 20px' }}>
             {['PERSONA', 'ARCHETYPE', 'BASKET', 'HARMFUL RATE', 'SESSION NOTE'].map(h => (
-              <span key={h} style={{ fontSize: '9px', letterSpacing: '1.5px', color: '#ffffff', fontWeight: 700 }}>{h}</span>
+              <span key={h} style={{ fontSize: '16px', letterSpacing: '1.5px', color: '#ffffff', fontWeight: 700 }}>{h}</span>
             ))}
           </div>
           {revenueRows.map((r, i) => (
             <div key={r.persona} style={{ display: 'grid', gridTemplateColumns: '140px 180px 80px 120px 1fr', gap: 0, padding: '14px 20px', borderTop: '1px solid #e5e5e5', background: i % 2 === 0 ? '#ffffff' : '#fafafa', alignItems: 'center' }}>
-              <span style={{ fontSize: '13px', fontWeight: 700, color: '#0a0a0a' }}>{r.persona}</span>
-              <span style={{ fontSize: '12px', color: '#737373' }}>{r.archetype}</span>
-              <span className="font-black" style={{ fontSize: '16px', color: '#0a0a0a', letterSpacing: '-0.5px' }}>€{r.basket}</span>
+              <span style={{ fontSize: '16px', fontWeight: 700, color: '#0a0a0a' }}>{r.persona}</span>
+              <span style={{ fontSize: '16px', color: '#737373' }}>{r.archetype}</span>
+              <span className="font-black" style={{ fontSize: '16px', color: '#0a0a0a', letterSpacing: '0px' }}>€{r.basket}</span>
               <div>
                 <div style={{ background: '#f0f0f0', height: '5px', borderRadius: '3px', marginBottom: '3px' }}>
                   <div style={{ width: `${r.harmful_pct}%`, height: '100%', background: '#E2001A', borderRadius: '3px' }} />
                 </div>
-                <span style={{ fontSize: '11px', fontWeight: 700, color: '#E2001A' }}>{r.harmful_pct}% of queries</span>
+                <span style={{ fontSize: '16px', fontWeight: 700, color: '#E2001A' }}>{r.harmful_pct}% of queries</span>
               </div>
-              <span style={{ fontSize: '12px', color: '#737373', paddingLeft: '12px' }}>{r.note}</span>
+              <span style={{ fontSize: '16px', color: '#737373', paddingLeft: '12px' }}>{r.note}</span>
             </div>
           ))}
         </div>
@@ -350,7 +350,7 @@ export default function SponsoredImpactPage() {
 
       {/* ── Sponsored Relevance Gate ──────────────────────────────────────── */}
       <section className="px-20 py-20" style={{ background: '#0a0a0a' }}>
-        <p className="font-bold uppercase mb-10" style={{ fontSize: '10px', letterSpacing: '3px', color: '#E2001A', borderBottom: '1px solid #333', paddingBottom: '8px' }}>THE SPONSORED RELEVANCE GATE — PROPOSED SOLUTION</p>
+        <p className="font-bold uppercase mb-10" style={{ fontSize: '16px', letterSpacing: '3px', color: '#E2001A', borderBottom: '1px solid #333', paddingBottom: '8px' }}>THE SPONSORED RELEVANCE GATE — PROPOSED SOLUTION</p>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '48px', marginBottom: '48px' }}>
           <div>
@@ -366,16 +366,16 @@ export default function SponsoredImpactPage() {
                 { band: 'REJECT',  range: '0–39',   color: '#E2001A', desc: 'Wrong category or broken creative — blocked automatically (Kopfschmerzen case)' },
               ].map(({ band, range, color, desc }) => (
                 <div key={band} style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
-                  <span style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '1.5px', color, background: 'rgba(255,255,255,0.05)', padding: '3px 8px', border: `1px solid ${color}`, minWidth: '72px', textAlign: 'center', flexShrink: 0 }}>{band}</span>
-                  <span style={{ fontSize: '11px', fontWeight: 600, color, flexShrink: 0, minWidth: '40px' }}>{range}</span>
-                  <span style={{ fontSize: '13px', color: '#a3a3a3', lineHeight: '1.5' }}>{desc}</span>
+                  <span style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '1.5px', color, background: 'rgba(255,255,255,0.05)', padding: '3px 8px', border: `1px solid ${color}`, minWidth: '72px', textAlign: 'center', flexShrink: 0 }}>{band}</span>
+                  <span style={{ fontSize: '16px', fontWeight: 600, color, flexShrink: 0, minWidth: '40px' }}>{range}</span>
+                  <span style={{ fontSize: '16px', color: '#a3a3a3', lineHeight: '1.5' }}>{desc}</span>
                 </div>
               ))}
             </div>
           </div>
 
           <div>
-            <p className="font-bold uppercase mb-4" style={{ fontSize: '9px', letterSpacing: '2px', color: '#737373' }}>SCORING DIMENSIONS</p>
+            <p className="font-bold uppercase mb-4" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>SCORING DIMENSIONS</p>
             {[
               { label: 'Category Match',    weight: '40%', desc: 'Does the sponsored product belong to the same product category as the query intent?' },
               { label: 'Intent Match',      weight: '40%', desc: 'Does the sponsored product address the user\'s goal (treatment vs diagnostic vs prevention)?' },
@@ -383,15 +383,15 @@ export default function SponsoredImpactPage() {
             ].map(({ label, weight, desc }) => (
               <div key={label} style={{ marginBottom: '20px', paddingBottom: '20px', borderBottom: '1px solid #222' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
-                  <span style={{ fontSize: '12px', fontWeight: 700, color: '#ffffff' }}>{label}</span>
-                  <span style={{ fontSize: '12px', fontWeight: 700, color: '#E2001A' }}>{weight}</span>
+                  <span style={{ fontSize: '16px', fontWeight: 700, color: '#ffffff' }}>{label}</span>
+                  <span style={{ fontSize: '16px', fontWeight: 700, color: '#E2001A' }}>{weight}</span>
                 </div>
-                <p style={{ fontSize: '12px', color: '#737373', lineHeight: '1.5' }}>{desc}</p>
+                <p style={{ fontSize: '16px', color: '#737373', lineHeight: '1.5' }}>{desc}</p>
               </div>
             ))}
             <div style={{ background: '#111', padding: '14px 18px', borderLeft: '3px solid #E2001A' }}>
-              <p className="font-bold uppercase mb-1" style={{ fontSize: '9px', letterSpacing: '2px', color: '#E2001A' }}>COST</p>
-              <p style={{ fontSize: '13px', color: '#a3a3a3' }}>~$0.003 per placement check at LLM API rates. At 1,000 sponsored activations/day: <strong style={{ color: '#ffffff' }}>$3/day</strong> to eliminate the Kopfschmerzen class of failures entirely.</p>
+              <p className="font-bold uppercase mb-1" style={{ fontSize: '16px', letterSpacing: '2px', color: '#E2001A' }}>COST</p>
+              <p style={{ fontSize: '16px', color: '#a3a3a3' }}>~$0.003 per placement check at LLM API rates. At 1,000 sponsored activations/day: <strong style={{ color: '#ffffff' }}>$3/day</strong> to eliminate the Kopfschmerzen class of failures entirely.</p>
             </div>
           </div>
         </div>

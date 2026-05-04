@@ -2,6 +2,7 @@ import Link from 'next/link'
 import SharedNav from '@/components/SharedNav'
 import Footer from '@/components/Footer'
 import SeverityBadge from '@/components/SeverityBadge'
+import InfoTooltip from '@/components/InfoTooltip'
 
 // ─── Nav ─────────────────────────────────────────────────────────────────────
 
@@ -12,11 +13,11 @@ function RelevanceBar({ score, rank }: { score: number; rank: number }) {
   const color = score >= 0.7 ? '#16a34a' : score >= 0.5 ? '#d97706' : '#E2001A'
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
-      <span style={{ fontSize: '10px', color: '#737373', width: '16px', textAlign: 'right', flexShrink: 0 }}>#{rank}</span>
+      <span style={{ fontSize: '16px', color: '#737373', width: '16px', textAlign: 'right', flexShrink: 0 }}>#{rank}</span>
       <div style={{ width: '80px', background: '#f0f0f0', height: '5px', borderRadius: '3px', flexShrink: 0 }}>
         <div style={{ width: `${score * 100}%`, height: '100%', background: color, borderRadius: '3px' }} />
       </div>
-      <span style={{ fontSize: '10px', color, fontWeight: 700, width: '32px', flexShrink: 0 }}>{score.toFixed(2)}</span>
+      <span style={{ fontSize: '16px', color, fontWeight: 700, width: '32px', flexShrink: 0 }}>{score.toFixed(2)}</span>
     </div>
   )
 }
@@ -238,12 +239,12 @@ const heatmap = [
 ]
 
 const capabilities = [
-  { label: 'Brand & model search',   pass: 4, total: 4 },
-  { label: 'Product discovery',      pass: 6, total: 7 },
-  { label: 'Typo tolerance',         pass: 6, total: 7 },
-  { label: 'Filters & constraints',  pass: 6, total: 9 },
-  { label: 'Language understanding', pass: 5, total: 8 },
-  { label: 'Shopping context',       pass: 3, total: 9 },
+  { label: 'Brand & model search',   pass: 4, total: 4, definition: 'Queries that name a specific brand, product line, or model number (e.g. "Voltaren Schmerzgel", "Aspirin 500mg"). The engine must surface the exact product as rank #1 with no reformulation.' },
+  { label: 'Product discovery',      pass: 6, total: 7, definition: 'Broad category-intent queries where the user knows the product type but not the brand (e.g. "sonnencreme", "nahrungsergänzung"). The engine must retrieve a relevant, varied assortment from the correct category.' },
+  { label: 'Typo tolerance',         pass: 6, total: 7, definition: 'Queries containing spelling variants, German umlaut substitutions (ae/oe/ue), compound-word splits, or capitalisation differences. The engine must return the same results regardless of these surface variations.' },
+  { label: 'Filters & constraints',  pass: 6, total: 9, definition: 'Queries that embed a hard constraint the result set must satisfy — price ceiling ("bis 20 euro"), pack size ("50ml"), dosage, or form factor. All returned results must respect the constraint; violations count as failures.' },
+  { label: 'Language understanding', pass: 5, total: 8, definition: 'Queries phrased in natural German, including symptom descriptions ("was hilft gegen kopfschmerzen"), use-case framing ("für trockene haut"), and mixed German/Latin medical terminology. The engine must resolve these to the correct product category.' },
+  { label: 'Shopping context',       pass: 3, total: 9, definition: 'Multi-signal queries that combine intent, constraint, and context simultaneously (e.g. symptom + price + recipient). The engine must satisfy all signals at once — partial matches that ignore any signal are counted as failures.' },
 ]
 
 const typographyTests = [
@@ -326,9 +327,9 @@ function HeatCell({ data }: { data: { pass: number; total: number } | null }) {
   const color = pct === 1 ? '#16a34a' : pct >= 0.5 ? '#d97706' : '#E2001A'
   return (
     <td style={{ background: bg, border: '1px solid #e5e5e5', padding: '12px 16px', textAlign: 'center' }}>
-      <span style={{ fontSize: '13px', fontWeight: 700, color }}>{Math.round(pct * 100)}%</span>
+      <span style={{ fontSize: '16px', fontWeight: 700, color }}>{Math.round(pct * 100)}%</span>
       <br />
-      <span style={{ fontSize: '10px', color: '#737373' }}>({data.pass}/{data.total})</span>
+      <span style={{ fontSize: '16px', color: '#737373' }}>({data.pass}/{data.total})</span>
     </td>
   )
 }
@@ -341,10 +342,10 @@ export default function ReportPage() {
       {/* ── Hero ───────────────────────────────────────────────────────────── */}
       <section className="px-20 pt-16 pb-14" style={{ background: '#ffffff', borderBottom: '2px solid #0a0a0a', display: 'flex', gap: '80px', alignItems: 'center' }}>
         <div style={{ flex: '0 0 auto', maxWidth: '520px' }}>
-        <p className="mb-4 font-bold uppercase" style={{ fontSize: '11px', letterSpacing: '3px', color: '#E2001A' }}>
+        <p className="mb-4 font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '3px', color: '#E2001A' }}>
           SEARCH QUALITY AUDIT · SHOP-APOTHEKE.COM · 2026-04-24
         </p>
-        <h1 className="font-black leading-none mb-6" style={{ fontSize: '72px', letterSpacing: '-3px', color: '#0a0a0a' }}>
+        <h1 className="font-black leading-none mb-6" style={{ fontSize: '72px', letterSpacing: '0px', color: '#0a0a0a' }}>
           32% BOUNCE
           <br />
           <em style={{ fontStyle: 'italic', color: '#E2001A' }}>RISK.</em>
@@ -365,16 +366,16 @@ export default function ReportPage() {
             ['6', 'WORKING WELL'],
           ].map(([num, label]) => (
             <div key={label} style={{ border: '1px solid #e5e5e5', padding: '14px 22px', background: '#fafafa' }}>
-              <div className="font-black" style={{ fontSize: '32px', letterSpacing: '-1.5px', color: '#0a0a0a', lineHeight: 1 }}>{num}</div>
-              <div className="font-bold uppercase" style={{ fontSize: '10px', letterSpacing: '2px', color: '#737373', marginTop: '4px' }}>{label}</div>
+              <div className="font-black" style={{ fontSize: '32px', letterSpacing: '0px', color: '#0a0a0a', lineHeight: 1 }}>{num}</div>
+              <div className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373', marginTop: '4px' }}>{label}</div>
             </div>
           ))}
         </div>
 
         {/* Highest-ROI callout */}
         <div style={{ borderLeft: '4px solid #E2001A', background: '#fff5f5', padding: '18px 22px', maxWidth: '680px' }}>
-          <p className="font-bold uppercase mb-1" style={{ fontSize: '9px', letterSpacing: '2px', color: '#E2001A' }}>SINGLE HIGHEST-ROI FIX</p>
-          <p style={{ fontSize: '14px', color: '#0a0a0a', lineHeight: '1.6' }}>
+          <p className="font-bold uppercase mb-1" style={{ fontSize: '16px', letterSpacing: '2px', color: '#E2001A' }}>SINGLE HIGHEST-ROI FIX</p>
+          <p style={{ fontSize: '16px', color: '#0a0a0a', lineHeight: '1.6' }}>
             Parse price and exclusion phrases as filters, not keywords. Four of the 14 revenue-risk
             queries (&ldquo;unter 10 euro&rdquo;, &ldquo;bis 20 euro&rdquo;, &ldquo;nicht aspirin&rdquo;,
             &ldquo;ohne konservierungsstoffe&rdquo;) recover with a single query-rewrite module.
@@ -388,10 +389,10 @@ export default function ReportPage() {
 
       {/* ── How this audit was built ───────────────────────────────────────── */}
       <section className="px-20 py-16" style={{ background: '#fafafa', borderBottom: '2px solid #e5e5e5' }}>
-        <p className="mb-3 font-bold uppercase" style={{ fontSize: '11px', letterSpacing: '3px', color: '#E2001A' }}>
+        <p className="mb-3 font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '3px', color: '#E2001A' }}>
           METHODOLOGY
         </p>
-        <h2 className="font-black mb-12" style={{ fontSize: '32px', letterSpacing: '-1px', color: '#0a0a0a' }}>
+        <h2 className="font-black mb-12" style={{ fontSize: '32px', letterSpacing: '0px', color: '#0a0a0a' }}>
           How This Audit Was Built
         </h2>
 
@@ -465,19 +466,19 @@ export default function ReportPage() {
                     flexShrink: 0,
                   }}
                 >
-                  <span className="font-black" style={{ fontSize: '11px', color: '#ffffff', letterSpacing: '0.5px' }}>{step}</span>
+                  <span className="font-black" style={{ fontSize: '16px', color: '#ffffff', letterSpacing: '0.5px' }}>{step}</span>
                 </div>
 
                 {/* Title */}
                 <p
                   className="font-black mb-3"
-                  style={{ fontSize: '15px', color: '#0a0a0a', letterSpacing: '-0.3px', lineHeight: 1.2, whiteSpace: 'pre-line' }}
+                  style={{ fontSize: '16px', color: '#0a0a0a', letterSpacing: '0px', lineHeight: 1.2, whiteSpace: 'pre-line' }}
                 >
                   {title}
                 </p>
 
                 {/* Body */}
-                <p style={{ fontSize: '12px', lineHeight: 1.7, color: '#525252', marginBottom: 'auto', paddingBottom: '16px' }}>
+                <p style={{ fontSize: '16px', lineHeight: 1.7, color: '#525252', marginBottom: 'auto', paddingBottom: '16px' }}>
                   {body}
                 </p>
 
@@ -485,7 +486,7 @@ export default function ReportPage() {
                 <div style={{ marginTop: '16px', paddingTop: '14px', borderTop: '1px solid #f0f0f0' }}>
                   <span
                     style={{
-                      fontSize: '10px',
+                      fontSize: '16px',
                       fontFamily: "'SF Mono', 'Fira Code', monospace",
                       padding: '3px 8px',
                       background: red ? '#fff5f5' : '#f5f5f5',
@@ -500,12 +501,12 @@ export default function ReportPage() {
                   </span>
                   {/* Output badge */}
                   <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <span style={{ fontSize: '10px', color: '#a3a3a3', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase' }}>
+                    <span style={{ fontSize: '16px', color: '#a3a3a3', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase' }}>
                       Output
                     </span>
                     <span
                       style={{
-                        fontSize: '11px',
+                        fontSize: '16px',
                         fontWeight: 700,
                         color: i === arr.length - 1 ? '#E2001A' : '#0a0a0a',
                         background: i === arr.length - 1 ? '#fff5f5' : '#f5f5f5',
@@ -553,7 +554,7 @@ export default function ReportPage() {
 
       {/* ── Tier Breakdown ─────────────────────────────────────────────────── */}
       <section className="px-20 py-20" style={{ background: '#fafafa', borderBottom: '1px solid #e5e5e5' }}>
-        <p className="font-bold uppercase mb-8" style={{ fontSize: '10px', letterSpacing: '3px', color: '#737373', borderBottom: '1px solid #e5e5e5', paddingBottom: '8px' }}>
+        <p className="font-bold uppercase mb-8" style={{ fontSize: '16px', letterSpacing: '3px', color: '#737373', borderBottom: '1px solid #e5e5e5', paddingBottom: '8px' }}>
           TIER BREAKDOWN — 44 QUERIES
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '24px' }}>
@@ -563,10 +564,10 @@ export default function ReportPage() {
             { tier: 'TIER 3', label: 'Working Well', count: 6, color: '#16a34a', bg: '#f0faf4', border: '#16a34a', desc: 'Top-1 is relevant and ranking is near-optimal. No attention needed.' },
           ].map(({ tier, label, count, color, bg, border, desc }) => (
             <div key={tier} style={{ background: bg, border: `1px solid ${border}`, padding: '24px', borderLeft: `4px solid ${border}` }}>
-              <p className="font-bold uppercase mb-1" style={{ fontSize: '10px', letterSpacing: '2px', color }}>{tier}</p>
-              <div className="font-black" style={{ fontSize: '48px', letterSpacing: '-2px', color, lineHeight: 1 }}>{count}</div>
-              <div className="font-bold" style={{ fontSize: '13px', color, marginBottom: '10px' }}>{label}</div>
-              <p style={{ fontSize: '13px', color: '#525252', lineHeight: '1.55' }}>{desc}</p>
+              <p className="font-bold uppercase mb-1" style={{ fontSize: '16px', letterSpacing: '2px', color }}>{tier}</p>
+              <div className="font-black" style={{ fontSize: '48px', letterSpacing: '0px', color, lineHeight: 1 }}>{count}</div>
+              <div className="font-bold" style={{ fontSize: '16px', color, marginBottom: '10px' }}>{label}</div>
+              <p style={{ fontSize: '16px', color: '#525252', lineHeight: '1.55' }}>{desc}</p>
             </div>
           ))}
         </div>
@@ -574,25 +575,25 @@ export default function ReportPage() {
 
       {/* ── Coverage Heatmap ───────────────────────────────────────────────── */}
       <section className="px-20 py-20" style={{ background: '#ffffff', borderBottom: '1px solid #e5e5e5' }}>
-        <p className="font-bold uppercase mb-2" style={{ fontSize: '10px', letterSpacing: '3px', color: '#737373', borderBottom: '1px solid #e5e5e5', paddingBottom: '8px' }}>
+        <p className="font-bold uppercase mb-2" style={{ fontSize: '16px', letterSpacing: '3px', color: '#737373', borderBottom: '1px solid #e5e5e5', paddingBottom: '8px' }}>
           COVERAGE HEATMAP — CATEGORY × QUERY TYPE
         </p>
-        <p style={{ fontSize: '13px', color: '#737373', marginBottom: '24px', lineHeight: '1.55' }}>
+        <p style={{ fontSize: '16px', color: '#737373', marginBottom: '24px', lineHeight: '1.55' }}>
           Pass rate = queries where the customer sees a relevant top-1 result. Red cells are where a shopper in that segment is most likely to leave empty-handed.
         </p>
         <div style={{ overflowX: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '16px' }}>
             <thead>
               <tr style={{ background: '#0a0a0a' }}>
                 {['CATEGORY', 'DIRECT PRODUCT / BRAND', 'CATEGORY / SYNONYM', 'SYMPTOM / USE-CASE', 'CONSTRAINT / PRICE'].map(h => (
-                  <th key={h} style={{ padding: '10px 16px', textAlign: h === 'CATEGORY' ? 'left' : 'center', fontSize: '9px', letterSpacing: '1.5px', color: '#ffffff', fontWeight: 700, border: '1px solid #333' }}>{h}</th>
+                  <th key={h} style={{ padding: '10px 16px', textAlign: h === 'CATEGORY' ? 'left' : 'center', fontSize: '16px', letterSpacing: '1.5px', color: '#ffffff', fontWeight: 700, border: '1px solid #333' }}>{h}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
               {heatmap.map(row => (
                 <tr key={row.category}>
-                  <td style={{ padding: '12px 16px', fontSize: '13px', color: '#0a0a0a', fontWeight: 500, border: '1px solid #e5e5e5', background: '#fafafa' }}>{row.category}</td>
+                  <td style={{ padding: '12px 16px', fontSize: '16px', color: '#0a0a0a', fontWeight: 500, border: '1px solid #e5e5e5', background: '#fafafa' }}>{row.category}</td>
                   <HeatCell data={row.direct} />
                   <HeatCell data={row.category_q} />
                   <HeatCell data={row.symptom} />
@@ -603,7 +604,7 @@ export default function ReportPage() {
           </table>
         </div>
         <div style={{ marginTop: '16px', padding: '14px 18px', background: '#fafafa', border: '1px solid #e5e5e5', maxWidth: '640px' }}>
-          <p style={{ fontSize: '12px', color: '#737373', lineHeight: '1.6' }}>
+          <p style={{ fontSize: '16px', color: '#737373', lineHeight: '1.6' }}>
             <strong style={{ color: '#0a0a0a' }}>Pattern: </strong>
             Direct lookups (exact product names, brand names, specific doses) work uniformly. The failure surface is concentrated in symptom-driven queries and price-constrained queries — exactly the shopping patterns that drive the highest conversion intent on a pharma site.
           </p>
@@ -612,24 +613,24 @@ export default function ReportPage() {
 
       {/* ── German Typography ──────────────────────────────────────────────── */}
       <section className="px-20 py-20" style={{ background: '#fafafa', borderBottom: '1px solid #e5e5e5' }}>
-        <p className="font-bold uppercase mb-2" style={{ fontSize: '10px', letterSpacing: '3px', color: '#737373', borderBottom: '1px solid #e5e5e5', paddingBottom: '8px' }}>
+        <p className="font-bold uppercase mb-2" style={{ fontSize: '16px', letterSpacing: '3px', color: '#737373', borderBottom: '1px solid #e5e5e5', paddingBottom: '8px' }}>
           GERMAN TYPOGRAPHY STRENGTH — UMLAUTS, ß, AND COMPOUND SPLITS
         </p>
-        <p style={{ fontSize: '13px', color: '#737373', marginBottom: '24px', lineHeight: '1.55' }}>
+        <p style={{ fontSize: '16px', color: '#737373', marginBottom: '24px', lineHeight: '1.55' }}>
           7 of 7 pairs returned within 15% of each other — a genuine strength. This means typography is not the source of the failures documented in this report. The failures are ranking, semantic understanding, and constraint parsing, which sit one layer deeper than character normalization.
         </p>
         <div style={{ border: '1px solid #e5e5e5' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '160px 1fr 1fr 80px', gap: 0, background: '#0a0a0a', padding: '10px 20px' }}>
             {['PATTERN', 'AS TYPED', 'ASCII / SPLIT VARIANT', 'PARITY'].map(h => (
-              <span key={h} style={{ fontSize: '9px', letterSpacing: '1.5px', color: '#ffffff', fontWeight: 700 }}>{h}</span>
+              <span key={h} style={{ fontSize: '16px', letterSpacing: '1.5px', color: '#ffffff', fontWeight: 700 }}>{h}</span>
             ))}
           </div>
           {typographyTests.map((row, i) => (
             <div key={i} style={{ display: 'grid', gridTemplateColumns: '160px 1fr 1fr 80px', gap: 0, padding: '12px 20px', borderTop: '1px solid #e5e5e5', background: i % 2 === 0 ? '#ffffff' : '#fafafa', alignItems: 'center' }}>
-              <span style={{ fontSize: '12px', color: '#737373', fontWeight: 600 }}>{row.pattern}</span>
-              <span className="font-mono" style={{ fontSize: '13px', color: '#0a0a0a' }}>{row.typed}</span>
-              <span className="font-mono" style={{ fontSize: '13px', color: '#525252' }}>{row.ascii}</span>
-              <span style={{ fontSize: '11px', color: '#16a34a', fontWeight: 700 }}>parity ✓</span>
+              <span style={{ fontSize: '16px', color: '#737373', fontWeight: 600 }}>{row.pattern}</span>
+              <span className="font-mono" style={{ fontSize: '16px', color: '#0a0a0a' }}>{row.typed}</span>
+              <span className="font-mono" style={{ fontSize: '16px', color: '#525252' }}>{row.ascii}</span>
+              <span style={{ fontSize: '16px', color: '#16a34a', fontWeight: 700 }}>parity ✓</span>
             </div>
           ))}
         </div>
@@ -637,21 +638,24 @@ export default function ReportPage() {
 
       {/* ── Capability Coverage ────────────────────────────────────────────── */}
       <section className="px-20 py-20" style={{ background: '#ffffff', borderBottom: '1px solid #e5e5e5' }}>
-        <p className="font-bold uppercase mb-8" style={{ fontSize: '10px', letterSpacing: '3px', color: '#737373', borderBottom: '1px solid #e5e5e5', paddingBottom: '8px' }}>
+        <p className="font-bold uppercase mb-8" style={{ fontSize: '16px', letterSpacing: '3px', color: '#737373', borderBottom: '1px solid #e5e5e5', paddingBottom: '8px' }}>
           CAPABILITY COVERAGE SCORECARD
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '640px' }}>
-          {capabilities.map(({ label, pass, total }) => {
+          {capabilities.map(({ label, pass, total, definition }) => {
             const pct = pass / total
             const color = pct === 1 ? '#16a34a' : pct >= 0.75 ? '#0a0a0a' : pct >= 0.6 ? '#d97706' : '#E2001A'
             const status = pct === 1 ? 'Healthy' : pct >= 0.75 ? 'Partial' : pct >= 0.6 ? 'Degraded' : 'Broken'
             return (
               <div key={label}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '6px' }}>
-                  <span style={{ fontSize: '13px', color: '#0a0a0a', fontWeight: 500 }}>{label}</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span style={{ fontSize: '16px', color: '#0a0a0a', fontWeight: 500 }}>{label}</span>
+                    <InfoTooltip text={definition} />
+                  </div>
                   <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
-                    <span style={{ fontSize: '12px', color: '#737373' }}>{pass}/{total}</span>
-                    <span style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '1px', color, minWidth: '64px', textAlign: 'right' }}>{status.toUpperCase()}</span>
+                    <span style={{ fontSize: '16px', color: '#737373' }}>{pass}/{total}</span>
+                    <span style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '1px', color, minWidth: '64px', textAlign: 'right' }}>{status.toUpperCase()}</span>
                   </div>
                 </div>
                 <div style={{ background: '#f0f0f0', height: '6px', borderRadius: '3px' }}>
@@ -666,8 +670,8 @@ export default function ReportPage() {
       {/* ── Revenue-Risk Failures ──────────────────────────────────────────── */}
       <section className="px-20 py-20" style={{ background: '#fafafa', borderBottom: '1px solid #e5e5e5' }}>
         <div style={{ borderBottom: '1px solid #e5e5e5', paddingBottom: '16px', marginBottom: '40px', display: 'flex', gap: '32px', alignItems: 'baseline' }}>
-          <p className="font-bold uppercase" style={{ fontSize: '10px', letterSpacing: '3px', color: '#E2001A' }}>TIER 1</p>
-          <p className="font-bold uppercase" style={{ fontSize: '10px', letterSpacing: '2px', color: '#737373' }}>14 REVENUE-RISK FAILURES — CUSTOMER LEAVES EMPTY-HANDED</p>
+          <p className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '3px', color: '#E2001A' }}>TIER 1</p>
+          <p className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>14 REVENUE-RISK FAILURES — CUSTOMER LEAVES EMPTY-HANDED</p>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', border: '1px solid #e5e5e5' }}>
@@ -685,38 +689,38 @@ export default function ReportPage() {
               >
                 {/* Header row */}
                 <div style={{ display: 'flex', gap: '12px', alignItems: 'center', marginBottom: '16px', flexWrap: 'wrap' }}>
-                  <span style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '1.5px', color: '#737373', flexShrink: 0 }}>#{i + 1}</span>
-                  <code style={{ fontSize: '15px', fontFamily: "'SF Mono', 'Fira Code', monospace", color: '#0a0a0a', background: '#f5f5f5', padding: '4px 12px', border: '1px solid #e5e5e5', borderRadius: '2px' }}>
+                  <span style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '1.5px', color: '#737373', flexShrink: 0 }}>#{i + 1}</span>
+                  <code style={{ fontSize: '16px', fontFamily: "'SF Mono', 'Fira Code', monospace", color: '#0a0a0a', background: '#f5f5f5', padding: '4px 12px', border: '1px solid #e5e5e5', borderRadius: '2px' }}>
                     &ldquo;{q.query}&rdquo;
                   </code>
-                  <span style={{ marginLeft: 'auto', fontSize: '10px', fontWeight: 700, letterSpacing: '1.5px', color: accentColor }}>
+                  <span style={{ marginLeft: 'auto', fontSize: '16px', fontWeight: 700, letterSpacing: '1.5px', color: accentColor }}>
                     {q.fixCategory}
                   </span>
                 </div>
 
                 {/* Fail reason */}
-                <p style={{ fontSize: '13px', color: accentColor, fontWeight: 600, marginBottom: '12px' }}>↳ {q.failReason}</p>
+                <p style={{ fontSize: '16px', color: accentColor, fontWeight: 600, marginBottom: '12px' }}>↳ {q.failReason}</p>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 260px', gap: '32px', alignItems: 'start' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 33%', gap: '32px', alignItems: 'start' }}>
                   <div>
                     {/* Evidence */}
-                    <p className="font-bold uppercase mb-1" style={{ fontSize: '9px', letterSpacing: '2px', color: '#737373' }}>EVIDENCE</p>
-                    <p style={{ fontSize: '13px', color: '#525252', lineHeight: '1.6', marginBottom: '14px' }}>{q.evidence}</p>
+                    <p className="font-bold uppercase mb-1" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>EVIDENCE</p>
+                    <p style={{ fontSize: '16px', color: '#525252', lineHeight: '1.6', marginBottom: '14px' }}>{q.evidence}</p>
 
                     {/* Fix */}
                     <div style={{ background: '#f5f5f5', borderLeft: '3px solid #e5e5e5', padding: '10px 14px' }}>
-                      <p className="font-bold uppercase mb-1" style={{ fontSize: '9px', letterSpacing: '2px', color: '#737373' }}>FIX</p>
-                      <p style={{ fontSize: '12px', color: '#525252', lineHeight: '1.55' }}>{q.fix}</p>
+                      <p className="font-bold uppercase mb-1" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>FIX</p>
+                      <p style={{ fontSize: '16px', color: '#525252', lineHeight: '1.55' }}>{q.fix}</p>
                     </div>
                   </div>
 
                   {/* Top results */}
                   <div>
-                    <p className="font-bold uppercase mb-2" style={{ fontSize: '9px', letterSpacing: '2px', color: '#737373' }}>TOP RESULTS</p>
+                    <p className="font-bold uppercase mb-2" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>TOP RESULTS</p>
                     {q.results.map((r, ri) => (
                       <div key={ri} style={{ marginBottom: '8px' }}>
                         <RelevanceBar score={r.score} rank={ri + 1} />
-                        <p style={{ fontSize: '11px', color: '#737373', lineHeight: '1.3', paddingLeft: '24px', marginTop: '2px' }}>
+                        <p style={{ fontSize: '16px', color: '#737373', lineHeight: '1.3', paddingLeft: '24px', marginTop: '2px' }}>
                           {r.name.length > 50 ? r.name.slice(0, 50) + '…' : r.name}
                         </p>
                       </div>
@@ -732,42 +736,42 @@ export default function ReportPage() {
       {/* ── Friction Queries ───────────────────────────────────────────────── */}
       <section className="px-20 py-20" style={{ background: '#ffffff', borderBottom: '1px solid #e5e5e5' }}>
         <div style={{ borderBottom: '1px solid #e5e5e5', paddingBottom: '16px', marginBottom: '40px', display: 'flex', gap: '32px', alignItems: 'baseline' }}>
-          <p className="font-bold uppercase" style={{ fontSize: '10px', letterSpacing: '3px', color: '#d97706' }}>TIER 2</p>
-          <p className="font-bold uppercase" style={{ fontSize: '10px', letterSpacing: '2px', color: '#737373' }}>FRICTION QUERIES — RANKING IMPERFECTION, CUSTOMER FINDS IT SLOWER</p>
+          <p className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '3px', color: '#d97706' }}>TIER 2</p>
+          <p className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>FRICTION QUERIES — RANKING IMPERFECTION, CUSTOMER FINDS IT SLOWER</p>
         </div>
-        <p style={{ fontSize: '13px', color: '#737373', marginBottom: '24px', lineHeight: '1.55', maxWidth: '640px' }}>
+        <p style={{ fontSize: '16px', color: '#737373', marginBottom: '24px', lineHeight: '1.55', maxWidth: '640px' }}>
           All page-1 results are on-topic for these queries. The failure mode is narrower: the single best match is buried at rank #6–15 while lower-relevance alternatives occupy top positions. This is a ranking-weights tuning problem, not a retrieval problem.
         </p>
         <div style={{ border: '1px solid #e5e5e5' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '200px 1fr 120px 140px', gap: 0, background: '#0a0a0a', padding: '10px 24px' }}>
             {['QUERY', 'TOP 5 RESULTS', 'BEST BURIED AT', 'DELTA'].map(h => (
-              <span key={h} style={{ fontSize: '9px', letterSpacing: '1.5px', color: '#ffffff', fontWeight: 700 }}>{h}</span>
+              <span key={h} style={{ fontSize: '16px', letterSpacing: '1.5px', color: '#ffffff', fontWeight: 700 }}>{h}</span>
             ))}
           </div>
           {frictionQueries.map((q, i) => (
             <div key={q.query} style={{ display: 'grid', gridTemplateColumns: '200px 1fr 120px 140px', gap: 0, padding: '18px 24px', borderTop: '1px solid #e5e5e5', borderLeft: '4px solid #d97706', background: i % 2 === 0 ? '#ffffff' : '#fafafa', alignItems: 'start' }}>
-              <code style={{ fontSize: '13px', fontFamily: "'SF Mono', 'Fira Code', monospace", color: '#0a0a0a', paddingRight: '16px' }}>&ldquo;{q.query}&rdquo;</code>
+              <code style={{ fontSize: '16px', fontFamily: "'SF Mono', 'Fira Code', monospace", color: '#0a0a0a', paddingRight: '16px' }}>&ldquo;{q.query}&rdquo;</code>
               <div>
                 {q.results.map((r, ri) => (
                   <div key={ri} style={{ marginBottom: '6px' }}>
                     <RelevanceBar score={r.score} rank={ri + 1} />
-                    <p style={{ fontSize: '11px', color: '#737373', paddingLeft: '24px', marginTop: '1px' }}>
+                    <p style={{ fontSize: '16px', color: '#737373', paddingLeft: '24px', marginTop: '1px' }}>
                       {r.name.length > 48 ? r.name.slice(0, 48) + '…' : r.name}
                     </p>
                   </div>
                 ))}
               </div>
               <div style={{ paddingLeft: '8px' }}>
-                <span style={{ fontSize: '12px', color: '#d97706', fontWeight: 700 }}>Rank #{q.bestRank}</span>
+                <span style={{ fontSize: '16px', color: '#d97706', fontWeight: 700 }}>Rank #{q.bestRank}</span>
                 <br />
-                <span style={{ fontSize: '11px', color: '#737373' }}>score {q.bestScore.toFixed(2)}</span>
+                <span style={{ fontSize: '16px', color: '#737373' }}>score {q.bestScore.toFixed(2)}</span>
               </div>
               <div style={{ paddingLeft: '8px' }}>
-                <span style={{ fontSize: '12px', color: '#0a0a0a', fontWeight: 600 }}>Seen: {q.seenScore.toFixed(2)}</span>
+                <span style={{ fontSize: '16px', color: '#0a0a0a', fontWeight: 600 }}>Seen: {q.seenScore.toFixed(2)}</span>
                 <br />
-                <span style={{ fontSize: '11px', color: '#16a34a', fontWeight: 700 }}>Best: {q.bestScore.toFixed(2)}</span>
+                <span style={{ fontSize: '16px', color: '#16a34a', fontWeight: 700 }}>Best: {q.bestScore.toFixed(2)}</span>
                 <br />
-                <span style={{ fontSize: '10px', color: '#737373' }}>+{((q.bestScore - q.seenScore) * 100).toFixed(0)}pt gap</span>
+                <span style={{ fontSize: '16px', color: '#737373' }}>+{((q.bestScore - q.seenScore) * 100).toFixed(0)}pt gap</span>
               </div>
             </div>
           ))}
@@ -776,7 +780,7 @@ export default function ReportPage() {
 
       {/* ── Fix Prioritization ─────────────────────────────────────────────── */}
       <section className="px-20 py-20" style={{ background: '#fafafa', borderBottom: '1px solid #e5e5e5' }}>
-        <p className="font-bold uppercase mb-8" style={{ fontSize: '10px', letterSpacing: '3px', color: '#737373', borderBottom: '1px solid #e5e5e5', paddingBottom: '8px' }}>
+        <p className="font-bold uppercase mb-8" style={{ fontSize: '16px', letterSpacing: '3px', color: '#737373', borderBottom: '1px solid #e5e5e5', paddingBottom: '8px' }}>
           FIX PRIORITIZATION — GROUPED BY ENGINEERING EFFORT
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0', border: '1px solid #e5e5e5' }}>
@@ -795,24 +799,24 @@ export default function ReportPage() {
               }}
             >
               <div>
-                <span style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '1.5px', color: effortColors[g.effort], background: effortBg[g.effort], padding: '3px 8px', border: `1px solid ${effortColors[g.effort]}`, borderRadius: '2px', whiteSpace: 'nowrap' }}>
+                <span style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '1.5px', color: effortColors[g.effort], background: effortBg[g.effort], padding: '3px 8px', border: `1px solid ${effortColors[g.effort]}`, borderRadius: '2px', whiteSpace: 'nowrap' }}>
                   {g.effort}
                 </span>
               </div>
               <div>
-                <p style={{ fontSize: '14px', fontWeight: 700, color: '#0a0a0a', marginBottom: '8px' }}>{g.group}</p>
-                <p style={{ fontSize: '13px', color: '#525252', lineHeight: '1.6', marginBottom: '10px' }}>{g.description}</p>
+                <p style={{ fontSize: '16px', fontWeight: 700, color: '#0a0a0a', marginBottom: '8px' }}>{g.group}</p>
+                <p style={{ fontSize: '16px', color: '#525252', lineHeight: '1.6', marginBottom: '10px' }}>{g.description}</p>
                 <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
                   {g.queries.split(', ').map(qr => (
-                    <code key={qr} style={{ fontSize: '11px', fontFamily: "'SF Mono', 'Fira Code', monospace", color: '#0a0a0a', background: '#f5f5f5', padding: '2px 8px', border: '1px solid #e5e5e5', borderRadius: '2px' }}>
+                    <code key={qr} style={{ fontSize: '16px', fontFamily: "'SF Mono', 'Fira Code', monospace", color: '#0a0a0a', background: '#f5f5f5', padding: '2px 8px', border: '1px solid #e5e5e5', borderRadius: '2px' }}>
                       {qr}
                     </code>
                   ))}
                 </div>
               </div>
               <div style={{ textAlign: 'right' }}>
-                <div className="font-black" style={{ fontSize: '32px', letterSpacing: '-1px', color: '#0a0a0a', lineHeight: 1 }}>{g.affected}</div>
-                <div className="font-bold uppercase" style={{ fontSize: '9px', letterSpacing: '2px', color: '#737373' }}>queries</div>
+                <div className="font-black" style={{ fontSize: '32px', letterSpacing: '0px', color: '#0a0a0a', lineHeight: 1 }}>{g.affected}</div>
+                <div className="font-bold uppercase" style={{ fontSize: '16px', letterSpacing: '2px', color: '#737373' }}>queries</div>
               </div>
             </div>
           ))}
@@ -821,7 +825,7 @@ export default function ReportPage() {
 
       {/* ── Scope & Boundaries ─────────────────────────────────────────────── */}
       <section className="px-20 py-20" style={{ background: '#0a0a0a' }}>
-        <p className="font-bold uppercase mb-8" style={{ fontSize: '10px', letterSpacing: '3px', color: '#E2001A', borderBottom: '1px solid #333', paddingBottom: '8px' }}>
+        <p className="font-bold uppercase mb-8" style={{ fontSize: '16px', letterSpacing: '3px', color: '#E2001A', borderBottom: '1px solid #333', paddingBottom: '8px' }}>
           SCOPE AND BOUNDARIES
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }}>
@@ -844,8 +848,8 @@ export default function ReportPage() {
             },
           ].map(({ label, body }) => (
             <div key={label} style={{ borderLeft: '4px solid #E2001A', paddingLeft: '20px' }}>
-              <p className="font-bold uppercase mb-3" style={{ fontSize: '10px', letterSpacing: '2px', color: '#E2001A' }}>{label}</p>
-              <p style={{ fontSize: '14px', color: '#a3a3a3', lineHeight: '1.65' }}>{body}</p>
+              <p className="font-bold uppercase mb-3" style={{ fontSize: '16px', letterSpacing: '2px', color: '#E2001A' }}>{label}</p>
+              <p style={{ fontSize: '16px', color: '#a3a3a3', lineHeight: '1.65' }}>{body}</p>
             </div>
           ))}
         </div>

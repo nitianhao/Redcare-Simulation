@@ -20,57 +20,6 @@ type Section = {
 
 const sections: Section[] = [
   {
-    href: '/personas',
-    label: 'Synthetic Personas',
-    tag: 'Behavioral Modeling',
-    intro:
-      'Five AI-powered shopper agents built from German pharmacy market data, observed search failure patterns, and behavioral research — not fictional archetypes.',
-    how:
-      'Each persona encodes a cognitive baseline (urgency, anxiety, cognitive load, trust sensitivity), a search behavior engine (vocabulary, scroll depth, patience, reformulation strategy), and a decision model (click priorities, abandon conditions, competitor exits). Stress-tested against known relevance and ranking failure modes before any simulation was run.',
-    outcome:
-      'The personas serve as the evaluation layer for every other simulation. They make it possible to say not just "this query fails" but "this query fails a parent buying for a sick child, triggers three reformulations, and ends in abandonment at round 4."',
-    chips: [
-      { label: '5 personas' },
-      { label: 'Claude Haiku 4.5', red: true },
-      { label: 'Python · personas.py' },
-      { label: 'Anthropic SDK' },
-    ],
-  },
-  {
-    href: '/user-experience',
-    label: 'Web UX Audit',
-    tag: 'Desktop Search',
-    intro:
-      'A systematic simulation of the desktop search experience on shop-apotheke.com — covering query-to-result flows, relevance failures, autocomplete behavior, and zero-result handling.',
-    how:
-      'Browser sessions were captured using the Kapture browser automation tool. Each query flow was recorded as a screenshot sequence, then analyzed by Claude Sonnet 4.6 against the five persona behavioral profiles. Findings were classified by type (wrong intent, wrong category, zero results, misleading ranking) and cross-referenced against persona severity.',
-    outcome:
-      'Critical relevance failures across core pharmacy categories: OTC sleep aids, children\'s cold remedies, and symptom-based queries. Zero-result rates for common German OTC terms (e.g. "Schnupfen Kind") exceeded 20% — queries the platform should handle fluently.',
-    chips: [
-      { label: 'Kapture browser automation', red: true },
-      { label: 'Claude Sonnet 4.6', red: true },
-      { label: '5 personas evaluated' },
-      { label: '30+ queries tested' },
-    ],
-  },
-  {
-    href: '/user-experience-mobile',
-    label: 'Mobile UX Audit',
-    tag: 'Mobile Search',
-    intro:
-      'The same simulation framework applied to the mobile experience, surfacing friction invisible on desktop: filter panel usability, tap target sizing, and scroll depth before abandonment.',
-    how:
-      'Mobile sessions captured via Kapture at 390px viewport, with modified patience thresholds and scroll constraints reflecting real mobile behavior. Filter and refinement interactions were tested explicitly, since mobile users face a higher cost-per-action for each additional step.',
-    outcome:
-      'Mobile-specific failures compound desktop relevance issues. Personas with high cognitive load (e.g. the Anxious Young Mother) abandoned significantly earlier on mobile — often before reaching content that would have led to conversion on desktop.',
-    chips: [
-      { label: 'Kapture browser automation', red: true },
-      { label: 'Claude Sonnet 4.6', red: true },
-      { label: '390px viewport' },
-      { label: '5 personas evaluated' },
-    ],
-  },
-  {
     href: '/report',
     label: 'Audit Report',
     tag: 'Executive Summary',
@@ -137,6 +86,40 @@ const sections: Section[] = [
     ],
   },
   {
+    href: '/user-experience',
+    label: 'Web UX Audit',
+    tag: 'Desktop Search',
+    intro:
+      'A systematic simulation of the desktop search experience on shop-apotheke.com — covering query-to-result flows, relevance failures, autocomplete behavior, and zero-result handling.',
+    how:
+      'Browser sessions were captured using the Kapture browser automation tool. Each query flow was recorded as a screenshot sequence, then analyzed by Claude Sonnet 4.6 against the five persona behavioral profiles. Findings were classified by type (wrong intent, wrong category, zero results, misleading ranking) and cross-referenced against persona severity.',
+    outcome:
+      'Critical relevance failures across core pharmacy categories: OTC sleep aids, children\'s cold remedies, and symptom-based queries. Zero-result rates for common German OTC terms (e.g. "Schnupfen Kind") exceeded 20% — queries the platform should handle fluently.',
+    chips: [
+      { label: 'Kapture browser automation', red: true },
+      { label: 'Claude Sonnet 4.6', red: true },
+      { label: '5 personas evaluated' },
+      { label: '30+ queries tested' },
+    ],
+  },
+  {
+    href: '/user-experience-mobile',
+    label: 'Mobile UX Audit',
+    tag: 'Mobile Search',
+    intro:
+      'The same simulation framework applied to the mobile experience, surfacing friction invisible on desktop: filter panel usability, tap target sizing, and scroll depth before abandonment.',
+    how:
+      'Mobile sessions captured via Kapture at 390px viewport, with modified patience thresholds and scroll constraints reflecting real mobile behavior. Filter and refinement interactions were tested explicitly, since mobile users face a higher cost-per-action for each additional step.',
+    outcome:
+      'Mobile-specific failures compound desktop relevance issues. Personas with high cognitive load (e.g. the Anxious Young Mother) abandoned significantly earlier on mobile — often before reaching content that would have led to conversion on desktop.',
+    chips: [
+      { label: 'Kapture browser automation', red: true },
+      { label: 'Claude Sonnet 4.6', red: true },
+      { label: '390px viewport' },
+      { label: '5 personas evaluated' },
+    ],
+  },
+  {
     href: '/uc10',
     label: 'Stakeholder Simulation',
     tag: 'Organisational Dynamics',
@@ -170,6 +153,23 @@ const sections: Section[] = [
       { label: 'Claude Sonnet 4.5', red: true },
       { label: 'Python · requests · BeautifulSoup' },
       { label: 'JSON-LD extraction + LLM pass' },
+      { label: 'Anthropic SDK' },
+    ],
+  },
+  {
+    href: '/personas',
+    label: 'Synthetic Personas',
+    tag: 'Behavioral Modeling',
+    intro:
+      'Five AI-powered shopper agents built from German pharmacy market data, observed search failure patterns, and behavioral research — not fictional archetypes.',
+    how:
+      'Each persona encodes a cognitive baseline (urgency, anxiety, cognitive load, trust sensitivity), a search behavior engine (vocabulary, scroll depth, patience, reformulation strategy), and a decision model (click priorities, abandon conditions, competitor exits). Stress-tested against known relevance and ranking failure modes before any simulation was run.',
+    outcome:
+      'The personas serve as the evaluation layer for every other simulation. They make it possible to say not just "this query fails" but "this query fails a parent buying for a sick child, triggers three reformulations, and ends in abandonment at round 4."',
+    chips: [
+      { label: '5 personas' },
+      { label: 'Claude Haiku 4.5', red: true },
+      { label: 'Python · personas.py' },
       { label: 'Anthropic SDK' },
     ],
   },
